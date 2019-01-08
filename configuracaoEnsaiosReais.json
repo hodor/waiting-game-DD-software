@@ -1,0 +1,260 @@
+// 36 ensaios reais, conforme documento
+  {  "EnsaiosReais":
+    [{
+        //valor em moedas do prêmio imediato
+        "valorPremioImediato": "",
+        //pontuação ao escolher o prêmio imediato
+        "pontuacaoPremioImediato": "",
+        //valor em moedas do segundo prêmio 
+        "valorSegundoPremio": "",
+        //tempo em segundos do segundo prêmio
+        "tempoSegundoPremio": "",
+        //pontuação ao escolher o segundo prêmio
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    },
+    {
+        "valorPremioImediato": "",
+        "pontuacaoPremioImediato": "",
+        "valorSegundoPremio": "",
+        "tempoSegundoPremio": "",
+        "pontuacaoSegundoPremio": ""
+    }]
+  }
