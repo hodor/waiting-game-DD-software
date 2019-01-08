@@ -14,24 +14,46 @@ public class RegistrationScene : MonoBehaviour {
     public Text birthMonth;
     public Text birthYear;
 
-    public Toggle boy;
-    public Toggle girl;
+    public Toggle boyToggle;
+    public Toggle girlToggle;
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
+    public bool isGirl = false;
+
+
+    public void ToggleValueChangedBoy(Toggle change)
+    {
+        if (change.isOn)
+        {
+            isGirl = false;
+            girlToggle.isOn = false;
+        }
+    }
+    public void ToggleValueChangedGirl(Toggle change)
+    {
+        if (change.isOn)
+        {
+            isGirl = true;
+            boyToggle.isOn = false;
+        }
+
+    }
+
     void GetAllInformation()
     {
         var name = username.text;
-        PlayerPrefs.SetString("username", name);
+        PlayerPrefs.SetString("usuario", name);
 
         string[] bday = { birthDay.text, birthMonth.text, birthYear.text }; 
 
         string bd = string.Join("/", bday);
-        PlayerPrefs.SetString("birthday", bd);
+        PlayerPrefs.SetString("aniversario", bd);
 
+        string gender = "menina";
+        if (!isGirl)
+            gender = "menino";
+
+        PlayerPrefs.SetString("genero", gender);
+        Debug.Log("genero: " + gender);
     }
 
     public void FinishedRegistration()
