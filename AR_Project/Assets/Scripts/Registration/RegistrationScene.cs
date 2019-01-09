@@ -25,17 +25,22 @@ public class RegistrationScene : MonoBehaviour {
         if (change.isOn)
         {
             isGirl = false;
+            boyToggle.isOn = true;
             girlToggle.isOn = false;
         }
+        if (!change.isOn && !girlToggle.isOn)
+            change.isOn = true;
     }
     public void ToggleValueChangedGirl(Toggle change)
     {
         if (change.isOn)
         {
             isGirl = true;
+            girlToggle.isOn = true;
             boyToggle.isOn = false;
         }
-
+        if (!change.isOn && !boyToggle.isOn)
+            change.isOn = true;
     }
 
     void GetAllInformation()
