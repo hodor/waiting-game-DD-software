@@ -1,16 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using AR_Project.DataClasses.NestedObjects;
+using Newtonsoft.Json;
 using UnityEngine;
 
-public class FakeExperiments : MonoBehaviour {
+namespace AR_Project.DataClasses
+{
+    [JsonObject]
+    public class FakeExperiments
+    {
+            [JsonProperty(PropertyName = "EnsaiosFicticios")]
+            public List<Experiment> experiments;
+    }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

@@ -1,29 +1,32 @@
 // 3 ensaios ficticios
-  {  "EnsaiosReais":
-    [{
+{
+    "EnsaiosFicticios": [
+      {
         //valor em moedas do prêmio imediato
-        "valorPremioImediato": "",
+        "valorPremioImediato": 10,
         //pontuação ao escolher o prêmio imediato
-        "pontuacaoPremioImediato": "",
-        //valor em moedas do segundo prêmio 
-        "valorSegundoPremio": "",
+        "pontuacaoPremioImediato": 30,
+        //valor em moedas do segundo prêmio
+        "valorSegundoPremio": 400,
         //tempo em segundos do segundo prêmio
-        "tempoSegundoPremio": "",
+        "tempoSegundoPremio": 5,
         //pontuação ao escolher o segundo prêmio
-        "pontuacaoSegundoPremio": ""
-    },
-    {
-        "valorPremioImediato": "",
-        "pontuacaoPremioImediato": "",
-        "valorSegundoPremio": "",
-        "tempoSegundoPremio": "",
-        "pontuacaoSegundoPremio": ""
-    },
-    {
-        "valorPremioImediato": "",
-        "pontuacaoPremioImediato": "",
-        "valorSegundoPremio": "",
-        "tempoSegundoPremio": "",
-        "pontuacaoSegundoPremio": ""
-    }]
+        "pontuacaoSegundoPremio": 30
+      },
+      {
+        "valorPremioImediato": 20,
+        "pontuacaoPremioImediato": 30,
+        "valorSegundoPremio": 200,
+        "tempoSegundoPremio": 10,
+        "pontuacaoSegundoPremio": 500
+      },
+      {
+        "valorPremioImediato": 50,
+        "pontuacaoPremioImediato": 10,
+        "valorSegundoPremio": 100,
+        "tempoSegundoPremio": 10,
+        "pontuacaoSegundoPremio": 100
+      }
+    ]
   }
+  

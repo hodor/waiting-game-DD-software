@@ -1,29 +1,31 @@
 // 3 ensaios ficticios
-  {  "EnsaiosReais":
-    [{
-        //valor em moedas do prêmio imediato
-        "valorPremioImediato": "",
-        //pontuação ao escolher o prêmio imediato
-        "pontuacaoPremioImediato": "",
-        //valor em moedas do segundo prêmio 
-        "valorSegundoPremio": "",
-        //tempo em segundos do segundo prêmio
-        "tempoSegundoPremio": "",
-        //pontuação ao escolher o segundo prêmio
-        "pontuacaoSegundoPremio": ""
+{
+  "EnsaiosFicticios": [
+    {
+      //valor em moedas do prêmio imediato
+      "valorPremioImediato": 10,
+      //pontuação ao escolher o prêmio imediato
+      "pontuacaoPremioImediato": 30,
+      //valor em moedas do segundo prêmio
+      "valorSegundoPremio": 400,
+      //tempo em segundos do segundo prêmio
+      "tempoSegundoPremio": 5,
+      //pontuação ao escolher o segundo prêmio
+      "pontuacaoSegundoPremio": 30
     },
     {
-        "valorPremioImediato": "",
-        "pontuacaoPremioImediato": "",
-        "valorSegundoPremio": "",
-        "tempoSegundoPremio": "",
-        "pontuacaoSegundoPremio": ""
+      "valorPremioImediato": 20,
+      "pontuacaoPremioImediato": 30,
+      "valorSegundoPremio": 200,
+      "tempoSegundoPremio": 10,
+      "pontuacaoSegundoPremio": 500
     },
     {
-        "valorPremioImediato": "",
-        "pontuacaoPremioImediato": "",
-        "valorSegundoPremio": "",
-        "tempoSegundoPremio": "",
-        "pontuacaoSegundoPremio": ""
-    }]
-  }
+      "valorPremioImediato": 50,
+      "pontuacaoPremioImediato": 10,
+      "valorSegundoPremio": 100,
+      "tempoSegundoPremio": 10,
+      "pontuacaoSegundoPremio": 100
+    }
+  ]
+}

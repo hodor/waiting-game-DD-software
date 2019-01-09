@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
+using AR_Project.DataClasses.NestedObjects;
 
 namespace AR_Project.DataClasses
 {

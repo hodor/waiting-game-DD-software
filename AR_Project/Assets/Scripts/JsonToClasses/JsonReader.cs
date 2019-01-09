@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using AR_Project.DataClasses;
+using AR_Project.DataClasses.NestedObjects;
 using Newtonsoft.Json;
 
 namespace AR_Project.JsonToClasses
@@ -32,6 +33,29 @@ namespace AR_Project.JsonToClasses
             return JsonConvert.DeserializeObject<Config>(outputJson);
         }
 
+        public static RealExperiments ReadRealExperiments() 
+        {
+            var path = "./Assets/Resources/ConfigJsons/configuracaoEnsaiosReais.json";
+            string outputJson = "";
+
+            if (!File.Exists(path))
+                return null;
+
+            outputJson = File.ReadAllText(path);
+            return JsonConvert.DeserializeObject<RealExperiments>(outputJson);
+        }
+
+        public static FakeExperiments ReadFakeExperiments()
+        {
+            var path = "./Assets/Resources/ConfigJsons/configuracaoEnsaiosFicticios.json";
+            string outputJson = "";
+
+            if (!File.Exists(path))
+                return null;
+
+            outputJson = File.ReadAllText(path);
+            return JsonConvert.DeserializeObject<FakeExperiments>(outputJson);
+        }
 
     }
 }
