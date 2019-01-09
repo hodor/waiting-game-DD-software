@@ -6,7 +6,7 @@ namespace AR_Project.DataClasses.MainData
 {
     public class MainData: MonoBehaviour
     {
-        public MainData instanceData;
+        static public MainData instanceData = null;
 
         public Prizes prizes;
         public Config config;
@@ -16,31 +16,31 @@ namespace AR_Project.DataClasses.MainData
 
         void Awake()
         {
-            if (instanceData != null)
-                Destroy(instanceData);
-            else
+            if (instanceData == null)
                 instanceData = this;
+            else if (instanceData != this)
+                Destroy(gameObject);
+
 
             DontDestroyOnLoad(this);
-        }
-        void Start()
-        {
+
             prizes = JsonReader.ReadPrizeConfig();
             config = JsonReader.ReadGameConfig();
             realExperiments = JsonReader.ReadRealExperiments();
             fakeExperiments = JsonReader.ReadFakeExperiments();
 
-            foreach (var prize in prizes.prizes)
-                Debug.Log("prize value: " + prize.value);
+            //foreach (var prize in prizes.prizes)
+            //    Debug.Log("prize value: " + prize.value);
 
-            foreach (var lanes in config.gameSettings.timeLanes)
-                Debug.Log("time lane: " + lanes);
+            //foreach (var lanes in config.gameSettings.timeLanes)
+            //    Debug.Log("time lane: " + lanes);
 
-            foreach (var experiment in realExperiments.experiments)
-                Debug.Log("immediate prize value: " + experiment.immediatePrizeValue);
+            //foreach (var experiment in realExperiments.experiments)
+            //    Debug.Log("immediate prize value: " + experiment.immediatePrizeValue);
 
-            foreach (var experiment in fakeExperiments.experiments)
-                Debug.Log("FAKE: immediate prize value: " + experiment.immediatePrizeValue);
+            //foreach (var experiment in fakeExperiments.experiments)
+                //Debug.Log("FAKE: immediate prize value: " + experiment.immediatePrizeValue);
         }
+       
     }
 }
