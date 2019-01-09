@@ -5,7 +5,7 @@ using AR_Project.DataClasses.Helper;
 using Newtonsoft.Json;
 
 
-namespace AR_Project.DataClasses
+namespace AR_Project.DataClasses.NestedObjects
 {
     [JsonObject]
     public class Prize

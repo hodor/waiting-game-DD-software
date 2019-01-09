@@ -1,14 +1,16 @@
 ﻿using System;
 using AR_Project.JsonToClasses;
 using UnityEngine;
+using AR_Project.DataClasses.NestedObjects;
 
 namespace AR_Project.DataClasses.MainData
 {
     public class MainData: MonoBehaviour
     {
         public MainData instanceData;
+
         public Prizes prizes;
-        public GameConfig config;
+        public Config config;
         public RealExperiments realExperiments;
         public FakeExperiments fakeExperiments;
 
@@ -23,9 +25,13 @@ namespace AR_Project.DataClasses.MainData
         void Start()
         {
             prizes = JsonReader.ReadPrizeConfig();
+            config = JsonReader.ReadGameConfig();
 
             foreach (var prize in prizes.prizes)
                 Debug.Log("prize value: " + prize.value);
+
+            foreach (var lanes in config.gameSettings.timeLanes)
+                Debug.Log("time lane: " + lanes);
         }
     }
 }
