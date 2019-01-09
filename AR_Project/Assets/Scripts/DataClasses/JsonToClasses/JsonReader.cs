@@ -4,7 +4,7 @@ using AR_Project.DataClasses;
 using AR_Project.DataClasses.NestedObjects;
 using Newtonsoft.Json;
 
-namespace AR_Project.JsonToClasses
+namespace AR_Project.DataClasses.JsonToClasses
 {
     public static class JsonReader
     {

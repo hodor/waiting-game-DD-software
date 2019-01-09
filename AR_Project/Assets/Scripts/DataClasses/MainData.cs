@@ -1,7 +1,6 @@
 ﻿using System;
-using AR_Project.JsonToClasses;
+using AR_Project.DataClasses.JsonToClasses;
 using UnityEngine;
-using AR_Project.DataClasses.NestedObjects;
 
 namespace AR_Project.DataClasses.MainData
 {
@@ -21,14 +20,15 @@ namespace AR_Project.DataClasses.MainData
                 Destroy(instanceData);
             else
                 instanceData = this;
+
+            DontDestroyOnLoad(this);
         }
         void Start()
         {
             prizes = JsonReader.ReadPrizeConfig();
             config = JsonReader.ReadGameConfig();
             realExperiments = JsonReader.ReadRealExperiments();
-            //fakeExperiments = JsonReader.ReadFakeExperiments();
-
+            fakeExperiments = JsonReader.ReadFakeExperiments();
 
             foreach (var prize in prizes.prizes)
                 Debug.Log("prize value: " + prize.value);
@@ -38,6 +38,9 @@ namespace AR_Project.DataClasses.MainData
 
             foreach (var experiment in realExperiments.experiments)
                 Debug.Log("immediate prize value: " + experiment.immediatePrizeValue);
+
+            foreach (var experiment in fakeExperiments.experiments)
+                Debug.Log("FAKE: immediate prize value: " + experiment.immediatePrizeValue);
         }
     }
 }
