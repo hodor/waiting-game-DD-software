@@ -2,6 +2,6 @@
     "ConfiguracoesGerais": 
     {
         //Tempo em segundos das pistas dos ensaios
-        "tempo" : [0, 7, 15, 30]
+        "tempo" : [0, 7, 15, 30, 60]
     }
 }
