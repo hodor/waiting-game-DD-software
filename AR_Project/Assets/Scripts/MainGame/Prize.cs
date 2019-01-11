@@ -11,7 +11,11 @@ namespace AR_Project.MainGame
         public void StartMoving()
         {
             var finalDestination = new Vector3(gameObject.transform.position.x + 14, gameObject.transform.position.y, 0);
-            StartCoroutine(MoveToPosition(this.gameObject.transform, finalDestination, timer));
+
+            if (timer == 0)
+                StartCoroutine(MoveToPosition(this.gameObject.transform, finalDestination, 0.5f));
+            else
+                StartCoroutine(MoveToPosition(this.gameObject.transform, finalDestination, timer));
         }
 
         IEnumerator MoveToPosition(Transform transform, Vector3 position, float timeToMove)
