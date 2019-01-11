@@ -10,11 +10,9 @@ namespace AR_Project.MainGame
     {
         public GameObject[] respawns;
 
-        public GameObject CheckRespawn(Experiment experiment)
+        public GameObject CheckRespawnByExperiment(Experiment experiment)
         {
             var timerLanes = MainData.instanceData.config.gameSettings.timeLanes;
-            foreach (var tl in timerLanes)
-                Debug.Log("tl: " + tl.ToString());
 
             for (int i = 0; i < timerLanes.Length; i++)
             {
@@ -30,6 +28,25 @@ namespace AR_Project.MainGame
             }
 
             return null;
+        }
+
+        public GameObject GetRespawnByPosition(int position)
+        {
+            return respawns[position];
+        }
+
+        public GameObject GetRespawnByLane(int lane)
+        {
+            var timerLanes = MainData.instanceData.config.gameSettings.timeLanes;
+            for (int i = 0; i < timerLanes.Length; i++)
+            {
+                if (lane == timerLanes[i])
+                {
+                    return respawns[i];
+                }
+            }
+            return null;
+
         }
     }
 }
