@@ -18,10 +18,10 @@ namespace AR_Project.DataClasses.NestedObjects
         public int secondPrizeValue;
 
         [JsonProperty(PropertyName = "tempoSegundoPremio")]
-        public int secondPrizePoints;
+        public int secondPrizeTimer;
 
         [JsonProperty(PropertyName = "pontuacaoSegundoPremio")]
-        public int secondPrizeTimer;
+        public int secondPrizePoints;
 
     }
 

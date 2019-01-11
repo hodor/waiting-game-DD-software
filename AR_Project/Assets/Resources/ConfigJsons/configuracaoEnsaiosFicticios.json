@@ -9,7 +9,7 @@
       //valor em moedas do segundo prêmio
       "valorSegundoPremio": 400,
       //tempo em segundos do segundo prêmio
-      "tempoSegundoPremio": 5,
+      "tempoSegundoPremio": 7,
       //pontuação ao escolher o segundo prêmio
       "pontuacaoSegundoPremio": 30
     },
@@ -17,14 +17,14 @@
       "valorPremioImediato": 20,
       "pontuacaoPremioImediato": 30,
       "valorSegundoPremio": 200,
-      "tempoSegundoPremio": 10,
+      "tempoSegundoPremio": 15,
       "pontuacaoSegundoPremio": 500
     },
     {
       "valorPremioImediato": 50,
       "pontuacaoPremioImediato": 10,
       "valorSegundoPremio": 100,
-      "tempoSegundoPremio": 10,
+      "tempoSegundoPremio": 30,
       "pontuacaoSegundoPremio": 100
     }
   ]

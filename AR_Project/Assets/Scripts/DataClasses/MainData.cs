@@ -29,8 +29,8 @@ namespace AR_Project.DataClasses.MainData
             realExperiments = JsonReader.ReadRealExperiments();
             fakeExperiments = JsonReader.ReadFakeExperiments();
 
-            //foreach (var prize in prizes.prizes)
-            //    Debug.Log("prize value: " + prize.value);
+            foreach (var exp in fakeExperiments.experiments)
+                Debug.Log("scd prize timer: " + exp.secondPrizeTimer);
 
             //foreach (var lanes in config.gameSettings.timeLanes)
             //    Debug.Log("time lane: " + lanes);
