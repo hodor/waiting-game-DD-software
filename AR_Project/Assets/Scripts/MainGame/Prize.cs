@@ -7,11 +7,11 @@ namespace AR_Project.MainGame
     public class Prize : MonoBehaviour {
     
         public int timer;
+        public Vector3 finalDestination;
+        public bool isFinished = false;
 
         public void StartMoving()
         {
-            var finalDestination = new Vector3(gameObject.transform.position.x + 14, gameObject.transform.position.y, 0);
-
             if (timer == 0)
                 StartCoroutine(MoveToPosition(this.gameObject.transform, finalDestination, 0.5f));
             else
