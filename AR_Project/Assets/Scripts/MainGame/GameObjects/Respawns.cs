@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using AR_Project.DataClasses.MainData;
 using AR_Project.DataClasses.NestedObjects;
 using UnityEngine;
+using AR_Project.MainGame.GameObjects;
 
-namespace AR_Project.MainGame
+namespace AR_Project.MainGame.GameObjects
 {
     public class Respawns : MonoBehaviour
     {

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using AR_Project.DataClasses.MainData;
 using AR_Project.DataClasses.NestedObjects;
+using AR_Project.MainGame.UI;
+using AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers;
 using UnityEngine;
 
 namespace AR_Project.MainGame
@@ -12,10 +14,13 @@ namespace AR_Project.MainGame
         public GameObject prefabReward;
         public GameObject finishLine;
 
+
+
         // Use this for initialization
         void Start()
         {
-            Tutorial();
+            //Tutorial();
+            StartNewExperimentPhase();
         }
 
         void Tutorial()
@@ -24,7 +29,26 @@ namespace AR_Project.MainGame
             teachTimer.StartTutorial(prefabReward, finishLine);
         }
 
+        void SetupFakeExperiment()
+        {
+            var fakeExperiments = MainData.instanceData.fakeExperiments.experiments;
+            var experimentHandler = new ExperimentData(fakeExperiments);
 
+
+        }
+
+        void StartNewExperimentPhase()
+        {
+            var prizeButtons = gameObject.GetComponent<PrizeButtons>();
+            //todo: Pass the current experiment timer
+            prizeButtons.timerSecondPrize = 5;
+            prizeButtons.StartSecondPrizeTimer();
+        }
+        void StopCurrentExperimentPhase()
+        {
+            var prizeButtons = gameObject.GetComponent<PrizeButtons>();
+            prizeButtons.StopTimer();
+        }
 
 
     }

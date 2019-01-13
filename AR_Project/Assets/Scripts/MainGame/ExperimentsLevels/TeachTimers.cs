@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using AR_Project.DataClasses.MainData;
 using AR_Project.DataClasses.NestedObjects;
+using AR_Project.MainGame.GameObjects;
+using AR_Project.MainGame.Prize;
 using UnityEngine;
 
 
@@ -36,7 +38,7 @@ namespace AR_Project.MainGame
 
             GameObject firstOne = (GameObject)Instantiate(prefabReward);
             firstOne.transform.position = respawn.transform.position;
-            var objScript = firstOne.GetComponent<Prize>();
+            var objScript = firstOne.GetComponent<PrizeGO>();
             objScript.timer = timer;
             objScript.finalDestination = new Vector3(finishLine.transform.position.x,
                                                     firstOne.transform.position.y, 0);

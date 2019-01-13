@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AR_Project.MainGame
+namespace AR_Project.MainGame.Prize
 {
-    public class Prize : MonoBehaviour {
+    public class PrizeGO : MonoBehaviour {
     
         public int timer;
         public Vector3 finalDestination;
