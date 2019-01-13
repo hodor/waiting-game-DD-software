@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 //using UnityEngine.Experimental.UIElements;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace AR_Project.Registration
 {
@@ -66,11 +67,12 @@ namespace AR_Project.Registration
         public void FinishedRegistration()
         {
             GetAllInformation();
+            GoToRewardScene();
         }
 
-        void StartGame()
+        void GoToRewardScene()
         {
-
+            SceneManager.LoadScene("Rewards");
         }
     }
 

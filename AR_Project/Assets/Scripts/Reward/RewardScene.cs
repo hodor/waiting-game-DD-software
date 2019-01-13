@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using AR_Project.DataClasses.MainData;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace AR_Project.Reward
@@ -25,6 +26,11 @@ namespace AR_Project.Reward
             for (int i = 0; i < rewards.Count; i++)
             rewardsText[i].text = rewards[i].value + " moedas";
 
+        }
+
+        public void GoToCharacterScene()
+        {
+            SceneManager.LoadScene("Character");
         }
 
     }

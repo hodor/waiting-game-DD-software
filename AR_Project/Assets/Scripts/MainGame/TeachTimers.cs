@@ -29,7 +29,6 @@ namespace AR_Project.MainGame
             }
 
         }
-
         void Respawn(int timer)
         {
             var respawnsScript = gameObject.GetComponent<Respawns>();
