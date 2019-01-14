@@ -21,13 +21,18 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
         ExperimentData dataHandler;
         GameObject secondPrize;
         GameObject immediatePrize;
+        List<GameObject> goList;
+        bool isFakeExperiment;
 
-        public void SetupExperiment(GameObject prefabSecondPrize, List<Experiment> experiments, GameObject finishLineObj)
+        public void SetupExperiment(GameObject prefabSecondPrize, List<Experiment> experiments, GameObject finishLineObj, bool fake)
         {
+            currentExperiments = new List<Experiment>();
+            goList = new List<GameObject>();
             //TODO: Remove prefab second prize, we will get it dinamically later
             prefabReward = prefabSecondPrize;
             currentExperiments = experiments;
             finishLine = finishLineObj;
+            isFakeExperiment = fake;
         }
 
         public void StartExperiment()
@@ -61,15 +66,13 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             if (dataHandler.CheckIfThereIsMoreExperiments())
             {
                 currentPhase = dataHandler.NextExperiment();
-                Debug.Log("Phase " + dataHandler.GetExperimentIndex());
-                Debug.Log("Timer second " + currentPhase.secondPrizeTimer);
-                Debug.Log("Coins immediate " + currentPhase.immediatePrizeValue);
-                Debug.Log("Coins second " + currentPhase.secondPrizeValue);
                 DoExperimentPhase();
             }else
             {
                 //TODO: finish the game here
                 Debug.Log("Finished the game");
+                var mainGameScene = gameObject.GetComponent<MainGameScene>();
+                mainGameScene.CallbackFinishedExperiment(isFakeExperiment);
             }
 
         }
@@ -133,8 +136,8 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
         {
             var prizeButtons = gameObject.GetComponent<PrizeButtons>();
             prizeButtons.StopTimer();
-            immediatePrize.SetActive(false);
-            secondPrize.SetActive(false);
+            Destroy(immediatePrize);
+            Destroy(secondPrize);
 
         }
 

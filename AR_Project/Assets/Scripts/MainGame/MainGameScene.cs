@@ -14,13 +14,38 @@ namespace AR_Project.MainGame
         public GameObject prefabReward;
         public GameObject finishLine;
 
+        public GameObject tutorialUI;
+        public GameObject fakeExperimentUI;
+        public GameObject realExperimentUI;
+
+
+        public GameObject GameObjects;
+        public GameObject TimerLabels;
+        public GameObject ButtonsUI;
 
 
         // Use this for initialization
         void Start()
         {
             //Tutorial();
-            SetupFakeExperiment();
+            //SetupFakeExperiment();
+            //SetTutorialUI();
+            SetUIRealExperiment();
+        }
+
+        // ----- Tutorial Timer -------- //
+        public void SetTutorialUI()
+        {
+            tutorialUI.SetActive(true);
+            ToggleGameUIObjects(false);
+        }
+        public void StartTutorial()
+        {
+            tutorialUI.SetActive(false);
+            ButtonsUI.SetActive(false);
+            TimerLabels.SetActive(true);
+            GameObjects.SetActive(true);
+            Tutorial();
         }
 
         void Tutorial()
@@ -29,13 +54,72 @@ namespace AR_Project.MainGame
             teachTimer.StartTutorial(prefabReward, finishLine);
         }
 
+        // ----- Fake Experiments -------- //
+        public void SetUIFakeExperiment()
+        {
+            ToggleGameUIObjects(false);
+            fakeExperimentUI.SetActive(true);
+        }
+
+        public void StartFakeExperiments()
+        {
+            ToggleGameUIObjects(true);
+            fakeExperimentUI.SetActive(false);
+            SetupFakeExperiment();
+        }
         void SetupFakeExperiment()
         {
             var fakeExperiments = MainData.instanceData.fakeExperiments.experiments;
             var experimentHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
-            experimentHandler.SetupExperiment(prefabReward, fakeExperiments, finishLine);
+            experimentHandler.SetupExperiment(prefabReward, fakeExperiments, finishLine, true);
             experimentHandler.StartExperiment();
 
+        }
+
+        // ----- Real Experiments -------- //
+        public void SetUIRealExperiment()
+        {
+            ToggleGameUIObjects(false);
+            realExperimentUI.SetActive(true);
+        }
+
+        public void StartRealExperiments()
+        {
+            ToggleGameUIObjects(true);
+            realExperimentUI.SetActive(false);
+            SetupRealExperiment();
+        }
+        void SetupRealExperiment()
+        {
+            var realExperiments = MainData.instanceData.realExperiments.experiments;
+            var experimentHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
+            experimentHandler.SetupExperiment(prefabReward, realExperiments, finishLine, false);
+            experimentHandler.StartExperiment();
+
+        }
+
+
+        // ----- Game Objects/UI -------- //
+        void ToggleGameUIObjects(bool show)
+        {
+            if (show)
+            {
+                ButtonsUI.SetActive(true);
+                GameObjects.SetActive(true);
+                TimerLabels.SetActive(true);
+            }else
+            {
+                ButtonsUI.SetActive(false);
+                GameObjects.SetActive(false);
+                TimerLabels.SetActive(false);
+            }
+
+        }
+
+        public void CallbackFinishedExperiment(bool fake)
+        {
+            if (fake)
+                SetUIRealExperiment();
         }
 
     }

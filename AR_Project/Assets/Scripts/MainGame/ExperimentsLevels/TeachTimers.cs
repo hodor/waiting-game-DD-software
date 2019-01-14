@@ -13,9 +13,11 @@ namespace AR_Project.MainGame
     {
         GameObject prefabReward;
         GameObject finishLine;
+        List<GameObject> goList;
 
         public void StartTutorial(GameObject prefab, GameObject finish)
         {
+            goList = new List<GameObject>();
             prefabReward = prefab;
             finishLine = finish;
             StartCoroutine(RespawnTutorial());
@@ -29,6 +31,9 @@ namespace AR_Project.MainGame
                 Respawn(lane);
                 yield return new WaitForSeconds(lane);
             }
+            CleanScene();
+            var mainGameScene = gameObject.GetComponent<MainGameScene>();
+            mainGameScene.SetUIFakeExperiment();
 
         }
         void Respawn(int timer)
@@ -43,7 +48,14 @@ namespace AR_Project.MainGame
             objScript.finalDestination = new Vector3(finishLine.transform.position.x,
                                                     firstOne.transform.position.y, 0);
             objScript.StartMoving();
+            goList.Add(firstOne);
 
+        }
+
+        void CleanScene()
+        {
+            foreach (var gameObj in goList)
+                Destroy(gameObj);
         }
     }
 
