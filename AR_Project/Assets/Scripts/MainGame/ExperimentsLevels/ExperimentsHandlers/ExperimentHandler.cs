@@ -18,8 +18,16 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
         List<Experiment> currentExperiments;
         ExperimentData dataHandler;
 
-        public ExperimentHandler(GameObject prefabSecondPrize, List<Experiment> experiments, GameObject finishLineObj)
+        //public ExperimentHandler(GameObject prefabSecondPrize, List<Experiment> experiments, GameObject finishLineObj)
+        //{
+        //    //TODO: Remove prefab second prize, we will get it dinamically later
+        //    prefabReward = prefabSecondPrize;
+        //    currentExperiments = experiments;
+        //    finishLine = finishLineObj;
+        //}
+        public void SetupExperiment(GameObject prefabSecondPrize, List<Experiment> experiments, GameObject finishLineObj)
         {
+            //TODO: Remove prefab second prize, we will get it dinamically later
             prefabReward = prefabSecondPrize;
             currentExperiments = experiments;
             finishLine = finishLineObj;
@@ -29,12 +37,15 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
         {
             dataHandler = new ExperimentData(currentExperiments);
             Experiment currentExperiment = dataHandler.currentExperiment();
+            Debug.Log("Current experiment second prize timer: " + currentExperiment.secondPrizeTimer);
             DoExperimentPhase(currentExperiment);
 
         }
         void DoExperimentPhase(Experiment currentPhase)
         {
-            RespawnSecondPrize(currentPhase.secondPrizeTimer);
+            RespawnSecondPrize(currentPhase);
+            RespawnImmediatePrize(currentPhase);
+            //TODO: Setar os botões de acordo com a fase atual
         }
 
         //na logica dos botoes de premio, chamar essa função
@@ -53,26 +64,27 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
 
 
 
-        void RespawnSecondPrize(int secondPrizeTimer)
+        void RespawnSecondPrize(Experiment currentExperiment)
         {
             var respawnsScript = gameObject.GetComponent<Respawns>();
-            var respawn = respawnsScript.GetRespawnByLane(secondPrizeTimer);
+            var respawn = respawnsScript.GetRespawnByLane(currentExperiment.secondPrizeTimer);
 
             //TODO: pegar prefab de acordo com o experimento atual
             GameObject secondPrize = (GameObject)Instantiate(prefabReward);
             secondPrize.transform.position = respawn.transform.position;
             var objScript = secondPrize.GetComponent<PrizeGO>();
-            objScript.timer = secondPrizeTimer;
+            objScript.timer = currentExperiment.secondPrizeTimer;
             objScript.finalDestination = new Vector3(finishLine.transform.position.x,
                                                     secondPrize.transform.position.y, 0);
             objScript.StartMoving();
         }
 
-        void RespawnImmediatePrize()
+        void RespawnImmediatePrize(Experiment currentExperiment)
         {
             var respawnsScript = gameObject.GetComponent<Respawns>();
             var respawn = respawnsScript.GetRespawnByPosition(0);
 
+            //TODO: pegar o prefab de acordo com o experimento atual
             GameObject immediatePrize = (GameObject)Instantiate(prefabReward);
             immediatePrize.transform.position = respawn.transform.position;
             var objScript = immediatePrize.GetComponent<PrizeGO>();

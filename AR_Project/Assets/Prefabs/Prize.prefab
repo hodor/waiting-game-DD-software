@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4710976872825538}
-  - component: {fileID: 114788146688990714}
+  - component: {fileID: 114350126316045578}
   - component: {fileID: 61143335464456016}
   - component: {fileID: 50900598463048442}
   m_Layer: 0
@@ -65,7 +65,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1766749338618752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.16138151, y: -6.1584473, z: 0}
+  m_LocalPosition: {x: 193.51857, y: 125.226105, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4184416429068186}
@@ -117,7 +117,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4787536, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114788146688990714
+--- !u!114 &114350126316045578
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,11 +125,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1766749338618752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82dd7f3921aee414992c9120855c162b, type: 3}
+  m_Script: {fileID: 11500000, guid: b18e0dae7848f4cafabca0c30087622a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 30
+  timer: 0
   finalDestination: {x: 0, y: 0, z: 0}
+  isFinished: 0
 --- !u!212 &212781347350453644
 SpriteRenderer:
   m_ObjectHideFlags: 1
