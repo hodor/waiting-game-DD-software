@@ -17,7 +17,7 @@ namespace AR_Project.MainGame
         public GameObject tutorialUI;
         public GameObject fakeExperimentUI;
         public GameObject realExperimentUI;
-
+        public GameObject finishedGameUI;
 
         public GameObject GameObjects;
         public GameObject TimerLabels;
@@ -27,10 +27,8 @@ namespace AR_Project.MainGame
         // Use this for initialization
         void Start()
         {
-            //Tutorial();
-            //SetupFakeExperiment();
-            //SetTutorialUI();
-            SetUIRealExperiment();
+            SetTutorialUI();
+            //SetUIRealExperiment();
         }
 
         // ----- Tutorial Timer -------- //
@@ -120,6 +118,19 @@ namespace AR_Project.MainGame
         {
             if (fake)
                 SetUIRealExperiment();
+            else
+                FinishedGame();
+        }
+
+        // ----- Finished Game -------- //
+        void FinishedGame()
+        {
+            finishedGameUI.SetActive(true);
+            ToggleGameUIObjects(false);
+        }
+        public void CloseGame()
+        {
+            Application.Quit();
         }
 
     }
