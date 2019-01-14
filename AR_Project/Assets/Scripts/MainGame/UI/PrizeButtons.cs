@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,5 +29,23 @@ namespace AR_Project.MainGame.UI
             StopCoroutine(TimerSecondPrizeButton());
         }
 
+        public void ClickedOnImmediatePrize()
+        {
+            var expHandler = gameObject.GetComponent<ExperimentHandler>();
+            expHandler.CallbackFromUIButtons(true);
+        }
+
+        public void ClickedOnSecondPrize()
+        {
+            var expHandler = gameObject.GetComponent<ExperimentHandler>();
+            expHandler.CallbackFromUIButtons(false);
+        }
+
+        public void SetButtonsText(string textImmediate, string textSecond)
+        {
+            immediatePrizeButton.GetComponentInChildren<Text>().text = textImmediate;
+            secondPrizeButton.GetComponentInChildren<Text>().text = textSecond;
+
+        }
     }
 }

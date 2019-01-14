@@ -28,9 +28,16 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             return experiments[currentIndex];
         }
 
+        public int GetExperimentIndex()
+        {
+            return currentIndex;
+        }
+
         public bool CheckIfThereIsMoreExperiments() 
         {
-            if (currentIndex <= experiments.Count)
+            Debug.Log("Experiment count: " + experiments.Count);
+            Debug.Log("Current Index: " + currentIndex);
+            if (currentIndex + 1 < experiments.Count)
                 return true;
             else 
                 return false;
