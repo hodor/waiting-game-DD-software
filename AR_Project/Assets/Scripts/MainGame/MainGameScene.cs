@@ -32,25 +32,11 @@ namespace AR_Project.MainGame
         void SetupFakeExperiment()
         {
             var fakeExperiments = MainData.instanceData.fakeExperiments.experiments;
-            var experimentHandler = gameObject.GetComponent<ExperimentHandler>();
+            var experimentHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
             experimentHandler.SetupExperiment(prefabReward, fakeExperiments, finishLine);
             experimentHandler.StartExperiment();
 
         }
-
-        //void StartNewExperimentPhase()
-        //{
-        //    var prizeButtons = gameObject.GetComponent<PrizeButtons>();
-        //    //todo: Pass the current experiment timer
-        //    prizeButtons.timerSecondPrize = 5;
-        //    prizeButtons.StartSecondPrizeTimer();
-        //}
-        void StopCurrentExperimentPhase()
-        {
-            var prizeButtons = gameObject.GetComponent<PrizeButtons>();
-            prizeButtons.StopTimer();
-        }
-
 
     }
 

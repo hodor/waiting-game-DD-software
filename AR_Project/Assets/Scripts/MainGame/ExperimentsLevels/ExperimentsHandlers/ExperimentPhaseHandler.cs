@@ -9,7 +9,7 @@ using AR_Project.MainGame.UI;
 
 namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
 {
-    public class ExperimentHandler : MonoBehaviour
+    public class ExperimentPhaseHandler : MonoBehaviour
     {
         //Respawn prizes
         //Cuidar dos botões
