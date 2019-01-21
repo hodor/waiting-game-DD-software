@@ -17,33 +17,47 @@ namespace AR_Project.Registration
         public Text birthMonth;
         public Text birthYear;
 
-        public Toggle boyToggle;
-        public Toggle girlToggle;
+        public Button StartBtn;
+        public Sprite startBtnEnabled;
+        public Sprite startBtnDisabled;
+
+        public Button boyToggleBtn;
+        public Button girlToggleBtn;
+
+        public Sprite boyOn, boyOff;
+        public Sprite girlOn, girlOff;
 
         public bool isGirl = true;
+        bool clickedOnGender = false;
 
 
-        public void ToggleValueChangedBoy(Toggle change)
+        private void Update()
         {
-            if (change.isOn)
+            if(clickedOnGender == true && birthDay.text != null && 
+            birthMonth != null && birthYear != null) 
             {
-                isGirl = false;
-                boyToggle.isOn = true;
-                girlToggle.isOn = false;
+                StartBtn.GetComponent<Image>().sprite = startBtnEnabled;
+                StartBtn.enabled = true;
+            }else
+            {
+                StartBtn.GetComponent<Image>().sprite = startBtnDisabled;
+                StartBtn.enabled = false;
             }
-            if (!change.isOn && !girlToggle.isOn)
-                change.isOn = true;
         }
-        public void ToggleValueChangedGirl(Toggle change)
+        public void OnClickedButtonGirl()
         {
-            if (change.isOn)
-            {
-                isGirl = true;
-                girlToggle.isOn = true;
-                boyToggle.isOn = false;
-            }
-            if (!change.isOn && !boyToggle.isOn)
-                change.isOn = true;
+            clickedOnGender = true;
+            isGirl = true;
+            boyToggleBtn.GetComponent<Image>().sprite = boyOff;
+            girlToggleBtn.GetComponent<Image>().sprite = girlOn;
+        }
+
+        public void OnClickedButtonBoy()
+        {
+            clickedOnGender = true;
+            isGirl = false;
+            girlToggleBtn.GetComponent<Image>().sprite = girlOff;
+            boyToggleBtn.GetComponent<Image>().sprite = boyOn;
         }
 
         void GetAllInformation()
@@ -62,6 +76,8 @@ namespace AR_Project.Registration
 
             PlayerPrefs.SetString("genero", gender);
             Debug.Log("genero: " + gender);
+
+
         }
 
         public void FinishedRegistration()
