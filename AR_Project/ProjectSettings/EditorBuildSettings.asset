@@ -9,12 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Registration.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Instructions.unity
+    guid: 06425f2c1375e4d8badea3cba65b9720
+  - enabled: 1
     path: Assets/Scenes/Rewards.unity
     guid: 8157a67313dc7404f896eba79cb61a42
   - enabled: 1
-    path: Assets/Scenes/MainGame.unity
-    guid: e60a0a5c0cdb3464398530704e197211
-  - enabled: 1
     path: Assets/Scenes/Character.unity
     guid: 5f747dcfa7e6d410b8d7a2a0de6ee900
+  - enabled: 1
+    path: Assets/Scenes/MainGame.unity
+    guid: e60a0a5c0cdb3464398530704e197211
   m_configObjects: {}

@@ -88,7 +88,7 @@ namespace AR_Project.Registration
 
         void GoToRewardScene()
         {
-            SceneManager.LoadScene("Rewards");
+            SceneManager.LoadScene("Instructions");
         }
     }
 
