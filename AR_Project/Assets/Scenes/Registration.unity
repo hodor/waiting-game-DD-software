@@ -1208,9 +1208,9 @@ MonoBehaviour:
   boyToggleBtn: {fileID: 467549914}
   girlToggleBtn: {fileID: 1905239374}
   boyOn: {fileID: 21300000, guid: e2258ff59d6204c60b621f11dd7727d9, type: 3}
-  boyOff: {fileID: 21300000, guid: 896148ad21e0143aa9437ca7281a9161, type: 3}
+  boyOff: {fileID: 21300000, guid: 336e37934c8bf4b22a5886ffd00f535f, type: 3}
   girlOn: {fileID: 21300000, guid: 01d151a616bb44068b8bd95379136514, type: 3}
-  girlOff: {fileID: 21300000, guid: 336e37934c8bf4b22a5886ffd00f535f, type: 3}
+  girlOff: {fileID: 21300000, guid: 896148ad21e0143aa9437ca7281a9161, type: 3}
   isGirl: 0
 --- !u!4 &1054705960
 Transform:
