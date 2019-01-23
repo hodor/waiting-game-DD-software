@@ -530,7 +530,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eef2829b94b0490d964a277241c8a38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characters: []
+  characters:
+  - {fileID: 1015234155574410, guid: 29cdd4d9bd29d4f0c9a4cb6088269f9c, type: 2}
+  - {fileID: 1167775281289676, guid: 92579cefd312545d19fc30aa30ffef63, type: 2}
+  - {fileID: 1140756032941650, guid: a16cc34e1881f4fbc8aae30df2a1c295, type: 2}
+  - {fileID: 1813029994731932, guid: 242359a74a2c2449d8b3f00fc31c8f85, type: 2}
   characterBigImage:
   - {fileID: 21300000, guid: d9bf42dc52caa469da5328304e713eef, type: 3}
   - {fileID: 21300000, guid: 7cb508b62e401426c880c6c0fc941078, type: 3}
@@ -859,7 +863,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 908792920}
-        m_MethodName: GoToMainGameScene
+        m_MethodName: SelectedCharacter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

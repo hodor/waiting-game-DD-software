@@ -67,9 +67,10 @@ namespace AR_Project.Scenes.ChooseCharacter
         public void SelectedCharacter()
         {
             PlayerPrefsSaver.instance.character = characters[currentIndex];
+            Debug.Log("Personagem escolhido: " + characters[currentIndex].name);
             GoToMainGameScene();
         }
-        public void GoToMainGameScene()
+        void GoToMainGameScene()
         {
             SceneManager.LoadScene("MainGame");
         }
