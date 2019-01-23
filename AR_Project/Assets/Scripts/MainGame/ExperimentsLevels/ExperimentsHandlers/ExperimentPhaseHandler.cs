@@ -120,12 +120,12 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             {
                 var points = currentPhase.immediatePrizePoints;
                 var key = "Fase " + dataHandler.GetExperimentIndex() + " do experimento";
-                PlayerPrefs.SetInt(key, points);
+                PlayerPrefsSaver.instance.AddExperimentPoints(key, points);
             }else
             {
                 var points = currentPhase.secondPrizePoints;
                 var key = "Fase " + dataHandler.GetExperimentIndex() + " do experimento";
-                PlayerPrefs.SetInt(key, points);
+                PlayerPrefsSaver.instance.AddExperimentPoints(key, points);
             }
 
             CleanScenario();

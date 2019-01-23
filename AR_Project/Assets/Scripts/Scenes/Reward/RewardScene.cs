@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace AR_Project.Reward
+namespace AR_Project.Scenes.Reward
 {
     public class RewardScene : MonoBehaviour
     {

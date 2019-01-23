@@ -6,7 +6,7 @@ using UnityEditor;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-namespace AR_Project.Registration
+namespace AR_Project.Scenes.Registration
 {
     public class RegistrationScene : MonoBehaviour
     {
@@ -63,20 +63,16 @@ namespace AR_Project.Registration
         void GetAllInformation()
         {
             var name = username.text;
-            PlayerPrefs.SetString("usuario", name);
-
             string[] bday = { birthDay.text, birthMonth.text, birthYear.text };
-
             string bd = string.Join("/", bday);
-            PlayerPrefs.SetString("aniversario", bd);
-
             string gender = "menina";
             if (!isGirl)
                 gender = "menino";
 
-            PlayerPrefs.SetString("genero", gender);
-            Debug.Log("genero: " + gender);
-
+            PlayerPrefsSaver.instance.name = name;
+            PlayerPrefsSaver.instance.birthday = bd;
+            PlayerPrefsSaver.instance.gender = gender;
+            PlayerPrefsSaver.instance.SavePlayerPrefs();
 
         }
 
