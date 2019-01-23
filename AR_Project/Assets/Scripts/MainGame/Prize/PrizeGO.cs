@@ -9,10 +9,11 @@ namespace AR_Project.MainGame.Prize
         public int timer;
         public Vector3 finalDestination;
         public bool isFinished = false;
+        Animator animator;
 
         public void StartMoving()
         {
-            var animator = GetComponent<Animator>();
+            animator = GetComponent<Animator>();
 
             if (timer >= 10)
                 animator.SetBool("isRunning", false);
@@ -36,6 +37,9 @@ namespace AR_Project.MainGame.Prize
                 transform.position = Vector3.Lerp(currentPos, position, t);
                 yield return null;
             }
+            animator.SetBool("stoped", true);
+                
+            
         }
 
     }

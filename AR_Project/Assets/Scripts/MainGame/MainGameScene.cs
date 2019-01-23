@@ -11,7 +11,7 @@ namespace AR_Project.MainGame
     public class MainGameScene : MonoBehaviour
     {
        
-        public GameObject prefabReward;
+        public GameObject prefabChar;
         public GameObject finishLine;
 
         public GameObject tutorialUI;
@@ -27,8 +27,8 @@ namespace AR_Project.MainGame
         // Use this for initialization
         void Start()
         {
+            prefabChar = PlayerPrefsSaver.instance.character;
             SetTutorialUI();
-            //SetUIRealExperiment();
         }
 
         // ----- Tutorial Timer -------- //
@@ -49,7 +49,7 @@ namespace AR_Project.MainGame
         void Tutorial()
         {
             var teachTimer = gameObject.GetComponent<TeachTimers>();
-            teachTimer.StartTutorial(prefabReward, finishLine);
+            teachTimer.StartTutorial(prefabChar, finishLine);
         }
 
         // ----- Fake Experiments -------- //
@@ -69,7 +69,7 @@ namespace AR_Project.MainGame
         {
             var fakeExperiments = MainData.instanceData.fakeExperiments.experiments;
             var experimentHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
-            experimentHandler.SetupExperiment(prefabReward, fakeExperiments, finishLine, true);
+            experimentHandler.SetupExperiment(prefabChar, fakeExperiments, finishLine, true);
             experimentHandler.StartExperiment();
 
         }
@@ -91,7 +91,7 @@ namespace AR_Project.MainGame
         {
             var realExperiments = MainData.instanceData.realExperiments.experiments;
             var experimentHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
-            experimentHandler.SetupExperiment(prefabReward, realExperiments, finishLine, false);
+            experimentHandler.SetupExperiment(prefabChar, realExperiments, finishLine, false);
             experimentHandler.StartExperiment();
 
         }
