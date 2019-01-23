@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4591293373200400}
   - component: {fileID: 212180978529852144}
   - component: {fileID: 95520872255487586}
+  - component: {fileID: 114807898635014104}
   m_Layer: 0
   m_Name: Char04
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1813029994731932}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.157008, y: -7.6727595, z: 0}
+  m_LocalPosition: {x: 295.68594, y: -507.6939, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -59,6 +60,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114807898635014104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1813029994731932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18e0dae7848f4cafabca0c30087622a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 0
+  finalDestination: {x: 0, y: 0, z: 0}
+  isFinished: 0
 --- !u!212 &212180978529852144
 SpriteRenderer:
   m_ObjectHideFlags: 1

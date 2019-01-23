@@ -12,6 +12,14 @@ namespace AR_Project.MainGame.Prize
 
         public void StartMoving()
         {
+            var animator = GetComponent<Animator>();
+
+            if (timer >= 10)
+                animator.SetBool("isRunning", false);
+            else
+                animator.SetBool("isRunning", true);
+
+
             if (timer == 0)
                 StartCoroutine(MoveToPosition(this.gameObject.transform, finalDestination, 0.5f));
             else
