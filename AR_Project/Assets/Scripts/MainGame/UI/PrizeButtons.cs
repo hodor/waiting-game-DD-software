@@ -31,12 +31,14 @@ namespace AR_Project.MainGame.UI
 
         public void ClickedOnImmediatePrize()
         {
+            Debug.Log("CLICKED ON IMMEDIATE PRIZE");
             var expHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
             expHandler.CallbackFromUIButtons(true);
         }
 
         public void ClickedOnSecondPrize()
         {
+            Debug.Log("CLICKED ON SECOND PRIZE");
             var expHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
             expHandler.CallbackFromUIButtons(false);
         }
