@@ -11,9 +11,6 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
 {
     public class ExperimentPhaseHandler : MonoBehaviour
     {
-        //Respawn prizes
-        //Cuidar dos botões
-        //Main Loop do game
         GameObject prefabReward;
         GameObject finishLine;
         List<Experiment> currentExperiments;
@@ -49,13 +46,13 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             var immediateButtonText = currentPhase.immediatePrizeValue + " moedas";
             var secondButtonText = currentPhase.secondPrizeValue + " moedas";
 
-
+            Debug.Log("Experiment phase. Second timer is: " + currentPhase.secondPrizeTimer);
             prizeButtons.timerSecondPrize = currentPhase.secondPrizeTimer;
             prizeButtons.SetButtons(immediateButtonText, secondButtonText, 
             currentPhase.immediatePrizeValue, currentPhase.secondPrizeValue);
 
             RespawnSecondPrize();
-            prizeButtons.StartSecondPrizeTimer();
+            prizeButtons.SetSecondButtonUnavaiable();
             RespawnImmediatePrize();
          
 

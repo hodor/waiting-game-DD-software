@@ -9,6 +9,8 @@ namespace AR_Project.MainGame.UI
 {
     public class PrizeButtons: MonoBehaviour
     {
+        public static PrizeButtons instance;
+
         public Button immediatePrizeButton;
         public Button secondPrizeButton;
         public Image firstButtonImage;
@@ -18,15 +20,32 @@ namespace AR_Project.MainGame.UI
 
         public int timerSecondPrize;
 
-        public void StartSecondPrizeTimer()
+        public void Awake()
         {
-            StartCoroutine(TimerSecondPrizeButton());
+            if (instance == null)
+                instance = this;
+            else if (instance != this)
+                Destroy(gameObject);
+        }
+
+        public void SetSecondButtonUnavaiable()
+        {
+            secondPrizeButton.interactable = false;
         }
 
         IEnumerator TimerSecondPrizeButton()
         {
+            Debug.Log("Timer Second Prize!!!");
+            Debug.Log("Wait for " + timerSecondPrize);
             secondPrizeButton.interactable = false;
             yield return new WaitForSeconds(timerSecondPrize);
+            Debug.Log("!!! Waited for " + timerSecondPrize);
+            secondPrizeButton.interactable = true;
+        }
+
+        public void ReleaseSecondButton()
+        {
+            Debug.Log("released second button");
             secondPrizeButton.interactable = true;
         }
 
@@ -60,17 +79,11 @@ namespace AR_Project.MainGame.UI
         public Sprite GetPrizeImage(int prizeValue)
         {
             var prizes = MainData.instanceData.prizes.prizes;
-            Debug.Log("get prize value");
-            Debug.Log("prize value: " + prizeValue);
-
-            foreach(var prize in prizes)
-                Debug.Log("prizes: " + prize.value.ToString());
 
             for (int i = 0; i < prizes.Count; i++)
             {
                 if (prizes[i].value == prizeValue)
                 {
-                    Debug.Log("prizes[i] value: " + prizes[i].value);
                     return prizeImages[i];
                 }
             }

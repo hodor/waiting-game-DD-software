@@ -12,7 +12,6 @@ namespace AR_Project.MainGame.UI
 
         public void StartSlider(float timeToFill)
         {
-            Debug.Log("start slider");
             _slider = GetComponent<Slider>();
             fillTime = timeToFill;
             Set();

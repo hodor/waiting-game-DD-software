@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using AR_Project.MainGame.UI;
 using UnityEngine;
 
 namespace AR_Project.MainGame.Prize
 {
     public class PrizeGO : MonoBehaviour {
     
+
         public int timer;
         public Vector3 finalDestination;
         public bool isFinished = false;
         Animator animator;
+        bool stopSecondButton = false;
 
         public void StartMoving()
         {
@@ -22,9 +25,15 @@ namespace AR_Project.MainGame.Prize
 
 
             if (timer == 0)
+            {
                 StartCoroutine(MoveToPosition(this.gameObject.transform, finalDestination, 0.5f));
-            else
+                stopSecondButton = false;
+            }else
+            {
                 StartCoroutine(MoveToPosition(this.gameObject.transform, finalDestination, timer));
+                stopSecondButton = true;
+            }
+
         }
 
         IEnumerator MoveToPosition(Transform transform, Vector3 position, float timeToMove)
@@ -38,8 +47,11 @@ namespace AR_Project.MainGame.Prize
                 yield return null;
             }
             animator.SetBool("stoped", true);
-                
-            
+            if(stopSecondButton)
+                PrizeButtons.instance.ReleaseSecondButton();
+
+
+
         }
 
     }
