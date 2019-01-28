@@ -60,10 +60,17 @@ namespace AR_Project.MainGame.UI
         public Sprite GetPrizeImage(int prizeValue)
         {
             var prizes = MainData.instanceData.prizes.prizes;
+            Debug.Log("get prize value");
+            Debug.Log("prize value: " + prizeValue);
+
+            foreach(var prize in prizes)
+                Debug.Log("prizes: " + prize.value.ToString());
+
             for (int i = 0; i < prizes.Count; i++)
             {
                 if (prizes[i].value == prizeValue)
                 {
+                    Debug.Log("prizes[i] value: " + prizes[i].value);
                     return prizeImages[i];
                 }
             }

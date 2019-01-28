@@ -20,6 +20,7 @@ namespace AR_Project.MainGame.UI
 
         public void ResetSlider()
         {
+            _slider = GetComponent<Slider>();
             _slider.value = 0;
             started = false;
         }

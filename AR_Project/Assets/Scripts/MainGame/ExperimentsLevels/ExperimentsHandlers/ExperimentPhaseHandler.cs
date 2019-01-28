@@ -95,8 +95,6 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
                                                     secondPrize.transform.position.y, 0);
             objScript.StartMoving();
             slider.SetAndStartSliderByTimer(currentPhase.secondPrizeTimer);
-            //slider.SetAndStartSingleSlider(currentIndex, currentPhase.secondPrizeTimer);
-
 
         }
 
