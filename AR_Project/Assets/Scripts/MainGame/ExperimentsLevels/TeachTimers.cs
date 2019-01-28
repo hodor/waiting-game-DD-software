@@ -4,6 +4,7 @@ using AR_Project.DataClasses.MainData;
 using AR_Project.DataClasses.NestedObjects;
 using AR_Project.MainGame.GameObjects;
 using AR_Project.MainGame.Prize;
+using AR_Project.MainGame.UI;
 using UnityEngine;
 
 
@@ -14,6 +15,7 @@ namespace AR_Project.MainGame
         GameObject prefabReward;
         GameObject finishLine;
         List<GameObject> goList;
+        int currentIndex = 0;
 
         public void StartTutorial(GameObject prefab, GameObject finish)
         {
@@ -38,8 +40,10 @@ namespace AR_Project.MainGame
         }
         void Respawn(int timer)
         {
+
             var respawnsScript = gameObject.GetComponent<Respawns>();
             var respawn = respawnsScript.GetRespawnByLane(timer);
+            var slider = gameObject.GetComponent<SlidersHandler>();
 
             GameObject firstOne = (GameObject)Instantiate(prefabReward);
             firstOne.transform.position = respawn.transform.position;
@@ -47,7 +51,10 @@ namespace AR_Project.MainGame
             objScript.timer = timer;
             objScript.finalDestination = new Vector3(finishLine.transform.position.x,
                                                     firstOne.transform.position.y, 0);
+            slider.SetAndStartSingleSlider(currentIndex, timer);
             objScript.StartMoving();
+            currentIndex++;
+
             goList.Add(firstOne);
 
         }
