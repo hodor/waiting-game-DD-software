@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using AR_Project.DataClasses.MainData;
 using UnityEngine;
 
 namespace AR_Project.MainGame.UI
@@ -16,6 +17,26 @@ namespace AR_Project.MainGame.UI
                 sliderScript.StartSlider(0.5f);
             else
                 sliderScript.StartSlider(timeToFill);
+        }
+
+        public void SetAndStartSliderByTimer(int timeToFill)
+        {
+            Debug.Log("Get and start slider by timer");
+            Debug.Log("time to fill: " + timeToFill);
+            var timers = MainData.instanceData.config.gameSettings.timeLanes;
+            for(int i=0; i < timers.Length; i++)
+            {
+                if(timers[i] == timeToFill)
+                {
+                    Debug.Log("timer i: " + timers[i]);
+                    var sliderScript = sliders[i].GetComponent<RespawnSlider>();
+                    if (timeToFill == 0.0f)
+                        sliderScript.StartSlider(0.5f);
+                    else
+                        sliderScript.StartSlider(timeToFill);
+                }
+            }
+
         }
 
         public void ResetSliders()

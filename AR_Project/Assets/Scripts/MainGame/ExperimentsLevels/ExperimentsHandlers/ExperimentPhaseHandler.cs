@@ -49,6 +49,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             var immediateButtonText = currentPhase.immediatePrizeValue + " moedas";
             var secondButtonText = currentPhase.secondPrizeValue + " moedas";
 
+
             prizeButtons.timerSecondPrize = currentPhase.secondPrizeTimer;
             prizeButtons.SetButtons(immediateButtonText, secondButtonText, 
             currentPhase.immediatePrizeValue, currentPhase.secondPrizeValue);
@@ -82,6 +83,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
         {
             var respawnsScript = gameObject.GetComponent<Respawns>();
             var respawn = respawnsScript.GetRespawnByLane(currentPhase.secondPrizeTimer);
+            var slider = gameObject.GetComponent<SlidersHandler>();
 
             //TODO: pegar prefab de acordo com o experimento atual
             secondPrize = (GameObject)Instantiate(prefabReward);
@@ -92,14 +94,17 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             objScript.finalDestination = new Vector3(finishLine.transform.position.x,
                                                     secondPrize.transform.position.y, 0);
             objScript.StartMoving();
+            slider.SetAndStartSliderByTimer(currentPhase.secondPrizeTimer);
+            //slider.SetAndStartSingleSlider(currentIndex, currentPhase.secondPrizeTimer);
 
-         
+
         }
 
         void RespawnImmediatePrize()
         {
             var respawnsScript = gameObject.GetComponent<Respawns>();
             var respawn = respawnsScript.GetRespawnByPosition(0);
+            var slider = gameObject.GetComponent<SlidersHandler>();
 
             //TODO: pegar o prefab de acordo com o experimento atual
             immediatePrize = (GameObject)Instantiate(prefabReward);
@@ -110,6 +115,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             objScript.finalDestination = new Vector3(finishLine.transform.position.x,
                                                     immediatePrize.transform.position.y, 0);
             objScript.StartMoving();
+            slider.SetAndStartSingleSlider(0, 0);
         }
 
         public void CallbackFromUIButtons(bool immediatePrizeClicked)

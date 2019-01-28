@@ -30,7 +30,9 @@ namespace AR_Project.MainGame
         void Start()
         {
             prefabChar = PlayerPrefsSaver.instance.character;
-            SetTutorialUI();
+            //TODO: Uncomment this!!!
+            //SetTutorialUI();
+            SetUIFakeExperiment();
         }
 
         // ----- Tutorial Timer -------- //
