@@ -51,8 +51,8 @@ namespace AR_Project.MainGame
             objScript.timer = timer;
             objScript.finalDestination = new Vector3(finishLine.transform.position.x,
                                                     firstOne.transform.position.y, 0);
-            slider.SetAndStartSingleSlider(currentIndex, timer);
             objScript.StartMoving();
+            slider.SetAndStartSingleSlider(currentIndex, timer);
             currentIndex++;
 
             goList.Add(firstOne);
