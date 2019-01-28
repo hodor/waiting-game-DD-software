@@ -5,6 +5,7 @@ using AR_Project.DataClasses.NestedObjects;
 using AR_Project.MainGame.UI;
 using AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace AR_Project.MainGame
 {
@@ -20,6 +21,9 @@ namespace AR_Project.MainGame
         public GameObject finishedGameUI;
 
         public GameObject SliderLanes;
+        public Image backgroundImg;
+
+        public Sprite bgTutorial, bgExperiments;
 
         public GameObject GameObjects;
         public GameObject TimerLabels;
@@ -38,6 +42,7 @@ namespace AR_Project.MainGame
         // ----- Tutorial Timer -------- //
         public void SetTutorialUI()
         {
+            backgroundImg.sprite = bgTutorial;
             tutorialUI.SetActive(true);
             ToggleGameUIObjects(false);
         }
@@ -60,6 +65,7 @@ namespace AR_Project.MainGame
         // ----- Fake Experiments -------- //
         public void SetUIFakeExperiment()
         {
+            backgroundImg.sprite = bgExperiments;
             ToggleGameUIObjects(false);
             fakeExperimentUI.SetActive(true);
         }
@@ -82,6 +88,7 @@ namespace AR_Project.MainGame
         // ----- Real Experiments -------- //
         public void SetUIRealExperiment()
         {
+            backgroundImg.sprite = bgExperiments;
             ToggleGameUIObjects(false);
             realExperimentUI.SetActive(true);
         }
