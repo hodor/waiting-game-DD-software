@@ -17,5 +17,11 @@ namespace AR_Project.MainGame.UI
             else
                 sliderScript.StartSlider(timeToFill);
         }
+
+        public void ResetSliders()
+        {
+            foreach (var slider in sliders)
+                slider.GetComponent<RespawnSlider>().ResetSlider();
+        }
     }
 }

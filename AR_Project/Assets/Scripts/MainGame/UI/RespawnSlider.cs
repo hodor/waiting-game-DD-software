@@ -17,7 +17,13 @@ namespace AR_Project.MainGame.UI
             Set();
         }
 
-        public void Set()
+        public void ResetSlider()
+        {
+            _slider.value = 0;
+            started = false;
+        }
+
+        void Set()
         {
             _slider.minValue = Time.time;
             _slider.maxValue = Time.time + fillTime;

@@ -19,6 +19,8 @@ namespace AR_Project.MainGame
         public GameObject realExperimentUI;
         public GameObject finishedGameUI;
 
+        public GameObject SliderLanes;
+
         public GameObject GameObjects;
         public GameObject TimerLabels;
         public GameObject ButtonsUI;
@@ -43,6 +45,7 @@ namespace AR_Project.MainGame
             ButtonsUI.SetActive(false);
             TimerLabels.SetActive(true);
             GameObjects.SetActive(true);
+            SliderLanes.SetActive(true);
             Tutorial();
         }
 
@@ -105,11 +108,13 @@ namespace AR_Project.MainGame
                 ButtonsUI.SetActive(true);
                 GameObjects.SetActive(true);
                 TimerLabels.SetActive(true);
+                SliderLanes.SetActive(true);
             }else
             {
                 ButtonsUI.SetActive(false);
                 GameObjects.SetActive(false);
                 TimerLabels.SetActive(false);
+                SliderLanes.SetActive(false);
             }
 
         }

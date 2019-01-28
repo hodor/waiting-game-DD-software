@@ -50,12 +50,12 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             var secondButtonText = currentPhase.secondPrizeValue + " moedas";
 
             prizeButtons.timerSecondPrize = currentPhase.secondPrizeTimer;
-            prizeButtons.SetButtonsText(immediateButtonText, secondButtonText);
+            prizeButtons.SetButtons(immediateButtonText, secondButtonText, 
+            currentPhase.immediatePrizeValue, currentPhase.secondPrizeValue);
 
             RespawnSecondPrize();
             prizeButtons.StartSecondPrizeTimer();
             RespawnImmediatePrize();
-            //TODO: Setar os botões de acordo com a fase atual (info de valor)
          
 
         }
@@ -69,7 +69,6 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
                 DoExperimentPhase();
             }else
             {
-                //TODO: finish the game here
                 Debug.Log("Finished the game");
                 var mainGameScene = gameObject.GetComponent<MainGameScene>();
                 mainGameScene.CallbackFinishedExperiment(isFakeExperiment);
@@ -136,6 +135,10 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
         {
             var prizeButtons = gameObject.GetComponent<PrizeButtons>();
             prizeButtons.StopTimer();
+
+            var slider = gameObject.GetComponent<SlidersHandler>();
+            slider.ResetSliders();
+
             Destroy(immediatePrize);
             Destroy(secondPrize);
 

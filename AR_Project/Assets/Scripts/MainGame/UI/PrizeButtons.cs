@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using AR_Project.DataClasses.MainData;
 using AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,10 @@ namespace AR_Project.MainGame.UI
     {
         public Button immediatePrizeButton;
         public Button secondPrizeButton;
+        public Image firstButtonImage;
+        public Image secondButtonImage;
+
+        public List<Sprite> prizeImages;
 
         public int timerSecondPrize;
 
@@ -17,6 +22,7 @@ namespace AR_Project.MainGame.UI
         {
             StartCoroutine(TimerSecondPrizeButton());
         }
+
         IEnumerator TimerSecondPrizeButton()
         {
             secondPrizeButton.interactable = false;
@@ -43,11 +49,25 @@ namespace AR_Project.MainGame.UI
             expHandler.CallbackFromUIButtons(false);
         }
 
-        public void SetButtonsText(string textImmediate, string textSecond)
+        public void SetButtons(string textImmediate, string textSecond, int firstPrizeValue, int secondPrizeValue)
         {
             immediatePrizeButton.GetComponentInChildren<Text>().text = textImmediate;
             secondPrizeButton.GetComponentInChildren<Text>().text = textSecond;
+            firstButtonImage.sprite = GetPrizeImage(firstPrizeValue);
+            secondButtonImage.sprite = GetPrizeImage(secondPrizeValue);
+        }
 
+        public Sprite GetPrizeImage(int prizeValue)
+        {
+            var prizes = MainData.instanceData.prizes.prizes;
+            for (int i = 0; i < prizes.Count; i++)
+            {
+                if (prizes[i].value == prizeValue)
+                {
+                    return prizeImages[i];
+                }
+            }
+            return null;
         }
     }
 }

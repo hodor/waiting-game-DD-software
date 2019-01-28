@@ -61,8 +61,13 @@ namespace AR_Project.MainGame
 
         void CleanScene()
         {
+            var slider = gameObject.GetComponent<SlidersHandler>();
+            slider.ResetSliders();
+
             foreach (var gameObj in goList)
                 Destroy(gameObj);
+
+
         }
     }
 
