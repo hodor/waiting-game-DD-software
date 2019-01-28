@@ -6,6 +6,7 @@ using AR_Project.MainGame.UI;
 using AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace AR_Project.MainGame
 {
@@ -18,7 +19,6 @@ namespace AR_Project.MainGame
         public GameObject tutorialUI;
         public GameObject fakeExperimentUI;
         public GameObject realExperimentUI;
-        public GameObject finishedGameUI;
 
         public GameObject SliderLanes;
         public Image backgroundImg;
@@ -139,12 +139,7 @@ namespace AR_Project.MainGame
         // ----- Finished Game -------- //
         void FinishedGame()
         {
-            finishedGameUI.SetActive(true);
-            ToggleGameUIObjects(false);
-        }
-        public void CloseGame()
-        {
-            Application.Quit();
+            SceneManager.LoadScene("FinalScene");
         }
 
     }

@@ -8,6 +8,7 @@ public class PlayerPrefsSaver : MonoBehaviour {
     public string name, birthday, gender;
     public GameObject character;
     public int totalPoints;
+    public List<string> keysPhases;
 
 
 	void Awake () {
@@ -22,7 +23,9 @@ public class PlayerPrefsSaver : MonoBehaviour {
     public void AddExperimentPoints(string key, int points)
     {
         totalPoints += points;
+        keysPhases.Add(key);
         PlayerPrefs.SetInt(key, points);
+        PlayerPrefs.SetInt("pontosTotais", totalPoints);
     }
 
     public void SavePlayerPrefs(){
@@ -30,6 +33,15 @@ public class PlayerPrefsSaver : MonoBehaviour {
         PlayerPrefs.SetString("usuario", name);
         PlayerPrefs.SetString("aniversario", birthday);
         PlayerPrefs.SetString("genero", gender);
+    }
+
+    public void LoadPlayerPrefs()
+    {
+        name = PlayerPrefs.GetString("usuario");
+        birthday = PlayerPrefs.GetString("aniversario");
+        gender = PlayerPrefs.GetString("genero");
+        totalPoints = PlayerPrefs.GetInt("pontosTotais");
+
     }
 
 
