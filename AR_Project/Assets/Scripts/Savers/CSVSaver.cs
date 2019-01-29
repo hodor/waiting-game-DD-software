@@ -9,7 +9,7 @@ public class CSVSaver {
 
     private List<string[]> rowData = new List<string[]>();
 
-    string fileName;
+    string fileName = "/Dados_Jogadores.csv";
     string filePath;
     string delimiter = ",";
 
@@ -20,7 +20,6 @@ public class CSVSaver {
     public void SaveCSV()
     {
         sb = new StringBuilder();
-        fileName = GetFileName();
         AddUserData();
 
         string[][] output = new string[rowData.Count][];
@@ -31,21 +30,19 @@ public class CSVSaver {
 
         int length = output.GetLength(0);
 
-
         for (int index = 0; index < length; index++)
             sb.AppendLine(string.Join(delimiter, output[index]));
             
         filePath = GetPath();
-
         if (!Directory.Exists(filePath))
             Directory.CreateDirectory(filePath);
 
-        filePath += GetFileName();
-
+        filePath += fileName;
         if (File.Exists(filePath))
             File.Delete(filePath);
 
-        writer = File.CreateText(filePath);
+        FileStream file = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+        writer = new StreamWriter(file);
         writer.WriteLine(sb);
         writer.Close();
     }
@@ -70,20 +67,16 @@ public class CSVSaver {
         rowData.Add(rowDataUser);
     }
 
-    string GetFileName()
-    {
-        return "/Dados_Jogador.csv";
-    }
-
     void ReadCSV()
     {
         Debug.Log("READ CSV");
 
-        filePath = GetPath() + GetFileName();
+        filePath = GetPath() + fileName;
         if (!File.Exists(filePath))
             return;
 
-        reader = new StreamReader(filePath);
+        FileStream file = new FileStream(filePath, FileMode.Open, FileAccess.ReadWrite);
+        reader = new StreamReader(file);
 
         string line;
         string firstLineHeader = reader.ReadLine();
