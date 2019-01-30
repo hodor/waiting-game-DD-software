@@ -17,6 +17,7 @@ namespace AR_Project.MainGame
         public GameObject prefabChar;
         public GameObject finishLine;
 
+        public GameObject pointsUI;
         public GameObject tutorialUI;
         public GameObject fakeExperimentUI;
         public GameObject realExperimentUI;
@@ -117,12 +118,14 @@ namespace AR_Project.MainGame
                 GameObjects.SetActive(true);
                 TimerLabels.SetActive(true);
                 SliderLanes.SetActive(true);
+                pointsUI.SetActive(true);
             }else
             {
                 ButtonsUI.SetActive(false);
                 GameObjects.SetActive(false);
                 TimerLabels.SetActive(false);
                 SliderLanes.SetActive(false);
+                pointsUI.SetActive(false);
             }
 
         }

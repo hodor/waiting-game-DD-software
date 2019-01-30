@@ -21,7 +21,7 @@ namespace AR_Project.Scenes.Final
             csv.SaveCSV();
         }
 
-        public void QuitGame()
+        public void ClickedOnQuit()
         {
             Debug.Log("Quit Game...");
             Application.Quit();

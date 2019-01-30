@@ -12,6 +12,8 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
 {
     public class ExperimentPhaseHandler : MonoBehaviour
     {
+        public Text totalPoints;
+
         GameObject prefabReward;
         GameObject finishLine;
         List<Experiment> currentExperiments;
@@ -31,6 +33,12 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             currentExperiments = experiments;
             finishLine = finishLineObj;
             isFakeExperiment = fake;
+            totalPoints.text = "Pontos: 0";
+        }
+
+        public void UpdateTotalPoints()
+        {
+            totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.totalPoints.ToString();
         }
 
         public void StartExperiment()
@@ -146,7 +154,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
                 var key = "Fase " + dataHandler.GetExperimentIndex() + " do experimento";
                 PlayerPrefsSaver.instance.AddExperimentPoints(key, points);
             }
-
+            UpdateTotalPoints();
             CleanScenario();
             NextPhase();
         }
