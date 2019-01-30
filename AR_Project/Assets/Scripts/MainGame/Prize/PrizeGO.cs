@@ -47,12 +47,11 @@ namespace AR_Project.MainGame.Prize
                 yield return null;
             }
             animator.SetBool("stoped", true);
-            if(stopSecondButton)
-                PrizeButtons.instance.ReleaseSecondButton();
 
+            if (stopSecondButton)
+                PrizeButtons.instance.ReleaseSecondPrizeButton();
 
-
-        }
+            }
 
     }
 

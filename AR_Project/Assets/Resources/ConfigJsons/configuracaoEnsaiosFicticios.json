@@ -2,6 +2,7 @@
 {
   "EnsaiosFicticios": [
     {
+      "maiorPremioEstaNoBotaoDireito": true,
       //valor em moedas do prêmio imediato
       "valorPremioImediato": 100,
       //pontuação ao escolher o prêmio imediato
@@ -14,6 +15,7 @@
       "pontuacaoSegundoPremio": 30
     },
     {
+      "maiorPremioEstaNoBotaoDireito": false,
       "valorPremioImediato": 700,
       "pontuacaoPremioImediato": 30,
       "valorSegundoPremio": 1000,
@@ -21,6 +23,7 @@
       "pontuacaoSegundoPremio": 500
     },
     {
+      "maiorPremioEstaNoBotaoDireito": true,
       "valorPremioImediato": 100,
       "pontuacaoPremioImediato": 10,
       "valorSegundoPremio": 1000,

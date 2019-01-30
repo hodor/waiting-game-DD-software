@@ -1681,16 +1681,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e643efa05e304950b8a02d7c05d071a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  immediatePrizeButton: {fileID: 1448887428}
-  secondPrizeButton: {fileID: 1429848340}
   firstButtonImage: {fileID: 643185283}
   secondButtonImage: {fileID: 856454622}
+  leftButton: {fileID: 1448887428}
+  rightButton: {fileID: 1429848340}
   prizeImages:
   - {fileID: 21300000, guid: dfb9c9293aaf0434e96fe3ae0267244e, type: 3}
   - {fileID: 21300000, guid: 909839fee3f4c49b3a8220674e6d26b1, type: 3}
   - {fileID: 21300000, guid: 9ae5f4d90862048dcb6a7dd28d431a3c, type: 3}
   - {fileID: 21300000, guid: a4aad8c5ebe314982a4750e4740d5e28, type: 3}
-  timerSecondPrize: 0
 --- !u!114 &608683577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4295,7 +4294,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 608683576}
-        m_MethodName: ClickedOnSecondPrize
+        m_MethodName: ClickedOnRightButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4419,7 +4418,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 608683576}
-        m_MethodName: ClickedOnImmediatePrize
+        m_MethodName: ClickedOnLeftButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

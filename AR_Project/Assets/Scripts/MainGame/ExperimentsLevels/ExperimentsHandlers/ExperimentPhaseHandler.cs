@@ -48,15 +48,33 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             var secondButtonText = currentPhase.secondPrizeValue + " moedas";
 
             Debug.Log("Experiment phase. Second timer is: " + currentPhase.secondPrizeTimer);
-            prizeButtons.timerSecondPrize = currentPhase.secondPrizeTimer;
-            prizeButtons.SetButtons(immediateButtonText, secondButtonText, 
-            currentPhase.immediatePrizeValue, currentPhase.secondPrizeValue);
+            if (currentPhase.isSecondPrizeAtRightButton)
+            {
+                prizeButtons.SetRightButton(secondButtonText, currentPhase.secondPrizeValue);
+                prizeButtons.SetLeftButton(immediateButtonText, currentPhase.immediatePrizeValue);
+                prizeButtons.ToggleRightButtonAvaiability(false);
+                prizeButtons.ToggleLeftButtonAvaiability(true);
+            }
+            else 
+            {
+                prizeButtons.SetLeftButton(secondButtonText, currentPhase.secondPrizeValue);
+                prizeButtons.SetRightButton(immediateButtonText, currentPhase.immediatePrizeValue);
+                prizeButtons.ToggleRightButtonAvaiability(true);
+                prizeButtons.ToggleLeftButtonAvaiability(false);
+            }
 
             RespawnSecondPrize();
-            prizeButtons.SetSecondButtonUnavaiable();
             RespawnImmediatePrize();
          
 
+        }
+
+        public bool IsSecondPrizeAtRightButton()
+        {
+            if (currentPhase.isSecondPrizeAtRightButton)
+                return true;
+            else
+                return false;
         }
 
         //na logica dos botoes de premio, chamar essa função
