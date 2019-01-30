@@ -38,13 +38,16 @@ public class CSVSaver {
             Directory.CreateDirectory(filePath);
 
         filePath += fileName;
-        if (File.Exists(filePath))
-            File.Delete(filePath);
+        //if (File.Exists(filePath))
+            //File.Delete(filePath);
 
-        FileStream file = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+        FileStream file = new FileStream(filePath, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
         writer = new StreamWriter(file);
         writer.WriteLine(sb);
         writer.Close();
+        writer.Dispose();
+        file.Dispose();
+        file.Close();
     }
     void AddUserData()
     {
@@ -75,7 +78,7 @@ public class CSVSaver {
         if (!File.Exists(filePath))
             return;
 
-        FileStream file = new FileStream(filePath, FileMode.Open, FileAccess.ReadWrite);
+        FileStream file = new FileStream(filePath, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
         reader = new StreamReader(file);
 
         string line;
@@ -96,9 +99,10 @@ public class CSVSaver {
                 rowDataUser[3] = split[3];
                 rowDataUser[4] = split[4];
                 rowData.Add(rowDataUser);
-
             }
         }
+        file.Close();
+        file.Dispose();
     }
 
     public string GetPath()
