@@ -135,9 +135,6 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
 
         void CleanScenario()
         {
-            var prizeButtons = gameObject.GetComponent<PrizeButtons>();
-            prizeButtons.StopTimer();
-
             var slider = gameObject.GetComponent<SlidersHandler>();
             slider.ResetSliders();
 

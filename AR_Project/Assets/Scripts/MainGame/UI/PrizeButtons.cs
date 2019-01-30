@@ -11,6 +11,8 @@ namespace AR_Project.MainGame.UI
     {
         public static PrizeButtons instance;
 
+        List<Button> answersButtons;
+
         public Button immediatePrizeButton;
         public Button secondPrizeButton;
         public Image firstButtonImage;
@@ -33,25 +35,10 @@ namespace AR_Project.MainGame.UI
             secondPrizeButton.interactable = false;
         }
 
-        IEnumerator TimerSecondPrizeButton()
-        {
-            Debug.Log("Timer Second Prize!!!");
-            Debug.Log("Wait for " + timerSecondPrize);
-            secondPrizeButton.interactable = false;
-            yield return new WaitForSeconds(timerSecondPrize);
-            Debug.Log("!!! Waited for " + timerSecondPrize);
-            secondPrizeButton.interactable = true;
-        }
-
         public void ReleaseSecondButton()
         {
             Debug.Log("released second button");
             secondPrizeButton.interactable = true;
-        }
-
-        public void StopTimer()
-        {
-            StopCoroutine(TimerSecondPrizeButton());
         }
 
         public void ClickedOnImmediatePrize()
