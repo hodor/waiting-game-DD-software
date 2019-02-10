@@ -5,292 +5,292 @@
         //valor em moedas do prêmio imediato
         "valorPremioImediato": 100,
         //pontuação ao escolher o prêmio imediato
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 100,
         //valor em moedas do segundo prêmio 
         "valorSegundoPremio": 1000,
         //tempo em segundos do segundo prêmio
         "tempoSegundoPremio": 15,
         //pontuação ao escolher o segundo prêmio
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": false,
         "valorPremioImediato": 300,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 300,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 30,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": true,
         "valorPremioImediato": 300,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 300,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 15,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": true,
         "valorPremioImediato": 100,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 100,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 7,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": true,
         "valorPremioImediato": 700,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 700,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 60,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": false,
         "valorPremioImediato": 700,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 700,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 15,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": false,
         "valorPremioImediato": 100,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 100,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 7,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": true,
         "valorPremioImediato": 300,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 300,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 7,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": true,
         "valorPremioImediato": 300,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 300,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 60,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": false,
         "valorPremioImediato": 700,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 700,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 7,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": true,
         "valorPremioImediato": 700,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 700,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 15,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": false,
         "valorPremioImediato": 100,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 100,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 30,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": false,
         "valorPremioImediato": 100,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 100,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 60,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": true,
         "valorPremioImediato": 700,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 700,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 60,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": false,
         "valorPremioImediato": 700,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 700,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 15,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": false,
         "valorPremioImediato": 300,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 300,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 60,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": false,
         "valorPremioImediato": 100,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 100,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 30,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": true,
         "valorPremioImediato": 300,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 300,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 15,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": true,
         "valorPremioImediato": 100,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 100,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 60,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": true,
         "valorPremioImediato": 300,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 300,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 30,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": false,
         "valorPremioImediato": 700,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 700,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 60,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": true,
         "valorPremioImediato": 700,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 700,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 30,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": false,
         "valorPremioImediato": 300,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 300,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 7,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": true,
         "valorPremioImediato": 300,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 300,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 60,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": true,
         "valorPremioImediato": 700,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 700,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 7,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": true,
         "valorPremioImediato": 100,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 100,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 7,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": false,
         "valorPremioImediato": 100,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 100,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 30,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": false,
         "valorPremioImediato": 300,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 300,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 30,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": false,
         "valorPremioImediato": 100,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 100,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 60,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": true,
         "valorPremioImediato": 700,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 700,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 30,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": true,
         "valorPremioImediato": 100,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 100,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 15,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": true,
         "valorPremioImediato": 700,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 700,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 30,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": false,
         "valorPremioImediato": 100,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 100,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 15,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": false,
         "valorPremioImediato": 700,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 700,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 7,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": true,
         "valorPremioImediato": 700,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 700,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 7,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     },
     {
         "maiorPremioEstaNoBotaoDireito": true,
         "valorPremioImediato": 300,
-        "pontuacaoPremioImediato": 10,
+        "pontuacaoPremioImediato": 300,
         "valorSegundoPremio": 1000,
         "tempoSegundoPremio": 15,
-        "pontuacaoSegundoPremio": 100
+        "pontuacaoSegundoPremio": 1000
     }]
   }

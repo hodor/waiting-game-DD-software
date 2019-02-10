@@ -33,7 +33,8 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             currentExperiments = experiments;
             finishLine = finishLineObj;
             isFakeExperiment = fake;
-            totalPoints.text = "Pontos: 0";
+            //totalPoints.text = "Pontos: 0";
+            totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.totalPoints;
         }
 
         public void UpdateTotalPoints()

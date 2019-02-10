@@ -2,33 +2,105 @@
 {
   "EnsaiosFicticios": [
     {
-      "maiorPremioEstaNoBotaoDireito": true,
+      "maiorPremioEstaNoBotaoDireito": false,
       //valor em moedas do prêmio imediato
-      "valorPremioImediato": 100,
+      "valorPremioImediato": 700,
       //pontuação ao escolher o prêmio imediato
-      "pontuacaoPremioImediato": 30,
+      "pontuacaoPremioImediato": 700,
       //valor em moedas do segundo prêmio
-      "valorSegundoPremio": 300,
+      "valorSegundoPremio": 1000,
       //tempo em segundos do segundo prêmio
-      "tempoSegundoPremio": 7,
+      "tempoSegundoPremio": 15,
       //pontuação ao escolher o segundo prêmio
-      "pontuacaoSegundoPremio": 30
+      "pontuacaoSegundoPremio": 1000
+    },
+    {
+      "maiorPremioEstaNoBotaoDireito": true,
+      "valorPremioImediato": 100,
+      "pontuacaoPremioImediato": 100,
+      "valorSegundoPremio": 1000,
+      "tempoSegundoPremio": 60,
+      "pontuacaoSegundoPremio": 1000
+    },
+    {
+      "maiorPremioEstaNoBotaoDireito": false,
+      "valorPremioImediato": 300,
+      "pontuacaoPremioImediato": 300,
+      "valorSegundoPremio": 1000,
+      "tempoSegundoPremio": 7,
+      "pontuacaoSegundoPremio": 1000
+    },
+    {
+      "maiorPremioEstaNoBotaoDireito": true,
+      "valorPremioImediato": 100,
+      "pontuacaoPremioImediato": 100,
+      "valorSegundoPremio": 1000,
+      "tempoSegundoPremio": 30,
+      "pontuacaoSegundoPremio": 1000
     },
     {
       "maiorPremioEstaNoBotaoDireito": false,
       "valorPremioImediato": 700,
-      "pontuacaoPremioImediato": 30,
+      "pontuacaoPremioImediato": 700,
       "valorSegundoPremio": 1000,
       "tempoSegundoPremio": 15,
-      "pontuacaoSegundoPremio": 500
+      "pontuacaoSegundoPremio": 1000
+    },
+    {
+      "maiorPremioEstaNoBotaoDireito": false,
+      "valorPremioImediato": 100,
+      "pontuacaoPremioImediato": 100,
+      "valorSegundoPremio": 1000,
+      "tempoSegundoPremio": 7,
+      "pontuacaoSegundoPremio": 1000
     },
     {
       "maiorPremioEstaNoBotaoDireito": true,
       "valorPremioImediato": 100,
-      "pontuacaoPremioImediato": 10,
+      "pontuacaoPremioImediato": 100,
       "valorSegundoPremio": 1000,
       "tempoSegundoPremio": 60,
-      "pontuacaoSegundoPremio": 100
+      "pontuacaoSegundoPremio": 1000
+    },
+    {
+      "maiorPremioEstaNoBotaoDireito": true,
+      "valorPremioImediato": 100,
+      "pontuacaoPremioImediato": 100,
+      "valorSegundoPremio": 1000,
+      "tempoSegundoPremio": 7,
+      "pontuacaoSegundoPremio": 1000
+    },
+    {
+      "maiorPremioEstaNoBotaoDireito": false,
+      "valorPremioImediato": 100,
+      "pontuacaoPremioImediato": 100,
+      "valorSegundoPremio": 1000,
+      "tempoSegundoPremio": 15,
+      "pontuacaoSegundoPremio": 1000
+    },
+    {
+      "maiorPremioEstaNoBotaoDireito": false,
+      "valorPremioImediato": 700,
+      "pontuacaoPremioImediato": 700,
+      "valorSegundoPremio": 1000,
+      "tempoSegundoPremio": 30,
+      "pontuacaoSegundoPremio": 1000
+    },
+    {
+      "maiorPremioEstaNoBotaoDireito": true,
+      "valorPremioImediato": 700,
+      "pontuacaoPremioImediato": 700,
+      "valorSegundoPremio": 1000,
+      "tempoSegundoPremio": 7,
+      "pontuacaoSegundoPremio": 1000
+    },
+    {
+      "maiorPremioEstaNoBotaoDireito": true,
+      "valorPremioImediato": 300,
+      "pontuacaoPremioImediato": 300,
+      "valorSegundoPremio": 1000,
+      "tempoSegundoPremio": 15,
+      "pontuacaoSegundoPremio": 1000
     }
   ]
 }
