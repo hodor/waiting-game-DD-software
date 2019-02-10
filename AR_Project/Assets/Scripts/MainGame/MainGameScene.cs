@@ -62,6 +62,19 @@ namespace AR_Project.MainGame
             teachTimer.StartTutorial(prefabChar, finishLine);
         }
 
+        public void ComeBackFromTutorial()
+        {
+            var hasDoneFakeFirst = PlayerPrefsSaver.instance.hasDoneFakeFirst;
+            if (hasDoneFakeFirst)
+            {
+                SetUIRealExperiment();
+                PlayerPrefsSaver.instance.isFirstExperiment = true;
+            }else{
+                SetUIFakeExperiment();
+                PlayerPrefsSaver.instance.isFirstExperiment = true;
+            }
+
+        }
         // ----- Fake Experiments -------- //
         public void SetUIFakeExperiment()
         {

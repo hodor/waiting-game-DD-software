@@ -12,6 +12,7 @@ namespace AR_Project.DataClasses.MainData
         public Config config;
         public RealExperiments realExperiments;
         public FakeExperiments fakeExperiments;
+        public ContentConfig content;
 
 
         void Awake()
@@ -28,6 +29,9 @@ namespace AR_Project.DataClasses.MainData
             config = JsonReader.ReadGameConfig();
             realExperiments = JsonReader.ReadRealExperiments();
             fakeExperiments = JsonReader.ReadFakeExperiments();
+            content = JsonReader.ReadContentConfig();
+
+            Debug.Log("content introduction text: " + content.titleIntroduction);
 
         }
        

@@ -1,0 +1,10 @@
+{   
+
+        //Tempo em segundos das pistas dos ensaios
+        "tituloTelaDeCadastro" : "",
+        "tituloTelaDeIntroducao": "Olá! Nesse jogo queremos saber quanto tempo você está disposto a esperar para acumular mais pontos. Mais pontos dão direito a prêmios melhores.",
+        "tituloTelaDeApresentacaoDeRecompensa": "Opções de pontos",
+        "tituloTelaDePersonagem": "Escolha seu avatar",
+        "tituloTelaDeApresentacaoDosTempos":  "Conheça os tempos",
+        "tituloTelaDeTreino":  "Vamos treinar"
+}

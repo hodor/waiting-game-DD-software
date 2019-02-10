@@ -231,7 +231,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 376185816}
-        m_MethodName: ClickedOnQuit
+        m_MethodName: ClickedOnRestartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -516,7 +516,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Fechar o jogo
+  m_Text: Reiniciar o jogo
 --- !u!222 &931679000
 CanvasRenderer:
   m_ObjectHideFlags: 0

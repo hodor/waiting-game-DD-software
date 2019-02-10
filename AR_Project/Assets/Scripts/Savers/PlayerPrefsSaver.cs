@@ -12,6 +12,8 @@ namespace AR_Project.Savers
         public GameObject character;
         public int totalPoints;
         public List<string> keysPhases;
+        public bool hasDoneFakeFirst;
+        public bool isFirstExperiment;
 
 
         void Awake()

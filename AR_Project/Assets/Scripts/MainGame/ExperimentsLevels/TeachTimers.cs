@@ -35,7 +35,7 @@ namespace AR_Project.MainGame
             }
             CleanScene();
             var mainGameScene = gameObject.GetComponent<MainGameScene>();
-            mainGameScene.SetUIFakeExperiment();
+            mainGameScene.ComeBackFromTutorial();
 
         }
         void Respawn(int timer)

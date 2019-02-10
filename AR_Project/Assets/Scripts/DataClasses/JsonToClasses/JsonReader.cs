@@ -76,5 +76,24 @@ namespace AR_Project.DataClasses.JsonToClasses
             return JsonConvert.DeserializeObject<FakeExperiments>(outputJson);
         }
 
+        public static ContentConfig ReadContentConfig()
+        {
+#if UNITY_EDITOR
+            var path = "./Assets/Resources/ConfigJsons/configuracoesDeTexto.json";
+#elif PLATFORM_STANDALONE_WIN
+            var path = Application.dataPath + "./Data/ConfigJsons/configuracoesDeTexto.json";
+#endif
+
+            string outputJson = "";
+
+            if (!File.Exists(path))
+                return null;
+
+            outputJson = File.ReadAllText(path);
+            return JsonConvert.DeserializeObject<ContentConfig>(outputJson);
+        }
+
+
+
     }
 }

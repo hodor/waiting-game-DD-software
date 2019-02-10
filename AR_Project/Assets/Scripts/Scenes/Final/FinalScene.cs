@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using AR_Project.DataClasses.MainData;
 using AR_Project.Savers;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace AR_Project.Scenes.Final
@@ -21,10 +22,21 @@ namespace AR_Project.Scenes.Final
             csv.SaveCSV();
         }
 
-        public void ClickedOnQuit()
+        public void ClickedOnRestartGame()
         {
-            Debug.Log("Quit Game...");
-            Application.Quit();
+            Debug.Log("Restart Game...");
+            ResetGame();
+            SceneManager.LoadScene("Registration");
+        }
+
+        void ResetGame()
+        {
+            PlayerPrefsSaver.instance.name = "";
+            PlayerPrefsSaver.instance.birthday = "";
+            PlayerPrefsSaver.instance.gender = "";
+            PlayerPrefsSaver.instance.character = null;
+            PlayerPrefsSaver.instance.totalPoints = 0;
+
         }
 
     }
