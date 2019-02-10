@@ -31,6 +31,10 @@ namespace AR_Project.MainGame
         public GameObject TimerLabels;
         public GameObject ButtonsUI;
 
+        public Text tutorialTitle;
+        public Text fakeExperimentTitle;
+        public Text realExperimentTitle;
+
 
         // Use this for initialization
         void Start()
@@ -43,6 +47,7 @@ namespace AR_Project.MainGame
         public void SetTutorialUI()
         {
             backgroundImg.sprite = bgTutorial;
+            tutorialTitle.text = MainData.instanceData.content.titleTimeInstructions;
             tutorialUI.SetActive(true);
             ToggleGameUIObjects(false);
         }
@@ -78,6 +83,7 @@ namespace AR_Project.MainGame
         // ----- Fake Experiments -------- //
         public void SetUIFakeExperiment()
         {
+            fakeExperimentTitle.text = MainData.instanceData.content.titleFakeExperiment;
             backgroundImg.sprite = bgExperiments;
             ToggleGameUIObjects(false);
             fakeExperimentUI.SetActive(true);
@@ -101,6 +107,7 @@ namespace AR_Project.MainGame
         // ----- Real Experiments -------- //
         public void SetUIRealExperiment()
         {
+            realExperimentTitle.text = MainData.instanceData.content.titleRealExperiment;
             backgroundImg.sprite = bgExperiments;
             ToggleGameUIObjects(false);
             realExperimentUI.SetActive(true);

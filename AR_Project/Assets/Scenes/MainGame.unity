@@ -1705,6 +1705,9 @@ MonoBehaviour:
   GameObjects: {fileID: 1454881459}
   TimerLabels: {fileID: 841604896}
   ButtonsUI: {fileID: 948084726}
+  tutorialTitle: {fileID: 2076807692}
+  fakeExperimentTitle: {fileID: 1312780713}
+  realExperimentTitle: {fileID: 657993969}
 --- !u!4 &608683573
 Transform:
   m_ObjectHideFlags: 0

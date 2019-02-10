@@ -25,5 +25,8 @@ namespace AR_Project.DataClasses
         [JsonProperty(PropertyName = "tituloTelaDeTreino")]
         public string titleFakeExperiment;
 
+        [JsonProperty(PropertyName = "tituloExperimentoReal")]
+        public string titleRealExperiment;
+
     }
 }

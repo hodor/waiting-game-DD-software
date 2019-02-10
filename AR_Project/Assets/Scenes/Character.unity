@@ -543,6 +543,7 @@ MonoBehaviour:
   charBigImage: {fileID: 75976865}
   leftButton: {fileID: 772936639}
   rightButton: {fileID: 772936639}
+  title: {fileID: 2034384977}
 --- !u!4 &908792921
 Transform:
   m_ObjectHideFlags: 0

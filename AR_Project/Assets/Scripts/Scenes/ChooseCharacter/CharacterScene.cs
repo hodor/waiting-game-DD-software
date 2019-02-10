@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using AR_Project.DataClasses.MainData;
 using AR_Project.Savers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,12 +14,14 @@ namespace AR_Project.Scenes.ChooseCharacter
         public List<Sprite> characterBigImage;
         public Image charBigImage;
         public Button leftButton, rightButton;
+        public Text title;
 
         int currentIndex = 0;
 
         // Use this for initialization
         void Start()
         {
+            title.text = MainData.instanceData.content.titleCharacter;
             leftButton.enabled = false;
             UpdateScene(characterBigImage[currentIndex]);
         }
