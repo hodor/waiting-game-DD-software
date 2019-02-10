@@ -28,7 +28,6 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
         {
             currentExperiments = new List<Experiment>();
             goList = new List<GameObject>();
-            //TODO: Remove prefab second prize, we will get it dinamically later
             prefabReward = prefabSecondPrize;
             currentExperiments = experiments;
             finishLine = finishLineObj;

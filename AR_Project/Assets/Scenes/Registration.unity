@@ -157,6 +157,9 @@ MonoBehaviour:
   gender: 
   character: {fileID: 0}
   totalPoints: 0
+  keysPhases: []
+  hasDoneFakeFirst: 0
+  isFirstExperiment: 0
 --- !u!4 &7139333
 Transform:
   m_ObjectHideFlags: 0

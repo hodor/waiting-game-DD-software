@@ -20,6 +20,9 @@ namespace AR_Project.MainGame.UI
 
         public Button leftButton, rightButton;
 
+        public AudioSource audioSource;
+        public AudioClip buttonSoud;
+
 
 
         public List<Sprite> prizeImages;
@@ -76,6 +79,8 @@ namespace AR_Project.MainGame.UI
                 ClickedOnImmediatePrize();
             else
                 ClickedOnSecondPrize();
+
+            PlaySound();
         }
 
         public void ClickedOnRightButton()
@@ -86,6 +91,13 @@ namespace AR_Project.MainGame.UI
                 ClickedOnSecondPrize();
             else
                 ClickedOnImmediatePrize();
+
+            PlaySound();
+        }
+
+        void PlaySound()
+        {
+            audioSource.PlayOneShot(buttonSoud);
         }
 
         public void ClickedOnImmediatePrize()
