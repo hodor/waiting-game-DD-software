@@ -40,6 +40,16 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
         public void UpdateTotalPoints()
         {
             totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.totalPoints.ToString();
+            //totalPoints.GetComponent<Animator>().Play("ScoreAnimation");
+            StartCoroutine("BlinkAnimationPoints");
+
+        }
+
+        IEnumerator BlinkAnimationPoints()
+        {
+            totalPoints.color = Color.yellow;
+            yield return new WaitForSeconds(0.5f);
+            totalPoints.color = Color.black;
         }
 
         public void StartExperiment()
