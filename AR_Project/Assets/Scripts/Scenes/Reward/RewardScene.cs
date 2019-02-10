@@ -11,9 +11,11 @@ namespace AR_Project.Scenes.Reward
     {
 
         public Text[] rewardsText;
+        public Text title;
 
         void Start()
         {
+            title.text = MainData.instanceData.content.titleRewards;
             SetRewards();
         }
 
@@ -24,7 +26,7 @@ namespace AR_Project.Scenes.Reward
                 Debug.Log("reward value: " + r.value);
 
             for (int i = 0; i < rewards.Count; i++)
-            rewardsText[i].text = rewards[i].value + " moedas";
+            rewardsText[i].text = rewards[i].value + " Pts";
 
         }
 
