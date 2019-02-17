@@ -62,8 +62,13 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
         void DoExperimentPhase()
         {
             var prizeButtons = gameObject.GetComponent<PrizeButtons>();
-            var immediateButtonText = currentPhase.immediatePrizeValue + " moedas";
-            var secondButtonText = currentPhase.secondPrizeValue + " moedas";
+            var prizeLabels = gameObject.GetComponent<PrizesHandler>();
+
+            var immediateButtonText = currentPhase.immediatePrizeValue + " pontos em 0 segundos";
+            var secondButtonText = currentPhase.secondPrizeValue + " pontos em " 
+            + currentPhase.secondPrizeTimer + " s";
+
+            prizeLabels.SetPrizesLabelsByValues(currentPhase.immediatePrizeValue, currentPhase.secondPrizeValue);
 
             Debug.Log("Experiment phase. Second timer is: " + currentPhase.secondPrizeTimer);
             if (currentPhase.isSecondPrizeAtRightButton)
