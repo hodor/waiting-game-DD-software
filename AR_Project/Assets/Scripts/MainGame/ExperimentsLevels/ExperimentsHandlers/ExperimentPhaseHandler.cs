@@ -142,6 +142,8 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
 
         public void CallbackFromUIButtons(bool immediatePrizeClicked)
         {
+            PrizeButtons.instance.ToggleButtons(false);
+
             if (immediatePrizeClicked)
             {
                 RespawnImmediatePrize();
@@ -166,6 +168,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
         {   
             CleanScenario();
             NextPhase();
+            PrizeButtons.instance.ToggleButtons(true);
         }
 
         void CleanScenario()

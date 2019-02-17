@@ -49,6 +49,18 @@ namespace AR_Project.MainGame.UI
             secondButtonImage.sprite = GetPrizeImage(value);
         }
 
+        public void ToggleButtons(bool avaiable)
+        {
+            if (avaiable)
+            {
+                leftButton.interactable = true;
+                rightButton.interactable = true;
+            }else{
+                leftButton.interactable = false;
+                rightButton.interactable = false;
+            }
+        }
+
         //public void ReleaseSecondPrizeButton()
         //{
         //    ToggleLeftButtonAvaiability(true);
