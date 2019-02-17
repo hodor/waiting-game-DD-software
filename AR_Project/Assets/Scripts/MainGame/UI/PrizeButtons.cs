@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace AR_Project.MainGame.UI
 {
-    public class PrizeButtons: MonoBehaviour
+    public class PrizeButtons : MonoBehaviour
     {
         public static PrizeButtons instance;
 
@@ -49,27 +49,27 @@ namespace AR_Project.MainGame.UI
             secondButtonImage.sprite = GetPrizeImage(value);
         }
 
-        public void ReleaseSecondPrizeButton()
-        {
-            ToggleLeftButtonAvaiability(true);
-            ToggleRightButtonAvaiability(true);
-        }
+        //public void ReleaseSecondPrizeButton()
+        //{
+        //    ToggleLeftButtonAvaiability(true);
+        //    ToggleRightButtonAvaiability(true);
+        //}
 
-        public void ToggleLeftButtonAvaiability(bool avaiable)
-        {
-            if(avaiable)
-                leftButton.interactable = true;
-            else
-                leftButton.interactable = false;
-        }
+        //public void ToggleLeftButtonAvaiability(bool avaiable)
+        //{
+        //    if(avaiable)
+        //        leftButton.interactable = true;
+        //    else
+        //        leftButton.interactable = false;
+        //}
 
-        public void ToggleRightButtonAvaiability(bool avaiable)
-        {
-            if (avaiable)
-                rightButton.interactable = true;
-            else
-                rightButton.interactable = false;
-        }
+        //public void ToggleRightButtonAvaiability(bool avaiable)
+        //{
+        //    if (avaiable)
+        //        rightButton.interactable = true;
+        //    else
+        //        rightButton.interactable = false;
+        //}
 
         public void ClickedOnLeftButton()
         {
@@ -93,6 +93,14 @@ namespace AR_Project.MainGame.UI
                 ClickedOnImmediatePrize();
 
             PlaySound();
+        }
+
+        public void FinishedExperiment()
+        {
+            var expHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
+            var mainGameScene = gameObject.GetComponent<MainGameScene>();
+            if(mainGameScene.finishedTutorial)
+                expHandler.FinishedExperiment();
         }
 
         void PlaySound()

@@ -25,14 +25,9 @@ namespace AR_Project.MainGame.Prize
 
 
             if (timer == 0)
-            {
                 StartCoroutine(MoveToPosition(this.gameObject.transform, finalDestination, 0.5f));
-                stopSecondButton = false;
-            }else
-            {
+            else
                 StartCoroutine(MoveToPosition(this.gameObject.transform, finalDestination, timer));
-                stopSecondButton = true;
-            }
 
         }
 
@@ -47,11 +42,8 @@ namespace AR_Project.MainGame.Prize
                 yield return null;
             }
             animator.SetBool("stoped", true);
-
-            if (stopSecondButton)
-                PrizeButtons.instance.ReleaseSecondPrizeButton();
-
-            }
+            PrizeButtons.instance.FinishedExperiment();
+        }
 
     }
 

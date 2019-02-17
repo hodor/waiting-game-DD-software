@@ -35,6 +35,7 @@ namespace AR_Project.MainGame
         public Text fakeExperimentTitle;
         public Text realExperimentTitle;
 
+        public bool finishedTutorial;
 
         // Use this for initialization
         void Start()
@@ -79,7 +80,10 @@ namespace AR_Project.MainGame
                 PlayerPrefsSaver.instance.isFirstExperiment = true;
             }
 
+            finishedTutorial = true;
+
         }
+
         // ----- Fake Experiments -------- //
         public void SetUIFakeExperiment()
         {

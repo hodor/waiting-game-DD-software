@@ -70,20 +70,12 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             {
                 prizeButtons.SetRightButton(secondButtonText, currentPhase.secondPrizeValue);
                 prizeButtons.SetLeftButton(immediateButtonText, currentPhase.immediatePrizeValue);
-                prizeButtons.ToggleRightButtonAvaiability(false);
-                prizeButtons.ToggleLeftButtonAvaiability(true);
             }
             else 
             {
                 prizeButtons.SetLeftButton(secondButtonText, currentPhase.secondPrizeValue);
                 prizeButtons.SetRightButton(immediateButtonText, currentPhase.immediatePrizeValue);
-                prizeButtons.ToggleRightButtonAvaiability(true);
-                prizeButtons.ToggleLeftButtonAvaiability(false);
             }
-
-            RespawnSecondPrize();
-            RespawnImmediatePrize();
-         
 
         }
 
@@ -95,7 +87,6 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
                 return false;
         }
 
-        //na logica dos botoes de premio, chamar essa função
         void NextPhase()
         {
             if (dataHandler.CheckIfThereIsMoreExperiments())
@@ -138,7 +129,6 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             var respawn = respawnsScript.GetRespawnByPosition(0);
             var slider = gameObject.GetComponent<SlidersHandler>();
 
-            //TODO: pegar o prefab de acordo com o experimento atual
             immediatePrize = (GameObject)Instantiate(prefabReward);
             immediatePrize.SetActive(true);
             immediatePrize.transform.position = respawn.transform.position;
@@ -152,19 +142,28 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
 
         public void CallbackFromUIButtons(bool immediatePrizeClicked)
         {
-            //TODO: Add pontuação no playerprefs de acordo com a fase e o experimento
-            if(immediatePrizeClicked)
+            if (immediatePrizeClicked)
             {
+                RespawnImmediatePrize();
                 var points = currentPhase.immediatePrizePoints;
                 var key = "Fase " + dataHandler.GetExperimentIndex() + " do experimento";
                 PlayerPrefsSaver.instance.AddExperimentPoints(key, points);
-            }else
-            {
+                UpdateTotalPoints();
+                //call animation for the first buttin
+            }
+            else{
+                //call animation fro the second btn
+                RespawnSecondPrize();
                 var points = currentPhase.secondPrizePoints;
                 var key = "Fase " + dataHandler.GetExperimentIndex() + " do experimento";
                 PlayerPrefsSaver.instance.AddExperimentPoints(key, points);
+                UpdateTotalPoints();
             }
-            UpdateTotalPoints();
+
+        }
+
+        public void FinishedExperiment() 
+        {   
             CleanScenario();
             NextPhase();
         }
