@@ -24,11 +24,14 @@ namespace AR_Project.Scenes.Registration
 
         public Button boyToggleBtn;
         public Button girlToggleBtn;
+        public Button otherToggleBtn;
 
         public Sprite boyOn, boyOff;
         public Sprite girlOn, girlOff;
+        public Sprite otherOn, otherOff;
 
         public bool isGirl = true;
+        public bool isOther = false;
         bool clickedOnGender = false;
 
 
@@ -49,16 +52,29 @@ namespace AR_Project.Scenes.Registration
         {
             clickedOnGender = true;
             isGirl = true;
+            isOther = false;
             boyToggleBtn.GetComponent<Image>().sprite = boyOff;
             girlToggleBtn.GetComponent<Image>().sprite = girlOn;
+            otherToggleBtn.GetComponent<Image>().sprite = otherOff;
         }
 
         public void OnClickedButtonBoy()
         {
             clickedOnGender = true;
             isGirl = false;
+            isOther = false;
             girlToggleBtn.GetComponent<Image>().sprite = girlOff;
             boyToggleBtn.GetComponent<Image>().sprite = boyOn;
+            otherToggleBtn.GetComponent<Image>().sprite = otherOff;
+        }
+        public void OnClickedButtonOther()
+        {
+            clickedOnGender = true;
+            isGirl = false;
+            isOther = true;
+            otherToggleBtn.GetComponent<Image>().sprite = otherOn;
+            girlToggleBtn.GetComponent<Image>().sprite = girlOff;
+            boyToggleBtn.GetComponent<Image>().sprite = boyOff;
         }
 
         void GetAllInformation()
