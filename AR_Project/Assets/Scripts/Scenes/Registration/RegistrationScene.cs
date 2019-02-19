@@ -83,8 +83,10 @@ namespace AR_Project.Scenes.Registration
             string[] bday = { birthDay.text, birthMonth.text, birthYear.text };
             string bd = string.Join("/", bday);
             string gender = "menina";
-            if (!isGirl)
+            if (!isGirl && !isOther)
                 gender = "menino";
+            else
+                gender = "outro";
 
             PlayerPrefsSaver.instance.name = name;
             PlayerPrefsSaver.instance.birthday = bd;
