@@ -36,6 +36,24 @@ namespace AR_Project.MainGame.UI
 
         }
 
+        public void DisableOtherSliders(int firstTimeToFill, int secondTimeToFill)
+        {
+            var timers = MainData.instanceData.config.gameSettings.timeLanes;
+            for (int i = 0; i < timers.Length; i++)
+            {
+                if (timers[i] != firstTimeToFill && timers[i] != secondTimeToFill)
+                    sliders[i].SetActive(false);
+                else
+                    sliders[i].SetActive(true);
+            }
+        }
+
+        public void EnableAllSliders()
+        {
+            foreach (var slider in sliders)
+                slider.SetActive(true); 
+        }
+
         public void ResetSliders()
         {
             foreach (var slider in sliders)

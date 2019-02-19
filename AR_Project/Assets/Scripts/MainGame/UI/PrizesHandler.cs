@@ -10,28 +10,27 @@ namespace AR_Project.MainGame.UI
     {
         public List<Text> prizesLabels;
 
-        public void SetPrizesLabelsByValues (int firstValue, int secondValue)
+        public void SetPrizesLabelsByTimer (int firstTimer, int secondTimer, int firstPrize, int secondPrize)
         {
-            var prizes = MainData.instanceData.prizes.prizes;
+            var timers = MainData.instanceData.config.gameSettings.timeLanes;
 
             foreach (var prizeLabel in prizesLabels)
                 prizeLabel.text = "";
-
-
-            for (int i=0; i< prizes.Count; i++)
+                
+            for (int i=0; i< timers.Length; i++)
             {
-                if(prizes[i].value == firstValue)
+                if(timers[i] == firstTimer)
                 {
-                    prizesLabels[i].text = firstValue + " pts";
-                }
-                if(prizes[i].value == secondValue)
+                    prizesLabels[i].text = firstPrize + " pts";
+
+                }else if(timers[i] == secondTimer)
                 {
-                    prizesLabels[i].text = secondValue + " pts";
-                }
-                if (prizes[i].value != firstValue && prizes[i].value != secondValue)
+                    prizesLabels[i].text = secondPrize + " pts";
+                }else
                 {
                     prizesLabels[i].text = "";
                 }
+
             }
 
         }
