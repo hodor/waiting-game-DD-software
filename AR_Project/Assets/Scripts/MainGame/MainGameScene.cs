@@ -149,13 +149,17 @@ namespace AR_Project.MainGame
                 TimerLabels.SetActive(true);
                 SliderLanes.SetActive(true);
                 pointsUI.SetActive(true);
-            }else
+                prizeLabels.SetActive(true);
+
+            }
+            else
             {
                 ButtonsUI.SetActive(false);
                 GameObjects.SetActive(false);
                 TimerLabels.SetActive(false);
                 SliderLanes.SetActive(false);
                 pointsUI.SetActive(false);
+                prizeLabels.SetActive(false);
             }
 
         }

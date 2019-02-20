@@ -2192,8 +2192,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 397.8, y: 136.3}
+  m_AnchoredPosition: {x: 0.0000076293945, y: 8.9}
+  m_SizeDelta: {x: 475.7, y: 270.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &657993969
 MonoBehaviour:
@@ -2216,18 +2216,19 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 77fd96910b0514987bc076fb836c7cbd, type: 3}
-    m_FontSize: 30
+    m_FontSize: 35
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 3
-    m_MaxSize: 40
+    m_MaxSize: 300
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Agora \xE9 para valer. No final do experimento voc\xEA vai ganhar a recompensa!"
+  m_Text: "JOGO REAL\n\nAgora \xE9 para valer. No final do experimento voc\xEA vai
+    ganhar a recompensa!\n\nNessa tarefa voc\xEA GANHAR\xC1 um pr\xEAmio REAL!\n"
 --- !u!222 &657993970
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2268,7 +2269,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000038146973, y: -63}
+  m_AnchoredPosition: {x: 0.0000038146973, y: -123}
   m_SizeDelta: {x: 257.4, y: 48.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &677806862
@@ -3616,7 +3617,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.8999023, y: -2.3999634}
+  m_AnchoredPosition: {x: 4.8999023, y: -2.3999023}
   m_SizeDelta: {x: 113, y: 34.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1015828112
@@ -4256,8 +4257,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 397.8, y: 136.3}
+  m_AnchoredPosition: {x: 0.0000076293945, y: 10.7}
+  m_SizeDelta: {x: 475.7, y: 274.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1312780713
 MonoBehaviour:
@@ -4280,18 +4281,20 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 77fd96910b0514987bc076fb836c7cbd, type: 3}
-    m_FontSize: 30
+    m_FontSize: 35
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 3
-    m_MaxSize: 40
+    m_MaxSize: 300
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Vamos come\xE7ar? Agora n\xE3o est\xE1 valendo nada. \xC9 s\xF3 para treinar!"
+  m_Text: "JOGO IMAGIN\xC1RIO\n\nVamos come\xE7ar? Agora n\xE3o est\xE1 valendo nada.
+    \xC9 s\xF3 para treinar!\n\nNessa tarefa voc\xEA N\xC3O ganhar\xE1 um pr\xEAmio
+    REAL"
 --- !u!222 &1312780714
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5798,7 +5801,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000038146973, y: -63}
+  m_AnchoredPosition: {x: 0.0000038146973, y: -123}
   m_SizeDelta: {x: 257.4, y: 48.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1817111132
