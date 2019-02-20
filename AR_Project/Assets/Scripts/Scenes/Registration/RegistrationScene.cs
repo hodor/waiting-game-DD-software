@@ -11,7 +11,7 @@ namespace AR_Project.Scenes.Registration
 {
     public class RegistrationScene : MonoBehaviour
     {
-
+        public InputField name, bday, bmonth, byear;
         public Text username;
 
         public Text birthDay;
@@ -35,6 +35,13 @@ namespace AR_Project.Scenes.Registration
         bool clickedOnGender = false;
 
 
+        private void Start()
+        {
+            name.characterLimit = 30;
+            bday.characterLimit = 2;
+            bmonth.characterLimit = 2;
+            byear.characterLimit = 4;
+        }
         private void Update()
         {
             if(clickedOnGender == true && birthDay.text != null && 
