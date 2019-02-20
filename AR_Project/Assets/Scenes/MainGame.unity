@@ -2220,15 +2220,16 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 3
-    m_MaxSize: 300
+    m_MaxSize: 35
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "JOGO REAL\n\nAgora \xE9 para valer. No final do experimento voc\xEA vai
-    ganhar a recompensa!\n\nNessa tarefa voc\xEA GANHAR\xC1 um pr\xEAmio REAL!\n"
+  m_Text: "JOGO REAL                                      Agora \xE9 para valer. No
+    final do experimento voc\xEA vai ganhar a recompensa! Nessa tarefa voc\xEA GANHAR\xC1
+    um pr\xEAmio REAL!"
 --- !u!222 &657993970
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4285,16 +4286,16 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 3
-    m_MaxSize: 300
+    m_MaxSize: 35
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "JOGO IMAGIN\xC1RIO\n\nVamos come\xE7ar? Agora n\xE3o est\xE1 valendo nada.
-    \xC9 s\xF3 para treinar!\n\nNessa tarefa voc\xEA N\xC3O ganhar\xE1 um pr\xEAmio
-    REAL"
+  m_Text: "JOGO IMAGIN\xC1RIO                                      Vamos come\xE7ar?
+    \ Agora n\xE3o est\xE1 valendo nada. \xC9 s\xF3 para treinar! Nessa tarefa voc\xEA
+    N\xC3O ganhar\xE1 um pr\xEAmio REAL"
 --- !u!222 &1312780714
 CanvasRenderer:
   m_ObjectHideFlags: 0
