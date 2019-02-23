@@ -28,8 +28,7 @@ namespace AR_Project.MainGame
         public Sprite bgTutorial, bgExperiments;
 
         public GameObject GameObjects;
-        public GameObject TimerLabels;
-        public GameObject ButtonsUI;
+        public GameObject TimerLabels;  
 
         public GameObject prizeLabels;
 
@@ -58,7 +57,6 @@ namespace AR_Project.MainGame
         public void StartTutorial()
         {
             tutorialUI.SetActive(false);
-            ButtonsUI.SetActive(false);
             TimerLabels.SetActive(true);
             GameObjects.SetActive(true);
             SliderLanes.SetActive(true);
@@ -144,7 +142,6 @@ namespace AR_Project.MainGame
         {
             if (show)
             {
-                ButtonsUI.SetActive(true);
                 GameObjects.SetActive(true);
                 TimerLabels.SetActive(true);
                 SliderLanes.SetActive(true);
@@ -154,7 +151,7 @@ namespace AR_Project.MainGame
             }
             else
             {
-                ButtonsUI.SetActive(false);
+
                 GameObjects.SetActive(false);
                 TimerLabels.SetActive(false);
                 SliderLanes.SetActive(false);
