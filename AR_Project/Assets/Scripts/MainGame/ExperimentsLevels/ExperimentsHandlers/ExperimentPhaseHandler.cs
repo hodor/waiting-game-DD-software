@@ -75,16 +75,18 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             sliderHandler.DisableOtherSliders(0, currentPhase.secondPrizeTimer);
 
             Debug.Log("Experiment phase. Second timer is: " + currentPhase.secondPrizeTimer);
-            if (currentPhase.isSecondPrizeAtRightButton)
-            {
-                prizeButtons.SetRightButton(secondButtonText, currentPhase.secondPrizeValue);
-                prizeButtons.SetLeftButton(immediateButtonText, currentPhase.immediatePrizeValue);
-            }
-            else 
-            {
-                prizeButtons.SetLeftButton(secondButtonText, currentPhase.secondPrizeValue);
-                prizeButtons.SetRightButton(immediateButtonText, currentPhase.immediatePrizeValue);
-            }
+
+            prizeButtons.SetupButtons(0, currentPhase.secondPrizeTimer);
+
+            //if (currentPhase.isSecondPrizeAtRightButton)
+            //{
+
+            //}
+            //else 
+            //{
+            //    prizeButtons.SetLeftButton(secondButtonText, currentPhase.secondPrizeValue);
+            //    prizeButtons.SetRightButton(immediateButtonText, currentPhase.immediatePrizeValue);
+            //}
 
         }
 
@@ -149,11 +151,11 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             slider.SetAndStartSingleSlider(0, 0);
         }
 
-        public void CallbackFromUIButtons(bool immediatePrizeClicked)
+        public void CallbackFromUIButtons(int timerClicked)
         {
-            PrizeButtons.instance.ToggleButtons(false);
+            PrizeButtons.instance.DisableButtons();
 
-            if (immediatePrizeClicked)
+            if (timerClicked == 0)
             {
                 RespawnImmediatePrize();
                 var points = currentPhase.immediatePrizePoints;
@@ -161,9 +163,9 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
                 PlayerPrefsSaver.instance.AddExperimentPoints(key, points);
                 UpdateTotalPoints();
                 //call animation for the first buttin
-            }
-            else{
-                //call animation fro the second btn
+
+            } else if (timerClicked == currentPhase.secondPrizeTimer)
+            {
                 RespawnSecondPrize();
                 var points = currentPhase.secondPrizePoints;
                 var key = "Fase " + dataHandler.GetExperimentIndex() + " do experimento";
@@ -177,7 +179,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
         {   
             CleanScenario();
             NextPhase();
-            PrizeButtons.instance.ToggleButtons(true);
+            //PrizeButtons.instance.ToggleButtons(true);
         }
 
         void CleanScenario()
