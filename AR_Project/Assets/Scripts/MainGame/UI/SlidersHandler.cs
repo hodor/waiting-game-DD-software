@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using AR_Project.DataClasses.MainData;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace AR_Project.MainGame.UI
 {
     public class SlidersHandler : MonoBehaviour
     {
 
-        public List<GameObject> sliders;
+        public List<Slider> sliders;
+        public List<Image> slidersColors;
 
         public void SetAndStartSingleSlider(int index, float timeToFill)
         {
@@ -42,22 +44,45 @@ namespace AR_Project.MainGame.UI
             for (int i = 0; i < timers.Length; i++)
             {
                 if (timers[i] != firstTimeToFill && timers[i] != secondTimeToFill)
-                    sliders[i].SetActive(false);
+                    DisableSlider(sliders[i]);
                 else
-                    sliders[i].SetActive(true);
+                    EnableSlider(sliders[i]);
             }
+
         }
 
         public void EnableAllSliders()
         {
             foreach (var slider in sliders)
-                slider.SetActive(true); 
+                EnableSlider(slider);
         }
 
         public void ResetSliders()
         {
             foreach (var slider in sliders)
                 slider.GetComponent<RespawnSlider>().ResetSlider();
+        }
+
+        void DisableSlider(Slider slider)
+        {
+            var images = slider.GetComponentsInChildren<Image>();
+            foreach(Image image in images)
+            {
+                var tempColor = image.color;
+                tempColor.a = 0.10f;
+                image.color = tempColor;
+            }   
+        }
+
+        void EnableSlider(Slider slider)
+        {
+            var images = slider.GetComponentsInChildren<Image>();
+            foreach (Image image in images)
+            {
+                var tempColor = image.color;
+                tempColor.a = 1.0f;
+                image.color = tempColor;
+            }
         }
     }
 }

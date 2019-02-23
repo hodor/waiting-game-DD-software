@@ -55,7 +55,8 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
         {
             dataHandler = new ExperimentData(currentExperiments);
             currentPhase = dataHandler.currentExperiment();
-            Debug.Log("Current experiment second prize timer: " + currentPhase.secondPrizeTimer);
+            PlayerPrefsSaver.instance.totalPoints = 0;
+            totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.totalPoints.ToString();
             DoExperimentPhase();
 
         }
