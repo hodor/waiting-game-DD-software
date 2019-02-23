@@ -41,9 +41,10 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.totalPoints.ToString();
             //totalPoints.GetComponent<Animator>().Play("ScoreAnimation");
             StartCoroutine("BlinkAnimationPoints");
+            PrizeButtons.instance.PlaySound();
 
         }
-
+    
         IEnumerator BlinkAnimationPoints()
         {
             totalPoints.color = Color.yellow;
@@ -77,16 +78,6 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             Debug.Log("Experiment phase. Second timer is: " + currentPhase.secondPrizeTimer);
 
             prizeButtons.SetupButtons(0, currentPhase.secondPrizeTimer);
-
-            //if (currentPhase.isSecondPrizeAtRightButton)
-            //{
-
-            //}
-            //else 
-            //{
-            //    prizeButtons.SetLeftButton(secondButtonText, currentPhase.secondPrizeValue);
-            //    prizeButtons.SetRightButton(immediateButtonText, currentPhase.immediatePrizeValue);
-            //}
 
         }
 
