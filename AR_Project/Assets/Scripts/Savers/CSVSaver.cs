@@ -51,22 +51,24 @@ public class CSVSaver {
     }
     void AddUserData()
     {
-        string[] rowDataTitles = new string[5];
+        string[] rowDataTitles = new string[6];
         rowDataTitles[0] = "Nome";
         rowDataTitles[1] = "Data de nascimento";
         rowDataTitles[2] = "Gênero";
         rowDataTitles[3] = "Personagem";
         rowDataTitles[4] = "Total de pontos";
+        rowDataTitles[5] = "Imaginária primeiro";
         rowData.Add(rowDataTitles);
 
         ReadCSV();
 
-        var rowDataUser = new string[5];
+        var rowDataUser = new string[6];
         rowDataUser[0] = PlayerPrefsSaver.instance.name;
         rowDataUser[1] = PlayerPrefsSaver.instance.birthday;
         rowDataUser[2] = PlayerPrefsSaver.instance.gender;
         rowDataUser[3] = PlayerPrefsSaver.instance.character.name.ToString();
         rowDataUser[4] = PlayerPrefsSaver.instance.totalPoints.ToString();
+        rowDataTitles[5] = PlayerPrefsSaver.instance.imaginariumFirst.ToString();
         rowData.Add(rowDataUser);
     }
 
@@ -92,12 +94,13 @@ public class CSVSaver {
             {
                 string[] split = line.Split(',');
 
-                var rowDataUser = new string[5];
+                var rowDataUser = new string[6];
                 rowDataUser[0] = split[0];
                 rowDataUser[1] = split[1];
                 rowDataUser[2] = split[2];
                 rowDataUser[3] = split[3];
                 rowDataUser[4] = split[4];
+                rowDataUser[5] = split[5];
                 rowData.Add(rowDataUser);
             }
         }
