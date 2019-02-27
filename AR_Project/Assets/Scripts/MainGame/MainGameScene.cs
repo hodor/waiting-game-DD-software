@@ -251,6 +251,7 @@ namespace AR_Project.MainGame
                 if (!imaginariumFirst)
                 {
                     PlayerPrefsSaver.instance.isImaginarium = true;
+                    PlayerPrefsSaver.instance.isTraining = true;
                     SetupImaginariumExperiment();
                 }else
                 {
