@@ -2011,7 +2011,6 @@ MonoBehaviour:
   bgExperiments: {fileID: 21300000, guid: a3ddeb99ad240488b95a66f15b074945, type: 3}
   GameObjects: {fileID: 1454881459}
   TimerLabels: {fileID: 841604896}
-  ButtonsUI: {fileID: 0}
   prizeLabels: {fileID: 1459245415}
   tutorialTitle: {fileID: 2076807692}
   fakeExperimentTitle: {fileID: 1312780713}
@@ -2069,10 +2068,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e643efa05e304950b8a02d7c05d071a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstButtonImage: {fileID: 0}
-  secondButtonImage: {fileID: 0}
-  leftButton: {fileID: 0}
-  rightButton: {fileID: 0}
   audioSource: {fileID: 1120749836}
   buttonSoud: {fileID: 8300000, guid: 023722d49015d466696c051b4d9c2048, type: 3}
   laneButtons:
@@ -2081,11 +2076,6 @@ MonoBehaviour:
   - {fileID: 1932417164}
   - {fileID: 2063139046}
   - {fileID: 676213096}
-  prizeImages:
-  - {fileID: 21300000, guid: dfb9c9293aaf0434e96fe3ae0267244e, type: 3}
-  - {fileID: 21300000, guid: 909839fee3f4c49b3a8220674e6d26b1, type: 3}
-  - {fileID: 21300000, guid: 9ae5f4d90862048dcb6a7dd28d431a3c, type: 3}
-  - {fileID: 21300000, guid: a4aad8c5ebe314982a4750e4740d5e28, type: 3}
 --- !u!114 &608683577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2098,6 +2088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalPoints: {fileID: 208489576}
+  points: {fileID: 208489574}
 --- !u!114 &608683578
 MonoBehaviour:
   m_ObjectHideFlags: 0

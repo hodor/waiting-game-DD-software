@@ -13,6 +13,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
     public class ExperimentPhaseHandler : MonoBehaviour
     {
         public Text totalPoints;
+        public GameObject points;
 
         GameObject prefabReward;
         GameObject finishLine;
@@ -33,15 +34,26 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             finishLine = finishLineObj;
             isFakeExperiment = fake;
             //totalPoints.text = "Pontos: 0";
-            totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.totalPoints;
+
+            var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
+            if (isImaginarium)
+            {
+                points.SetActive(false);
+            }else
+            {
+                points.SetActive(true);
+                totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.totalPoints;
+            }
         }
 
         public void UpdateTotalPoints()
         {
-            totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.totalPoints.ToString();
-            //totalPoints.GetComponent<Animator>().Play("ScoreAnimation");
-            StartCoroutine("BlinkAnimationPoints");
-            PrizeButtons.instance.PlaySound();
+            var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
+            if (!isImaginarium)
+            {
+                totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.totalPoints.ToString();
+                StartCoroutine("BlinkAnimationPoints");
+            }
 
         }
     
@@ -99,7 +111,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             {
                 Debug.Log("Finished the game");
                 var mainGameScene = gameObject.GetComponent<MainGameScene>();
-                mainGameScene.CallbackFinishedExperiment(isFakeExperiment);
+                mainGameScene.CallbackFinishedExperiment();
             }
 
         }
@@ -153,7 +165,6 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
                 var key = "Fase " + dataHandler.GetExperimentIndex() + " do experimento";
                 PlayerPrefsSaver.instance.AddExperimentPoints(key, points);
                 UpdateTotalPoints();
-                //call animation for the first buttin
 
             } else if (timerClicked == currentPhase.secondPrizeTimer)
             {
@@ -167,7 +178,8 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
         }
 
         public void FinishedExperiment() 
-        {   
+        {
+            PrizeButtons.instance.PlaySound();
             CleanScenario();
             NextPhase();
             //PrizeButtons.instance.ToggleButtons(true);
