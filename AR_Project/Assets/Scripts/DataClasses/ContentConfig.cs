@@ -22,11 +22,17 @@ namespace AR_Project.DataClasses
         [JsonProperty(PropertyName = "tituloTelaDeApresentacaoDosTempos")]
         public string titleTimeInstructions;
 
-        [JsonProperty(PropertyName = "tituloTelaDeTreino")]
-        public string titleFakeExperiment;
+        [JsonProperty(PropertyName = "tituloTelaDeTreinoImaginaria")]
+        public string titleTrainingImaginarium;
 
-        [JsonProperty(PropertyName = "tituloExperimentoReal")]
-        public string titleRealExperiment;
+        [JsonProperty(PropertyName = "tituloExperimentoImaginario")]
+        public string titleExperimentImaginarium;
+
+        [JsonProperty(PropertyName = "tituloTelaDeTreinoNaoImaginaria")]
+        public string titleTrainingNonImaginarium;
+
+        [JsonProperty(PropertyName = "tituloExperimentoNaoImaginario")]
+        public string titleExperimentNonImaginarium;
 
     }
 }

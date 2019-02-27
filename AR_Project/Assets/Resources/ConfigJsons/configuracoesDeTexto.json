@@ -6,6 +6,8 @@
         "tituloTelaDeApresentacaoDeRecompensa": "Opções de pontos",
         "tituloTelaDePersonagem": "Escolha seu avatar",
         "tituloTelaDeApresentacaoDosTempos": "Vamos aprender como funciona o tempo?",
-        "tituloTelaDeTreino": "JOGO IMAGINÁRIO                                      Vamos começar?  Agora não está valendo nada. É só para treinar! Nessa tarefa você NÃO ganhará um prêmio REAL",
-        "tituloExperimentoReal": "JOGO REAL                                      Agora é para valer. No final do experimento você vai ganhar a recompensa! Nessa tarefa você GANHARÁ um prêmio REAL!"
+        "tituloTelaDeTreinoImaginaria": "JOGO IMAGINÁRIO                                      Vamos Treinar!",
+        "tituloExperimentoImaginario": "JOGO IMAGINÁRIO                                      Nesse jogo você NÃO ganhará um prêmio real.",
+        "tituloTelaDeTreinoNaoImaginaria": "JOGO REAL                                      Vamos Treinar!",
+        "tituloExperimentoNaoImaginario": "JOGO REAL                                      Agora é para valer. Nessa tarefa você GANHARÁ um prêmio REAL!"
 }

@@ -131,7 +131,12 @@ namespace AR_Project.MainGame
         public void SetUIFakeExperiment()
         {
             //mudar textos
-            fakeExperimentTitle.text = MainData.instanceData.content.titleFakeExperiment;
+            var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
+            if (isImaginarium)
+                fakeExperimentTitle.text = MainData.instanceData.content.titleTrainingImaginarium;
+            else
+                fakeExperimentTitle.text = MainData.instanceData.content.titleTrainingNonImaginarium;
+
             backgroundImg.sprite = bgExperiments;
             ToggleGameUIObjects(false);
             fakeExperimentUI.SetActive(true);
@@ -157,7 +162,11 @@ namespace AR_Project.MainGame
         public void SetUIRealExperiment()
         {
             var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
-            realExperimentTitle.text = MainData.instanceData.content.titleRealExperiment;
+            if (isImaginarium)
+                realExperimentTitle.text = MainData.instanceData.content.titleExperimentImaginarium;
+            else
+                realExperimentTitle.text = MainData.instanceData.content.titleExperimentNonImaginarium;
+
             backgroundImg.sprite = bgExperiments;
             ToggleGameUIObjects(false);
 
