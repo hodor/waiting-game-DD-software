@@ -57,6 +57,7 @@ namespace AR_Project.MainGame.Prize
         void FinishedRun ()
         {
             PrizeButtons.instance.FinishedExperiment();
+            PrizeButtons.instance.AnimateTotalPointsPoints();
         }
 
     }

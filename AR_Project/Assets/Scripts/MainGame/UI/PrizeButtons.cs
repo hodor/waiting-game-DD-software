@@ -102,6 +102,7 @@ namespace AR_Project.MainGame.UI
         public void AnimateTotalPointsPoints() 
         {
             var expHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
+            PlaySound();
             expHandler.UpdateTotalPoints();
         }
 
