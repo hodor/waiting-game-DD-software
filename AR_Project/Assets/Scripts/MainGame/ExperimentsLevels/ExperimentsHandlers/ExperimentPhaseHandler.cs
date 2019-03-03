@@ -101,7 +101,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             {
                 Debug.Log("Finished the game");
                 var mainGameScene = gameObject.GetComponent<MainGameScene>();
-                mainGameScene.CallbackFinishedExperiment();
+                mainGameScene.SetFinalRoundScene();
             }
 
         }

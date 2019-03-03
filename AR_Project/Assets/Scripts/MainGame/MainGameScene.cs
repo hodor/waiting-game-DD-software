@@ -22,6 +22,9 @@ namespace AR_Project.MainGame
         public GameObject fakeExperimentUI;
         public GameObject realExperimentUI;
 
+        public GameObject finalRoundsScene;
+        public Text finalRoundText;
+
         public GameObject SliderLanes;
         public Image backgroundImg;
 
@@ -44,6 +47,24 @@ namespace AR_Project.MainGame
             prefabChar = PlayerPrefsSaver.instance.character;
             SetTutorialUI();
         }
+
+        public void SetFinalRoundScene()
+        {
+            ToggleGameUIObjects(false);
+            finalRoundsScene.SetActive(true);
+            var points = PlayerPrefsSaver.instance.totalPoints;
+            finalRoundText.text = "Parabéns, você ganhou " + points +  " pontos nessa tarefa!";
+            StartCoroutine("StartNewRound");
+        }
+
+        IEnumerator StartNewRound()
+        {
+            yield return new WaitForSeconds(2f);
+            finalRoundsScene.SetActive(false);
+            CallbackFinishedExperiment();
+
+        }
+
 
         // ----- Tutorial Timer -------- //
         public void SetTutorialUI()
