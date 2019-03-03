@@ -100,6 +100,7 @@ namespace AR_Project.MainGame
             //var imaginariumFirst = PlayerPrefsSaver.instance.imaginariumFirst;
             //var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
             if (training) {
+                PlayerPrefsSaver.instance.totalPoints = 0;
                 Debug.Log("IS TRAINING");
                 SetUIFakeExperiment();
             }else
@@ -117,6 +118,7 @@ namespace AR_Project.MainGame
             var training = PlayerPrefsSaver.instance.isTraining;
             if (training)
             {
+                PlayerPrefsSaver.instance.totalPoints = 0;
                 Debug.Log("IS TRAINING");
                 SetUIFakeExperiment();
             }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using AR_Project.MainGame.UI;
+using AR_Project.Savers;
 using UnityEngine;
 
 namespace AR_Project.MainGame.Prize
@@ -17,17 +18,25 @@ namespace AR_Project.MainGame.Prize
         public void StartMoving()
         {
             animator = GetComponent<Animator>();
+            var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
 
-            if (timer >= 10)
-                animator.SetBool("isRunning", false);
-            else
-                animator.SetBool("isRunning", true);
+            if (isImaginarium)
+            {
+                FinishedRun();
+            } else {
+
+                if (timer >= 10)
+                    animator.SetBool("isRunning", false);
+                else
+                    animator.SetBool("isRunning", true);
 
 
-            if (timer == 0)
-                StartCoroutine(MoveToPosition(this.gameObject.transform, finalDestination, 0.5f));
-            else
-                StartCoroutine(MoveToPosition(this.gameObject.transform, finalDestination, timer));
+                if (timer == 0)
+                    StartCoroutine(MoveToPosition(this.gameObject.transform, finalDestination, 0.5f));
+                else
+                    StartCoroutine(MoveToPosition(this.gameObject.transform, finalDestination, timer));
+            }
+
 
         }
 
@@ -42,6 +51,11 @@ namespace AR_Project.MainGame.Prize
                 yield return null;
             }
             animator.SetBool("stoped", true);
+            FinishedRun();
+        }
+
+        void FinishedRun ()
+        {
             PrizeButtons.instance.FinishedExperiment();
         }
 

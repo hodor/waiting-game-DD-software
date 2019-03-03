@@ -99,5 +99,11 @@ namespace AR_Project.MainGame.UI
             audioSource.PlayOneShot(buttonSoud);
         }
 
+        public void AnimateTotalPointsPoints() 
+        {
+            var expHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
+            expHandler.UpdateTotalPoints();
+        }
+
     }
 }

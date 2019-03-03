@@ -36,25 +36,15 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             //totalPoints.text = "Pontos: 0";
 
             var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
-            if (isImaginarium)
-            {
-                points.SetActive(false);
-            }else
-            {
-                points.SetActive(true);
-                totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.totalPoints;
-            }
+            points.SetActive(true);
+            totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.totalPoints;
+  
         }
 
         public void UpdateTotalPoints()
         {
-            var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
-            if (!isImaginarium)
-            {
-                totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.totalPoints.ToString();
-                StartCoroutine("BlinkAnimationPoints");
-            }
-
+            totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.totalPoints.ToString();
+            StartCoroutine("BlinkAnimationPoints");
         }
     
         IEnumerator BlinkAnimationPoints()
@@ -120,6 +110,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
 
         void RespawnSecondPrize()
         {
+            var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
             var respawnsScript = gameObject.GetComponent<Respawns>();
             var respawn = respawnsScript.GetRespawnByLane(currentPhase.secondPrizeTimer);
             var slider = gameObject.GetComponent<SlidersHandler>();
@@ -133,12 +124,16 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             objScript.finalDestination = new Vector3(finishLine.transform.position.x,
                                                     secondPrize.transform.position.y, 0);
             objScript.StartMoving();
-            slider.SetAndStartSliderByTimer(currentPhase.secondPrizeTimer);
+
+            if (!isImaginarium)
+                slider.SetAndStartSliderByTimer(currentPhase.secondPrizeTimer);
 
         }
 
         void RespawnImmediatePrize()
         {
+
+            var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
             var respawnsScript = gameObject.GetComponent<Respawns>();
             var respawn = respawnsScript.GetRespawnByPosition(0);
             var slider = gameObject.GetComponent<SlidersHandler>();
@@ -151,7 +146,11 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             objScript.finalDestination = new Vector3(finishLine.transform.position.x,
                                                     immediatePrize.transform.position.y, 0);
             objScript.StartMoving();
-            slider.SetAndStartSingleSlider(0, 0);
+
+            if (!isImaginarium)
+                slider.SetAndStartSingleSlider(0, 0);
+
+
         }
 
         public void CallbackFromUIButtons(int timerClicked)
@@ -164,7 +163,6 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
                 var points = currentPhase.immediatePrizePoints;
                 var key = "Fase " + dataHandler.GetExperimentIndex() + " do experimento";
                 PlayerPrefsSaver.instance.AddExperimentPoints(key, points);
-                UpdateTotalPoints();
 
             } else if (timerClicked == currentPhase.secondPrizeTimer)
             {
@@ -172,14 +170,12 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
                 var points = currentPhase.secondPrizePoints;
                 var key = "Fase " + dataHandler.GetExperimentIndex() + " do experimento";
                 PlayerPrefsSaver.instance.AddExperimentPoints(key, points);
-                UpdateTotalPoints();
             }
 
         }
 
         public void FinishedExperiment() 
         {
-            PrizeButtons.instance.PlaySound();
             CleanScenario();
             NextPhase();
             //PrizeButtons.instance.ToggleButtons(true);
