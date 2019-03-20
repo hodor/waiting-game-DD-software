@@ -123,7 +123,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             objScript.timer = currentPhase.secondPrizeTimer;
             objScript.finalDestination = new Vector3(finishLine.transform.position.x,
                                                     secondPrize.transform.position.y, 0);
-            objScript.StartMoving();
+            objScript.StartMoving(false);
 
             if (!isImaginarium)
                 slider.SetAndStartSliderByTimer(currentPhase.secondPrizeTimer);
@@ -145,7 +145,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             objScript.timer = 0;
             objScript.finalDestination = new Vector3(finishLine.transform.position.x,
                                                     immediatePrize.transform.position.y, 0);
-            objScript.StartMoving();
+            objScript.StartMoving(false);
 
             if (!isImaginarium)
                 slider.SetAndStartSingleSlider(0, 0);

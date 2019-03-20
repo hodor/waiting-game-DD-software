@@ -15,16 +15,14 @@ namespace AR_Project.MainGame.Prize
         Animator animator;
         bool stopSecondButton = false;
 
-        public void StartMoving()
+        public void StartMoving(bool isTutorial)
         {
             animator = GetComponent<Animator>();
             var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
-
-            if (isImaginarium)
+            if (isImaginarium && !isTutorial)
             {
                 FinishedRun();
             } else {
-
                 if (timer >= 10)
                     animator.SetBool("isRunning", false);
                 else
