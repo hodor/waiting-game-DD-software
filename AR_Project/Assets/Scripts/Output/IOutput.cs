@@ -1,4 +1,5 @@
 using AR_Project.Savers;
+using UnityEngine;
 
 namespace Output
 {
@@ -7,6 +8,7 @@ namespace Output
         void StartSession();
         void EndSession();
         void SaveUserData(PlayerPrefsSaver userData);
+        void SaveSelectedCharacter(PlayerPrefsSaver userData);
         void SaveLevelData();
     }
 }

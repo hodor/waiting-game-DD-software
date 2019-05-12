@@ -153,9 +153,9 @@ namespace AR_Project.Scenes.Registration
             var bd = string.Join("/", bday);
             
             string gender;
-            if (isGirl) gender = "menina";
+            if (isGirl) gender = "femenino";
             else if (isOther) gender = "outro";
-            else gender = "menino";
+            else gender = "masculino";
 
             PlayerPrefsSaver.instance.name = userName;
             PlayerPrefsSaver.instance.birthday = bd;
@@ -171,6 +171,7 @@ namespace AR_Project.Scenes.Registration
 
         void GoToRewardScene()
         {
+            Out.Instance.SaveUserData(PlayerPrefsSaver.instance);
             SceneManager.LoadScene("Instructions");
         }
     }

@@ -77,7 +77,7 @@ namespace AR_Project.Scenes.ChooseCharacter
         }
         void GoToMainGameScene()
         {
-            Out.Instance.SaveUserData(PlayerPrefsSaver.instance);
+            Out.Instance.SaveSelectedCharacter(PlayerPrefsSaver.instance);
             SceneManager.LoadScene("MainGame");
         }
     }

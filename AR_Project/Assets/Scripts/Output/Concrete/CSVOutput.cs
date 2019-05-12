@@ -1,6 +1,9 @@
 using System;
+using System.Globalization;
 using System.IO;
+using System.Text;
 using AR_Project.Savers;
+using Boo.Lang.Environments;
 using UnityEngine;
 
 namespace Output.Concrete
@@ -67,32 +70,61 @@ namespace Output.Concrete
 
         public void SaveUserData(PlayerPrefsSaver userData)
         {
-            var writer = new StreamWriter(_currentPath, append:true);
-            var headers = new string[6];
-            headers[0] = "Nome";
-            headers[1] = "Data de nascimento";
-            headers[2] = "Genero";
-            headers[3] = "Personagem";
-            headers[4] = "Total de pontos";
-            headers[5] = "Imaginária primeiro";
-            var header = string.Join(",", headers);
-            writer.WriteLine(header);
+            var name = new[]
+            {
+                "Nome", userData.name
+            };
+            var birthday = new[]
+            {
+                "Nascimento", userData.birthday
+            };
+            var gender = new[]
+            {
+                "Gênero", userData.gender
+            };
+            var date = new[]
+            {
+                "Data_de_aplicação", DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+            };
 
-            var dataArr = new string[6];
-            dataArr[0] = userData.name;
-            dataArr[1] = userData.birthday;
-            dataArr[2] = userData.gender;
-            dataArr[3] = userData.character.name.ToString();
-            dataArr[4] = userData.totalPoints.ToString();
-            dataArr[5] = userData.imaginariumFirst.ToString();
-            var data = string.Join(",", dataArr);
-            writer.WriteLine(data);
-            writer.Close();
+            var w = WriteLine(date);
+            WriteLine(name, w);
+            WriteLine(birthday, w);
+            WriteLine(gender, w, close: true);
+        }
+
+        public void SaveSelectedCharacter(PlayerPrefsSaver userData)
+        {
+            var character = new[]
+            {
+                "Personagem", userData.character.name
+            };
+            WriteLine(character, close: true);
         }
 
         public void SaveLevelData()
         {
             throw new System.NotImplementedException();
+        }
+
+        private StreamWriter GetWriter()
+        {
+            return new StreamWriter(new FileStream(_currentPath, FileMode.Append, FileAccess.Write), Encoding.UTF8);
+        }
+
+        private string Cols(string[] arr)
+        {
+            return string.Join(",", arr);
+        }
+
+        private StreamWriter WriteLine(string[] arr, StreamWriter writer = null, bool close = false)
+        {
+            if (writer == null) writer = GetWriter();   
+            var cols = Cols(arr);
+            writer.WriteLine(cols);
+            if(close)
+                writer.Close();
+            return writer;
         }
     }
 }
