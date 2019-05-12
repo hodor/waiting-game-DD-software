@@ -12,10 +12,22 @@ namespace AR_Project.MainGame
 {
     public class TeachTimers : MonoBehaviour
     {
-        GameObject prefabReward;
         GameObject finishLine;
         List<GameObject> goList;
         int currentIndex = 0;
+        GameObject prefabReward;
+        
+        private MainGameScene _mainGameScene;
+        private Respawns _respawnsScript;
+        private SlidersHandler _slider;
+
+        private void Start()
+        {
+            _slider = gameObject.GetComponent<SlidersHandler>();
+            _respawnsScript = gameObject.GetComponent<Respawns>();
+            _mainGameScene = gameObject.GetComponent<MainGameScene>();
+        }
+
 
         public void StartTutorial(GameObject prefab, GameObject finish)
         {
@@ -34,16 +46,12 @@ namespace AR_Project.MainGame
                 yield return new WaitForSeconds(lane);
             }
             CleanScene();
-            var mainGameScene = gameObject.GetComponent<MainGameScene>();
-            mainGameScene.ComeBackFromTutorial();
+            _mainGameScene.ComeBackFromTutorial();
 
         }
         void Respawn(int timer)
         {
-
-            var respawnsScript = gameObject.GetComponent<Respawns>();
-            var respawn = respawnsScript.GetRespawnByLane(timer);
-            var slider = gameObject.GetComponent<SlidersHandler>();
+            var respawn = _respawnsScript.GetRespawnByLane(timer);
 
             GameObject firstOne = (GameObject)Instantiate(prefabReward);
             firstOne.transform.position = respawn.transform.position;
@@ -52,7 +60,7 @@ namespace AR_Project.MainGame
             objScript.finalDestination = new Vector3(finishLine.transform.position.x,
                                                     firstOne.transform.position.y, 0);
             objScript.StartMoving(true);
-            slider.SetAndStartSingleSlider(currentIndex, timer);
+            _slider.SetAndStartSingleSlider(currentIndex, timer);
             currentIndex++;
 
             goList.Add(firstOne);
@@ -61,13 +69,10 @@ namespace AR_Project.MainGame
 
         void CleanScene()
         {
-            var slider = gameObject.GetComponent<SlidersHandler>();
-            slider.ResetSliders();
+            _slider.ResetSliders();
 
             foreach (var gameObj in goList)
                 Destroy(gameObj);
-
-
         }
     }
 

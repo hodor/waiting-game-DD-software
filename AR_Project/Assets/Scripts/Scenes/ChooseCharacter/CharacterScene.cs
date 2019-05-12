@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using AR_Project.DataClasses.MainData;
 using AR_Project.Savers;
+using Output;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -76,6 +77,7 @@ namespace AR_Project.Scenes.ChooseCharacter
         }
         void GoToMainGameScene()
         {
+            Out.Instance.SaveUserData(PlayerPrefsSaver.instance);
             SceneManager.LoadScene("MainGame");
         }
     }

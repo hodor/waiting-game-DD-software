@@ -85,10 +85,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
 
         public bool IsSecondPrizeAtRightButton()
         {
-            if (currentPhase.isSecondPrizeAtRightButton)
-                return true;
-            else
-                return false;
+            return currentPhase.isSecondPrizeAtRightButton;
         }
 
         void NextPhase()
@@ -103,10 +100,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
                 var mainGameScene = gameObject.GetComponent<MainGameScene>();
                 mainGameScene.SetFinalRoundScene();
             }
-
         }
-
-
 
         void RespawnSecondPrize()
         {
@@ -127,7 +121,6 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
 
             if (!isImaginarium)
                 slider.SetAndStartSliderByTimer(currentPhase.secondPrizeTimer);
-
         }
 
         void RespawnImmediatePrize()
@@ -149,8 +142,6 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
 
             if (!isImaginarium)
                 slider.SetAndStartSingleSlider(0, 0);
-
-
         }
 
         public void CallbackFromUIButtons(int timerClicked)
@@ -171,7 +162,6 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
                 var key = "Fase " + dataHandler.GetExperimentIndex() + " do experimento";
                 PlayerPrefsSaver.instance.AddExperimentPoints(key, points);
             }
-
         }
 
         public void FinishedExperiment() 
@@ -188,8 +178,6 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
 
             Destroy(immediatePrize);
             Destroy(secondPrize);
-
         }
-
     }
 }

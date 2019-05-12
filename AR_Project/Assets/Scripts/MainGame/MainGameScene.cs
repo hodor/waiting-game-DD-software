@@ -62,7 +62,6 @@ namespace AR_Project.MainGame
             yield return new WaitForSeconds(2f);
             finalRoundsScene.SetActive(false);
             CallbackFinishedExperiment();
-
         }
 
 
@@ -225,7 +224,6 @@ namespace AR_Project.MainGame
                 SliderLanes.SetActive(true);
                 pointsUI.SetActive(true);
                 prizeLabels.SetActive(true);
-
             }
             else
             {
