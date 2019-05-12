@@ -9,6 +9,7 @@ namespace Output
         void EndSession();
         void SaveUserData(PlayerPrefsSaver userData);
         void SaveSelectedCharacter(PlayerPrefsSaver userData);
+        void SaveTaskType(bool realTask);
         void SaveLevelData();
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using AR_Project.DataClasses.MainData;
 using AR_Project.DataClasses.NestedObjects;
@@ -42,8 +43,13 @@ namespace AR_Project.MainGame
             var timeLanes = MainData.instanceData.config.gameSettings.timeLanes;
             foreach(var lane in timeLanes)
             {
+                int time = lane;
+                if (ARDebug.Debugging)
+                {
+                    time = (int) Math.Ceiling(ARDebug.TimeToFill);
+                }
                 Respawn(lane);
-                yield return new WaitForSeconds(lane);
+                yield return new WaitForSeconds(time);
             }
             CleanScene();
             _mainGameScene.ComeBackFromTutorial();

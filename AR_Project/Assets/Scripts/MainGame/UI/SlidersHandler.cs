@@ -14,28 +14,23 @@ namespace AR_Project.MainGame.UI
 
         public void SetAndStartSingleSlider(int index, float timeToFill)
         {
+            if (ARDebug.Debugging) timeToFill = ARDebug.TimeToFill;
             var sliderScript = sliders[index].GetComponent<RespawnSlider>();
-            if(timeToFill == 0.0f)
-                sliderScript.StartSlider(0.5f);
-            else
-                sliderScript.StartSlider(timeToFill);
+            sliderScript.StartSlider(timeToFill == 0.0f ? 0.5f : timeToFill);
         }
 
-        public void SetAndStartSliderByTimer(int timeToFill)
+        public void SetAndStartSliderByTimer(float timeToFill)
         {
+            if (ARDebug.Debugging) timeToFill = ARDebug.TimeToFill;
             var timers = MainData.instanceData.config.gameSettings.timeLanes;
             for(int i=0; i < timers.Length; i++)
             {
                 if(timers[i] == timeToFill)
                 {
                     var sliderScript = sliders[i].GetComponent<RespawnSlider>();
-                    if (timeToFill == 0.0f)
-                        sliderScript.StartSlider(0.5f);
-                    else
-                        sliderScript.StartSlider(timeToFill);
+                    sliderScript.StartSlider(timeToFill == 0.0f ? 0.5f : timeToFill);
                 }
             }
-
         }
 
         public void DisableOtherSliders(int firstTimeToFill, int secondTimeToFill)

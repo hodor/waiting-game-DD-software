@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Text;
@@ -6,7 +7,7 @@ using AR_Project.Savers;
 using Boo.Lang.Environments;
 using UnityEngine;
 
-namespace Output.Concrete
+namespace Output.CSV
 {
     public class CSVOutput : IOutput
     {
@@ -22,11 +23,13 @@ namespace Output.Concrete
         {
             if (_sessionRunning) return;
             _currentPath = GetNewDataFile();
+            CSVUtils.SetCurrentPath(_currentPath);
             _sessionRunning = true;
         }
 
         public void EndSession()
         {
+            CSVUtils.SetCurrentPath(null);
             _sessionRunning = false;
         }
 
@@ -86,11 +89,21 @@ namespace Output.Concrete
             {
                 "Data_de_aplicação", DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
             };
+            var task = new[]
+            {
+                "Tarefa", ""
+            };
+            var score = new[]
+            {
+                "Pontuação_Total", ""
+            };
 
-            var w = WriteLine(date);
-            WriteLine(name, w);
-            WriteLine(birthday, w);
-            WriteLine(gender, w, close: true);
+            CSVUtils.WriteLineAtEnd(task);
+            CSVUtils.WriteLineAtEnd(date);
+            CSVUtils.WriteLineAtEnd(name);
+            CSVUtils.WriteLineAtEnd(birthday);
+            CSVUtils.WriteLineAtEnd(gender);
+            CSVUtils.WriteLineAtEnd(score, close: true);
         }
 
         public void SaveSelectedCharacter(PlayerPrefsSaver userData)
@@ -99,32 +112,21 @@ namespace Output.Concrete
             {
                 "Personagem", userData.character.name
             };
-            WriteLine(character, close: true);
+            CSVUtils.WriteLineAtEnd(character, close: true);
+        }
+
+        public void SaveTaskType(bool realTask)
+        {
+            var task = new[]
+            {
+                "Tarefa", realTask ? "Real" : "Imaginária"
+            };
+            CSVUtils.ReplaceLineThatContains("Tarefa", task);
         }
 
         public void SaveLevelData()
         {
             throw new System.NotImplementedException();
-        }
-
-        private StreamWriter GetWriter()
-        {
-            return new StreamWriter(new FileStream(_currentPath, FileMode.Append, FileAccess.Write), Encoding.UTF8);
-        }
-
-        private string Cols(string[] arr)
-        {
-            return string.Join(",", arr);
-        }
-
-        private StreamWriter WriteLine(string[] arr, StreamWriter writer = null, bool close = false)
-        {
-            if (writer == null) writer = GetWriter();   
-            var cols = Cols(arr);
-            writer.WriteLine(cols);
-            if(close)
-                writer.Close();
-            return writer;
         }
     }
 }
