@@ -95,7 +95,6 @@ namespace AR_Project.MainGame
             finishedTutorial = true;
             int randomizer = Random.Range(0, 10);
             bool willBeImaginariumFirst = randomizer % 2 == 0 ? true : false;
-            Out.Instance.SaveTaskType(!willBeImaginariumFirst);
             if (willBeImaginariumFirst)
             {
                 Debug.Log("IMAGINARIUMMMM FIRST");

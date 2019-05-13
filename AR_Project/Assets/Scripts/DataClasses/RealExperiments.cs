@@ -12,5 +12,4 @@ namespace AR_Project.DataClasses
         [JsonProperty(PropertyName = "EnsaiosReais")]
         public List<Experiment> experiments;
     }
-
 }

@@ -1,20 +1,22 @@
-// 3 ensaios ficticios
 {
+  "_comment": "12 ensaios ficticios",
   "EnsaiosFicticios": [
     {
+      "id": 1,
       "maiorPremioEstaNoBotaoDireito": false,
-      //valor em moedas do prêmio imediato
+      "_comment1": "valor em moedas do prêmio imediato",
       "valorPremioImediato": 700,
-      //pontuação ao escolher o prêmio imediato
+      "_comment2": "pontuação ao escolher o prêmio imediato",
       "pontuacaoPremioImediato": 700,
-      //valor em moedas do segundo prêmio
+      "_comment3": "valor em moedas do segundo prêmio",
       "valorSegundoPremio": 1000,
-      //tempo em segundos do segundo prêmio
+      "_comment4": "tempo em segundos do segundo prêmio",
       "tempoSegundoPremio": 15,
-      //pontuação ao escolher o segundo prêmio
+      "_comment5": "pontuação ao escolher o segundo prêmio",
       "pontuacaoSegundoPremio": 1000
     },
     {
+      "id": 2,
       "maiorPremioEstaNoBotaoDireito": true,
       "valorPremioImediato": 100,
       "pontuacaoPremioImediato": 100,
@@ -23,6 +25,7 @@
       "pontuacaoSegundoPremio": 1000
     },
     {
+      "id": 3,
       "maiorPremioEstaNoBotaoDireito": false,
       "valorPremioImediato": 300,
       "pontuacaoPremioImediato": 300,
@@ -31,6 +34,7 @@
       "pontuacaoSegundoPremio": 1000
     },
     {
+      "id": 4,
       "maiorPremioEstaNoBotaoDireito": true,
       "valorPremioImediato": 100,
       "pontuacaoPremioImediato": 100,
@@ -39,6 +43,7 @@
       "pontuacaoSegundoPremio": 1000
     },
     {
+      "id": 5,
       "maiorPremioEstaNoBotaoDireito": false,
       "valorPremioImediato": 700,
       "pontuacaoPremioImediato": 700,
@@ -47,6 +52,7 @@
       "pontuacaoSegundoPremio": 1000
     },
     {
+      "id": 6,
       "maiorPremioEstaNoBotaoDireito": false,
       "valorPremioImediato": 100,
       "pontuacaoPremioImediato": 100,
@@ -55,6 +61,7 @@
       "pontuacaoSegundoPremio": 1000
     },
     {
+      "id": 7,
       "maiorPremioEstaNoBotaoDireito": true,
       "valorPremioImediato": 100,
       "pontuacaoPremioImediato": 100,
@@ -63,6 +70,7 @@
       "pontuacaoSegundoPremio": 1000
     },
     {
+      "id": 8,
       "maiorPremioEstaNoBotaoDireito": true,
       "valorPremioImediato": 100,
       "pontuacaoPremioImediato": 100,
@@ -71,6 +79,7 @@
       "pontuacaoSegundoPremio": 1000
     },
     {
+      "id": 9,
       "maiorPremioEstaNoBotaoDireito": false,
       "valorPremioImediato": 100,
       "pontuacaoPremioImediato": 100,
@@ -79,6 +88,7 @@
       "pontuacaoSegundoPremio": 1000
     },
     {
+      "id": 10,
       "maiorPremioEstaNoBotaoDireito": false,
       "valorPremioImediato": 700,
       "pontuacaoPremioImediato": 700,
@@ -87,6 +97,7 @@
       "pontuacaoSegundoPremio": 1000
     },
     {
+      "id": 11,
       "maiorPremioEstaNoBotaoDireito": true,
       "valorPremioImediato": 700,
       "pontuacaoPremioImediato": 700,
@@ -95,6 +106,7 @@
       "pontuacaoSegundoPremio": 1000
     },
     {
+      "id": 12,
       "maiorPremioEstaNoBotaoDireito": true,
       "valorPremioImediato": 300,
       "pontuacaoPremioImediato": 300,

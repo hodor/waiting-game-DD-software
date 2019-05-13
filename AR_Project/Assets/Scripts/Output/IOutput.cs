@@ -1,3 +1,4 @@
+using AR_Project.DataClasses.NestedObjects;
 using AR_Project.Savers;
 using UnityEngine;
 
@@ -9,7 +10,6 @@ namespace Output
         void EndSession();
         void SaveUserData(PlayerPrefsSaver userData);
         void SaveSelectedCharacter(PlayerPrefsSaver userData);
-        void SaveTaskType(bool realTask);
-        void SaveLevelData();
+        void SaveExperimentData(Experiment experiment, int selectedValue, long timeToChooseInMS);
     }
 }

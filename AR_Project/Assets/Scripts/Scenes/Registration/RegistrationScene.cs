@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using System.Xml.Schema;
 using UnityEngine;
 using UnityEditor;
 //using UnityEngine.Experimental.UIElements;
@@ -25,7 +28,7 @@ namespace AR_Project.Scenes.Registration
         public Text birthDay;
         public Text birthMonth;
         public Text birthYear;
-
+        public int maximumAge = 150;
         public Button StartBtn;
         public Sprite startBtnEnabled;
         public Sprite startBtnDisabled;
@@ -46,8 +49,7 @@ namespace AR_Project.Scenes.Registration
         private Image _boyToggleImage;
         private Image _girlToggleImage;
         private Image _otherToggleImage;
-        private bool _isBirthMonthNotNull;
-        private bool _isBirthYearNotNull;
+        private bool ValidName = false, ValidDay = false, ValidMonth = false, ValidYear = false;
 
         private void Awake()
         {
@@ -58,8 +60,6 @@ namespace AR_Project.Scenes.Registration
 
         private void Start()
         {
-            _isBirthYearNotNull = birthYear != null;
-            _isBirthMonthNotNull = birthMonth != null;
             _startBtnImage = StartBtn.GetComponent<Image>();
             _boyToggleImage = boyToggleBtn.GetComponent<Image>();
             _girlToggleImage = girlToggleBtn.GetComponent<Image>();
@@ -69,10 +69,66 @@ namespace AR_Project.Scenes.Registration
             inputBMonth.characterLimit = 2;
             inputBYear.characterLimit = 4;
         }
+
+        public void OnNameChanged()
+        {
+            var name = inputName.text;
+            name = name.Trim();
+            inputName.text = name;
+            ValidName = !string.IsNullOrEmpty(name);
+        }
+
+        public void OnDayChanged()
+        {
+            int value = int.Parse(inputBDay.text);
+            inputBDay.text = value.ToString("00");
+            if (value > 31 || value <= 0)
+            {
+                inputBDay.textComponent.color = Color.red;
+                ValidDay = false;
+            }
+            else
+            {
+                inputBDay.textComponent.color = Color.black;
+                ValidDay = true;
+            }
+        }
+
+        public void OnMonthChanged()
+        {
+            int value = int.Parse(inputBMonth.text);
+            inputBMonth.text = value.ToString("00");
+            if (value > 31 || value <= 0)
+            {
+                inputBMonth.textComponent.color = Color.red;
+                ValidMonth = false;
+            }
+            else
+            {
+                inputBMonth.textComponent.color = Color.black;
+                ValidMonth = true;
+            }
+        }
+
+        public void OnYearChanged()
+        {
+            int value = int.Parse(inputBYear.text);
+            inputBYear.text = value.ToString("0000");
+            if (DateTime.Now.Year - value > maximumAge)
+            {
+                inputBYear.textComponent.color = Color.red;
+                ValidYear = false;
+            }
+            else
+            {
+                inputBYear.textComponent.color = Color.black;
+                ValidYear = true;
+            }
+        }
+        
         private void Update()
         {
-            if(_clickedOnGender == true && birthDay.text != null && 
-            _isBirthMonthNotNull && _isBirthYearNotNull) 
+            if(_clickedOnGender == true && ValidName && ValidDay && ValidMonth && ValidYear) 
             {
                 _startBtnImage.sprite = startBtnEnabled;
                 StartBtn.enabled = true;

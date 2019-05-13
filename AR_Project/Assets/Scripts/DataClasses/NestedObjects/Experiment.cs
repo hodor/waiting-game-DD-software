@@ -26,6 +26,8 @@ namespace AR_Project.DataClasses.NestedObjects
         [JsonProperty(PropertyName = "pontuacaoSegundoPremio")]
         public int secondPrizePoints;
 
+        [JsonProperty(PropertyName = "id")] public int id;
+
     }
 
 }

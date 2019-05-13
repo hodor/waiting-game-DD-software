@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Text;
+using AR_Project.DataClasses.NestedObjects;
 using AR_Project.Savers;
 using Boo.Lang.Environments;
 using UnityEngine;
@@ -89,16 +90,11 @@ namespace Output.CSV
             {
                 "Data_de_aplicação", DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
             };
-            var task = new[]
-            {
-                "Tarefa", ""
-            };
             var score = new[]
             {
                 "Pontuação_Total", ""
             };
 
-            CSVUtils.WriteLineAtEnd(task);
             CSVUtils.WriteLineAtEnd(date);
             CSVUtils.WriteLineAtEnd(name);
             CSVUtils.WriteLineAtEnd(birthday);
@@ -115,18 +111,9 @@ namespace Output.CSV
             CSVUtils.WriteLineAtEnd(character, close: true);
         }
 
-        public void SaveTaskType(bool realTask)
+        public void SaveExperimentData(Experiment experiment, int selectedValue, long timeToChooseInMS)
         {
-            var task = new[]
-            {
-                "Tarefa", realTask ? "Real" : "Imaginária"
-            };
-            CSVUtils.ReplaceLineThatContains("Tarefa", task);
-        }
-
-        public void SaveLevelData()
-        {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }
