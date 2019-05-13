@@ -16,7 +16,6 @@ namespace AR_Project.MainGame
 {
     public class MainGameScene : MonoBehaviour
     {
-       
         public GameObject prefabChar;
         public GameObject finishLine;
 
@@ -34,7 +33,7 @@ namespace AR_Project.MainGame
         public Sprite bgTutorial, bgExperiments;
 
         public GameObject GameObjects;
-        public GameObject TimerLabels;  
+        public GameObject TimerLabels;
 
         public GameObject prizeLabels;
 
@@ -45,6 +44,7 @@ namespace AR_Project.MainGame
         public bool finishedTutorial;
 
         public static DateTime ExperimentStartDT;
+
         // Use this for initialization
         void Start()
         {
@@ -57,7 +57,7 @@ namespace AR_Project.MainGame
             ToggleGameUIObjects(false);
             finalRoundsScene.SetActive(true);
             var points = PlayerPrefsSaver.instance.totalPoints;
-            finalRoundText.text = "Parabéns, você ganhou " + points +  " pontos nessa tarefa!";
+            finalRoundText.text = "Parabéns, você ganhou " + points + " pontos nessa tarefa!";
             StartCoroutine("StartNewRound");
         }
 
@@ -78,6 +78,7 @@ namespace AR_Project.MainGame
             tutorialUI.SetActive(true);
             ToggleGameUIObjects(false);
         }
+
         public void StartTutorial()
         {
             tutorialUI.SetActive(false);
@@ -97,39 +98,37 @@ namespace AR_Project.MainGame
         {
             Out.Instance.StartExperiments();
             finishedTutorial = true;
-            int randomizer = Random.Range(0, 10);
-            bool willBeImaginariumFirst = randomizer % 2 == 0 ? true : false;
-            if (willBeImaginariumFirst)
+            int randomizer = Random.Range(0, 9);
+            bool imaginaryFirst = randomizer % 2 == 0;
+            if (ARDebug.Debugging && ARDebug.AlwaysImaginaryFirst)
+                imaginaryFirst = true;
+            
+            if (imaginaryFirst)
             {
-                Debug.Log("IMAGINARIUMMMM FIRST");
                 PlayerPrefsSaver.instance.imaginariumFirst = true;
                 PlayerPrefsSaver.instance.isTraining = true;
                 PlayerPrefsSaver.instance.isImaginarium = true;
                 SetupImaginariumExperiment();
-            }else
+            }
+            else
             {
-                Debug.Log("NON IMAGINARIUM FIRST");
                 PlayerPrefsSaver.instance.imaginariumFirst = false;
                 PlayerPrefsSaver.instance.isTraining = true;
                 PlayerPrefsSaver.instance.isImaginarium = false;
                 SetupNotImaginariumExperiment();
             }
-
         }
 
         public void SetupImaginariumExperiment()
         {
-            Debug.Log("SETUP IMAGINARIUM EXPERIMENT");
             var training = PlayerPrefsSaver.instance.isTraining;
-            //var imaginariumFirst = PlayerPrefsSaver.instance.imaginariumFirst;
-            //var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
-            if (training) {
-                PlayerPrefsSaver.instance.totalPoints = 0;
-                Debug.Log("IS TRAINING");
-                SetUIFakeExperiment();
-            }else
+            if (training)
             {
-                Debug.Log("IS NOT TRAINING");
+                PlayerPrefsSaver.instance.totalPoints = 0;
+                SetUIFakeExperiment();
+            }
+            else
+            {
                 SetUIRealExperiment();
             }
 
@@ -138,19 +137,17 @@ namespace AR_Project.MainGame
 
         public void SetupNotImaginariumExperiment()
         {
-            Debug.Log("SETUP NON IMAGINARIUM EXPERIMENT");
             var training = PlayerPrefsSaver.instance.isTraining;
             if (training)
             {
                 PlayerPrefsSaver.instance.totalPoints = 0;
-                Debug.Log("IS TRAINING");
                 SetUIFakeExperiment();
             }
             else
             {
-                Debug.Log("IS NOT TRAINING");
                 SetUIRealExperiment();
             }
+
             ExperimentStartDT = DateTime.Now;
         }
 
@@ -176,6 +173,7 @@ namespace AR_Project.MainGame
             prizeLabels.SetActive(true);
             SetupFakeExperiment();
         }
+
         void SetupFakeExperiment()
         {
             var fakeExperiments = MainData.instanceData.fakeExperiments.experiments;
@@ -183,7 +181,6 @@ namespace AR_Project.MainGame
             var experimentHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
             experimentHandler.SetupExperiment(prefabChar, fakeExperiments, finishLine, true);
             experimentHandler.StartExperiment();
-
         }
 
         // ----- Real Experiments -------- //
@@ -211,15 +208,12 @@ namespace AR_Project.MainGame
 
         void SetupRealExperiment()
         {
-            var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
             var realExperiments = MainData.instanceData.realExperiments.experiments;
             realExperiments.Shuffle();
             var experimentHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
             experimentHandler.SetupExperiment(prefabChar, realExperiments, finishLine, false);
             experimentHandler.StartExperiment();
-
         }
-
 
         // ----- Game Objects/UI -------- //
         void ToggleGameUIObjects(bool show)
@@ -234,33 +228,28 @@ namespace AR_Project.MainGame
             }
             else
             {
-
                 GameObjects.SetActive(false);
                 TimerLabels.SetActive(false);
                 SliderLanes.SetActive(false);
                 pointsUI.SetActive(false);
                 prizeLabels.SetActive(false);
             }
-
         }
 
-        public void CallbackFinishedExperiment ()
+        public void CallbackFinishedExperiment()
         {
             //(bool training, bool imaginariumFirst, bool isImaginarium
             var training = PlayerPrefsSaver.instance.isTraining;
             var imaginariumFirst = PlayerPrefsSaver.instance.imaginariumFirst;
             var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
 
-            Debug.Log("Is training? " + training);
-            Debug.Log("Is imaginariumFirst? " + imaginariumFirst);
-            Debug.Log("isImaginarium? " + isImaginarium);
-
             if (isImaginarium && training)
             {
                 PlayerPrefsSaver.instance.isTraining = false;
                 SetupImaginariumExperiment();
             }
-            if(isImaginarium && !training)
+
+            if (isImaginarium && !training)
             {
                 if (imaginariumFirst)
                 {
@@ -274,23 +263,23 @@ namespace AR_Project.MainGame
                     //acabar o jogo
                     FinishedGame();
                 }
-
             }
 
-            if(!isImaginarium && training)
+            if (!isImaginarium && training)
             {
                 PlayerPrefsSaver.instance.isTraining = false;
                 SetupNotImaginariumExperiment();
             }
 
-            if(!isImaginarium && !training)
+            if (!isImaginarium && !training)
             {
                 if (!imaginariumFirst)
                 {
                     PlayerPrefsSaver.instance.isImaginarium = true;
                     PlayerPrefsSaver.instance.isTraining = true;
                     SetupImaginariumExperiment();
-                }else
+                }
+                else
                 {
                     FinishedGame();
                 }
@@ -302,7 +291,5 @@ namespace AR_Project.MainGame
         {
             SceneManager.LoadScene("FinalScene");
         }
-
     }
-
 }

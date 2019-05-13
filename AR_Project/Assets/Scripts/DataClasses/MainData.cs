@@ -30,9 +30,6 @@ namespace AR_Project.DataClasses.MainData
             realExperiments = JsonReader.ReadRealExperiments();
             fakeExperiments = JsonReader.ReadFakeExperiments();
             content = JsonReader.ReadContentConfig();
-
-            Debug.Log("content introduction text: " + content.titleIntroduction);
-
         }
        
     }

@@ -23,7 +23,6 @@ namespace AR_Project.Scenes.Final
 
         public void ClickedOnRestartGame()
         {
-            Debug.Log("Restart Game...");
             ResetGame();
             SceneManager.LoadScene("Registration");
         }

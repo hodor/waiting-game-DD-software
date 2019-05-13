@@ -49,11 +49,15 @@ namespace AR_Project.MainGame.UI
 
         }
 
+        private bool IsHandlingLaneClick = false;
         public void ClickedOnLane(int laneNumber)
         {
+            if (IsHandlingLaneClick) return;
+            IsHandlingLaneClick = true;
             var expHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
             var timer = timers[laneNumber];
             expHandler.CallbackFromUIButtons(timer);
+            IsHandlingLaneClick = false;
         }
 
         public void DisableButtons()

@@ -19,11 +19,6 @@ namespace AR_Project.MainGame.GameObjects
             {
                 if (experiment.secondPrizeTimer == timerLanes[i])
                 {
-                    Debug.Log("Returned respawn: " + respawns[i]);
-                    Debug.Log("Returned respawn position: " + respawns[i].transform.position);
-                    Debug.Log("i: " + i);
-
-                    Debug.Log("time lane right: " + timerLanes[i]);
                     return respawns[i];
                 }
             }

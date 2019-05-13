@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,22 +26,20 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
         public Experiment NextExperiment()
         {
             currentIndex++;
-            return experiments[currentIndex];
+            try
+            {
+                return experiments[currentIndex];
+            }
+            catch (Exception e)
+            {
+                currentIndex--;
+                return null;
+            }
         }
 
         public int GetExperimentIndex()
         {
             return currentIndex;
-        }
-
-        public bool CheckIfThereIsMoreExperiments() 
-        {
-            Debug.Log("Experiment count: " + experiments.Count);
-            Debug.Log("Current Index: " + currentIndex);
-            if (currentIndex + 1 < experiments.Count)
-                return true;
-            else 
-                return false;
         }
     }
 }

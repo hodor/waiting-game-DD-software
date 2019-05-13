@@ -27,7 +27,8 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
         List<GameObject> goList;
         bool isFakeExperiment;
 
-        public void SetupExperiment(GameObject prefabSecondPrize, List<Experiment> experiments, GameObject finishLineObj, bool fake)
+        public void SetupExperiment(GameObject prefabSecondPrize, List<Experiment> experiments,
+            GameObject finishLineObj, bool fake)
         {
             goList = new List<GameObject>();
             prefabReward = prefabSecondPrize;
@@ -36,10 +37,8 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             isFakeExperiment = fake;
             //totalPoints.text = "Pontos: 0";
 
-            var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
             points.SetActive(true);
             totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.totalPoints;
-  
         }
 
         public void UpdateTotalPoints()
@@ -47,7 +46,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.totalPoints.ToString();
             StartCoroutine("BlinkAnimationPoints");
         }
-    
+
         IEnumerator BlinkAnimationPoints()
         {
             totalPoints.color = Color.yellow;
@@ -62,26 +61,18 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             PlayerPrefsSaver.instance.totalPoints = 0;
             totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.totalPoints.ToString();
             DoExperimentPhase();
-
         }
+
         void DoExperimentPhase()
         {
             var prizeButtons = gameObject.GetComponent<PrizeButtons>();
             var prizeLabels = gameObject.GetComponent<PrizesHandler>();
             var sliderHandler = gameObject.GetComponent<SlidersHandler>();
 
-            var immediateButtonText = currentPhase.immediatePrizeValue + " pontos em 0 segundos";
-            var secondButtonText = currentPhase.secondPrizeValue + " pontos em " 
-            + currentPhase.secondPrizeTimer + " s";
-                
             prizeLabels.SetPrizesLabelsByTimer(0, currentPhase.secondPrizeTimer,
-            currentPhase.immediatePrizeValue, currentPhase.secondPrizeValue);
+                currentPhase.immediatePrizeValue, currentPhase.secondPrizeValue);
             sliderHandler.DisableOtherSliders(0, currentPhase.secondPrizeTimer);
-
-            Debug.Log("Experiment phase. Second timer is: " + currentPhase.secondPrizeTimer);
-
             prizeButtons.SetupButtons(0, currentPhase.secondPrizeTimer);
-
         }
 
         public bool IsSecondPrizeAtRightButton()
@@ -91,13 +82,13 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
 
         void NextPhase()
         {
-            if (dataHandler.CheckIfThereIsMoreExperiments())
+            currentPhase = dataHandler.NextExperiment();
+            if (currentPhase != null)
             {
-                currentPhase = dataHandler.NextExperiment();
                 DoExperimentPhase();
-            }else
+            }
+            else
             {
-                Debug.Log("Finished the game");
                 var mainGameScene = gameObject.GetComponent<MainGameScene>();
                 mainGameScene.SetFinalRoundScene();
             }
@@ -111,13 +102,13 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             var slider = gameObject.GetComponent<SlidersHandler>();
 
             //TODO: pegar prefab de acordo com o experimento atual
-            secondPrize = (GameObject)Instantiate(prefabReward);
+            secondPrize = Instantiate(prefabReward);
             secondPrize.SetActive(true);
             secondPrize.transform.position = respawn.transform.position;
             var objScript = secondPrize.GetComponent<PrizeGO>();
             objScript.timer = currentPhase.secondPrizeTimer;
             objScript.finalDestination = new Vector3(finishLine.transform.position.x,
-                                                    secondPrize.transform.position.y, 0);
+                secondPrize.transform.position.y, 0);
             objScript.StartMoving(false);
 
             if (!isImaginarium)
@@ -126,19 +117,18 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
 
         void RespawnImmediatePrize()
         {
-
             var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
             var respawnsScript = gameObject.GetComponent<Respawns>();
             var respawn = respawnsScript.GetRespawnByPosition(0);
             var slider = gameObject.GetComponent<SlidersHandler>();
 
-            immediatePrize = (GameObject)Instantiate(prefabReward);
+            immediatePrize = (GameObject) Instantiate(prefabReward);
             immediatePrize.SetActive(true);
             immediatePrize.transform.position = respawn.transform.position;
             var objScript = immediatePrize.GetComponent<PrizeGO>();
             objScript.timer = 0;
             objScript.finalDestination = new Vector3(finishLine.transform.position.x,
-                                                    immediatePrize.transform.position.y, 0);
+                immediatePrize.transform.position.y, 0);
             objScript.StartMoving(false);
 
             if (!isImaginarium)
@@ -147,29 +137,33 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
 
         public void CallbackFromUIButtons(int timerClicked)
         {
+            if (currentPhase == null) return;
+            var timeDiff = DateTime.Now - MainGameScene.ExperimentStartDT;
             PrizeButtons.instance.DisableButtons();
             int selected = 0;
             if (timerClicked == 0)
             {
                 RespawnImmediatePrize();
+                if (currentPhase == null) return;
                 var points = currentPhase.immediatePrizePoints;
                 var key = "Fase " + dataHandler.GetExperimentIndex() + " do experimento";
                 PlayerPrefsSaver.instance.AddExperimentPoints(key, points);
                 selected = currentPhase.immediatePrizeValue;
-            } else if (timerClicked == currentPhase.secondPrizeTimer)
+            }
+            else if (timerClicked == currentPhase.secondPrizeTimer)
             {
                 RespawnSecondPrize();
+                if (currentPhase == null) return;
                 var points = currentPhase.secondPrizePoints;
                 var key = "Fase " + dataHandler.GetExperimentIndex() + " do experimento";
                 PlayerPrefsSaver.instance.AddExperimentPoints(key, points);
                 selected = currentPhase.secondPrizeValue;
             }
 
-            var timeDiff = DateTime.Now - MainGameScene.ExperimentStartDT;
             Out.Instance.SaveExperimentData(currentPhase, selected, PlayerPrefsSaver.instance, timeDiff.TotalSeconds);
         }
 
-        public void FinishedExperiment() 
+        public void FinishedExperiment()
         {
             CleanScenario();
             NextPhase();

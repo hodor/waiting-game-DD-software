@@ -98,7 +98,7 @@ namespace AR_Project.Scenes.Registration
         {
             int value = int.Parse(inputBMonth.text);
             inputBMonth.text = value.ToString("00");
-            if (value > 31 || value <= 0)
+            if (value > 12 || value <= 0)
             {
                 inputBMonth.textComponent.color = Color.red;
                 ValidMonth = false;
