@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using AR_Project.DataClasses.MainData;
 using AR_Project.DataClasses.NestedObjects;
@@ -9,6 +10,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using AR_Project.Savers;
 using Output;
+using Random = UnityEngine.Random;
 
 namespace AR_Project.MainGame
 {
@@ -42,6 +44,7 @@ namespace AR_Project.MainGame
 
         public bool finishedTutorial;
 
+        public static DateTime ExperimentStartDT;
         // Use this for initialization
         void Start()
         {
@@ -92,6 +95,7 @@ namespace AR_Project.MainGame
 
         public void ComeBackFromTutorial()
         {
+            Out.Instance.StartExperiments();
             finishedTutorial = true;
             int randomizer = Random.Range(0, 10);
             bool willBeImaginariumFirst = randomizer % 2 == 0 ? true : false;
@@ -129,7 +133,7 @@ namespace AR_Project.MainGame
                 SetUIRealExperiment();
             }
 
-
+            ExperimentStartDT = DateTime.Now;
         }
 
         public void SetupNotImaginariumExperiment()
@@ -147,6 +151,7 @@ namespace AR_Project.MainGame
                 Debug.Log("IS NOT TRAINING");
                 SetUIRealExperiment();
             }
+            ExperimentStartDT = DateTime.Now;
         }
 
         // ----- Fake Experiments -------- //
@@ -174,6 +179,7 @@ namespace AR_Project.MainGame
         void SetupFakeExperiment()
         {
             var fakeExperiments = MainData.instanceData.fakeExperiments.experiments;
+            fakeExperiments.Shuffle();
             var experimentHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
             experimentHandler.SetupExperiment(prefabChar, fakeExperiments, finishLine, true);
             experimentHandler.StartExperiment();
@@ -207,6 +213,7 @@ namespace AR_Project.MainGame
         {
             var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
             var realExperiments = MainData.instanceData.realExperiments.experiments;
+            realExperiments.Shuffle();
             var experimentHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
             experimentHandler.SetupExperiment(prefabChar, realExperiments, finishLine, false);
             experimentHandler.StartExperiment();

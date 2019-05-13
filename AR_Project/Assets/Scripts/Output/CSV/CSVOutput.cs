@@ -90,16 +90,16 @@ namespace Output.CSV
             {
                 "Data_de_aplicação", DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
             };
-            var score = new[]
+            var character = new[]
             {
-                "Pontuação_Total", ""
+                "Personagem", ""
             };
 
-            CSVUtils.WriteLineAtEnd(date);
-            CSVUtils.WriteLineAtEnd(name);
-            CSVUtils.WriteLineAtEnd(birthday);
-            CSVUtils.WriteLineAtEnd(gender);
-            CSVUtils.WriteLineAtEnd(score, close: true);
+            CSVUtils.WriteLineAtEnd(date, false);
+            CSVUtils.WriteLineAtEnd(name, false);
+            CSVUtils.WriteLineAtEnd(birthday, false);
+            CSVUtils.WriteLineAtEnd(gender, false);
+            CSVUtils.WriteLineAtEnd(character);
         }
 
         public void SaveSelectedCharacter(PlayerPrefsSaver userData)
@@ -108,12 +108,45 @@ namespace Output.CSV
             {
                 "Personagem", userData.character.name
             };
-            CSVUtils.WriteLineAtEnd(character, close: true);
+            CSVUtils.ReplaceLineThatContains("Personagem", character);
         }
 
-        public void SaveExperimentData(Experiment experiment, int selectedValue, long timeToChooseInMS)
+        public void StartExperiments()
         {
-            throw new NotImplementedException();
+            var score = new[]
+            {
+                "Pontuação_Total", ""
+            };
+            var headers = new[]
+            {
+                "Trail", "Recompensa_menor", "Tempo_assoc_rec_maior", "Recompensa_escolhida", "Tipo_da_tarefa", "Tipo_da_recompensa", "Tempo_de_escolha"
+            };
+            CSVUtils.WriteLineAtEnd(score, false);
+            CSVUtils.WriteLineAtEnd(headers);
+        }
+
+        public void SaveExperimentData(Experiment experiment, int selectedValue, PlayerPrefsSaver userData, double timeToChooseInSeconds)
+        {
+            var values = new string[]
+            {
+                experiment.id.ToString(), 
+                experiment.immediatePrizeValue.ToString(),
+                experiment.secondPrizeTimer.ToString(), 
+                selectedValue.ToString(), 
+                userData.isTraining ? "Treino" : "Real", 
+                userData.isImaginarium ? "Imaginária" : "Real", 
+                (timeToChooseInSeconds).ToString("0.00")
+            };
+            CSVUtils.WriteLineAtEnd(values);
+        }
+
+        public void SaveTotalPoints(int points)
+        {
+            var score = new[]
+            {
+                "Pontuação_Total", points.ToString()
+            };
+            CSVUtils.ReplaceLineThatContains("Pontuação_Total", score);
         }
     }
 }

@@ -10,6 +10,8 @@ namespace Output
         void EndSession();
         void SaveUserData(PlayerPrefsSaver userData);
         void SaveSelectedCharacter(PlayerPrefsSaver userData);
-        void SaveExperimentData(Experiment experiment, int selectedValue, long timeToChooseInMS);
+        void StartExperiments();
+        void SaveExperimentData(Experiment experiment, int selectedValue, PlayerPrefsSaver userData, double timeToChooseInSeconds);
+        void SaveTotalPoints(int points);
     }
 }

@@ -49,34 +49,10 @@ namespace AR_Project.MainGame.UI
 
         }
 
-        public void ClickedOnFirstLane()
+        public void ClickedOnLane(int laneNumber)
         {
             var expHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
-            var timer = timers[0];
-            expHandler.CallbackFromUIButtons(timer);
-        }
-        public void ClickedOnSecondLane()
-        {
-            var expHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
-            var timer = timers[1];
-            expHandler.CallbackFromUIButtons(timer);
-        }
-        public void ClickedOnThirdLane()
-        {
-            var expHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
-            var timer = timers[2];
-            expHandler.CallbackFromUIButtons(timer);
-        }
-        public void ClickedOnFourthLane()
-        {
-            var expHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
-            var timer = timers[3];
-            expHandler.CallbackFromUIButtons(timer);
-        }
-        public void ClickedOnFivethLane()
-        {
-            var expHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
-            var timer = timers[4];
+            var timer = timers[laneNumber];
             expHandler.CallbackFromUIButtons(timer);
         }
 

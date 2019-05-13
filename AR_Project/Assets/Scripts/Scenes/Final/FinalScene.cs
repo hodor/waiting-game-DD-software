@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using AR_Project.DataClasses.MainData;
 using AR_Project.Savers;
+using Output;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -16,10 +17,8 @@ namespace AR_Project.Scenes.Final
         {
             var points = PlayerPrefsSaver.instance.totalPoints;
             finalPoints.text = points + " pontos";
-
-            Debug.Log("Saving CSV File...");
-            CSVSaver csv = new CSVSaver();
-            csv.SaveCSV();
+            Out.Instance.SaveTotalPoints(points);
+            Out.Instance.EndSession();
         }
 
         public void ClickedOnRestartGame()

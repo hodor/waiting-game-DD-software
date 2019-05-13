@@ -22,17 +22,12 @@ namespace AR_Project.MainGame.Prize
             if (isImaginarium && !isTutorial)
             {
                 FinishedRun();
-            } else {
-                if (timer >= 10)
-                    animator.SetBool("isRunning", false);
-                else
-                    animator.SetBool("isRunning", true);
-
-
-                if (timer == 0)
-                    StartCoroutine(MoveToPosition(this.gameObject.transform, finalDestination, 0.5f));
-                else
-                    StartCoroutine(MoveToPosition(this.gameObject.transform, finalDestination, timer));
+            } else
+            {
+                animator.SetBool("isRunning", timer < 10);
+                StartCoroutine(timer == 0
+                    ? MoveToPosition(this.gameObject.transform, finalDestination, 0.5f)
+                    : MoveToPosition(this.gameObject.transform, finalDestination, timer));
             }
 
 
@@ -42,6 +37,8 @@ namespace AR_Project.MainGame.Prize
         {
             var currentPos = transform.position;
             var t = 0f;
+            if (ARDebug.Debugging)
+                timeToMove = ARDebug.TimeToFill;
             while (t < 1)
             {
                 t += Time.deltaTime / timeToMove;

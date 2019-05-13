@@ -37,7 +37,7 @@ namespace Output.CSV
             return string.Join(",", arr);
         }
         
-        public static void WriteLineAtEnd(string[] arr, string path = null, bool close = false)
+        public static void WriteLineAtEnd(string[] arr, bool close = true, string path = null)
         {
             if (path == null) path = _currentPath;
             StreamWriter writer;

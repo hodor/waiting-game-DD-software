@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +8,7 @@ using AR_Project.MainGame.GameObjects;
 using AR_Project.MainGame.Prize;
 using AR_Project.MainGame.UI;
 using AR_Project.Savers;
+using Output;
 
 namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
 {
@@ -27,7 +29,6 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
 
         public void SetupExperiment(GameObject prefabSecondPrize, List<Experiment> experiments, GameObject finishLineObj, bool fake)
         {
-            currentExperiments = new List<Experiment>();
             goList = new List<GameObject>();
             prefabReward = prefabSecondPrize;
             currentExperiments = experiments;
@@ -147,27 +148,32 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
         public void CallbackFromUIButtons(int timerClicked)
         {
             PrizeButtons.instance.DisableButtons();
-
+            int selected = 0;
             if (timerClicked == 0)
             {
                 RespawnImmediatePrize();
                 var points = currentPhase.immediatePrizePoints;
                 var key = "Fase " + dataHandler.GetExperimentIndex() + " do experimento";
                 PlayerPrefsSaver.instance.AddExperimentPoints(key, points);
-
+                selected = currentPhase.immediatePrizeValue;
             } else if (timerClicked == currentPhase.secondPrizeTimer)
             {
                 RespawnSecondPrize();
                 var points = currentPhase.secondPrizePoints;
                 var key = "Fase " + dataHandler.GetExperimentIndex() + " do experimento";
                 PlayerPrefsSaver.instance.AddExperimentPoints(key, points);
+                selected = currentPhase.secondPrizeValue;
             }
+
+            var timeDiff = DateTime.Now - MainGameScene.ExperimentStartDT;
+            Out.Instance.SaveExperimentData(currentPhase, selected, PlayerPrefsSaver.instance, timeDiff.TotalSeconds);
         }
 
         public void FinishedExperiment() 
         {
             CleanScenario();
             NextPhase();
+            MainGameScene.ExperimentStartDT = DateTime.Now;
             //PrizeButtons.instance.ToggleButtons(true);
         }
 
