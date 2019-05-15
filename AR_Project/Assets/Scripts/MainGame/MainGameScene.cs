@@ -176,8 +176,7 @@ namespace AR_Project.MainGame
 
         void SetupFakeExperiment()
         {
-            var fakeExperiments = MainData.instanceData.fakeExperiments.experiments;
-            fakeExperiments.Shuffle();
+            var fakeExperiments = ListShuffler.GetPseudoRandomExperiments(MainData.instanceData.fakeExperiments.experiments);
             var experimentHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
             experimentHandler.SetupExperiment(prefabChar, fakeExperiments, finishLine, true);
             experimentHandler.StartExperiment();
@@ -208,8 +207,7 @@ namespace AR_Project.MainGame
 
         void SetupRealExperiment()
         {
-            var realExperiments = MainData.instanceData.realExperiments.experiments;
-            realExperiments.Shuffle();
+            var realExperiments = ListShuffler.GetPseudoRandomExperiments(MainData.instanceData.realExperiments.experiments);
             var experimentHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
             experimentHandler.SetupExperiment(prefabChar, realExperiments, finishLine, false);
             experimentHandler.StartExperiment();

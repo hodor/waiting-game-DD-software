@@ -9,13 +9,9 @@ namespace AR_Project.DataClasses.JsonToClasses
 {
     public static class JsonReader
     {
-    
-        public static Prizes ReadPrizeConfig(){
-#if UNITY_EDITOR
-            var path = "./Assets/Resources/ConfigJsons/configuracaoPremios.json";
-#elif PLATFORM_STANDALONE_WIN
-            var path = Application.dataPath + "./Data/ConfigJsons/configuracaoPremios.json";
-#endif
+        public static Prizes ReadPrizeConfig()
+        {
+            var path = Application.dataPath + "/StreamingAssets" + "/ConfigJsons/configuracaoPremios.json";
             string outputJson = "";
 
             if (!File.Exists(path))
@@ -27,12 +23,7 @@ namespace AR_Project.DataClasses.JsonToClasses
 
         public static Config ReadGameConfig()
         {
-#if UNITY_EDITOR
-            var path = "./Assets/Resources/ConfigJsons/configuracoesGerais.json";
-#elif PLATFORM_STANDALONE_WIN
-            var path = Application.dataPath + "./Data/ConfigJsons/configuracoesGerais.json";
-#endif
-
+            var path = Application.dataPath + "/StreamingAssets" + "/ConfigJsons/configuracoesGerais.json";
             string outputJson = "";
 
             if (!File.Exists(path))
@@ -42,14 +33,9 @@ namespace AR_Project.DataClasses.JsonToClasses
             return JsonConvert.DeserializeObject<Config>(outputJson);
         }
 
-        public static RealExperiments ReadRealExperiments() 
+        public static RealExperiments ReadRealExperiments()
         {
-#if UNITY_EDITOR
-            var path = "./Assets/Resources/ConfigJsons/configuracaoEnsaiosReais.json";
-#elif PLATFORM_STANDALONE_WIN
-            var path = Application.dataPath + "./Data/ConfigJsons/configuracaoEnsaiosReais.json";
-#endif
-
+            var path = Application.dataPath + "/StreamingAssets" + "/ConfigJsons/configuracaoEnsaiosReais.json";
             string outputJson = "";
 
             if (!File.Exists(path))
@@ -61,12 +47,7 @@ namespace AR_Project.DataClasses.JsonToClasses
 
         public static FakeExperiments ReadFakeExperiments()
         {
-#if UNITY_EDITOR
-            var path = "./Assets/Resources/ConfigJsons/configuracaoEnsaiosFicticios.json";
-#elif PLATFORM_STANDALONE_WIN
-            var path = Application.dataPath + "./Data/ConfigJsons/configuracaoEnsaiosFicticios.json";
-#endif
-
+            var path = Application.dataPath + "/StreamingAssets" + "/ConfigJsons/configuracaoEnsaiosFicticios.json";
             string outputJson = "";
 
             if (!File.Exists(path))
@@ -78,12 +59,7 @@ namespace AR_Project.DataClasses.JsonToClasses
 
         public static ContentConfig ReadContentConfig()
         {
-#if UNITY_EDITOR
-            var path = "./Assets/Resources/ConfigJsons/configuracoesDeTexto.json";
-#elif PLATFORM_STANDALONE_WIN
-            var path = Application.dataPath + "./Data/ConfigJsons/configuracoesDeTexto.json";
-#endif
-
+            var path = Application.dataPath + "/StreamingAssets" + "/ConfigJsons/configuracoesDeTexto.json";
             string outputJson = "";
 
             if (!File.Exists(path))
@@ -92,8 +68,5 @@ namespace AR_Project.DataClasses.JsonToClasses
             outputJson = File.ReadAllText(path);
             return JsonConvert.DeserializeObject<ContentConfig>(outputJson);
         }
-
-
-
     }
 }
