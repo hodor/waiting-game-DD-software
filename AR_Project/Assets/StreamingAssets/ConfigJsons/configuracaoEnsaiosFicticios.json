@@ -1,50 +1,41 @@
 {
-  "_comment": "12 ensaios ficticios",
+  "_comment": "8 ensaios ficticios",
   "EnsaiosFicticios": [
     {
-      "id": 1,
+      "id": 5,
       "maiorPremioEstaNoBotaoDireito": false,
       "_comment1": "valor em moedas do prêmio imediato",
-      "valorPremioImediato": 700,
+      "valorPremioImediato": 400,
       "_comment2": "pontuação ao escolher o prêmio imediato",
-      "pontuacaoPremioImediato": 700,
+      "pontuacaoPremioImediato": 400,
       "_comment3": "valor em moedas do segundo prêmio",
       "valorSegundoPremio": 1000,
       "_comment4": "tempo em segundos do segundo prêmio",
-      "tempoSegundoPremio": 15,
+      "tempoSegundoPremio": 30,
       "_comment5": "pontuação ao escolher o segundo prêmio",
       "pontuacaoSegundoPremio": 1000
     },
     {
-      "id": 2,
+      "id": 1,
       "maiorPremioEstaNoBotaoDireito": true,
       "valorPremioImediato": 100,
       "pontuacaoPremioImediato": 100,
+      "valorSegundoPremio": 1000,
+      "tempoSegundoPremio": 7,
+      "pontuacaoSegundoPremio": 1000
+    },
+    {
+      "id": 8,
+      "maiorPremioEstaNoBotaoDireito": false,
+      "valorPremioImediato": 400,
+      "pontuacaoPremioImediato": 400,
       "valorSegundoPremio": 1000,
       "tempoSegundoPremio": 60,
       "pontuacaoSegundoPremio": 1000
     },
     {
-      "id": 3,
-      "maiorPremioEstaNoBotaoDireito": false,
-      "valorPremioImediato": 300,
-      "pontuacaoPremioImediato": 300,
-      "valorSegundoPremio": 1000,
-      "tempoSegundoPremio": 7,
-      "pontuacaoSegundoPremio": 1000
-    },
-    {
-      "id": 4,
+      "id": 6,
       "maiorPremioEstaNoBotaoDireito": true,
-      "valorPremioImediato": 100,
-      "pontuacaoPremioImediato": 100,
-      "valorSegundoPremio": 1000,
-      "tempoSegundoPremio": 30,
-      "pontuacaoSegundoPremio": 1000
-    },
-    {
-      "id": 5,
-      "maiorPremioEstaNoBotaoDireito": false,
       "valorPremioImediato": 700,
       "pontuacaoPremioImediato": 700,
       "valorSegundoPremio": 1000,
@@ -52,12 +43,21 @@
       "pontuacaoSegundoPremio": 1000
     },
     {
-      "id": 6,
+      "id": 4,
       "maiorPremioEstaNoBotaoDireito": false,
-      "valorPremioImediato": 100,
-      "pontuacaoPremioImediato": 100,
+      "valorPremioImediato": 700,
+      "pontuacaoPremioImediato": 700,
       "valorSegundoPremio": 1000,
       "tempoSegundoPremio": 7,
+      "pontuacaoSegundoPremio": 1000
+    },
+    {
+      "id": 3,
+      "maiorPremioEstaNoBotaoDireito": false,
+      "valorPremioImediato": 400,
+      "pontuacaoPremioImediato": 400,
+      "valorSegundoPremio": 1000,
+      "tempoSegundoPremio": 15,
       "pontuacaoSegundoPremio": 1000
     },
     {
@@ -70,46 +70,10 @@
       "pontuacaoSegundoPremio": 1000
     },
     {
-      "id": 8,
+      "id": 2,
       "maiorPremioEstaNoBotaoDireito": true,
-      "valorPremioImediato": 100,
-      "pontuacaoPremioImediato": 100,
-      "valorSegundoPremio": 1000,
-      "tempoSegundoPremio": 7,
-      "pontuacaoSegundoPremio": 1000
-    },
-    {
-      "id": 9,
-      "maiorPremioEstaNoBotaoDireito": false,
-      "valorPremioImediato": 100,
-      "pontuacaoPremioImediato": 100,
-      "valorSegundoPremio": 1000,
-      "tempoSegundoPremio": 15,
-      "pontuacaoSegundoPremio": 1000
-    },
-    {
-      "id": 10,
-      "maiorPremioEstaNoBotaoDireito": false,
-      "valorPremioImediato": 700,
-      "pontuacaoPremioImediato": 700,
-      "valorSegundoPremio": 1000,
-      "tempoSegundoPremio": 30,
-      "pontuacaoSegundoPremio": 1000
-    },
-    {
-      "id": 11,
-      "maiorPremioEstaNoBotaoDireito": true,
-      "valorPremioImediato": 700,
-      "pontuacaoPremioImediato": 700,
-      "valorSegundoPremio": 1000,
-      "tempoSegundoPremio": 7,
-      "pontuacaoSegundoPremio": 1000
-    },
-    {
-      "id": 12,
-      "maiorPremioEstaNoBotaoDireito": true,
-      "valorPremioImediato": 300,
-      "pontuacaoPremioImediato": 300,
+      "valorPremioImediato": 400,
+      "pontuacaoPremioImediato": 400,
       "valorSegundoPremio": 1000,
       "tempoSegundoPremio": 15,
       "pontuacaoSegundoPremio": 1000

@@ -55,15 +55,16 @@ public static class ListShuffler
         }
         while (validIndices.Count > 0)
         {
-            var randomIndex = rng.Next(0, validIndices.Count - 1);
-
-            var experiment = clusters[validIndices[randomIndex]][0];
-            clusters[validIndices[randomIndex]].RemoveAt(0);
-            if (clusters[validIndices[randomIndex]].Count == 0)
-            {
-                validIndices.RemoveAt(randomIndex);
-            }
+            int randomIndex = validIndices.Count == 1 ? 0 : rng.Next(0, validIndices.Count);
+            int validIndex = validIndices[randomIndex];
+            var experiment = clusters[validIndex].First();
             pseudoList.Add(experiment);
+            
+            clusters[validIndex].RemoveAt(0);
+            if (clusters[validIndex].Count == 0)
+            {
+                validIndices.Remove(validIndex);
+            }
         }
 
         return pseudoList;

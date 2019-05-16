@@ -119,7 +119,7 @@ namespace Output.CSV
             };
             var headers = new[]
             {
-                "Trail", "Recompensa_menor", "Tempo_assoc_rec_maior", "Recompensa_escolhida", "Tipo_da_tarefa", "Tipo_da_recompensa", "Tempo_de_escolha"
+                "Tarefa", "Trail", "Recompensa_menor", "Tempo_assoc_rec_maior", "Recompensa_escolhida", "Tempo_de_escolha"
             };
             CSVUtils.WriteLineAtEnd(score, false);
             CSVUtils.WriteLineAtEnd(headers);
@@ -129,12 +129,11 @@ namespace Output.CSV
         {
             var values = new string[]
             {
+                (userData.isTraining ? "Treino" : "Jogo_Tempo") + "_" + (userData.isImaginarium ? "Imaginário" : "Real"),
                 experiment.id.ToString(), 
                 experiment.immediatePrizeValue.ToString(),
                 experiment.secondPrizeTimer.ToString(), 
                 selectedValue.ToString(), 
-                userData.isTraining ? "Treino" : "Real", 
-                userData.isImaginarium ? "Imaginária" : "Real", 
                 (timeToChooseInSeconds).ToString("0.00")
             };
             CSVUtils.WriteLineAtEnd(values);

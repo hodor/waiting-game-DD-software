@@ -140,27 +140,26 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             if (currentPhase == null) return;
             var timeDiff = DateTime.Now - MainGameScene.ExperimentStartDT;
             PrizeButtons.instance.DisableButtons();
-            int selected = 0;
             if (timerClicked == 0)
             {
-                RespawnImmediatePrize();
-                if (currentPhase == null) return;
-                var points = currentPhase.immediatePrizePoints;
+                var phasePoints = currentPhase.immediatePrizePoints;
                 var key = "Fase " + dataHandler.GetExperimentIndex() + " do experimento";
-                PlayerPrefsSaver.instance.AddExperimentPoints(key, points);
-                selected = currentPhase.immediatePrizeValue;
+                PlayerPrefsSaver.instance.AddExperimentPoints(key, phasePoints);
+                Out.Instance.SaveExperimentData(currentPhase, currentPhase.immediatePrizeValue, PlayerPrefsSaver.instance, 
+                    timeDiff.TotalSeconds);
+                RespawnImmediatePrize();
             }
             else if (timerClicked == currentPhase.secondPrizeTimer)
             {
-                RespawnSecondPrize();
                 if (currentPhase == null) return;
-                var points = currentPhase.secondPrizePoints;
+                var phasePoints = currentPhase.secondPrizePoints;
                 var key = "Fase " + dataHandler.GetExperimentIndex() + " do experimento";
-                PlayerPrefsSaver.instance.AddExperimentPoints(key, points);
-                selected = currentPhase.secondPrizeValue;
+                PlayerPrefsSaver.instance.AddExperimentPoints(key, phasePoints);
+                Out.Instance.SaveExperimentData(currentPhase, currentPhase.secondPrizeValue, PlayerPrefsSaver.instance, 
+                    timeDiff.TotalSeconds);
+                RespawnSecondPrize();
             }
 
-            Out.Instance.SaveExperimentData(currentPhase, selected, PlayerPrefsSaver.instance, timeDiff.TotalSeconds);
         }
 
         public void FinishedExperiment()
