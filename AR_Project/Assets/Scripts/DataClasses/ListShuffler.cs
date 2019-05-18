@@ -3,6 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using AR_Project.DataClasses.NestedObjects;
 
+public class ClusterValue
+{
+    public int SecondPrizeTimer { get; set; }
+    public int FirstPrizeValue { get; set; }
+
+    public override bool Equals(object obj)
+    {
+        var other = obj as ClusterValue;
+        if (other == null) return false;
+        return SecondPrizeTimer == other.SecondPrizeTimer && FirstPrizeValue == other.FirstPrizeValue;
+    }
+
+    public override int GetHashCode()
+    {
+        int hash = 13;
+        hash = (hash * 7) + SecondPrizeTimer.GetHashCode();
+        hash = (hash * 7) + FirstPrizeValue.GetHashCode();
+        return hash;
+    }
+}
 public static class ListShuffler
 {
     private static Random rng = new Random((int) DateTime.Now.Ticks);
@@ -21,21 +41,37 @@ public static class ListShuffler
 
     public static List<List<Experiment>> GetClusters(List<Experiment> experiments)
     {
-        var clusterDict = new Dictionary<int, List<Experiment>>();
+        var clusterDict = new Dictionary<ClusterValue, List<Experiment>>();
         var ret = new List<List<Experiment>>();
         foreach (var experiment in experiments)
         {
-            var biggestTimer = experiment.secondPrizeTimer;
-            if (!clusterDict.ContainsKey(biggestTimer))
+            var key = new ClusterValue()
             {
-                clusterDict.Add(biggestTimer, new List<Experiment>());
+                FirstPrizeValue = experiment.immediatePrizeValue, 
+                SecondPrizeTimer = experiment.secondPrizeTimer
+            };
+            if (!clusterDict.ContainsKey(key))
+            {
+                clusterDict.Add(key, new List<Experiment>());
             }
-            clusterDict[biggestTimer].Add(experiment);
+
+            int curIndex = 0;
+            foreach (var kvp in clusterDict)
+            {
+                if (kvp.Key.Equals(key))
+                {
+                    experiment.clusterId = curIndex;
+                    break;
+                }
+
+                curIndex++;
+            }
+            clusterDict[key].Add(experiment);
         }
 
         foreach (var cluster in clusterDict.Values)
         {
-            var sortedCluster = cluster.OrderBy(list => list.immediatePrizePoints).ToList();
+            var sortedCluster = cluster.OrderBy(list => list.id).ToList();
             ret.Add(sortedCluster);
         }
         return ret;

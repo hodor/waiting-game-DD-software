@@ -119,7 +119,7 @@ namespace Output.CSV
             };
             var headers = new[]
             {
-                "Tarefa", "Trail", "Recompensa_menor", "Tempo_assoc_rec_maior", "Recompensa_escolhida", "Tempo_de_escolha"
+                "Tarefa", "Trail", "Cluster_ID", "Recompensa_menor", "Tempo_assoc_rec_maior", "Recompensa_escolhida", "Tempo_de_escolha"
             };
             CSVUtils.WriteLineAtEnd(score, false);
             CSVUtils.WriteLineAtEnd(headers);
@@ -127,10 +127,16 @@ namespace Output.CSV
 
         public void SaveExperimentData(Experiment experiment, int selectedValue, PlayerPrefsSaver userData, double timeToChooseInSeconds)
         {
+            var clusterCode = (int) 'A';
+            clusterCode += experiment.clusterId;
+            var clusterLetter = (char) clusterCode;
+            var cluster = clusterLetter.ToString();
+            
             var values = new string[]
             {
                 (userData.isTraining ? "Treino" : "Jogo_Tempo") + "_" + (userData.isImaginarium ? "Imaginário" : "Real"),
                 experiment.id.ToString(), 
+                cluster,
                 experiment.immediatePrizeValue.ToString(),
                 experiment.secondPrizeTimer.ToString(), 
                 selectedValue.ToString(), 

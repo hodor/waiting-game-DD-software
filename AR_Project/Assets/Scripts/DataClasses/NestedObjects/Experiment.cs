@@ -28,6 +28,8 @@ namespace AR_Project.DataClasses.NestedObjects
 
         [JsonProperty(PropertyName = "id")] public int id;
 
+        public int clusterId;
+
     }
 
 }
