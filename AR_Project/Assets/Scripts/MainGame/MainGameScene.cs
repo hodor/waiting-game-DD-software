@@ -131,8 +131,6 @@ namespace AR_Project.MainGame
             {
                 SetUIRealExperiment();
             }
-
-            ExperimentStartDT = DateTime.Now;
         }
 
         public void SetupNotImaginariumExperiment()
@@ -147,8 +145,6 @@ namespace AR_Project.MainGame
             {
                 SetUIRealExperiment();
             }
-
-            ExperimentStartDT = DateTime.Now;
         }
 
         // ----- Fake Experiments -------- //

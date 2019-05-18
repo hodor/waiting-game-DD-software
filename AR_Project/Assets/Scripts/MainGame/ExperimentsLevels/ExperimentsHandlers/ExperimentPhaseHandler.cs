@@ -73,6 +73,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
                 currentPhase.immediatePrizeValue, currentPhase.secondPrizeValue);
             sliderHandler.DisableOtherSliders(0, currentPhase.secondPrizeTimer);
             prizeButtons.SetupButtons(0, currentPhase.secondPrizeTimer);
+            MainGameScene.ExperimentStartDT = DateTime.Now;
         }
 
         public bool IsSecondPrizeAtRightButton()
@@ -166,7 +167,6 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
         {
             CleanScenario();
             NextPhase();
-            MainGameScene.ExperimentStartDT = DateTime.Now;
             //PrizeButtons.instance.ToggleButtons(true);
         }
 
