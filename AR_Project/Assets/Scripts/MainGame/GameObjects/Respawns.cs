@@ -13,11 +13,11 @@ namespace AR_Project.MainGame.GameObjects
 
         public GameObject CheckRespawnByExperiment(Experiment experiment)
         {
-            var timerLanes = MainData.instanceData.config.gameSettings.timeLanes;
+            var timerLanes = MainData.instanceData.config.gameSettings;
 
-            for (int i = 0; i < timerLanes.Length; i++)
+            for (var i = 0; i < timerLanes.Count; i++)
             {
-                if (experiment.secondPrizeTimer == timerLanes[i])
+                if (experiment.secondPrizeTimer == timerLanes[i].time)
                 {
                     return respawns[i];
                 }
@@ -33,10 +33,10 @@ namespace AR_Project.MainGame.GameObjects
 
         public GameObject GetRespawnByLane(int lane)
         {
-            var timerLanes = MainData.instanceData.config.gameSettings.timeLanes;
-            for (int i = 0; i < timerLanes.Length; i++)
+            var timerLanes = MainData.instanceData.config.gameSettings;
+            for (int i = 0; i < timerLanes.Count; i++)
             {
-                if (lane == timerLanes[i])
+                if (lane == timerLanes[i].time)
                 {
                     return respawns[i];
                 }

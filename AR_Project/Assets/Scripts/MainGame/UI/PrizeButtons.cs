@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using AR_Project.DataClasses.MainData;
+using AR_Project.DataClasses.NestedObjects;
 using AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace AR_Project.MainGame.UI
 {
@@ -17,7 +16,7 @@ namespace AR_Project.MainGame.UI
         public List<GameObject> laneButtons;
 
         int firstTimerSet, secondTimerSet;
-        int[] timers;
+        List<GameSetting> _settings;
 
         public void Awake()
         {
@@ -29,7 +28,7 @@ namespace AR_Project.MainGame.UI
 
         public void Start()
         {
-            timers = MainData.instanceData.config.gameSettings.timeLanes;
+            _settings = MainData.instanceData.config.gameSettings;
         }
 
         public void SetupButtons(int firstTimer, int secondTimer)
@@ -37,13 +36,13 @@ namespace AR_Project.MainGame.UI
             firstTimerSet = firstTimer;
             secondTimerSet = secondTimer;
   
-            for(int i=0; i < timers.Length; i++)
+            for(int i=0; i < _settings.Count; i++)
             {
-                if(timers[i] == firstTimer)
+                if(_settings[i].time == firstTimer)
                     laneButtons[i].SetActive(true);
-                if(timers[i] == secondTimer)
+                if(_settings[i].time == secondTimer)
                     laneButtons[i].SetActive(true);
-                if (timers[i] != firstTimer && timers[i] != secondTimer)
+                if (_settings[i].time != firstTimer && _settings[i].time != secondTimer)
                     laneButtons[i].SetActive(false);
             }
 
@@ -55,7 +54,7 @@ namespace AR_Project.MainGame.UI
             if (IsHandlingLaneClick) return;
             IsHandlingLaneClick = true;
             var expHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
-            var timer = timers[laneNumber];
+            var timer = _settings[laneNumber].time;
             expHandler.CallbackFromUIButtons(timer);
             IsHandlingLaneClick = false;
         }

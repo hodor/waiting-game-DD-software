@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using AR_Project.DataClasses.MainData;
 using UnityEngine;
@@ -8,7 +9,7 @@ namespace AR_Project.MainGame.UI
 {
     public class SlidersHandler : MonoBehaviour
     {
-
+        private const float TOLERANCE = 0.001f;
         public List<Slider> sliders;
         public List<Image> slidersColors;
 
@@ -16,29 +17,29 @@ namespace AR_Project.MainGame.UI
         {
             if (ARDebug.Debugging) timeToFill = ARDebug.TimeToFill;
             var sliderScript = sliders[index].GetComponent<RespawnSlider>();
-            sliderScript.StartSlider(timeToFill == 0.0f ? 0.5f : timeToFill);
+            sliderScript.StartSlider(Math.Abs(timeToFill) < TOLERANCE ? 0.5f : timeToFill);
         }
 
         public void SetAndStartSliderByTimer(float timeToFill)
         {
             if (ARDebug.Debugging) timeToFill = ARDebug.TimeToFill;
-            var timers = MainData.instanceData.config.gameSettings.timeLanes;
-            for(int i=0; i < timers.Length; i++)
+            var timers = MainData.instanceData.config.gameSettings;
+            for(int i=0; i < timers.Count; i++)
             {
-                if(timers[i] == timeToFill)
+                if(Math.Abs(timers[i].time - timeToFill) < TOLERANCE)
                 {
                     var sliderScript = sliders[i].GetComponent<RespawnSlider>();
-                    sliderScript.StartSlider(timeToFill == 0.0f ? 0.5f : timeToFill);
+                    sliderScript.StartSlider(Math.Abs(timeToFill) < TOLERANCE ? 0.5f : timeToFill);
                 }
             }
         }
 
         public void DisableOtherSliders(int firstTimeToFill, int secondTimeToFill)
         {
-            var timers = MainData.instanceData.config.gameSettings.timeLanes;
-            for (int i = 0; i < timers.Length; i++)
+            var timers = MainData.instanceData.config.gameSettings;
+            for (int i = 0; i < timers.Count; i++)
             {
-                if (timers[i] != firstTimeToFill && timers[i] != secondTimeToFill)
+                if (timers[i].time != firstTimeToFill && timers[i].time != secondTimeToFill)
                     DisableSlider(sliders[i]);
                 else
                     EnableSlider(sliders[i]);

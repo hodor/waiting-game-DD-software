@@ -148,7 +148,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             else if (timerClicked == currentPhase.secondPrizeTimer)
             {
                 if (currentPhase == null) return;
-                var phasePoints = currentPhase.immediatePrizeValue;
+                var phasePoints = currentPhase.secondPrizeValue;
                 var key = "Fase " + dataHandler.GetExperimentIndex() + " do experimento";
                 PlayerPrefsSaver.instance.AddExperimentPoints(key, phasePoints);
                 Out.Instance.SaveExperimentData(currentPhase, currentPhase.secondPrizeValue, PlayerPrefsSaver.instance, 

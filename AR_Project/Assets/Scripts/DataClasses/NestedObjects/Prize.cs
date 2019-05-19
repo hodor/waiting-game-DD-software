@@ -11,9 +11,6 @@ namespace AR_Project.DataClasses.NestedObjects
     {
         [JsonProperty(PropertyName = "valor")]
         public int value;
-
-        [JsonProperty(PropertyName = "pontuacaoDoTimer")]
-        public int[] timerPoints;
     }
 
 }

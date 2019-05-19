@@ -40,15 +40,15 @@ namespace AR_Project.MainGame
 
         public IEnumerator RespawnTutorial()
         {
-            var timeLanes = MainData.instanceData.config.gameSettings.timeLanes;
-            foreach(var lane in timeLanes)
+            var timeLanes = MainData.instanceData.config.gameSettings;
+            foreach(var setting in timeLanes)
             {
-                int time = lane;
+                var time = setting.time;
                 if (ARDebug.Debugging)
                 {
                     time = (int) Math.Ceiling(ARDebug.TimeToFill);
                 }
-                Respawn(lane);
+                Respawn(setting.time);
                 yield return new WaitForSeconds(time);
             }
             CleanScene();

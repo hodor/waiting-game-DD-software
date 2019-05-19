@@ -73,7 +73,7 @@ namespace AR_Project.MainGame
         public void SetTutorialUI()
         {
             backgroundImg.sprite = bgTutorial;
-            tutorialTitle.text = MainData.instanceData.content.titleTimeInstructions;
+            tutorialTitle.text = MainData.instanceData.config.texts.timeInstructions;
             prizeLabels.SetActive(false);
             tutorialUI.SetActive(true);
             ToggleGameUIObjects(false);
@@ -153,9 +153,9 @@ namespace AR_Project.MainGame
             //mudar textos
             var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
             if (isImaginarium)
-                fakeExperimentTitle.text = MainData.instanceData.content.titleTrainingImaginarium;
+                fakeExperimentTitle.text = MainData.instanceData.config.texts.trainingImaginarium;
             else
-                fakeExperimentTitle.text = MainData.instanceData.content.titleTrainingNonImaginarium;
+                fakeExperimentTitle.text = MainData.instanceData.config.texts.trainingReal;
 
             backgroundImg.sprite = bgExperiments;
             ToggleGameUIObjects(false);
@@ -172,7 +172,7 @@ namespace AR_Project.MainGame
 
         void SetupFakeExperiment()
         {
-            var fakeExperiments = ListShuffler.GetPseudoRandomExperiments(MainData.instanceData.fakeExperiments.experiments);
+            var fakeExperiments = ListShuffler.GetPseudoRandomExperiments(MainData.instanceData.config.trainings);
             var experimentHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
             experimentHandler.SetupExperiment(prefabChar, fakeExperiments, finishLine, true);
             experimentHandler.StartExperiment();
@@ -183,9 +183,9 @@ namespace AR_Project.MainGame
         {
             var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
             if (isImaginarium)
-                realExperimentTitle.text = MainData.instanceData.content.titleExperimentImaginarium;
+                realExperimentTitle.text = MainData.instanceData.config.texts.experimentImaginarium;
             else
-                realExperimentTitle.text = MainData.instanceData.content.titleExperimentNonImaginarium;
+                realExperimentTitle.text = MainData.instanceData.config.texts.experimentReal;
 
             backgroundImg.sprite = bgExperiments;
             ToggleGameUIObjects(false);
@@ -203,7 +203,7 @@ namespace AR_Project.MainGame
 
         void SetupRealExperiment()
         {
-            var realExperiments = ListShuffler.GetPseudoRandomExperiments(MainData.instanceData.realExperiments.experiments);
+            var realExperiments = ListShuffler.GetPseudoRandomExperiments(MainData.instanceData.config.experiments);
             var experimentHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
             experimentHandler.SetupExperiment(prefabChar, realExperiments, finishLine, false);
             experimentHandler.StartExperiment();

@@ -1,8 +1,58 @@
 {
   "created": {
-    "date": "May 19, 2019 00:18:18 -0300"
+    "date": "May 19, 2019 05:13:47 -0300"
   },
-  "EnsaiosReais": [
+  "Treinos": [
+    {
+      "id": 1,
+      "valorpremioimediato": 100,
+      "temposegundopremio": 7,
+      "valorsegundopremio": 1000
+    },
+    {
+      "id": 2,
+      "valorpremioimediato": 400,
+      "temposegundopremio": 15,
+      "valorsegundopremio": 1000
+    },
+    {
+      "id": 3,
+      "valorpremioimediato": 400,
+      "temposegundopremio": 15,
+      "valorsegundopremio": 1000
+    },
+    {
+      "id": 4,
+      "valorpremioimediato": 700,
+      "temposegundopremio": 7,
+      "valorsegundopremio": 1000
+    },
+    {
+      "id": 5,
+      "valorpremioimediato": 400,
+      "temposegundopremio": 30,
+      "valorsegundopremio": 1000
+    },
+    {
+      "id": 6,
+      "valorpremioimediato": 700,
+      "temposegundopremio": 15,
+      "valorsegundopremio": 1000
+    },
+    {
+      "id": 7,
+      "valorpremioimediato": 100,
+      "temposegundopremio": 60,
+      "valorsegundopremio": 1000
+    },
+    {
+      "id": 8,
+      "valorpremioimediato": 400,
+      "temposegundopremio": 60,
+      "valorsegundopremio": 1000
+    }
+  ],
+  "Ensaios": [
     {
       "id": 1,
       "valorpremioimediato": 100,
@@ -35,7 +85,7 @@
     },
     {
       "id": 6,
-      "valorpremioimediato": 700,
+      "valorpremioimediato": 300,
       "temposegundopremio": 7,
       "valorsegundopremio": 1000
     },
@@ -218,6 +268,52 @@
       "valorpremioimediato": 700,
       "temposegundopremio": 60,
       "valorsegundopremio": 1000
+    }
+  ],
+  "Textos": {
+    "introducao": "Olá! Nesse jogo queremos saber quanto tempo você está disposto a esperar para acumular mais pontos. Mais pontos dão direito a prêmios melhores.",
+    "apresentacaoderecompensa": "Opções de pontos",
+    "personagem": "Escolha seu avatar",
+    "apresentacaodostempos": "Vamos aprender como funciona o tempo?",
+    "treinoimaginario": "JOGO IMAGINÁRIO\n\n\nVamos Treinar!",
+    "experimentoimaginario": "JOGO IMAGINÁRIO\n\n\nNesse jogo você NÃO ganhará um prêmio real.",
+    "treinoreal": "JOGO REAL\n\n\nVamos Treinar!",
+    "experimentoreal": "JOGO REAL\n\n\nAgora é para valer. Nessa tarefa você GANHARÁ um prêmio REAL!"
+  },
+  "Premios": [
+    {
+      "valor": 100
+    },
+    {
+      "valor": 300
+    },
+    {
+      "valor": 700
+    },
+    {
+      "valor": 1000
+    }
+  ],
+  "Tempo": [
+    {
+      "pista": 1,
+      "tempo": 0
+    },
+    {
+      "pista": 2,
+      "tempo": 7
+    },
+    {
+      "pista": 3,
+      "tempo": 15
+    },
+    {
+      "pista": 4,
+      "tempo": 30
+    },
+    {
+      "pista": 5,
+      "tempo": 60
     }
   ]
 }
