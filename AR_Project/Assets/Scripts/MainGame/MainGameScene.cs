@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using AR_Project.DataClasses.MainData;
+using AR_Project.DataClasses.NestedObjects;
 using AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers;
 using AR_Project.Savers;
 using Output;
@@ -34,6 +36,8 @@ namespace AR_Project.MainGame
         public GameObject prizeLabels;
         public Text realExperimentTitle;
         public GameObject realExperimentUI;
+        public Text patienceExperimentTitle;
+        public GameObject patienceExperimentUI;
 
         public GameObject SliderLanes;
         public GameObject TimerLabels;
@@ -103,106 +107,89 @@ namespace AR_Project.MainGame
             {
                 PlayerPrefsSaver.instance.imaginariumFirst = true;
                 PlayerPrefsSaver.instance.isTraining = true;
-                PlayerPrefsSaver.instance.isImaginarium = true;
-                SetupImaginariumExperiment();
+                PlayerPrefsSaver.instance.gameType = GameType.Imaginarium;
             }
             else
             {
                 PlayerPrefsSaver.instance.imaginariumFirst = false;
                 PlayerPrefsSaver.instance.isTraining = true;
-                PlayerPrefsSaver.instance.isImaginarium = false;
-                SetupNotImaginariumExperiment();
+                PlayerPrefsSaver.instance.gameType = GameType.Real;
             }
+
+            SetupNextExperiment();
         }
 
-        public void SetupImaginariumExperiment()
+        public void SetupNextExperiment()
         {
+            PlayerPrefsSaver.instance.totalPoints = 0;
             var training = PlayerPrefsSaver.instance.isTraining;
-            if (training)
-            {
-                PlayerPrefsSaver.instance.totalPoints = 0;
-                SetUIFakeExperiment();
-            }
-            else
-            {
-                SetUIRealExperiment();
-            }
-        }
-
-        public void SetupNotImaginariumExperiment()
-        {
-            var training = PlayerPrefsSaver.instance.isTraining;
-            if (training)
-            {
-                PlayerPrefsSaver.instance.totalPoints = 0;
-                SetUIFakeExperiment();
-            }
-            else
-            {
-                SetUIRealExperiment();
-            }
-        }
-
-        // ----- Fake Experiments -------- //
-        public void SetUIFakeExperiment()
-        {
-            //mudar textos
-            var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
-            if (isImaginarium)
-                fakeExperimentTitle.text = MainData.instanceData.config.texts.trainingImaginarium;
-            else
-                fakeExperimentTitle.text = MainData.instanceData.config.texts.trainingReal;
-
+            var type = PlayerPrefsSaver.instance.gameType;
+            var texts = MainData.instanceData.config.texts;
             backgroundImg.sprite = bgExperiments;
-            ToggleGameUIObjects(false);
-            fakeExperimentUI.SetActive(true);
+
+            switch (type)
+            {
+                case GameType.Imaginarium:
+                    fakeExperimentTitle.text = training ? texts.trainingImaginarium : texts.experimentImaginarium;
+                    ToggleGameUIObjects(false);
+                    fakeExperimentUI.SetActive(true);
+                    realExperimentUI.SetActive(false);
+                    patienceExperimentUI.SetActive(false);
+                    break;
+                case GameType.Real:
+                    realExperimentTitle.text = training ? texts.trainingReal : texts.experimentReal;
+                    ToggleGameUIObjects(false);
+                    fakeExperimentUI.SetActive(false);
+                    realExperimentUI.SetActive(true);
+                    patienceExperimentUI.SetActive(false);
+                    break;
+                case GameType.Patience:
+                    patienceExperimentTitle.text = training ? texts.trainingPatience : texts.experimentPatience;
+                    ToggleGameUIObjects(false);
+                    fakeExperimentUI.SetActive(false);
+                    realExperimentUI.SetActive(false);
+                    patienceExperimentUI.SetActive(true);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
-        public void StartFakeExperiments()
+        public void HandleClickedStart()
         {
+            var training = PlayerPrefsSaver.instance.isTraining;
             ToggleGameUIObjects(true);
             fakeExperimentUI.SetActive(false);
-            prizeLabels.SetActive(true);
-            SetupFakeExperiment();
-        }
-
-        private void SetupFakeExperiment()
-        {
-            var fakeExperiments = ListShuffler.GetPseudoRandomExperiments(MainData.instanceData.config.trainings);
-            var experimentHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
-            experimentHandler.SetupExperiment(prefabChar, fakeExperiments, finishLine, true);
-            experimentHandler.StartExperiment();
-        }
-
-        // ----- Real Experiments -------- //
-        public void SetUIRealExperiment()
-        {
-            var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
-            if (isImaginarium)
-                realExperimentTitle.text = MainData.instanceData.config.texts.experimentImaginarium;
-            else
-                realExperimentTitle.text = MainData.instanceData.config.texts.experimentReal;
-
-            backgroundImg.sprite = bgExperiments;
-            ToggleGameUIObjects(false);
-
-            realExperimentUI.SetActive(true);
-        }
-
-        public void StartRealExperiments()
-        {
-            ToggleGameUIObjects(true);
             realExperimentUI.SetActive(false);
+            patienceExperimentUI.SetActive(false);
             prizeLabels.SetActive(true);
-            SetupRealExperiment();
+            if (training)
+            {
+                SetupTraining();
+            }
+            else
+            {
+                SetupExperiment();
+            }
         }
 
-        private void SetupRealExperiment()
+        private void Start(List<Experiment> data)
         {
-            var realExperiments = ListShuffler.GetPseudoRandomExperiments(MainData.instanceData.config.experiments);
             var experimentHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
-            experimentHandler.SetupExperiment(prefabChar, realExperiments, finishLine, false);
+            experimentHandler.SetupExperiment(prefabChar, data, finishLine, true);
             experimentHandler.StartExperiment();
+        }
+
+        private void SetupTraining()
+        {
+            var trainings = ListShuffler.GetPseudoRandomExperiments(MainData.instanceData.config.trainings);
+            Start(trainings);
+        }
+
+        private void SetupExperiment()
+        {
+            var experiments = ListShuffler.GetPseudoRandomExperiments(MainData.instanceData.config.experiments);
+            Start(experiments);
         }
 
         // ----- Game Objects/UI -------- //
@@ -231,48 +218,69 @@ namespace AR_Project.MainGame
             //(bool training, bool imaginariumFirst, bool isImaginarium
             var training = PlayerPrefsSaver.instance.isTraining;
             var imaginariumFirst = PlayerPrefsSaver.instance.imaginariumFirst;
-            var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
+            var gameType = PlayerPrefsSaver.instance.gameType;
 
-            if (isImaginarium && training)
+            switch (gameType)
             {
-                PlayerPrefsSaver.instance.isTraining = false;
-                SetupImaginariumExperiment();
-            }
+                case GameType.Imaginarium:
+                    if (training)
+                    {
+                        PlayerPrefsSaver.instance.isTraining = false;
+                        SetupNextExperiment();
+                    }
+                    else
+                    {
+                        if (imaginariumFirst)
+                        {
+                            PlayerPrefsSaver.instance.gameType = GameType.Real;
+                            PlayerPrefsSaver.instance.isTraining = true;
+                            SetupNextExperiment();
+                        }
+                        else
+                        {
+                            PlayerPrefsSaver.instance.gameType = GameType.Patience;
+                            PlayerPrefsSaver.instance.isTraining = true;
+                        }
+                    }
 
-            if (isImaginarium && !training)
-            {
-                if (imaginariumFirst)
-                {
-                    //setar o teste real
-                    PlayerPrefsSaver.instance.isImaginarium = false;
-                    PlayerPrefsSaver.instance.isTraining = true;
-                    SetupNotImaginariumExperiment();
-                }
-                else
-                {
-                    //acabar o jogo
-                    FinishedGame();
-                }
-            }
+                    break;
+                case GameType.Real:
+                    if (training)
+                    {
+                        PlayerPrefsSaver.instance.isTraining = false;
+                        SetupNextExperiment();
+                    }
+                    else
+                    {
+                        if (!imaginariumFirst)
+                        {
+                            PlayerPrefsSaver.instance.gameType = GameType.Imaginarium;
+                            PlayerPrefsSaver.instance.isTraining = true;
+                            SetupNextExperiment();
+                        }
+                        else
+                        {
+                            PlayerPrefsSaver.instance.gameType = GameType.Patience;
+                            PlayerPrefsSaver.instance.isTraining = true;
+                            SetupNextExperiment();
+                        }
+                    }
 
-            if (!isImaginarium && training)
-            {
-                PlayerPrefsSaver.instance.isTraining = false;
-                SetupNotImaginariumExperiment();
-            }
+                    break;
+                case GameType.Patience:
+                    if (training)
+                    {
+                        PlayerPrefsSaver.instance.isTraining = false;
+                        SetupNextExperiment();
+                    }
+                    else
+                    {
+                        FinishedGame();
+                    }
 
-            if (!isImaginarium && !training)
-            {
-                if (!imaginariumFirst)
-                {
-                    PlayerPrefsSaver.instance.isImaginarium = true;
-                    PlayerPrefsSaver.instance.isTraining = true;
-                    SetupImaginariumExperiment();
-                }
-                else
-                {
-                    FinishedGame();
-                }
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 

@@ -92,7 +92,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
 
         private void RespawnSecondPrize()
         {
-            var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
+            var isImaginarium = PlayerPrefsSaver.instance.gameType == GameType.Imaginarium;
             var respawnsScript = gameObject.GetComponent<Respawns>();
             var respawn = respawnsScript.GetRespawnByLane(currentPhase.secondPrizeTimer);
             var slider = gameObject.GetComponent<SlidersHandler>();
@@ -113,7 +113,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
 
         private void RespawnImmediatePrize()
         {
-            var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
+            var isImaginarium = PlayerPrefsSaver.instance.gameType == GameType.Imaginarium;
             var respawnsScript = gameObject.GetComponent<Respawns>();
             var respawn = respawnsScript.GetRespawnByPosition(0);
             var slider = gameObject.GetComponent<SlidersHandler>();

@@ -96,7 +96,7 @@ namespace Output.CSV
             var values = new[]
             {
                 (userData.isTraining ? "Treino" : "Jogo_Tempo") + "_" +
-                (userData.isImaginarium ? "Imaginário" : "Real"),
+                (userData.gameType == GameType.Imaginarium	? "Imaginário" : "Real"),
                 experiment.id.ToString(),
                 cluster,
                 experiment.immediatePrizeValue.ToString(),

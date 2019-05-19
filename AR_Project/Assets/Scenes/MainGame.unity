@@ -774,7 +774,7 @@ RectTransform:
   - {fileID: 841604897}
   - {fileID: 1459245416}
   m_Father: {fileID: 1634660487}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2034,25 +2034,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df0c5fb01d124ab7a9d1c10dbdc178d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabChar: {fileID: 0}
-  finishLine: {fileID: 2129938213}
-  pointsUI: {fileID: 208489574}
-  tutorialUI: {fileID: 1251090210}
-  fakeExperimentUI: {fileID: 1827381305}
-  realExperimentUI: {fileID: 180684391}
-  finalRoundsScene: {fileID: 331859899}
-  finalRoundText: {fileID: 846120235}
-  SliderLanes: {fileID: 1855355777}
   backgroundImg: {fileID: 443439902}
   bgTutorial: {fileID: 21300000, guid: 547a11a26c6ef4fb3b8ba69b2b4a3644, type: 3}
   bgExperiments: {fileID: 21300000, guid: a3ddeb99ad240488b95a66f15b074945, type: 3}
-  GameObjects: {fileID: 1454881459}
-  TimerLabels: {fileID: 841604896}
-  prizeLabels: {fileID: 1459245415}
-  tutorialTitle: {fileID: 2076807692}
   fakeExperimentTitle: {fileID: 1312780713}
-  realExperimentTitle: {fileID: 657993969}
+  fakeExperimentUI: {fileID: 1827381305}
+  finalRoundsScene: {fileID: 331859899}
+  finalRoundText: {fileID: 846120235}
   finishedTutorial: 0
+  finishLine: {fileID: 2129938213}
+  GameObjects: {fileID: 1454881459}
+  pointsUI: {fileID: 208489574}
+  prefabChar: {fileID: 0}
+  prizeLabels: {fileID: 1459245415}
+  realExperimentTitle: {fileID: 657993969}
+  realExperimentUI: {fileID: 180684391}
+  patienceExperimentTitle: {fileID: 1052404790}
+  patienceExperimentUI: {fileID: 627111086}
+  SliderLanes: {fileID: 1855355777}
+  TimerLabels: {fileID: 841604896}
+  tutorialTitle: {fileID: 2076807692}
+  tutorialUI: {fileID: 1251090210}
 --- !u!4 &608683573
 Transform:
   m_ObjectHideFlags: 0
@@ -2124,8 +2126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 251c8b363dc564904a3f7e0ebb6b330b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalPoints: {fileID: 208489576}
   points: {fileID: 208489574}
+  totalPoints: {fileID: 208489576}
 --- !u!114 &608683578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2247,6 +2249,41 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 611764911}
   m_CullTransparentMesh: 0
+--- !u!1 &627111086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 627111087}
+  m_Layer: 5
+  m_Name: PatienceExperimentUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &627111087
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 627111086}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.9999075, y: 0.9999075, z: 0.9999075}
+  m_Children:
+  - {fileID: 1052404789}
+  - {fileID: 693767105}
+  m_Father: {fileID: 1634660487}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &657993967
 GameObject:
   m_ObjectHideFlags: 0
@@ -2279,8 +2316,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000076293945, y: 8.9}
-  m_SizeDelta: {x: 475.7, y: 270.9}
+  m_AnchoredPosition: {x: 3.88, y: 8.12}
+  m_SizeDelta: {x: 749.23, y: 269.35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &657993969
 MonoBehaviour:
@@ -2522,7 +2559,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 608683572}
-        m_MethodName: StartFakeExperiments
+        m_MethodName: HandleClickedStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2636,6 +2673,128 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 680645084}
+  m_CullTransparentMesh: 0
+--- !u!1 &693767104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 693767105}
+  - component: {fileID: 693767108}
+  - component: {fileID: 693767107}
+  - component: {fileID: 693767106}
+  m_Layer: 5
+  m_Name: StartRealExperiment
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &693767105
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 693767104}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 627111087}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.0000038146973, y: -123}
+  m_SizeDelta: {x: 257.4, y: 48.3}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &693767106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 693767104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 693767107}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 608683572}
+        m_MethodName: HandleClickedStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &693767107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 693767104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: eda1e047ae91c464cb303634f4607ab6, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &693767108
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 693767104}
   m_CullTransparentMesh: 0
 --- !u!1 &697654346
 GameObject:
@@ -3680,7 +3839,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 608683572}
-        m_MethodName: StartFakeExperiments
+        m_MethodName: HandleClickedStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3925,7 +4084,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.8999634, y: -2.3999023}
+  m_AnchoredPosition: {x: 3.9000244, y: -2.3999023}
   m_SizeDelta: {x: 139.2, y: 34.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1015828112
@@ -3961,6 +4120,83 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1015828110}
+  m_CullTransparentMesh: 0
+--- !u!1 &1052404788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1052404789}
+  - component: {fileID: 1052404791}
+  - component: {fileID: 1052404790}
+  m_Layer: 5
+  m_Name: HeaderText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1052404789
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1052404788}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 627111087}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 3.5, y: 8.12}
+  m_SizeDelta: {x: 750.03, y: 269.35}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1052404790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1052404788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 77fd96910b0514987bc076fb836c7cbd, type: 3}
+    m_FontSize: 35
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 3
+    m_MaxSize: 35
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "JOGO DA PACI\xCANCIA\n\n\nO objetivo \xE9 ver se voc\xEA est\xE1 disposto
+    a esperar por alguns tempos para acumular mais pontos, mas sabendo que N\xC3O
+    ganhar\xE1 um pr\xEAmio. Antes de come\xE7ar, vamos treinar!"
+--- !u!222 &1052404791
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1052404788}
   m_CullTransparentMesh: 0
 --- !u!1 &1069065469
 GameObject:
@@ -4612,8 +4848,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000076293945, y: 10.7}
-  m_SizeDelta: {x: 475.7, y: 274.4}
+  m_AnchoredPosition: {x: 1.55, y: 9.15}
+  m_SizeDelta: {x: 744.57, y: 271.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1312780713
 MonoBehaviour:
@@ -4846,7 +5082,7 @@ Transform:
   - {fileID: 1925199438}
   - {fileID: 2129938217}
   m_Father: {fileID: 1634660487}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1458788932
 GameObject:
@@ -5400,6 +5636,7 @@ RectTransform:
   - {fileID: 331859900}
   - {fileID: 1827381306}
   - {fileID: 180684392}
+  - {fileID: 627111087}
   - {fileID: 159681166}
   - {fileID: 1855355778}
   - {fileID: 1454881460}
@@ -5887,7 +6124,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 608683572}
-        m_MethodName: StartRealExperiments
+        m_MethodName: HandleClickedStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5999,7 +6236,7 @@ Transform:
   - {fileID: 699119751}
   - {fileID: 1579260346}
   m_Father: {fileID: 1634660487}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1905284009
 GameObject:

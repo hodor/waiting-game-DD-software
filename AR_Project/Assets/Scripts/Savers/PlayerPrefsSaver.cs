@@ -3,6 +3,12 @@ using UnityEngine;
 
 namespace AR_Project.Savers
 {
+    public enum GameType
+    {
+        Imaginarium,
+        Real,
+        Patience
+    }
     public class PlayerPrefsSaver : MonoBehaviour
     {
         private const string LabelTotalPoints = "pontosTotais";
@@ -17,7 +23,7 @@ namespace AR_Project.Savers
         //public bool hasDoneFakeFirst;
         //public bool isFirstExperiment;
 
-        public bool isImaginarium;
+        public GameType gameType;
         public bool isTraining;
         public List<string> keysPhases;
         public string name, birthday, gender;
