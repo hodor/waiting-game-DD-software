@@ -13,16 +13,36 @@ namespace Output.CSV
         private const int MaxNumberOfZeros = 3;
         private const string Extension = ".csv";
         private static readonly string DataDir = Application.dataPath + @"\Data";
-        private string _currentPath;
+        private string _imaginaryPath;
+        private string _realPath;
+        private string _patiencePath;
+        private string[] _allPaths;
 
         private bool _sessionRunning;
 
         public void StartSession()
         {
             if (_sessionRunning) return;
-            _currentPath = GetNewDataFile();
-            CSVUtils.SetCurrentPath(_currentPath);
+            _imaginaryPath = GetNewDataFile(FileName + "_Imaginary");
+            _realPath = GetNewDataFile(FileName + "_Real");
+            _patiencePath = GetNewDataFile(FileName + "_Patience");
+            _allPaths = new []{_imaginaryPath, _realPath, _patiencePath};
             _sessionRunning = true;
+        }
+
+        private string GetCurrentPath(PlayerPrefsSaver userData)
+        {
+            switch (userData.gameType)
+            {
+                case GameType.Imaginarium:
+                    return _imaginaryPath;
+                case GameType.Real:
+                    return _realPath;
+                case GameType.Patience:
+                    return _patiencePath;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
         public void EndSession()
@@ -54,11 +74,15 @@ namespace Output.CSV
                 "Personagem", ""
             };
 
-            CSVUtils.WriteLineAtEnd(date, false);
-            CSVUtils.WriteLineAtEnd(name, false);
-            CSVUtils.WriteLineAtEnd(birthday, false);
-            CSVUtils.WriteLineAtEnd(gender, false);
-            CSVUtils.WriteLineAtEnd(character);
+            foreach (var path in _allPaths)
+            {
+                CSVUtils.SetCurrentPath(path);
+                CSVUtils.WriteLineAtEnd(date, false);
+                CSVUtils.WriteLineAtEnd(name, false);
+                CSVUtils.WriteLineAtEnd(birthday, false);
+                CSVUtils.WriteLineAtEnd(gender, false);
+                CSVUtils.WriteLineAtEnd(character);
+            }
         }
 
         public void SaveSelectedCharacter(PlayerPrefsSaver userData)
@@ -67,10 +91,14 @@ namespace Output.CSV
             {
                 "Personagem", userData.character.name
             };
-            CSVUtils.ReplaceLineThatContains("Personagem", character);
+            foreach (var path in _allPaths)
+            {
+                CSVUtils.SetCurrentPath(path);
+                CSVUtils.ReplaceLineThatContains("Personagem", character);
+            }
         }
 
-        public void StartExperiments()
+        public void StartExperiments(PlayerPrefsSaver userData)
         {
             var score = new[]
             {
@@ -78,11 +106,16 @@ namespace Output.CSV
             };
             var headers = new[]
             {
-                "Tarefa", "Trail", "Cluster_ID", "Recompensa_menor", "Tempo_assoc_rec_maior", "Recompensa_escolhida",
+                "Tipo", "Trail", "Cluster_ID", "Recompensa_menor", "Tempo_assoc_rec_maior", "Recompensa_escolhida",
                 "Tempo_de_escolha"
             };
-            CSVUtils.WriteLineAtEnd(score, false);
-            CSVUtils.WriteLineAtEnd(headers);
+
+            foreach (var path in _allPaths)
+            {
+                CSVUtils.SetCurrentPath(path);
+                CSVUtils.WriteLineAtEnd(score, false);
+                CSVUtils.WriteLineAtEnd(headers);
+            }
         }
 
         public void SaveExperimentData(Experiment experiment, int selectedValue, PlayerPrefsSaver userData,
@@ -95,8 +128,7 @@ namespace Output.CSV
 
             var values = new[]
             {
-                (userData.isTraining ? "Treino" : "Jogo_Tempo") + "_" +
-                (userData.gameType == GameType.Imaginarium	? "Imaginário" : "Real"),
+                userData.isTraining ? "Treino" : "Experimento",
                 experiment.id.ToString(),
                 cluster,
                 experiment.immediatePrizeValue.ToString(),
@@ -104,19 +136,23 @@ namespace Output.CSV
                 selectedValue.ToString(),
                 timeToChooseInSeconds.ToString("0.00")
             };
+            var path = GetCurrentPath(userData);
+            CSVUtils.SetCurrentPath(path);
             CSVUtils.WriteLineAtEnd(values);
         }
 
-        public void SaveTotalPoints(int points)
+        public void SaveTotalPoints(PlayerPrefsSaver userData)
         {
             var score = new[]
             {
-                "Pontuação_Total", points.ToString()
+                "Pontuação_Total", userData.totalPoints.ToString()
             };
+            var path = GetCurrentPath(userData);
+            CSVUtils.SetCurrentPath(path);
             CSVUtils.ReplaceLineThatContains("Pontuação_Total", score);
         }
 
-        private static string GetNewDataFile()
+        private static string GetNewDataFile(string Filename)
         {
             // Get the proper filename
             if (!Directory.Exists(DataDir))
@@ -127,7 +163,7 @@ namespace Output.CSV
             var count = 0;
             while (!foundNextFile)
             {
-                name = DataDir + @"\" + FileName + "_" + GetSuffix(count) + Extension;
+                name = DataDir + @"\" + Filename + "_" + GetSuffix(count) + Extension;
                 if (!File.Exists(name)) foundNextFile = true;
                 count++;
             }

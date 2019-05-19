@@ -14,7 +14,6 @@ namespace AR_Project.Scenes.Final
         {
             var points = PlayerPrefsSaver.instance.totalPoints;
             finalPoints.text = points + " pontos";
-            Out.Instance.SaveTotalPoints(points);
             Out.Instance.EndSession();
         }
 

@@ -96,7 +96,7 @@ namespace AR_Project.MainGame
 
         public void ComeBackFromTutorial()
         {
-            Out.Instance.StartExperiments();
+            Out.Instance.StartExperiments(PlayerPrefsSaver.instance);
             finishedTutorial = true;
             var randomizer = Random.Range(0, 9);
             var imaginaryFirst = randomizer % 2 == 0;
@@ -215,10 +215,12 @@ namespace AR_Project.MainGame
 
         public void CallbackFinishedExperiment()
         {
-            //(bool training, bool imaginariumFirst, bool isImaginarium
             var training = PlayerPrefsSaver.instance.isTraining;
             var imaginariumFirst = PlayerPrefsSaver.instance.imaginariumFirst;
             var gameType = PlayerPrefsSaver.instance.gameType;
+            
+            if(!training)
+                Out.Instance.SaveTotalPoints(PlayerPrefsSaver.instance);
 
             switch (gameType)
             {
@@ -240,6 +242,7 @@ namespace AR_Project.MainGame
                         {
                             PlayerPrefsSaver.instance.gameType = GameType.Patience;
                             PlayerPrefsSaver.instance.isTraining = true;
+                            SetupNextExperiment();
                         }
                     }
 
