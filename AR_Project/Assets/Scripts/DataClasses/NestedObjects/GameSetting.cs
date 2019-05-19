@@ -1,14 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Newtonsoft.Json;
-using UnityEngine;
+﻿using Newtonsoft.Json;
 
 namespace AR_Project.DataClasses.NestedObjects
 {
     [JsonObject]
     public class GameSetting
     {
-        [JsonProperty(PropertyName = "tempo")] public int time;
         [JsonProperty(PropertyName = "pista")] public int lane;
+        [JsonProperty(PropertyName = "tempo")] public int time;
     }
 }

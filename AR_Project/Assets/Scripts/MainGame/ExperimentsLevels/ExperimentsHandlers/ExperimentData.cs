@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using AR_Project.DataClasses.NestedObjects;
+using UnityEngine;
 
 namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
 {
     public class ExperimentData : MonoBehaviour
     {
+        private int currentIndex;
         public List<Experiment> experiments;
-
-        int currentIndex = 0;
 
         public ExperimentData(List<Experiment> currentExperimentList)
         {

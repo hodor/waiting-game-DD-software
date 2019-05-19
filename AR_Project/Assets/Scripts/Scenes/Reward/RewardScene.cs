@@ -10,16 +10,16 @@ namespace AR_Project.Scenes.Reward
         public Text[] rewardsText;
         public Text title;
 
-        void Start()
+        private void Start()
         {
             title.text = MainData.instanceData.config.texts.rewards;
             SetRewards();
         }
 
-        void SetRewards()
+        private void SetRewards()
         {
             var rewards = MainData.instanceData.config.prizes;
-            for (int i = 0; i < rewards.Count; i++)
+            for (var i = 0; i < rewards.Count; i++)
                 rewardsText[i].text = rewards[i].value + " Pts";
         }
 

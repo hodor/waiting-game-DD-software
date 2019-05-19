@@ -19,47 +19,46 @@ public class ClusterValue
 
     public override int GetHashCode()
     {
-        int hash = 13;
-        hash = (hash * 7) + SecondPrizeTimer.GetHashCode();
-        hash = (hash * 7) + FirstPrizeValue.GetHashCode();
+        var hash = 13;
+        hash = hash * 7 + SecondPrizeTimer.GetHashCode();
+        hash = hash * 7 + FirstPrizeValue.GetHashCode();
         return hash;
     }
 }
+
 public static class ListShuffler
 {
-    private static Random rng = new Random((int) DateTime.Now.Ticks);
+    private static readonly Random rng = new Random((int) DateTime.Now.Ticks);
 
-    public static void Shuffle<T>(this IList<T> list)  
-    {  
-        int n = list.Count;  
-        while (n > 1) {  
-            n--;  
-            int k = rng.Next(n + 1);  
-            T value = list[k];  
-            list[k] = list[n];  
-            list[n] = value;  
-        }  
+    public static void Shuffle<T>(this IList<T> list)
+    {
+        var n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            var k = rng.Next(n + 1);
+            var value = list[k];
+            list[k] = list[n];
+            list[n] = value;
+        }
     }
 
     public static List<List<Experiment>> GetClusters(List<Experiment> experiments)
     {
         var clusterDict = new Dictionary<ClusterValue, List<Experiment>>();
         var ret = new List<List<Experiment>>();
-        int minPoints = 0;
+        var minPoints = 0;
         foreach (var experiment in experiments)
         {
             minPoints += experiment.immediatePrizeValue;
-            var key = new ClusterValue()
+            var key = new ClusterValue
             {
-                FirstPrizeValue = experiment.immediatePrizeValue, 
+                FirstPrizeValue = experiment.immediatePrizeValue,
                 SecondPrizeTimer = experiment.secondPrizeTimer
             };
-            if (!clusterDict.ContainsKey(key))
-            {
-                clusterDict.Add(key, new List<Experiment>());
-            }
+            if (!clusterDict.ContainsKey(key)) clusterDict.Add(key, new List<Experiment>());
 
-            int curIndex = 0;
+            var curIndex = 0;
             foreach (var kvp in clusterDict)
             {
                 if (kvp.Key.Equals(key))
@@ -70,16 +69,18 @@ public static class ListShuffler
 
                 curIndex++;
             }
+
             clusterDict[key].Add(experiment);
         }
-        
-        Debug.Log("This task minimum points is: "+minPoints);
+
+        Debug.Log("This task minimum points is: " + minPoints);
 
         foreach (var cluster in clusterDict.Values)
         {
             var sortedCluster = cluster.OrderBy(list => list.id).ToList();
             ret.Add(sortedCluster);
         }
+
         return ret;
     }
 
@@ -88,25 +89,19 @@ public static class ListShuffler
         var clusters = GetClusters(experiments);
         var numClusters = clusters.Count;
         var pseudoList = new List<Experiment>();
-        
+
         var allElementsOutOfClusters = false;
         var validIndices = new List<int>();
-        for (var i = 0; i < numClusters; i++)
-        {
-            validIndices.Add(i);
-        }
+        for (var i = 0; i < numClusters; i++) validIndices.Add(i);
         while (validIndices.Count > 0)
         {
-            int randomIndex = validIndices.Count == 1 ? 0 : rng.Next(0, validIndices.Count);
-            int validIndex = validIndices[randomIndex];
+            var randomIndex = validIndices.Count == 1 ? 0 : rng.Next(0, validIndices.Count);
+            var validIndex = validIndices[randomIndex];
             var experiment = clusters[validIndex].First();
             pseudoList.Add(experiment);
-            
+
             clusters[validIndex].RemoveAt(0);
-            if (clusters[validIndex].Count == 0)
-            {
-                validIndices.Remove(validIndex);
-            }
+            if (clusters[validIndex].Count == 0) validIndices.Remove(validIndex);
         }
 
         return pseudoList;

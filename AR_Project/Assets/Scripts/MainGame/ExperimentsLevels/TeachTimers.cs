@@ -2,25 +2,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using AR_Project.DataClasses.MainData;
-using AR_Project.DataClasses.NestedObjects;
 using AR_Project.MainGame.GameObjects;
 using AR_Project.MainGame.Prize;
 using AR_Project.MainGame.UI;
 using UnityEngine;
 
-
 namespace AR_Project.MainGame
 {
     public class TeachTimers : MonoBehaviour
     {
-        GameObject finishLine;
-        List<GameObject> goList;
-        int currentIndex = 0;
-        GameObject prefabReward;
-        
         private MainGameScene _mainGameScene;
         private Respawns _respawnsScript;
         private SlidersHandler _slider;
+        private int currentIndex;
+        private GameObject finishLine;
+        private List<GameObject> goList;
+        private GameObject prefabReward;
 
         private void Start()
         {
@@ -41,39 +38,36 @@ namespace AR_Project.MainGame
         public IEnumerator RespawnTutorial()
         {
             var timeLanes = MainData.instanceData.config.gameSettings;
-            foreach(var setting in timeLanes)
+            foreach (var setting in timeLanes)
             {
                 var time = setting.time;
-                if (ARDebug.Debugging)
-                {
-                    time = (int) Math.Ceiling(ARDebug.TimeToFill);
-                }
+                if (ARDebug.Debugging) time = (int) Math.Ceiling(ARDebug.TimeToFill);
                 Respawn(setting.time);
                 yield return new WaitForSeconds(time);
             }
+
             CleanScene();
             _mainGameScene.ComeBackFromTutorial();
-
         }
-        void Respawn(int timer)
+
+        private void Respawn(int timer)
         {
             var respawn = _respawnsScript.GetRespawnByLane(timer);
 
-            GameObject firstOne = (GameObject)Instantiate(prefabReward);
+            var firstOne = Instantiate(prefabReward);
             firstOne.transform.position = respawn.transform.position;
             var objScript = firstOne.GetComponent<PrizeGO>();
             objScript.timer = timer;
             objScript.finalDestination = new Vector3(finishLine.transform.position.x,
-                                                    firstOne.transform.position.y, 0);
+                firstOne.transform.position.y, 0);
             objScript.StartMoving(true);
             _slider.SetAndStartSingleSlider(currentIndex, timer);
             currentIndex++;
 
             goList.Add(firstOne);
-
         }
 
-        void CleanScene()
+        private void CleanScene()
         {
             _slider.ResetSliders();
 
@@ -81,5 +75,4 @@ namespace AR_Project.MainGame
                 Destroy(gameObj);
         }
     }
-
 }

@@ -1,19 +1,19 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using AR_Project.MainGame.UI;
 using AR_Project.Savers;
 using UnityEngine;
 
 namespace AR_Project.MainGame.Prize
 {
-    public class PrizeGO : MonoBehaviour {
-    
+    public class PrizeGO : MonoBehaviour
+    {
+        private Animator animator;
+        public Vector3 finalDestination;
+        public bool isFinished;
+        private bool stopSecondButton = false;
+
 
         public int timer;
-        public Vector3 finalDestination;
-        public bool isFinished = false;
-        Animator animator;
-        bool stopSecondButton = false;
 
         public void StartMoving(bool isTutorial)
         {
@@ -22,18 +22,17 @@ namespace AR_Project.MainGame.Prize
             if (isImaginarium && !isTutorial)
             {
                 FinishedRun();
-            } else
+            }
+            else
             {
                 animator.SetBool("isRunning", timer < 10);
                 StartCoroutine(timer == 0
-                    ? MoveToPosition(this.gameObject.transform, finalDestination, 0.5f)
-                    : MoveToPosition(this.gameObject.transform, finalDestination, timer));
+                    ? MoveToPosition(gameObject.transform, finalDestination, 0.5f)
+                    : MoveToPosition(gameObject.transform, finalDestination, timer));
             }
-
-
         }
 
-        IEnumerator MoveToPosition(Transform transform, Vector3 position, float timeToMove)
+        private IEnumerator MoveToPosition(Transform transform, Vector3 position, float timeToMove)
         {
             var currentPos = transform.position;
             var t = 0f;
@@ -45,16 +44,15 @@ namespace AR_Project.MainGame.Prize
                 transform.position = Vector3.Lerp(currentPos, position, t);
                 yield return null;
             }
+
             animator.SetBool("stoped", true);
             FinishedRun();
         }
 
-        void FinishedRun ()
+        private void FinishedRun()
         {
             PrizeButtons.instance.FinishedExperiment();
             PrizeButtons.instance.AnimateTotalPointsPoints();
         }
-
     }
-
 }

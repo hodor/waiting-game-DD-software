@@ -9,14 +9,16 @@ namespace AR_Project.MainGame.UI
     public class PrizeButtons : MonoBehaviour
     {
         public static PrizeButtons instance;
+        private List<GameSetting> _settings;
 
         public AudioSource audioSource;
         public AudioClip buttonSoud;
 
-        public List<GameObject> laneButtons;
+        private int firstTimerSet, secondTimerSet;
 
-        int firstTimerSet, secondTimerSet;
-        List<GameSetting> _settings;
+        private bool IsHandlingLaneClick;
+
+        public List<GameObject> laneButtons;
 
         public void Awake()
         {
@@ -35,20 +37,18 @@ namespace AR_Project.MainGame.UI
         {
             firstTimerSet = firstTimer;
             secondTimerSet = secondTimer;
-  
-            for(int i=0; i < _settings.Count; i++)
+
+            for (var i = 0; i < _settings.Count; i++)
             {
-                if(_settings[i].time == firstTimer)
+                if (_settings[i].time == firstTimer)
                     laneButtons[i].SetActive(true);
-                if(_settings[i].time == secondTimer)
+                if (_settings[i].time == secondTimer)
                     laneButtons[i].SetActive(true);
                 if (_settings[i].time != firstTimer && _settings[i].time != secondTimer)
                     laneButtons[i].SetActive(false);
             }
-
         }
 
-        private bool IsHandlingLaneClick = false;
         public void ClickedOnLane(int laneNumber)
         {
             if (IsHandlingLaneClick) return;
@@ -69,7 +69,7 @@ namespace AR_Project.MainGame.UI
         {
             var expHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
             var mainGameScene = gameObject.GetComponent<MainGameScene>();
-            if(mainGameScene.finishedTutorial)
+            if (mainGameScene.finishedTutorial)
                 expHandler.FinishedExperiment();
         }
 
@@ -78,12 +78,11 @@ namespace AR_Project.MainGame.UI
             audioSource.PlayOneShot(buttonSoud);
         }
 
-        public void AnimateTotalPointsPoints() 
+        public void AnimateTotalPointsPoints()
         {
             var expHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
             PlaySound();
             expHandler.UpdateTotalPoints();
         }
-
     }
 }

@@ -1,11 +1,8 @@
 using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Text;
 using AR_Project.DataClasses.NestedObjects;
 using AR_Project.Savers;
-using Boo.Lang.Environments;
 using UnityEngine;
 
 namespace Output.CSV
@@ -13,12 +10,12 @@ namespace Output.CSV
     public class CSVOutput : IOutput
     {
         private const string FileName = "Dados";
-        private static readonly string DataDir = Application.dataPath + @"\Data";
         private const int MaxNumberOfZeros = 3;
         private const string Extension = ".csv";
-
-        private bool _sessionRunning = false;
+        private static readonly string DataDir = Application.dataPath + @"\Data";
         private string _currentPath;
+
+        private bool _sessionRunning;
 
         public void StartSession()
         {
@@ -32,44 +29,6 @@ namespace Output.CSV
         {
             CSVUtils.SetCurrentPath(null);
             _sessionRunning = false;
-        }
-
-        private static string GetNewDataFile()
-        {
-            // Get the proper filename
-            if (!Directory.Exists(DataDir))
-                Directory.CreateDirectory(DataDir);
-
-            var foundNextFile = false;
-            string name = "";
-            int count = 0;
-            while (!foundNextFile)
-            {
-                name = DataDir + @"\" + FileName + "_" + GetSuffix(count) + Extension;
-                if (!File.Exists(name))
-                {
-                    foundNextFile = true;
-                }
-                count++;
-            }
-
-            return name;
-        }
-        
-        private static string GetSuffix(int number)
-        {
-            if (number == 0) return "000";
-            
-            var log = Math.Log10(number);
-            var curNumZeros = Math.Floor(log) + 1;
-            var prefix = "";
-            while (curNumZeros < MaxNumberOfZeros)
-            {
-                prefix += "0";
-                curNumZeros++;
-            }
-
-            return prefix + number.ToString();
         }
 
         public void SaveUserData(PlayerPrefsSaver userData)
@@ -119,28 +78,31 @@ namespace Output.CSV
             };
             var headers = new[]
             {
-                "Tarefa", "Trail", "Cluster_ID", "Recompensa_menor", "Tempo_assoc_rec_maior", "Recompensa_escolhida", "Tempo_de_escolha"
+                "Tarefa", "Trail", "Cluster_ID", "Recompensa_menor", "Tempo_assoc_rec_maior", "Recompensa_escolhida",
+                "Tempo_de_escolha"
             };
             CSVUtils.WriteLineAtEnd(score, false);
             CSVUtils.WriteLineAtEnd(headers);
         }
 
-        public void SaveExperimentData(Experiment experiment, int selectedValue, PlayerPrefsSaver userData, double timeToChooseInSeconds)
+        public void SaveExperimentData(Experiment experiment, int selectedValue, PlayerPrefsSaver userData,
+            double timeToChooseInSeconds)
         {
             var clusterCode = (int) 'A';
             clusterCode += experiment.clusterId;
             var clusterLetter = (char) clusterCode;
             var cluster = clusterLetter.ToString();
-            
-            var values = new string[]
+
+            var values = new[]
             {
-                (userData.isTraining ? "Treino" : "Jogo_Tempo") + "_" + (userData.isImaginarium ? "Imaginário" : "Real"),
-                experiment.id.ToString(), 
+                (userData.isTraining ? "Treino" : "Jogo_Tempo") + "_" +
+                (userData.isImaginarium ? "Imaginário" : "Real"),
+                experiment.id.ToString(),
                 cluster,
                 experiment.immediatePrizeValue.ToString(),
-                experiment.secondPrizeTimer.ToString(), 
-                selectedValue.ToString(), 
-                (timeToChooseInSeconds).ToString("0.00")
+                experiment.secondPrizeTimer.ToString(),
+                selectedValue.ToString(),
+                timeToChooseInSeconds.ToString("0.00")
             };
             CSVUtils.WriteLineAtEnd(values);
         }
@@ -152,6 +114,41 @@ namespace Output.CSV
                 "Pontuação_Total", points.ToString()
             };
             CSVUtils.ReplaceLineThatContains("Pontuação_Total", score);
+        }
+
+        private static string GetNewDataFile()
+        {
+            // Get the proper filename
+            if (!Directory.Exists(DataDir))
+                Directory.CreateDirectory(DataDir);
+
+            var foundNextFile = false;
+            var name = "";
+            var count = 0;
+            while (!foundNextFile)
+            {
+                name = DataDir + @"\" + FileName + "_" + GetSuffix(count) + Extension;
+                if (!File.Exists(name)) foundNextFile = true;
+                count++;
+            }
+
+            return name;
+        }
+
+        private static string GetSuffix(int number)
+        {
+            if (number == 0) return "000";
+
+            var log = Math.Log10(number);
+            var curNumZeros = Math.Floor(log) + 1;
+            var prefix = "";
+            while (curNumZeros < MaxNumberOfZeros)
+            {
+                prefix += "0";
+                curNumZeros++;
+            }
+
+            return prefix + number;
         }
     }
 }

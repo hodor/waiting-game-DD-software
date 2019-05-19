@@ -5,10 +5,10 @@ namespace AR_Project.MainGame.UI
 {
     public class RespawnSlider : MonoBehaviour
     {
-
-        float fillTime = 1.0f;
         private Slider _slider;
-        bool started;
+
+        private float fillTime = 1.0f;
+        private bool started;
 
         public void StartSlider(float timeToFill)
         {
@@ -24,17 +24,17 @@ namespace AR_Project.MainGame.UI
             started = false;
         }
 
-        void Set()
+        private void Set()
         {
             _slider.minValue = Time.time;
             _slider.maxValue = Time.time + fillTime;
             started = true;
         }
-        void Update()
+
+        private void Update()
         {
             if (started)
                 _slider.value = Time.time;
         }
     }
-
 }

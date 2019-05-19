@@ -6,17 +6,17 @@ using Newtonsoft.Json;
 [JsonObject]
 public class Config
 {
-    [JsonProperty(PropertyName = "Treinos")]
-    public List<Experiment> trainings;
-
     [JsonProperty(PropertyName = "Ensaios")]
     public List<Experiment> experiments;
 
-    [JsonProperty(PropertyName = "Textos")]
-    public Texts texts;
+    [JsonProperty(PropertyName = "Tempo")] public List<GameSetting> gameSettings;
 
     [JsonProperty(PropertyName = "Premios")]
     public List<Prize> prizes;
 
-    [JsonProperty(PropertyName = "Tempo")] public List<GameSetting> gameSettings;
+    [JsonProperty(PropertyName = "Textos")]
+    public Texts texts;
+
+    [JsonProperty(PropertyName = "Treinos")]
+    public List<Experiment> trainings;
 }

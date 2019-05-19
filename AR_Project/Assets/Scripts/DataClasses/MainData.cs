@@ -1,17 +1,15 @@
-﻿using System;
-using AR_Project.DataClasses.JsonToClasses;
+﻿using AR_Project.DataClasses.JsonToClasses;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace AR_Project.DataClasses.MainData
 {
     public class MainData : MonoBehaviour
     {
-        static public MainData instanceData = null;
+        public static MainData instanceData;
 
         public Config config;
 
-        void Awake()
+        private void Awake()
         {
             if (instanceData == null)
                 instanceData = this;

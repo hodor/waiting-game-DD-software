@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using UnityEngine;
-using UnityEngine.Experimental.XR;
 
 namespace Output.CSV
 {
@@ -11,24 +9,25 @@ namespace Output.CSV
         Before,
         After
     }
-    
+
     public static class CSVUtils
     {
         private static string _currentPath;
-        private static StreamWriter _lastUsedSW = null;
+        private static StreamWriter _lastUsedSW;
 
         public static void SetCurrentPath(string path)
         {
             _currentPath = path;
         }
-        
+
         private static StreamWriter GetWriter(string path)
         {
-            return new StreamWriter(new FileStream(path, FileMode.Append, FileAccess.Write, FileShare.None), Encoding.UTF8);
+            return new StreamWriter(new FileStream(path, FileMode.Append, FileAccess.Write, FileShare.None),
+                Encoding.UTF8);
         }
-        
+
         /// <summary>
-        /// Convert an array to a csv line
+        ///     Convert an array to a csv line
         /// </summary>
         /// <param name="arr"></param>
         /// <returns></returns>
@@ -36,7 +35,7 @@ namespace Output.CSV
         {
             return string.Join(",", arr);
         }
-        
+
         public static void WriteLineAtEnd(string[] arr, bool close = true, string path = null)
         {
             if (path == null) path = _currentPath;
@@ -62,10 +61,7 @@ namespace Output.CSV
             for (var i = 0; i < lines.Length; i++)
             {
                 var line = lines[i];
-                if (line.Contains(containingText))
-                {
-                    line = Cols(newValue);
-                }
+                if (line.Contains(containingText)) line = Cols(newValue);
 
                 outLines[i] = line;
             }
@@ -78,7 +74,7 @@ namespace Output.CSV
             if (path == null) path = _currentPath;
             var lines = File.ReadAllLines(_currentPath);
             var outLines = new List<string>();
-            for(var i = 0; i < lines.Length; i++)
+            for (var i = 0; i < lines.Length; i++)
             {
                 var line = lines[i];
                 if (i == index)
@@ -86,7 +82,7 @@ namespace Output.CSV
                     if (lineType == AddLineType.Before)
                         outLines.Add(Cols(value));
                     outLines.Add(line);
-                    if(lineType == AddLineType.After)
+                    if (lineType == AddLineType.After)
                         outLines.Add(Cols(value));
                 }
                 else

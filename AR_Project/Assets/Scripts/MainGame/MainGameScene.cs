@@ -1,52 +1,48 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using AR_Project.DataClasses.MainData;
-using AR_Project.DataClasses.NestedObjects;
-using AR_Project.MainGame.UI;
 using AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using AR_Project.Savers;
 using Output;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace AR_Project.MainGame
 {
     public class MainGameScene : MonoBehaviour
     {
-        public GameObject prefabChar;
-        public GameObject finishLine;
+        public static DateTime ExperimentStartDT;
+        public Image backgroundImg;
 
-        public GameObject pointsUI;
-        public GameObject tutorialUI;
+        public Sprite bgTutorial, bgExperiments;
+        public Text fakeExperimentTitle;
         public GameObject fakeExperimentUI;
-        public GameObject realExperimentUI;
 
         public GameObject finalRoundsScene;
         public Text finalRoundText;
 
-        public GameObject SliderLanes;
-        public Image backgroundImg;
-
-        public Sprite bgTutorial, bgExperiments;
+        public bool finishedTutorial;
+        public GameObject finishLine;
 
         public GameObject GameObjects;
-        public GameObject TimerLabels;
+
+        public GameObject pointsUI;
+        public GameObject prefabChar;
 
         public GameObject prizeLabels;
+        public Text realExperimentTitle;
+        public GameObject realExperimentUI;
+
+        public GameObject SliderLanes;
+        public GameObject TimerLabels;
 
         public Text tutorialTitle;
-        public Text fakeExperimentTitle;
-        public Text realExperimentTitle;
-
-        public bool finishedTutorial;
-
-        public static DateTime ExperimentStartDT;
+        public GameObject tutorialUI;
 
         // Use this for initialization
-        void Start()
+        private void Start()
         {
             prefabChar = PlayerPrefsSaver.instance.character;
             SetTutorialUI();
@@ -61,7 +57,7 @@ namespace AR_Project.MainGame
             StartCoroutine("StartNewRound");
         }
 
-        IEnumerator StartNewRound()
+        private IEnumerator StartNewRound()
         {
             yield return new WaitForSeconds(2f);
             finalRoundsScene.SetActive(false);
@@ -88,7 +84,7 @@ namespace AR_Project.MainGame
             Tutorial();
         }
 
-        void Tutorial()
+        private void Tutorial()
         {
             var teachTimer = gameObject.GetComponent<TeachTimers>();
             teachTimer.StartTutorial(prefabChar, finishLine);
@@ -98,11 +94,11 @@ namespace AR_Project.MainGame
         {
             Out.Instance.StartExperiments();
             finishedTutorial = true;
-            int randomizer = Random.Range(0, 9);
-            bool imaginaryFirst = randomizer % 2 == 0;
+            var randomizer = Random.Range(0, 9);
+            var imaginaryFirst = randomizer % 2 == 0;
             if (ARDebug.Debugging && ARDebug.AlwaysImaginaryFirst)
                 imaginaryFirst = true;
-            
+
             if (imaginaryFirst)
             {
                 PlayerPrefsSaver.instance.imaginariumFirst = true;
@@ -170,7 +166,7 @@ namespace AR_Project.MainGame
             SetupFakeExperiment();
         }
 
-        void SetupFakeExperiment()
+        private void SetupFakeExperiment()
         {
             var fakeExperiments = ListShuffler.GetPseudoRandomExperiments(MainData.instanceData.config.trainings);
             var experimentHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
@@ -201,7 +197,7 @@ namespace AR_Project.MainGame
             SetupRealExperiment();
         }
 
-        void SetupRealExperiment()
+        private void SetupRealExperiment()
         {
             var realExperiments = ListShuffler.GetPseudoRandomExperiments(MainData.instanceData.config.experiments);
             var experimentHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
@@ -210,7 +206,7 @@ namespace AR_Project.MainGame
         }
 
         // ----- Game Objects/UI -------- //
-        void ToggleGameUIObjects(bool show)
+        private void ToggleGameUIObjects(bool show)
         {
             if (show)
             {
@@ -281,7 +277,7 @@ namespace AR_Project.MainGame
         }
 
         // ----- Finished Game -------- //
-        void FinishedGame()
+        private void FinishedGame()
         {
             SceneManager.LoadScene("FinalScene");
         }

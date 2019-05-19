@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using AR_Project.DataClasses.MainData;
+﻿using AR_Project.DataClasses.MainData;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -22,5 +20,4 @@ namespace AR_Project.Scenes.Instructions
             SceneManager.LoadScene("Rewards");
         }
     }
-
 }

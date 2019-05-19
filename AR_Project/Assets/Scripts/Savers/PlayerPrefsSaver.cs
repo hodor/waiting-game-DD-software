@@ -1,32 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace AR_Project.Savers
 {
     public class PlayerPrefsSaver : MonoBehaviour
     {
-
-        static public PlayerPrefsSaver instance = null;
-        public string name, birthday, gender;
-        public GameObject character;
-        public int totalPoints;
-        public List<string> keysPhases;
-        //public bool hasDoneFakeFirst;
-        //public bool isFirstExperiment;
-
-        public bool isImaginarium;
-        public bool imaginariumFirst;
-        public bool isTraining;
-
         private const string LabelTotalPoints = "pontosTotais";
         private const string LabelName = "usuario";
         private const string LabelBirthday = "aniversario";
         private const string LabelGender = "genero";
 
+        public static PlayerPrefsSaver instance;
+        public GameObject character;
+
+        public bool imaginariumFirst;
+        //public bool hasDoneFakeFirst;
+        //public bool isFirstExperiment;
+
+        public bool isImaginarium;
+        public bool isTraining;
+        public List<string> keysPhases;
+        public string name, birthday, gender;
+        public int totalPoints;
 
 
-        void Awake()
+        private void Awake()
         {
             if (instance == null)
                 instance = this;
@@ -59,9 +57,5 @@ namespace AR_Project.Savers
             gender = PlayerPrefs.GetString(LabelGender);
             totalPoints = PlayerPrefs.GetInt(LabelTotalPoints);
         }
-
-
-
     }
-
 }

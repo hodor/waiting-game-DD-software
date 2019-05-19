@@ -1,62 +1,53 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Xml.Schema;
-using UnityEngine;
-using UnityEditor;
-//using UnityEngine.Experimental.UIElements;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using AR_Project.Savers;
 using Output;
-using UnityEngine.Experimental.UIElements;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
-using Button = UnityEngine.UI.Button;
-using Image = UnityEngine.UI.Image;
+using UnityEngine.UI;
 
 namespace AR_Project.Scenes.Registration
 {
     public class RegistrationScene : MonoBehaviour
     {
-        [FormerlySerializedAs("name")] public InputField inputName;
-        [FormerlySerializedAs("bday")] public InputField inputBDay;
-        [FormerlySerializedAs("bmonth")] public InputField inputBMonth;
-        [FormerlySerializedAs("byear")] public InputField inputBYear;
-        public Text username;
+        private Image _boyToggleImage;
+        private bool _clickedOnGender;
+        private Image _girlToggleImage;
+        private Image _otherToggleImage;
+
+        private Image _startBtnImage;
 
         public Text birthDay;
         public Text birthMonth;
         public Text birthYear;
-        public int maximumAge = 150;
-        public Button StartBtn;
-        public Sprite startBtnEnabled;
-        public Sprite startBtnDisabled;
-
-        public Button boyToggleBtn;
-        public Button girlToggleBtn;
-        public Button otherToggleBtn;
 
         public Sprite boyOn, boyOff;
+
+        public Button boyToggleBtn;
         public Sprite girlOn, girlOff;
-        public Sprite otherOn, otherOff;
+        public Button girlToggleBtn;
+        [FormerlySerializedAs("bday")] public InputField inputBDay;
+        [FormerlySerializedAs("bmonth")] public InputField inputBMonth;
+        [FormerlySerializedAs("byear")] public InputField inputBYear;
+        [FormerlySerializedAs("name")] public InputField inputName;
 
         public bool isGirl = true;
-        public bool isOther = false;
-        private bool _clickedOnGender = false;
-        
-        private Image _startBtnImage;
-        private Image _boyToggleImage;
-        private Image _girlToggleImage;
-        private Image _otherToggleImage;
-        private bool ValidName = false, ValidDay = false, ValidMonth = false, ValidYear = false;
+        public bool isOther;
+        public int maximumAge = 150;
+        public Sprite otherOn, otherOff;
+        public Button otherToggleBtn;
+        public Button StartBtn;
+        public Sprite startBtnDisabled;
+        public Sprite startBtnEnabled;
+        public Text username;
+        private bool ValidName, ValidDay, ValidMonth, ValidYear;
 
         private void Awake()
         {
             // Initialize output, we'll save as new data comes in
             Out.Instance.StartSession();
         }
-        
+
 
         private void Start()
         {
@@ -80,7 +71,7 @@ namespace AR_Project.Scenes.Registration
 
         public void OnDayChanged()
         {
-            int value = int.Parse(inputBDay.text);
+            var value = int.Parse(inputBDay.text);
             inputBDay.text = value.ToString("00");
             if (value > 31 || value <= 0)
             {
@@ -96,7 +87,7 @@ namespace AR_Project.Scenes.Registration
 
         public void OnMonthChanged()
         {
-            int value = int.Parse(inputBMonth.text);
+            var value = int.Parse(inputBMonth.text);
             inputBMonth.text = value.ToString("00");
             if (value > 12 || value <= 0)
             {
@@ -112,7 +103,7 @@ namespace AR_Project.Scenes.Registration
 
         public void OnYearChanged()
         {
-            int value = int.Parse(inputBYear.text);
+            var value = int.Parse(inputBYear.text);
             inputBYear.text = value.ToString("0000");
             if (DateTime.Now.Year - value > maximumAge)
             {
@@ -125,14 +116,15 @@ namespace AR_Project.Scenes.Registration
                 ValidYear = true;
             }
         }
-        
+
         private void Update()
         {
-            if(_clickedOnGender == true && ValidName && ValidDay && ValidMonth && ValidYear) 
+            if (_clickedOnGender && ValidName && ValidDay && ValidMonth && ValidYear)
             {
                 _startBtnImage.sprite = startBtnEnabled;
                 StartBtn.enabled = true;
-            } else
+            }
+            else
             {
                 _startBtnImage.sprite = startBtnDisabled;
                 StartBtn.enabled = false;
@@ -141,15 +133,10 @@ namespace AR_Project.Scenes.Registration
             if (Input.GetKeyUp(KeyCode.Tab))
             {
                 if (inputName.isFocused)
-                {
                     inputBDay.Select();
-                } else if (inputBDay.isFocused)
-                {
+                else if (inputBDay.isFocused)
                     inputBMonth.Select();
-                } else if (inputBMonth.isFocused)
-                {
-                    inputBYear.Select();
-                }
+                else if (inputBMonth.isFocused) inputBYear.Select();
             }
 
             HandleFocusedInput(inputName);
@@ -167,12 +154,10 @@ namespace AR_Project.Scenes.Registration
             }
             else
             {
-                if (string.IsNullOrEmpty(field.text))
-                {
-                    field.placeholder.enabled = true;
-                }
+                if (string.IsNullOrEmpty(field.text)) field.placeholder.enabled = true;
             }
         }
+
         public void OnClickedButtonGirl()
         {
             _clickedOnGender = true;
@@ -192,6 +177,7 @@ namespace AR_Project.Scenes.Registration
             _boyToggleImage.sprite = boyOn;
             _otherToggleImage.sprite = otherOff;
         }
+
         public void OnClickedButtonOther()
         {
             _clickedOnGender = true;
@@ -205,9 +191,9 @@ namespace AR_Project.Scenes.Registration
         private void SaveUserData()
         {
             var userName = username.text;
-            string[] bday = { birthDay.text, birthMonth.text, birthYear.text };
+            string[] bday = {birthDay.text, birthMonth.text, birthYear.text};
             var bd = string.Join("/", bday);
-            
+
             string gender;
             if (isGirl) gender = "femenino";
             else if (isOther) gender = "outro";
@@ -225,11 +211,10 @@ namespace AR_Project.Scenes.Registration
             GoToRewardScene();
         }
 
-        void GoToRewardScene()
+        private void GoToRewardScene()
         {
             Out.Instance.SaveUserData(PlayerPrefsSaver.instance);
             SceneManager.LoadScene("Instructions");
         }
     }
-
 }

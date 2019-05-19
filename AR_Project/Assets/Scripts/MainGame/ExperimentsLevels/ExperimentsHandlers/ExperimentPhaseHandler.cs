@@ -1,31 +1,31 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using AR_Project.DataClasses.NestedObjects;
 using AR_Project.MainGame.GameObjects;
 using AR_Project.MainGame.Prize;
 using AR_Project.MainGame.UI;
 using AR_Project.Savers;
 using Output;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
 {
     public class ExperimentPhaseHandler : MonoBehaviour
     {
-        public Text totalPoints;
+        private List<Experiment> currentExperiments;
+        private Experiment currentPhase;
+        private ExperimentData dataHandler;
+        private GameObject finishLine;
+        private List<GameObject> goList;
+        private GameObject immediatePrize;
+        private bool isFakeExperiment;
         public GameObject points;
 
-        GameObject prefabReward;
-        GameObject finishLine;
-        List<Experiment> currentExperiments;
-        Experiment currentPhase;
-        ExperimentData dataHandler;
-        GameObject secondPrize;
-        GameObject immediatePrize;
-        List<GameObject> goList;
-        bool isFakeExperiment;
+        private GameObject prefabReward;
+        private GameObject secondPrize;
+        public Text totalPoints;
 
         public void SetupExperiment(GameObject prefabSecondPrize, List<Experiment> experiments,
             GameObject finishLineObj, bool fake)
@@ -43,11 +43,11 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
 
         public void UpdateTotalPoints()
         {
-            totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.totalPoints.ToString();
+            totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.totalPoints;
             StartCoroutine("BlinkAnimationPoints");
         }
 
-        IEnumerator BlinkAnimationPoints()
+        private IEnumerator BlinkAnimationPoints()
         {
             totalPoints.color = Color.yellow;
             yield return new WaitForSeconds(0.5f);
@@ -59,11 +59,11 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             dataHandler = new ExperimentData(currentExperiments);
             currentPhase = dataHandler.currentExperiment();
             PlayerPrefsSaver.instance.totalPoints = 0;
-            totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.totalPoints.ToString();
+            totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.totalPoints;
             DoExperimentPhase();
         }
 
-        void DoExperimentPhase()
+        private void DoExperimentPhase()
         {
             var prizeButtons = gameObject.GetComponent<PrizeButtons>();
             var prizeLabels = gameObject.GetComponent<PrizesHandler>();
@@ -75,8 +75,8 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             prizeButtons.SetupButtons(0, currentPhase.secondPrizeTimer);
             MainGameScene.ExperimentStartDT = DateTime.Now;
         }
-        
-        void NextPhase()
+
+        private void NextPhase()
         {
             currentPhase = dataHandler.NextExperiment();
             if (currentPhase != null)
@@ -90,7 +90,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             }
         }
 
-        void RespawnSecondPrize()
+        private void RespawnSecondPrize()
         {
             var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
             var respawnsScript = gameObject.GetComponent<Respawns>();
@@ -111,14 +111,14 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
                 slider.SetAndStartSliderByTimer(currentPhase.secondPrizeTimer);
         }
 
-        void RespawnImmediatePrize()
+        private void RespawnImmediatePrize()
         {
             var isImaginarium = PlayerPrefsSaver.instance.isImaginarium;
             var respawnsScript = gameObject.GetComponent<Respawns>();
             var respawn = respawnsScript.GetRespawnByPosition(0);
             var slider = gameObject.GetComponent<SlidersHandler>();
 
-            immediatePrize = (GameObject) Instantiate(prefabReward);
+            immediatePrize = Instantiate(prefabReward);
             immediatePrize.SetActive(true);
             immediatePrize.transform.position = respawn.transform.position;
             var objScript = immediatePrize.GetComponent<PrizeGO>();
@@ -141,7 +141,8 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
                 var phasePoints = currentPhase.immediatePrizeValue;
                 var key = "Fase " + dataHandler.GetExperimentIndex() + " do experimento";
                 PlayerPrefsSaver.instance.AddExperimentPoints(key, phasePoints);
-                Out.Instance.SaveExperimentData(currentPhase, currentPhase.immediatePrizeValue, PlayerPrefsSaver.instance, 
+                Out.Instance.SaveExperimentData(currentPhase, currentPhase.immediatePrizeValue,
+                    PlayerPrefsSaver.instance,
                     timeDiff.TotalSeconds);
                 RespawnImmediatePrize();
             }
@@ -151,11 +152,10 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
                 var phasePoints = currentPhase.secondPrizeValue;
                 var key = "Fase " + dataHandler.GetExperimentIndex() + " do experimento";
                 PlayerPrefsSaver.instance.AddExperimentPoints(key, phasePoints);
-                Out.Instance.SaveExperimentData(currentPhase, currentPhase.secondPrizeValue, PlayerPrefsSaver.instance, 
+                Out.Instance.SaveExperimentData(currentPhase, currentPhase.secondPrizeValue, PlayerPrefsSaver.instance,
                     timeDiff.TotalSeconds);
                 RespawnSecondPrize();
             }
-
         }
 
         public void FinishedExperiment()
@@ -165,7 +165,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             //PrizeButtons.instance.ToggleButtons(true);
         }
 
-        void CleanScenario()
+        private void CleanScenario()
         {
             var slider = gameObject.GetComponent<SlidersHandler>();
             slider.ResetSliders();

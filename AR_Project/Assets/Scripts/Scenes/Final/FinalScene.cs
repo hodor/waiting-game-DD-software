@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using AR_Project.DataClasses.MainData;
-using AR_Project.Savers;
+﻿using AR_Project.Savers;
 using Output;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,7 +10,7 @@ namespace AR_Project.Scenes.Final
     {
         public Text finalPoints;
 
-        void Start()
+        private void Start()
         {
             var points = PlayerPrefsSaver.instance.totalPoints;
             finalPoints.text = points + " pontos";
@@ -27,16 +24,13 @@ namespace AR_Project.Scenes.Final
             SceneManager.LoadScene("Registration");
         }
 
-        void ResetGame()
+        private void ResetGame()
         {
             PlayerPrefsSaver.instance.name = "";
             PlayerPrefsSaver.instance.birthday = "";
             PlayerPrefsSaver.instance.gender = "";
             PlayerPrefsSaver.instance.character = null;
             PlayerPrefsSaver.instance.totalPoints = 0;
-
         }
-
     }
-
 }
