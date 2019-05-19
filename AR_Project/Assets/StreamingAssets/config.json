@@ -1,6 +1,6 @@
 {
   "created": {
-    "date": "May 19, 2019 19:45:07 -0300"
+    "date": "May 19, 2019 20:09:04 -0300"
   },
   "Treinos": [
     {
@@ -278,9 +278,9 @@
     "treinoImaginario": "JOGO IMAGINÁRIO\n\n\nVamos Treinar!",
     "experimentoImaginario": "JOGO IMAGINÁRIO\n\n\nNesse jogo você NÃO ganhará um prêmio real.",
     "treinoReal": "JOGO REAL\n\n\nVamos Treinar!",
-    "experimentoReal": "JOGO REAL\n\nAgora é para valer.\nNessa tarefa você GANHARÁ um prêmio REAL!",
+    "experimentoReal": "JOGO REAL\n\n\nAgora é para valer.\nNessa tarefa você GANHARÁ um prêmio REAL!",
     "treinoPaciencia": "JOGO DA PACIÊNCIA\n\nO objetivo é ver se você está disposto a esperar por alguns tempos para acumular mais pontos, mas sabendo que NÃO ganhará um prêmio. Antes de começar, vamos treinar!",
-    "experimentoPaciencia": "JOGO DA PACIÊNCIA\n\n\nVamos começar! Nessa tarefa você NÃO ganhará um prêmio"
+    "experimentoPaciencia": "JOGO DA PACIÊNCIA\n\n\nVamos começar!\nNessa tarefa você NÃO ganhará um prêmio"
   },
   "Premios": [
     {
@@ -317,5 +317,8 @@
       "pista": 5,
       "tempo": 60
     }
-  ]
+  ],
+  "Debug": {
+    "alwaysImaginaryFirst": false
+  }
 }

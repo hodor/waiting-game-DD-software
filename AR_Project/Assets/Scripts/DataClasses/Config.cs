@@ -19,4 +19,7 @@ public class Config
 
     [JsonProperty(PropertyName = "Treinos")]
     public List<Experiment> trainings;
+    
+    [JsonProperty(PropertyName = "Debug")]
+    public DebugConfig debug;
 }

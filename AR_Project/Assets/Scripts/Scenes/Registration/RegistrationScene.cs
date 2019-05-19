@@ -1,4 +1,5 @@
 ﻿using System;
+using AR_Project.DataClasses.MainData;
 using AR_Project.Savers;
 using Output;
 using UnityEngine;
@@ -47,8 +48,7 @@ namespace AR_Project.Scenes.Registration
             // Initialize output, we'll save as new data comes in
             Out.Instance.StartSession();
         }
-
-
+        
         private void Start()
         {
             _startBtnImage = StartBtn.GetComponent<Image>();
@@ -66,7 +66,28 @@ namespace AR_Project.Scenes.Registration
             var name = inputName.text;
             name = name.Trim();
             inputName.text = name;
+            SetDebugMode(name == "Debug");
             ValidName = !string.IsNullOrEmpty(name);
+        }
+
+        private void SetDebugMode(bool on)
+        {
+            var imaginaryFirst = MainData.instanceData.config.debug.imaginaryFirst;
+            ARDebug.AlwaysImaginaryFirst = imaginaryFirst;
+            ARDebug.Debugging = on;
+            
+            // Auto fill
+            if (on)
+            {
+                inputBDay.text = "01";
+                ValidDay = true;
+                inputBMonth.text = "01";
+                ValidMonth = true;
+                inputBYear.text = "1999";
+                ValidYear = true;
+
+                OnClickedButtonOther();
+            }
         }
 
         public void OnDayChanged()
