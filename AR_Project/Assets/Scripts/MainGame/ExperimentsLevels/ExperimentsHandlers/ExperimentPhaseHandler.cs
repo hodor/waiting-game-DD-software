@@ -138,7 +138,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             PrizeButtons.instance.DisableButtons();
             if (timerClicked == 0)
             {
-                var phasePoints = currentPhase.immediatePrizePoints;
+                var phasePoints = currentPhase.immediatePrizeValue;
                 var key = "Fase " + dataHandler.GetExperimentIndex() + " do experimento";
                 PlayerPrefsSaver.instance.AddExperimentPoints(key, phasePoints);
                 Out.Instance.SaveExperimentData(currentPhase, currentPhase.immediatePrizeValue, PlayerPrefsSaver.instance, 
@@ -148,7 +148,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             else if (timerClicked == currentPhase.secondPrizeTimer)
             {
                 if (currentPhase == null) return;
-                var phasePoints = currentPhase.secondPrizePoints;
+                var phasePoints = currentPhase.immediatePrizeValue;
                 var key = "Fase " + dataHandler.GetExperimentIndex() + " do experimento";
                 PlayerPrefsSaver.instance.AddExperimentPoints(key, phasePoints);
                 Out.Instance.SaveExperimentData(currentPhase, currentPhase.secondPrizeValue, PlayerPrefsSaver.instance, 

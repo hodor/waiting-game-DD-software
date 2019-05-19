@@ -48,7 +48,7 @@ public static class ListShuffler
         int minPoints = 0;
         foreach (var experiment in experiments)
         {
-            minPoints += experiment.immediatePrizePoints;
+            minPoints += experiment.immediatePrizeValue;
             var key = new ClusterValue()
             {
                 FirstPrizeValue = experiment.immediatePrizeValue, 

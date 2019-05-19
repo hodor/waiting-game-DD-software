@@ -1,70 +1,54 @@
 {
   "created": {
-    "date": "May 19, 2019 00:08:41 -0300"
+    "date": "May 19, 2019 00:17:29 -0300"
   },
   "EnsaiosFicticios": [
     {
-      "id": 5,
-      "valorpremioimediato": 400,
-      "pontuacaopremioimediato": 400,
-      "temposegundopremio": 30,
-      "pontuacaosegundopremio": 1000,
-      "valorsegundopremio": 1000
-    },
-    {
       "id": 1,
       "valorpremioimediato": 100,
-      "pontuacaopremioimediato": 100,
       "temposegundopremio": 7,
-      "pontuacaosegundopremio": 1000,
-      "valorsegundopremio": 1000
-    },
-    {
-      "id": 8,
-      "valorpremioimediato": 400,
-      "pontuacaopremioimediato": 400,
-      "temposegundopremio": 60,
-      "pontuacaosegundopremio": 1000,
-      "valorsegundopremio": 1000
-    },
-    {
-      "id": 6,
-      "valorpremioimediato": 700,
-      "pontuacaopremioimediato": 700,
-      "temposegundopremio": 15,
-      "pontuacaosegundopremio": 1000,
-      "valorsegundopremio": 1000
-    },
-    {
-      "id": 4,
-      "valorpremioimediato": 700,
-      "pontuacaopremioimediato": 700,
-      "temposegundopremio": 7,
-      "pontuacaosegundopremio": 1000,
-      "valorsegundopremio": 1000
-    },
-    {
-      "id": 3,
-      "valorpremioimediato": 400,
-      "pontuacaopremioimediato": 400,
-      "temposegundopremio": 15,
-      "pontuacaosegundopremio": 1000,
-      "valorsegundopremio": 1000
-    },
-    {
-      "id": 7,
-      "valorpremioimediato": 100,
-      "pontuacaopremioimediato": 100,
-      "temposegundopremio": 60,
-      "pontuacaosegundopremio": 1000,
       "valorsegundopremio": 1000
     },
     {
       "id": 2,
       "valorpremioimediato": 400,
-      "pontuacaopremioimediato": 400,
       "temposegundopremio": 15,
-      "pontuacaosegundopremio": 1000,
+      "valorsegundopremio": 1000
+    },
+    {
+      "id": 3,
+      "valorpremioimediato": 400,
+      "temposegundopremio": 15,
+      "valorsegundopremio": 1000
+    },
+    {
+      "id": 4,
+      "valorpremioimediato": 700,
+      "temposegundopremio": 7,
+      "valorsegundopremio": 1000
+    },
+    {
+      "id": 5,
+      "valorpremioimediato": 400,
+      "temposegundopremio": 30,
+      "valorsegundopremio": 1000
+    },
+    {
+      "id": 6,
+      "valorpremioimediato": 700,
+      "temposegundopremio": 15,
+      "valorsegundopremio": 1000
+    },
+    {
+      "id": 7,
+      "valorpremioimediato": 100,
+      "temposegundopremio": 60,
+      "valorsegundopremio": 1000
+    },
+    {
+      "id": 8,
+      "valorpremioimediato": 400,
+      "temposegundopremio": 60,
       "valorsegundopremio": 1000
     }
   ]
