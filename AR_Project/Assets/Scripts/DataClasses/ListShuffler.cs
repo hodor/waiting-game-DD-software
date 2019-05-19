@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using AR_Project.DataClasses.NestedObjects;
+using UnityEngine;
+using Random = System.Random;
 
 public class ClusterValue
 {
@@ -43,8 +45,10 @@ public static class ListShuffler
     {
         var clusterDict = new Dictionary<ClusterValue, List<Experiment>>();
         var ret = new List<List<Experiment>>();
+        int minPoints = 0;
         foreach (var experiment in experiments)
         {
+            minPoints += experiment.immediatePrizePoints;
             var key = new ClusterValue()
             {
                 FirstPrizeValue = experiment.immediatePrizeValue, 
@@ -68,6 +72,8 @@ public static class ListShuffler
             }
             clusterDict[key].Add(experiment);
         }
+        
+        Debug.Log("This task minimum points is: "+minPoints);
 
         foreach (var cluster in clusterDict.Values)
         {

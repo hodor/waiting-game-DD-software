@@ -8,9 +8,6 @@ namespace AR_Project.DataClasses.NestedObjects
     [JsonObject]
     public class Experiment
     {
-        [JsonProperty(PropertyName = "maiorPremioEstaNoBotaoDireito")]
-        public bool isSecondPrizeAtRightButton;
-
         [JsonProperty(PropertyName = "valorPremioImediato")]
         public int immediatePrizeValue;
 

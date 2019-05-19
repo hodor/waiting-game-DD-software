@@ -75,12 +75,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             prizeButtons.SetupButtons(0, currentPhase.secondPrizeTimer);
             MainGameScene.ExperimentStartDT = DateTime.Now;
         }
-
-        public bool IsSecondPrizeAtRightButton()
-        {
-            return currentPhase.isSecondPrizeAtRightButton;
-        }
-
+        
         void NextPhase()
         {
             currentPhase = dataHandler.NextExperiment();
