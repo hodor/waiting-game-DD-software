@@ -23,9 +23,9 @@ namespace Output.CSV
         public void StartSession()
         {
             if (_sessionRunning) return;
-            _imaginaryPath = GetNewDataFile(FileName + "_Imaginary");
-            _realPath = GetNewDataFile(FileName + "_Real");
-            _patiencePath = GetNewDataFile(FileName + "_Patience");
+            _imaginaryPath = GetNewDataFile(FileName, "Imaginary");
+            _realPath = GetNewDataFile(FileName, "Real");
+            _patiencePath = GetNewDataFile(FileName, "Patience");
             _allPaths = new []{_imaginaryPath, _realPath, _patiencePath};
             _sessionRunning = true;
         }
@@ -152,18 +152,22 @@ namespace Output.CSV
             CSVUtils.ReplaceLineThatContains("Pontuação_Total", score);
         }
 
-        private static string GetNewDataFile(string Filename)
+        private static string GetNewDataFile(string folderName, string fileName)
         {
-            // Get the proper filename
-            if (!Directory.Exists(DataDir))
-                Directory.CreateDirectory(DataDir);
 
             var foundNextFile = false;
             var name = "";
             var count = 0;
             while (!foundNextFile)
             {
-                name = DataDir + @"\" + Filename + "_" + GetSuffix(count) + Extension;
+                var numberSuffix = GetSuffix(count);
+                var dir = DataDir + @"\" + folderName + "_" + numberSuffix;
+                
+                // Get the proper filename
+                if (!Directory.Exists(dir))
+                    Directory.CreateDirectory(dir);
+                
+                name = dir + @"\" + fileName + Extension;
                 if (!File.Exists(name)) foundNextFile = true;
                 count++;
             }
