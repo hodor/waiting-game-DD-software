@@ -76,16 +76,16 @@ namespace AR_Project.Scenes.Registration
             ARDebug.AlwaysImaginaryFirst = imaginaryFirst;
             ARDebug.Debugging = on;
             
-            // Auto fill
+            // ReSharper disable once InvertIf
             if (on)
             {
+                // Auto fill
                 inputBDay.text = "01";
                 ValidDay = true;
                 inputBMonth.text = "01";
                 ValidMonth = true;
                 inputBYear.text = "1999";
                 ValidYear = true;
-
                 OnClickedButtonOther();
             }
         }
