@@ -18,8 +18,8 @@ namespace AR_Project.MainGame.Prize
         public void StartMoving(bool isTutorial)
         {
             animator = GetComponent<Animator>();
-            var isImaginarium = PlayerPrefsSaver.instance.gameType == GameType.Imaginarium;
-            if (isImaginarium && !isTutorial)
+            var shouldMoveSlowly = PlayerPrefsSaver.instance.ShouldMoveSlowly();
+            if (!shouldMoveSlowly && !isTutorial)
             {
                 FinishedRun();
             }

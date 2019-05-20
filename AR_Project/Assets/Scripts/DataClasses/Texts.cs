@@ -34,5 +34,11 @@ namespace AR_Project.DataClasses
 
         [JsonProperty(PropertyName = "experimentoPaciencia")]
         public string experimentPatience;
+        
+        [JsonProperty(PropertyName = "pontuacaoFinal")]
+        public string finalPoints;
+        
+        [JsonProperty(PropertyName = "pontuacaoRealFinal")]
+        public string realPoints;
     }
 }

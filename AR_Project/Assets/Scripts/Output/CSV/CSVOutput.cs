@@ -145,7 +145,7 @@ namespace Output.CSV
         {
             var score = new[]
             {
-                "Pontuação_Total", userData.totalPoints.ToString()
+                "Pontuação_Total", userData.phasePoints[userData.gameType].ToString()
             };
             var path = GetCurrentPath(userData);
             CSVUtils.SetCurrentPath(path);

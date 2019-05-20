@@ -1,6 +1,6 @@
 {
   "created": {
-    "date": "May 19, 2019 20:09:04 -0300"
+    "date": "May 20, 2019 14:02:02 -0300"
   },
   "Treinos": [
     {
@@ -73,19 +73,19 @@
     },
     {
       "id": 4,
-      "valorPremioImediato": 300,
+      "valorPremioImediato": 400,
       "tempoSegundoPremio": 7,
       "valorSegundoPremio": 1000
     },
     {
       "id": 5,
-      "valorPremioImediato": 300,
+      "valorPremioImediato": 400,
       "tempoSegundoPremio": 7,
       "valorSegundoPremio": 1000
     },
     {
       "id": 6,
-      "valorPremioImediato": 300,
+      "valorPremioImediato": 400,
       "tempoSegundoPremio": 7,
       "valorSegundoPremio": 1000
     },
@@ -127,19 +127,19 @@
     },
     {
       "id": 13,
-      "valorPremioImediato": 300,
+      "valorPremioImediato": 400,
       "tempoSegundoPremio": 15,
       "valorSegundoPremio": 1000
     },
     {
       "id": 14,
-      "valorPremioImediato": 300,
+      "valorPremioImediato": 400,
       "tempoSegundoPremio": 15,
       "valorSegundoPremio": 1000
     },
     {
       "id": 15,
-      "valorPremioImediato": 300,
+      "valorPremioImediato": 400,
       "tempoSegundoPremio": 15,
       "valorSegundoPremio": 1000
     },
@@ -181,19 +181,19 @@
     },
     {
       "id": 22,
-      "valorPremioImediato": 300,
+      "valorPremioImediato": 400,
       "tempoSegundoPremio": 30,
       "valorSegundoPremio": 1000
     },
     {
       "id": 23,
-      "valorPremioImediato": 300,
+      "valorPremioImediato": 400,
       "tempoSegundoPremio": 30,
       "valorSegundoPremio": 1000
     },
     {
       "id": 24,
-      "valorPremioImediato": 300,
+      "valorPremioImediato": 400,
       "tempoSegundoPremio": 30,
       "valorSegundoPremio": 1000
     },
@@ -235,19 +235,19 @@
     },
     {
       "id": 31,
-      "valorPremioImediato": 300,
+      "valorPremioImediato": 400,
       "tempoSegundoPremio": 60,
       "valorSegundoPremio": 1000
     },
     {
       "id": 32,
-      "valorPremioImediato": 300,
+      "valorPremioImediato": 400,
       "tempoSegundoPremio": 60,
       "valorSegundoPremio": 1000
     },
     {
       "id": 33,
-      "valorPremioImediato": 300,
+      "valorPremioImediato": 400,
       "tempoSegundoPremio": 60,
       "valorSegundoPremio": 1000
     },
@@ -275,19 +275,21 @@
     "apresentacaoDeRecompensa": "Opções de pontos",
     "personagem": "Escolha seu avatar",
     "apresentacaoDosTempos": "Vamos aprender como funciona o tempo?",
-    "treinoImaginario": "JOGO IMAGINÁRIO\n\n\nVamos Treinar!",
-    "experimentoImaginario": "JOGO IMAGINÁRIO\n\n\nNesse jogo você NÃO ganhará um prêmio real.",
-    "treinoReal": "JOGO REAL\n\n\nVamos Treinar!",
+    "treinoImaginario": "JOGO IMAGINÁRIO\n\nFaça as escolhas de pontos baseadas no que você acha que escolheria se realmente tivesse que esperar os tempos para ganhar.\nVamos Treinar!",
+    "experimentoImaginario": "JOGO IMAGINÁRIO\n\n\nAgora é para valer! Nesse jogo você NÃO ganhará um prêmio real.",
+    "treinoReal": "JOGO REAL\n\nO objetivo é ver se você está disposto a esperar por alguns tempos para acumular mais pontos e ganhar um prêmio melhor.\nVamos treinar!\n",
     "experimentoReal": "JOGO REAL\n\n\nAgora é para valer.\nNessa tarefa você GANHARÁ um prêmio REAL!",
-    "treinoPaciencia": "JOGO DA PACIÊNCIA\n\nO objetivo é ver se você está disposto a esperar por alguns tempos para acumular mais pontos, mas sabendo que NÃO ganhará um prêmio. Antes de começar, vamos treinar!",
-    "experimentoPaciencia": "JOGO DA PACIÊNCIA\n\n\nVamos começar!\nNessa tarefa você NÃO ganhará um prêmio"
+    "treinoPaciencia": "JOGO DA PACIÊNCIA\n\nO objetivo é ver se você está disposto a esperar por alguns tempos para acumular mais pontos, mas sabendo que NÃO ganhará um prêmio. Vamos treinar!",
+    "experimentoPaciencia": "JOGO DA PACIÊNCIA\n\n\nAgora é para valer!\nNessa tarefa você NÃO ganhará um prêmio",
+    "pontuacaoFinal": "Parabéns, você terminou o jogo! Sua pontuação total foi de",
+    "pontuacaoRealFinal": "E sua pontuação real foi de"
   },
   "Premios": [
     {
       "valor": 100
     },
     {
-      "valor": 300
+      "valor": 400
     },
     {
       "valor": 700

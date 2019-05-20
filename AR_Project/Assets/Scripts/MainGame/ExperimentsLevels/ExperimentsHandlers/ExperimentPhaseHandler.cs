@@ -38,12 +38,20 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             //totalPoints.text = "Pontos: 0";
 
             points.SetActive(true);
-            totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.totalPoints;
+            totalPoints.text = "Pontos: " + 0;
+            // Reset points on training
+            if (!PlayerPrefsSaver.instance.isTraining)
+            {
+                if (!PlayerPrefsSaver.instance.phasePoints.ContainsKey(PlayerPrefsSaver.instance.gameType))
+                    PlayerPrefsSaver.instance.phasePoints.Add(PlayerPrefsSaver.instance.gameType, 0);
+
+                PlayerPrefsSaver.instance.phasePoints[PlayerPrefsSaver.instance.gameType] = 0;
+            }
         }
 
         public void UpdateTotalPoints()
         {
-            totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.totalPoints;
+            totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.phasePoints[PlayerPrefsSaver.instance.gameType];
             StartCoroutine("BlinkAnimationPoints");
         }
 
@@ -51,15 +59,14 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
         {
             totalPoints.color = Color.yellow;
             yield return new WaitForSeconds(0.5f);
-            totalPoints.color = Color.black;
+            totalPoints.color = Color.white;
         }
 
         public void StartExperiment()
         {
             dataHandler = new ExperimentData(currentExperiments);
             currentPhase = dataHandler.currentExperiment();
-            PlayerPrefsSaver.instance.totalPoints = 0;
-            totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.totalPoints;
+            totalPoints.text = "Pontos: " + 0;
             DoExperimentPhase();
         }
 
@@ -92,7 +99,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
 
         private void RespawnSecondPrize()
         {
-            var isImaginarium = PlayerPrefsSaver.instance.gameType == GameType.Imaginarium;
+            var shouldMoveSlowly = PlayerPrefsSaver.instance.ShouldMoveSlowly();
             var respawnsScript = gameObject.GetComponent<Respawns>();
             var respawn = respawnsScript.GetRespawnByLane(currentPhase.secondPrizeTimer);
             var slider = gameObject.GetComponent<SlidersHandler>();
@@ -107,13 +114,13 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
                 secondPrize.transform.position.y, 0);
             objScript.StartMoving(false);
 
-            if (!isImaginarium)
+            if (shouldMoveSlowly)
                 slider.SetAndStartSliderByTimer(currentPhase.secondPrizeTimer);
         }
 
         private void RespawnImmediatePrize()
         {
-            var isImaginarium = PlayerPrefsSaver.instance.gameType == GameType.Imaginarium;
+            var shouldMoveSlowly = PlayerPrefsSaver.instance.ShouldMoveSlowly();
             var respawnsScript = gameObject.GetComponent<Respawns>();
             var respawn = respawnsScript.GetRespawnByPosition(0);
             var slider = gameObject.GetComponent<SlidersHandler>();
@@ -127,7 +134,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
                 immediatePrize.transform.position.y, 0);
             objScript.StartMoving(false);
 
-            if (!isImaginarium)
+            if (shouldMoveSlowly)
                 slider.SetAndStartSingleSlider(0, 0);
         }
 
@@ -139,8 +146,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             if (timerClicked == 0)
             {
                 var phasePoints = currentPhase.immediatePrizeValue;
-                var key = "Fase " + dataHandler.GetExperimentIndex() + " do experimento";
-                PlayerPrefsSaver.instance.AddExperimentPoints(key, phasePoints);
+                PlayerPrefsSaver.instance.AddExperimentPoints(phasePoints);
                 Out.Instance.SaveExperimentData(currentPhase, currentPhase.immediatePrizeValue,
                     PlayerPrefsSaver.instance,
                     timeDiff.TotalSeconds);
@@ -150,8 +156,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             {
                 if (currentPhase == null) return;
                 var phasePoints = currentPhase.secondPrizeValue;
-                var key = "Fase " + dataHandler.GetExperimentIndex() + " do experimento";
-                PlayerPrefsSaver.instance.AddExperimentPoints(key, phasePoints);
+                PlayerPrefsSaver.instance.AddExperimentPoints(phasePoints);
                 Out.Instance.SaveExperimentData(currentPhase, currentPhase.secondPrizeValue, PlayerPrefsSaver.instance,
                     timeDiff.TotalSeconds);
                 RespawnSecondPrize();

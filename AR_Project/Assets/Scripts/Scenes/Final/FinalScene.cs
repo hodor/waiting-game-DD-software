@@ -1,4 +1,5 @@
-﻿using AR_Project.Savers;
+﻿using AR_Project.DataClasses.MainData;
+using AR_Project.Savers;
 using Output;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,13 +9,22 @@ namespace AR_Project.Scenes.Final
 {
     public class FinalScene : MonoBehaviour
     {
+        public Text firstText;
+        public Text secondText;
         public Text finalPoints;
-
+        public Text realPoints;
+        
+        
         private void Start()
         {
-            var points = PlayerPrefsSaver.instance.totalPoints;
-            finalPoints.text = points + " pontos";
-            Out.Instance.EndSession();
+            firstText.text = MainData.instanceData.config.texts.finalPoints;
+            secondText.text = MainData.instanceData.config.texts.realPoints;
+            var total = PlayerPrefsSaver.instance.phasePoints[GameType.Real] + 
+                        PlayerPrefsSaver.instance.phasePoints[GameType.Patience] + 
+                        PlayerPrefsSaver.instance.phasePoints[GameType.Imaginarium];
+            var real = PlayerPrefsSaver.instance.phasePoints[GameType.Real];
+            finalPoints.text = total + " pontos";
+            realPoints.text = real + " points";
         }
 
         public void ClickedOnRestartGame()
@@ -29,7 +39,8 @@ namespace AR_Project.Scenes.Final
             PlayerPrefsSaver.instance.birthday = "";
             PlayerPrefsSaver.instance.gender = "";
             PlayerPrefsSaver.instance.character = null;
-            PlayerPrefsSaver.instance.totalPoints = 0;
+            PlayerPrefsSaver.instance.phasePoints.Clear();
+            Out.Instance.EndSession();
         }
     }
 }

@@ -56,7 +56,7 @@ namespace AR_Project.MainGame
         {
             ToggleGameUIObjects(false);
             finalRoundsScene.SetActive(true);
-            var points = PlayerPrefsSaver.instance.totalPoints;
+            var points = PlayerPrefsSaver.instance.phasePoints[PlayerPrefsSaver.instance.gameType];
             finalRoundText.text = "Parabéns, você ganhou " + points + " pontos nessa tarefa!";
             StartCoroutine("StartNewRound");
         }
@@ -121,7 +121,6 @@ namespace AR_Project.MainGame
 
         public void SetupNextExperiment()
         {
-            PlayerPrefsSaver.instance.totalPoints = 0;
             var training = PlayerPrefsSaver.instance.isTraining;
             var type = PlayerPrefsSaver.instance.gameType;
             var texts = MainData.instanceData.config.texts;

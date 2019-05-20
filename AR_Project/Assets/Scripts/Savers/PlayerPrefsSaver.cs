@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using AR_Project.DataClasses.NestedObjects;
 using UnityEngine;
 
 namespace AR_Project.Savers
 {
     public enum GameType
     {
+        None,
         Imaginarium,
         Real,
         Patience
@@ -25,11 +27,9 @@ namespace AR_Project.Savers
 
         public GameType gameType;
         public bool isTraining;
-        public List<string> keysPhases;
+
         public string name, birthday, gender;
-        public int totalPoints;
-
-
+        public Dictionary<GameType, int> phasePoints;
         private void Awake()
         {
             if (instance == null)
@@ -37,15 +37,15 @@ namespace AR_Project.Savers
             else if (instance != this)
                 Destroy(gameObject);
 
+            phasePoints = new Dictionary<GameType, int>();
             DontDestroyOnLoad(this);
         }
 
-        public void AddExperimentPoints(string key, int points)
+        public void AddExperimentPoints(int points)
         {
-            totalPoints += points;
-            keysPhases.Add(key);
-            PlayerPrefs.SetInt(key, points);
-            PlayerPrefs.SetInt(LabelTotalPoints, totalPoints);
+            if(!phasePoints.ContainsKey(gameType))
+                phasePoints.Add(gameType, 0);
+            phasePoints[gameType] += points;
         }
 
         public void SavePlayerPrefs()
@@ -56,12 +56,9 @@ namespace AR_Project.Savers
             PlayerPrefs.SetString(LabelGender, gender);
         }
 
-        public void LoadPlayerPrefs()
+        public bool ShouldMoveSlowly()
         {
-            name = PlayerPrefs.GetString(LabelName);
-            birthday = PlayerPrefs.GetString(LabelBirthday);
-            gender = PlayerPrefs.GetString(LabelGender);
-            totalPoints = PlayerPrefs.GetInt(LabelTotalPoints);
+            return !ARDebug.Debugging && gameType != GameType.Imaginarium;
         }
     }
 }
