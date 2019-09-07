@@ -6,7 +6,7 @@ namespace Output
     {
         public static IOutput GetOutputStrategy()
         {
-            return new OneLineCSVOutput();
+            return new CSVAllOutputs();
         }
     }
 }
