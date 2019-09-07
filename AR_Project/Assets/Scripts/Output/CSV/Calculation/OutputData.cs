@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using AR_Project.Savers;
@@ -13,14 +14,18 @@ namespace Output.CSV.Calculation
         public string avatar;
         public List<GameType> game_order;
 
-        private float age_year()
+        public float age_year()
         {
-            return 0;
+            var birthdate = DateTime.ParseExact(birth, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            float years = DateTime.Now.Year - birthdate.Year;
+            float months = DateTime.Now.Month - birthdate.Month;
+            return years + (months/12);
         }
 
-        private int age_month()
+        public int age_month()
         {
-            return 0;
+            var birthdate = DateTime.ParseExact(birth, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            return ((DateTime.Now.Year - birthdate.Year) * 12) + DateTime.Now.Month - birthdate.Month;
         }
 
         public Dictionary<GameType, ExperimentData> experimentData = new Dictionary<GameType, ExperimentData>
