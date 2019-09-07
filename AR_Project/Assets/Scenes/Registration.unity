@@ -152,15 +152,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e11b240657ee942c293d59c8c3007a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: {fileID: 0}
+  imaginariumFirst: 0
+  gameType: 0
+  isTraining: 0
   name: 
   birthday: 
   gender: 
-  character: {fileID: 0}
-  totalPoints: 0
-  keysPhases: []
-  isImaginarium: 0
-  imaginariumFirst: 0
-  isTraining: 0
 --- !u!4 &7139333
 Transform:
   m_ObjectHideFlags: 0
@@ -539,7 +537,7 @@ RectTransform:
   m_GameObject: {fileID: 467549912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.74343, y: 0.74343, z: 0.74343}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1861940996}
   m_RootOrder: 2
@@ -547,7 +545,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -23.8, y: -17.534}
-  m_SizeDelta: {x: 103.68, y: 38.15}
+  m_SizeDelta: {x: 77.9, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &467549914
 MonoBehaviour:
@@ -1334,29 +1332,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 397375e78270b4a61941dc2a7a81e571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputName: {fileID: 244402170}
-  inputBDay: {fileID: 541004523}
-  inputBMonth: {fileID: 913742834}
-  inputBYear: {fileID: 1999893614}
-  username: {fileID: 150886698}
   birthDay: {fileID: 1578011080}
   birthMonth: {fileID: 1321752424}
   birthYear: {fileID: 2102658467}
-  maximumAge: 150
-  StartBtn: {fileID: 2103628331}
-  startBtnEnabled: {fileID: 21300000, guid: eda1e047ae91c464cb303634f4607ab6, type: 3}
-  startBtnDisabled: {fileID: 21300000, guid: 200654b15fa0e4eaf93950be9a4d09b6, type: 3}
-  boyToggleBtn: {fileID: 467549914}
-  girlToggleBtn: {fileID: 1905239374}
-  otherToggleBtn: {fileID: 1607047909}
   boyOn: {fileID: 21300000, guid: e93326c8e0e0245749854fc4f8577331, type: 3}
   boyOff: {fileID: 21300000, guid: f6ae0d710b6b5481d9bc252e9f25ff43, type: 3}
+  boyToggleBtn: {fileID: 467549914}
   girlOn: {fileID: 21300000, guid: 1f7b67a64f8c8424786ea91a189b909f, type: 3}
   girlOff: {fileID: 21300000, guid: f8773281cd4314d02861ca6d01c001d3, type: 3}
-  otherOn: {fileID: 21300000, guid: 48b1d3666954e44068d06b68738a157c, type: 3}
-  otherOff: {fileID: 21300000, guid: f26044cf6d7d94b429fb0b9d2265f12d, type: 3}
+  girlToggleBtn: {fileID: 1905239374}
+  inputBDay: {fileID: 541004523}
+  inputBMonth: {fileID: 913742834}
+  inputBYear: {fileID: 1999893614}
+  inputName: {fileID: 244402170}
   isGirl: 0
   isOther: 0
+  maximumAge: 150
+  otherOn: {fileID: 21300000, guid: 48b1d3666954e44068d06b68738a157c, type: 3}
+  otherOff: {fileID: 21300000, guid: f26044cf6d7d94b429fb0b9d2265f12d, type: 3}
+  otherToggleBtn: {fileID: 1607047909}
+  StartBtn: {fileID: 2103628331}
+  startBtnDisabled: {fileID: 21300000, guid: 200654b15fa0e4eaf93950be9a4d09b6, type: 3}
+  startBtnEnabled: {fileID: 21300000, guid: eda1e047ae91c464cb303634f4607ab6, type: 3}
+  username: {fileID: 150886698}
 --- !u!4 &1054705960
 Transform:
   m_ObjectHideFlags: 0
@@ -1934,7 +1932,7 @@ RectTransform:
   m_GameObject: {fileID: 1607047907}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7434318, y: 0.7434318, z: 0.7434318}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1861940996}
   m_RootOrder: 3
@@ -2295,7 +2293,7 @@ RectTransform:
   m_GameObject: {fileID: 1905239372}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7434298, y: 0.7434298, z: 0.7434298}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1861940996}
   m_RootOrder: 1
@@ -2303,7 +2301,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -122.664, y: -17.979994}
-  m_SizeDelta: {x: 84.18, y: 47.66}
+  m_SizeDelta: {x: 77.9, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1905239374
 MonoBehaviour:
