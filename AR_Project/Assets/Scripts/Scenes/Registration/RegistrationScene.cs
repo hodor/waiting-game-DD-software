@@ -73,7 +73,6 @@ namespace AR_Project.Scenes.Registration
         private void SetDebugMode(bool on)
         {
             var imaginaryFirst = MainData.instanceData.config.debug.imaginaryFirst;
-            ARDebug.AlwaysImaginaryFirst = imaginaryFirst;
             ARDebug.Debugging = on;
             
             // ReSharper disable once InvertIf

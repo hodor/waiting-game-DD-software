@@ -90,32 +90,22 @@ namespace AR_Project.MainGame
 
         private void Tutorial()
         {
+            PlayerPrefsSaver.instance.isTutorial = true;
             var teachTimer = gameObject.GetComponent<TeachTimers>();
             teachTimer.StartTutorial(prefabChar, finishLine);
         }
 
         public void ComeBackFromTutorial()
         {
+            PlayerPrefsSaver.instance.isTutorial = false;
+
             Out.Instance.StartExperiments(PlayerPrefsSaver.instance);
             finishedTutorial = true;
-            var randomizer = Random.Range(0, 9);
-            var imaginaryFirst = randomizer % 2 == 0;
-            if (ARDebug.Debugging && ARDebug.AlwaysImaginaryFirst)
-                imaginaryFirst = true;
-
-            if (imaginaryFirst)
-            {
-                PlayerPrefsSaver.instance.imaginariumFirst = true;
-                PlayerPrefsSaver.instance.isTraining = true;
-                PlayerPrefsSaver.instance.gameType = GameType.Imaginarium;
-            }
-            else
-            {
-                PlayerPrefsSaver.instance.imaginariumFirst = false;
-                PlayerPrefsSaver.instance.isTraining = true;
-                PlayerPrefsSaver.instance.gameType = GameType.Real;
-            }
-
+            var gameOrder = new List<GameType> {GameType.Imaginarium, GameType.Real, GameType.Patience};
+            gameOrder.Shuffle();
+            PlayerPrefsSaver.instance.isTraining = true;
+            PlayerPrefsSaver.instance.gameType = gameOrder[0];
+            PlayerPrefsSaver.instance.gameTypeOrder = gameOrder;
             SetupNextExperiment();
         }
 
@@ -215,74 +205,24 @@ namespace AR_Project.MainGame
         public void CallbackFinishedExperiment()
         {
             var training = PlayerPrefsSaver.instance.isTraining;
-            var imaginariumFirst = PlayerPrefsSaver.instance.imaginariumFirst;
             var gameType = PlayerPrefsSaver.instance.gameType;
             
             if(!training)
                 Out.Instance.SaveTotalPoints(PlayerPrefsSaver.instance);
-
-            switch (gameType)
+            
+            PlayerPrefsSaver.instance.isTraining = !PlayerPrefsSaver.instance.isTraining;
+            
+            var gameIndex = PlayerPrefsSaver.instance.gameTypeOrder.IndexOf(gameType);
+            // If we're at the last index
+            if (!training && gameIndex == PlayerPrefsSaver.instance.gameTypeOrder.Count - 1)
             {
-                case GameType.Imaginarium:
-                    if (training)
-                    {
-                        PlayerPrefsSaver.instance.isTraining = false;
-                        SetupNextExperiment();
-                    }
-                    else
-                    {
-                        if (imaginariumFirst)
-                        {
-                            PlayerPrefsSaver.instance.gameType = GameType.Real;
-                            PlayerPrefsSaver.instance.isTraining = true;
-                            SetupNextExperiment();
-                        }
-                        else
-                        {
-                            PlayerPrefsSaver.instance.gameType = GameType.Patience;
-                            PlayerPrefsSaver.instance.isTraining = true;
-                            SetupNextExperiment();
-                        }
-                    }
-
-                    break;
-                case GameType.Real:
-                    if (training)
-                    {
-                        PlayerPrefsSaver.instance.isTraining = false;
-                        SetupNextExperiment();
-                    }
-                    else
-                    {
-                        if (!imaginariumFirst)
-                        {
-                            PlayerPrefsSaver.instance.gameType = GameType.Imaginarium;
-                            PlayerPrefsSaver.instance.isTraining = true;
-                            SetupNextExperiment();
-                        }
-                        else
-                        {
-                            PlayerPrefsSaver.instance.gameType = GameType.Patience;
-                            PlayerPrefsSaver.instance.isTraining = true;
-                            SetupNextExperiment();
-                        }
-                    }
-
-                    break;
-                case GameType.Patience:
-                    if (training)
-                    {
-                        PlayerPrefsSaver.instance.isTraining = false;
-                        SetupNextExperiment();
-                    }
-                    else
-                    {
-                        FinishedGame();
-                    }
-
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
+                FinishedGame();
+            }
+            else
+            {
+                if(!training)
+                    PlayerPrefsSaver.instance.gameType = PlayerPrefsSaver.instance.gameTypeOrder[gameIndex + 1];
+                SetupNextExperiment();
             }
         }
 

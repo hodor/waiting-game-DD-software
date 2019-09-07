@@ -21,12 +21,13 @@ namespace AR_Project.Savers
         public static PlayerPrefsSaver instance;
         public GameObject character;
 
-        public bool imaginariumFirst;
+        public List<GameType> gameTypeOrder;
         //public bool hasDoneFakeFirst;
         //public bool isFirstExperiment;
 
         public GameType gameType;
         public bool isTraining;
+        public bool isTutorial;
 
         public string name, birthday, gender;
         public Dictionary<GameType, int> phasePoints;
