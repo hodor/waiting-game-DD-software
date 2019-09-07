@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using AR_Project.DataClasses.MainData;
 using AR_Project.Savers;
 using Output;
@@ -222,6 +223,10 @@ namespace AR_Project.Scenes.Registration
             PlayerPrefsSaver.instance.name = userName;
             PlayerPrefsSaver.instance.birthday = bd;
             PlayerPrefsSaver.instance.gender = gender;
+            var gameOrder = new List<GameType> {GameType.Imaginarium, GameType.Real, GameType.Patience};
+            gameOrder.Shuffle();
+            PlayerPrefsSaver.instance.gameType = gameOrder[0];
+            PlayerPrefsSaver.instance.gameTypeOrder = gameOrder;
             PlayerPrefsSaver.instance.SavePlayerPrefs();
         }
 

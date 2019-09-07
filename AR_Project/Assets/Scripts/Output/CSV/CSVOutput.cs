@@ -7,12 +7,9 @@ using UnityEngine;
 
 namespace Output.CSV
 {
-    public class CSVOutput : IOutput
+    public class CSVOutput : CSVBase
     {
         private const string FileName = "Dados";
-        private const int MaxNumberOfZeros = 3;
-        private const string Extension = ".csv";
-        private static readonly string DataDir = Application.dataPath + @"\Data";
         private string _imaginaryPath;
         private string _realPath;
         private string _patiencePath;
@@ -20,7 +17,7 @@ namespace Output.CSV
 
         private bool _sessionRunning;
 
-        public void StartSession()
+        public override void StartSession()
         {
             if (_sessionRunning) return;
             _imaginaryPath = GetNewDataFile(FileName, "Imaginary");
@@ -45,13 +42,13 @@ namespace Output.CSV
             }
         }
 
-        public void EndSession()
+        public override void EndSession()
         {
             CSVUtils.SetCurrentPath(null);
             _sessionRunning = false;
         }
 
-        public void SaveUserData(PlayerPrefsSaver userData)
+        public override void SaveUserData(PlayerPrefsSaver userData)
         {
             var name = new[]
             {
@@ -85,7 +82,7 @@ namespace Output.CSV
             }
         }
 
-        public void SaveSelectedCharacter(PlayerPrefsSaver userData)
+        public override void SaveSelectedCharacter(PlayerPrefsSaver userData)
         {
             var character = new[]
             {
@@ -98,7 +95,7 @@ namespace Output.CSV
             }
         }
 
-        public void StartExperiments(PlayerPrefsSaver userData)
+        public override void StartExperiments(PlayerPrefsSaver userData)
         {
             var score = new[]
             {
@@ -118,7 +115,7 @@ namespace Output.CSV
             }
         }
 
-        public void SaveExperimentData(Experiment experiment, int selectedValue, PlayerPrefsSaver userData,
+        public override void SaveExperimentData(Experiment experiment, int selectedValue, PlayerPrefsSaver userData,
             double timeToChooseInSeconds)
         {
             var clusterCode = (int) 'A';
@@ -141,7 +138,7 @@ namespace Output.CSV
             CSVUtils.WriteLineAtEnd(values);
         }
 
-        public void SaveTotalPoints(PlayerPrefsSaver userData)
+        public override void SaveTotalPoints(PlayerPrefsSaver userData)
         {
             var score = new[]
             {
@@ -150,45 +147,6 @@ namespace Output.CSV
             var path = GetCurrentPath(userData);
             CSVUtils.SetCurrentPath(path);
             CSVUtils.ReplaceLineThatContains("Pontuação_Total", score);
-        }
-
-        private static string GetNewDataFile(string folderName, string fileName)
-        {
-
-            var foundNextFile = false;
-            var name = "";
-            var count = 0;
-            while (!foundNextFile)
-            {
-                var numberSuffix = GetSuffix(count);
-                var dir = DataDir + @"\" + folderName + "_" + numberSuffix;
-                
-                // Get the proper filename
-                if (!Directory.Exists(dir))
-                    Directory.CreateDirectory(dir);
-                
-                name = dir + @"\" + fileName + Extension;
-                if (!File.Exists(name)) foundNextFile = true;
-                count++;
-            }
-
-            return name;
-        }
-
-        private static string GetSuffix(int number)
-        {
-            if (number == 0) return "000";
-
-            var log = Math.Log10(number);
-            var curNumZeros = Math.Floor(log) + 1;
-            var prefix = "";
-            while (curNumZeros < MaxNumberOfZeros)
-            {
-                prefix += "0";
-                curNumZeros++;
-            }
-
-            return prefix + number;
         }
     }
 }

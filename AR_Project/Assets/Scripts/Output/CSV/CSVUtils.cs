@@ -13,7 +13,7 @@ namespace Output.CSV
     public static class CSVUtils
     {
         private static string _currentPath;
-        private static StreamWriter _lastUsedSW;
+        private static StreamWriter _lastUsedSw;
 
         public static void SetCurrentPath(string path)
         {
@@ -27,7 +27,7 @@ namespace Output.CSV
         }
 
         /// <summary>
-        ///     Convert an array to a csv line
+        /// Convert an array to a csv line
         /// </summary>
         /// <param name="arr"></param>
         /// <returns></returns>
@@ -36,26 +36,40 @@ namespace Output.CSV
             return string.Join(",", arr);
         }
 
+        private static string GetPath(string path)
+        {
+            return path ?? _currentPath;
+        }
+
+        private static StreamWriter GetLastUsedWriter(string path)
+        {
+            return _lastUsedSw ?? (_lastUsedSw = GetWriter(path));
+        }
+
+        private static void CloseLastUsedWriter()
+        {
+            if (_lastUsedSw == null) return;
+            _lastUsedSw.Flush();
+            _lastUsedSw.Close();
+            _lastUsedSw = null;
+        }
+        
         public static void WriteLineAtEnd(string[] arr, bool close = true, string path = null)
         {
-            if (path == null) path = _currentPath;
-            StreamWriter writer;
-            if (_lastUsedSW == null)
-                _lastUsedSW = GetWriter(path);
+            path = GetPath(path);
+            var writer = GetLastUsedWriter(path);
             var cols = Cols(arr);
-            _lastUsedSW.WriteLine(cols);
+            writer.WriteLine(cols);
 
             if (close)
             {
-                _lastUsedSW.Flush();
-                _lastUsedSW.Close();
-                _lastUsedSW = null;
+                CloseLastUsedWriter();
             }
         }
 
         public static void ReplaceLineThatContains(string containingText, string[] newValue, string path = null)
         {
-            if (path == null) path = _currentPath;
+            path = GetPath(path);
             var lines = File.ReadAllLines(path);
             var outLines = new string[lines.Length];
             for (var i = 0; i < lines.Length; i++)
@@ -71,7 +85,7 @@ namespace Output.CSV
 
         public static void AddLine(AddLineType lineType, int index, string[] value, string path = null)
         {
-            if (path == null) path = _currentPath;
+            path = GetPath(path);
             var lines = File.ReadAllLines(_currentPath);
             var outLines = new List<string>();
             for (var i = 0; i < lines.Length; i++)

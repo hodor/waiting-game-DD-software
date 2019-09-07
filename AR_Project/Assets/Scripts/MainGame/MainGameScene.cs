@@ -101,11 +101,8 @@ namespace AR_Project.MainGame
 
             Out.Instance.StartExperiments(PlayerPrefsSaver.instance);
             finishedTutorial = true;
-            var gameOrder = new List<GameType> {GameType.Imaginarium, GameType.Real, GameType.Patience};
-            gameOrder.Shuffle();
             PlayerPrefsSaver.instance.isTraining = true;
-            PlayerPrefsSaver.instance.gameType = gameOrder[0];
-            PlayerPrefsSaver.instance.gameTypeOrder = gameOrder;
+
             SetupNextExperiment();
         }
 

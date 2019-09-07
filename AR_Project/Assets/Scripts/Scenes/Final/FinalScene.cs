@@ -17,6 +17,7 @@ namespace AR_Project.Scenes.Final
         
         private void Start()
         {
+            Out.Instance.EndSession();
             firstText.text = MainData.instanceData.config.texts.finalPoints;
             secondText.text = MainData.instanceData.config.texts.realPoints;
             var total = PlayerPrefsSaver.instance.phasePoints[GameType.Real] + 
@@ -40,7 +41,6 @@ namespace AR_Project.Scenes.Final
             PlayerPrefsSaver.instance.gender = "";
             PlayerPrefsSaver.instance.character = null;
             PlayerPrefsSaver.instance.phasePoints.Clear();
-            Out.Instance.EndSession();
         }
     }
 }
