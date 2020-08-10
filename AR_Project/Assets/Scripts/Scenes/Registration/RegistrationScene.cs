@@ -42,6 +42,7 @@ namespace AR_Project.Scenes.Registration
         public Sprite startBtnDisabled;
         public Sprite startBtnEnabled;
         public Text username;
+        public Text versionText;
         private bool ValidName, ValidDay, ValidMonth, ValidYear;
 
         private void Awake()
@@ -60,6 +61,7 @@ namespace AR_Project.Scenes.Registration
             inputBDay.characterLimit = 2;
             inputBMonth.characterLimit = 2;
             inputBYear.characterLimit = 4;
+            versionText.text = "Version: " + ARDebug.Version;
         }
 
         public void OnNameChanged()
