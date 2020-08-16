@@ -67,16 +67,18 @@ namespace Output.CSV.Calculation
                 name,
                 date_application,
                 birth,
-                age_year().ToString(CultureInfo.CurrentCulture),
-                age_month().ToString(CultureInfo.CurrentCulture),
+                age_year().ToString("0.##",new CultureInfo("en-US")).Replace(",",""),
+                age_month().ToString("0.##",new CultureInfo("en-US")).Replace(",",""),
                 gender,
                 avatar,
                 sequenceTasks
             };
+            
+
             list.AddRange(experimentData[GameType.Imaginarium].points.ToList());
             list.AddRange(experimentData[GameType.Patience].points.ToList());
             list.AddRange(experimentData[GameType.Real].points.ToList());
-            list.Add(total_points.ToString(CultureInfo.CurrentCulture));
+            list.Add(total_points.ToString(new CultureInfo("en-US")).Replace(",",""));
             experimentData[GameType.Imaginarium].subjectiveValueData.Calculate(experimentData[GameType.Imaginarium].points.GetSequencePoints());
             experimentData[GameType.Patience].subjectiveValueData.Calculate(experimentData[GameType.Patience].points.GetSequencePoints());
             experimentData[GameType.Real].subjectiveValueData.Calculate(experimentData[GameType.Real].points.GetSequencePoints());
@@ -84,14 +86,16 @@ namespace Output.CSV.Calculation
             list.AddRange(experimentData[GameType.Patience].subjectiveValueData.ToList());
             list.AddRange(experimentData[GameType.Real].subjectiveValueData.ToList());
             list.Add(Math.GetAreaUnderCurve(experimentData[GameType.Imaginarium].points.GetSequencePoints()).
-                ToString(CultureInfo.CurrentCulture));
+                ToString(new CultureInfo("en-US")).Replace(",",""));
             list.Add(Math.GetAreaUnderCurve(experimentData[GameType.Patience].points.GetSequencePoints()).
-                ToString(CultureInfo.CurrentCulture));
+                ToString(new CultureInfo("en-US")).Replace(",",""));
             list.Add(Math.GetAreaUnderCurve(experimentData[GameType.Real].points.GetSequencePoints()).
-                ToString(CultureInfo.CurrentCulture));
-            list.AddRange(experimentData[GameType.Imaginarium].chooseTime.ConvertAll(x => x.ToString(CultureInfo.CurrentCulture)));
-            list.AddRange(experimentData[GameType.Patience].chooseTime.ConvertAll(x => x.ToString(CultureInfo.CurrentCulture)));
-            list.AddRange(experimentData[GameType.Real].chooseTime.ConvertAll(x => x.ToString(CultureInfo.CurrentCulture)));
+                ToString(new CultureInfo("en-US")).Replace(",",""));
+            
+            // We want to save the choose time in the order of the experiment id, not in the order they were displayed.
+            list.AddRange(experimentData[GameType.Imaginarium].chooseTime.ConvertAll(x => x.ToString("0.##", new CultureInfo("en-US")).Replace(",","")));
+            list.AddRange(experimentData[GameType.Patience].chooseTime.ConvertAll(x => x.ToString("0.##",new CultureInfo("en-US")).Replace(",","")));
+            list.AddRange(experimentData[GameType.Real].chooseTime.ConvertAll(x => x.ToString("0.##",new CultureInfo("en-US")).Replace(",","")));
             return list;
         }
         

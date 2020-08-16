@@ -41,7 +41,8 @@ namespace Output.CSV.Calculation
         
         public List<string> ToList()
         {
-            return values.ConvertAll<string>(x => x.ToString(CultureInfo.CurrentCulture));
+            
+            return values.ConvertAll<string>(x => x.ToString(new CultureInfo("en-US")).Replace(",",""));
         }
     }
 }
