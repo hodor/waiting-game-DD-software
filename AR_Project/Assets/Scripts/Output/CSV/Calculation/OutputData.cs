@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using AR_Project.Savers;
 
 namespace Output.CSV.Calculation
@@ -40,6 +41,7 @@ namespace Output.CSV.Calculation
 
         public List<string> ToList()
         {
+            var usCulture = new CultureInfo("en-US");
             var sequenceTasks = "";
             foreach (var gt in game_order)
             {
@@ -67,38 +69,48 @@ namespace Output.CSV.Calculation
                 name,
                 date_application,
                 birth,
-                age_year().ToString("0.##",new CultureInfo("en-US")).Replace(",",""),
-                age_month().ToString("0.##",new CultureInfo("en-US")).Replace(",",""),
+                age_year().ToString("0.##", usCulture).Replace(",",""),
+                age_month().ToString("0.##", usCulture).Replace(",",""),
                 gender,
                 avatar,
                 sequenceTasks
             };
             
+            var orderedData = experimentData.Values.ToList();
 
-            list.AddRange(experimentData[GameType.Imaginarium].points.ToList());
-            list.AddRange(experimentData[GameType.Patience].points.ToList());
-            list.AddRange(experimentData[GameType.Real].points.ToList());
-            list.Add(total_points.ToString(new CultureInfo("en-US")).Replace(",",""));
-            experimentData[GameType.Imaginarium].subjectiveValueData.Calculate(experimentData[GameType.Imaginarium].points.GetSequencePoints());
-            experimentData[GameType.Patience].subjectiveValueData.Calculate(experimentData[GameType.Patience].points.GetSequencePoints());
-            experimentData[GameType.Real].subjectiveValueData.Calculate(experimentData[GameType.Real].points.GetSequencePoints());
-            list.AddRange(experimentData[GameType.Imaginarium].subjectiveValueData.ToList());
-            list.AddRange(experimentData[GameType.Patience].subjectiveValueData.ToList());
-            list.AddRange(experimentData[GameType.Real].subjectiveValueData.ToList());
-            list.Add(Math.GetAreaUnderCurve(experimentData[GameType.Imaginarium].points.GetSequencePoints()).
-                ToString(new CultureInfo("en-US")).Replace(",",""));
-            list.Add(Math.GetAreaUnderCurve(experimentData[GameType.Patience].points.GetSequencePoints()).
-                ToString(new CultureInfo("en-US")).Replace(",",""));
-            list.Add(Math.GetAreaUnderCurve(experimentData[GameType.Real].points.GetSequencePoints()).
-                ToString(new CultureInfo("en-US")).Replace(",",""));
+            foreach(var data in orderedData)
+                list.AddRange(data.points.ToList());
             
-            // We want to save the choose time in the order of the experiment id, not in the order they were displayed.
-            list.AddRange(experimentData[GameType.Imaginarium].chooseTime.ConvertAll(x => x.ToString("0.##", new CultureInfo("en-US")).Replace(",","")));
-            list.AddRange(experimentData[GameType.Patience].chooseTime.ConvertAll(x => x.ToString("0.##",new CultureInfo("en-US")).Replace(",","")));
-            list.AddRange(experimentData[GameType.Real].chooseTime.ConvertAll(x => x.ToString("0.##",new CultureInfo("en-US")).Replace(",","")));
+            list.Add(total_points.ToString(usCulture).Replace(",",""));
+
+            foreach(var data in orderedData)
+                data.subjectiveValueData.Calculate(data.points.GetSequencePoints());
+            foreach(var data in orderedData)
+                list.AddRange(data.subjectiveValueData.ToList());
+            foreach(var data in orderedData)
+                list.Add(Math.GetAreaUnderCurve(data.points.GetSequencePoints()).ToString("0.##", usCulture).Replace(",",""));
+            
+            foreach (var data in orderedData)
+            {
+                //We need sort the choose time using the sequence order
+                var sequenceOrder = data.points.sequenceOrder;
+                Dictionary<int, double> orderedChooseTime = new Dictionary<int, double>();
+                for (int i = 0; i < sequenceOrder.Count; i++)
+                {
+                    string strOrder = sequenceOrder[i];
+                    int order = Int32.Parse(strOrder);
+                    double time = data.chooseTime[i];
+                    orderedChooseTime.Add(order - 1, time);
+                }
+
+                for (int i = 0; i < orderedChooseTime.Count; i++)
+                {
+                    list.Add(orderedChooseTime[i].ToString("0.##", usCulture).Replace(",", ""));
+                }
+            }
+
             return list;
         }
-        
         public static readonly string[] Headers = new[]
         {
             "Name", "Date_application", "Birth", "Age_year", "Age_month", "Gender", "Avatar", "Sequence_tasks", 
