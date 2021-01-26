@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using AR_Project.DataClasses.MainData;
 
 namespace Output.CSV.Calculation
 {
@@ -11,11 +12,13 @@ namespace Output.CSV.Calculation
         public void Calculate(List<int> points)
         {
             int num_count = 9;
-            values.Add(1000);
-            if (points.Count % num_count != 0)
-            {
-                throw new Exception("Cannot calculate the subjective value data if it's not a multiple of 7");
-            }
+            int maxPrize = MainData.instanceData.config.GetMaxPrize();
+            // Adding the max value for the 0 value
+            values.Add(maxPrize);
+//            if (points.Count % num_count != 0)
+//            {
+//                throw new Exception("Cannot calculate the subjective value data if it's not a multiple of 9");
+//            }
             
             List<List<int>> grouped = new List<List<int>>();
             int index = 0;
@@ -28,13 +31,14 @@ namespace Output.CSV.Calculation
 
             foreach (var group in grouped)
             {
-                int num_late_choices = 0;
+                int numLateChoices = 0;
                 foreach (var p in group)
                 {
-                    if (p == 1000) num_late_choices++;
+                    if (p == maxPrize) numLateChoices++;
                 }
 
-                values.Add((num_late_choices / group.Count) * 800 + 50);
+                float subjectiveValue = (((float)numLateChoices / (float)group.Count) * 800.0f) + 50.0f;
+                values.Add(subjectiveValue);
             }
             
         }
