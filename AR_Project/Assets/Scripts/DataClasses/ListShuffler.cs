@@ -50,11 +50,11 @@ public static class ListShuffler
         var minPoints = 0;
         foreach (var experiment in experiments)
         {
-            minPoints += experiment.immediatePrizeValue;
+            minPoints += experiment.GetImmediatePrizeValue();
             var key = new ClusterValue
             {
-                FirstPrizeValue = experiment.immediatePrizeValue,
-                SecondPrizeTimer = experiment.secondPrizeLane
+                FirstPrizeValue = experiment.GetImmediatePrizeValue(),
+                SecondPrizeTimer = experiment.GetSecondLaneTimer()
             };
             if (!clusterDict.ContainsKey(key)) clusterDict.Add(key, new List<Experiment>());
 

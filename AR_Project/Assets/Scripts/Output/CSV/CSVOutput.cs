@@ -128,8 +128,8 @@ namespace Output.CSV
                 userData.isTraining ? "Training" : "Experiment",
                 experiment.id.ToString(),
                 cluster,
-                experiment.immediatePrizeValue.ToString(),
-                experiment.secondPrizeLane.ToString(),
+                experiment.GetImmediatePrizeValue().ToString(),
+                experiment.GetSecondPrizeValue().ToString(),
                 selectedValue.ToString(),
                 timeToChooseInSeconds.ToString("0.00")
             };

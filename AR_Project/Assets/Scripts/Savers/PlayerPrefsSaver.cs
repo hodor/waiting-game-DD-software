@@ -44,13 +44,8 @@ namespace AR_Project.Savers
             DontDestroyOnLoad(this);
         }
 
-        public void AddExperimentPoints(int points_id)
+        public void AddExperimentPoints(int points)
         {
-            int points = MainData.instanceData.config.GetPrize(points_id);
-            if (points == -1)
-            {
-                throw new Exception(string.Format("Could not find point Id {0} in the config.json file", points_id));
-            }
             if(!phasePoints.ContainsKey(gameType))
                 phasePoints.Add(gameType, 0);
             phasePoints[gameType] += points;

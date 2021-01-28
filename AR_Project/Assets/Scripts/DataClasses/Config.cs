@@ -62,6 +62,19 @@ public class Config
 
         return -1;
     }
+
+    public int GetTimerFromLane(int lane)
+    {
+        foreach (var laneTime in laneTimes)
+        {
+            if (laneTime.lane == lane)
+            {
+                return laneTime.time;
+            }
+        }
+
+        return -1;
+    }
     
     public int GetMaxPrize()
     {
@@ -98,4 +111,6 @@ public class Config
         orderedList.Sort();
         return orderedList;
     }
+    
+    
 }

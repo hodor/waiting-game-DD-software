@@ -78,7 +78,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             var sliderHandler = gameObject.GetComponent<SlidersHandler>();
 
             prizeLabels.SetPrizesLabelsByLane(1, currentPhase.secondPrizeLane,
-                currentPhase.immediatePrizeValue, currentPhase.secondPrizeValue);
+                currentPhase.immediatePrizeId, currentPhase.secondPrizeId);
             sliderHandler.DisableOtherSliders(1, currentPhase.secondPrizeLane);
             prizeButtons.SetupButtons(1, currentPhase.secondPrizeLane);
             MainGameScene.ExperimentStartDT = DateTime.Now;
@@ -110,13 +110,13 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             secondPrize.SetActive(true);
             secondPrize.transform.position = respawn.transform.position;
             var objScript = secondPrize.GetComponent<PrizeGO>();
-            objScript.timer = currentPhase.secondPrizeLane;
+            objScript.timer = currentPhase.GetSecondLaneTimer();
             objScript.finalDestination = new Vector3(finishLine.transform.position.x,
                 secondPrize.transform.position.y, 0);
             objScript.StartMoving(false);
 
             if (shouldMoveSlowly)
-                slider.SetAndStartSliderByTimer(currentPhase.secondPrizeLane);
+                slider.SetAndStartSliderByTimer(currentPhase.GetSecondLaneTimer());
         }
 
         private void RespawnImmediatePrize()
@@ -146,9 +146,10 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             PrizeButtons.instance.DisableButtons();
             if (laneClicked == 1)
             {
-                var phasePoints = currentPhase.immediatePrizeValue;
-                PlayerPrefsSaver.instance.AddExperimentPoints(phasePoints);
-                Out.Instance.SaveExperimentData(currentPhase, currentPhase.immediatePrizeValue,
+                var prizeValue = currentPhase.GetImmediatePrizeValue();
+
+                PlayerPrefsSaver.instance.AddExperimentPoints(prizeValue);
+                Out.Instance.SaveExperimentData(currentPhase, prizeValue,
                     PlayerPrefsSaver.instance,
                     timeDiff.TotalSeconds);
                 RespawnImmediatePrize();
@@ -156,9 +157,10 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             else if (laneClicked == currentPhase.secondPrizeLane)
             {
                 if (currentPhase == null) return;
-                var phasePoints = currentPhase.secondPrizeValue;
-                PlayerPrefsSaver.instance.AddExperimentPoints(phasePoints);
-                Out.Instance.SaveExperimentData(currentPhase, currentPhase.secondPrizeValue, PlayerPrefsSaver.instance,
+                var prizeValue = currentPhase.GetSecondPrizeValue();
+
+                PlayerPrefsSaver.instance.AddExperimentPoints(prizeValue);
+                Out.Instance.SaveExperimentData(currentPhase, prizeValue, PlayerPrefsSaver.instance,
                     timeDiff.TotalSeconds);
                 RespawnSecondPrize();
             }
