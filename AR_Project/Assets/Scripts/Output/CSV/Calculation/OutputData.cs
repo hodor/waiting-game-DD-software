@@ -92,7 +92,7 @@ namespace Output.CSV.Calculation
             float sumAuc = 0.0f;
             foreach (var data in orderedData)
             {
-                var auc = Math.GetAreaUnderCurve(data.points.GetSequencePoints());
+                var auc = Math.GetAreaUnderCurve(data.subjectiveValueData.GetValues());
                 sumAuc += auc;
                 aucValues.Add(auc);
                 list.Add(auc.ToString("0.##", usCulture).Replace(",", ""));

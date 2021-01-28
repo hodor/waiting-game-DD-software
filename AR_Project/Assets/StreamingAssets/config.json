@@ -1,6 +1,6 @@
 {
   "created": {
-    "date": "January 28, 2021 00:27:13 -0300"
+    "date": "January 28, 2021 06:08:46 -0300"
   },
   "Trainings": [
     {
@@ -331,19 +331,19 @@
   "Prizes": [
     {
       "id": 1,
-      "value": 10
+      "value": 100
     },
     {
       "id": 2,
-      "value": 40
+      "value": 400
     },
     {
       "id": 3,
-      "value": 70
+      "value": 700
     },
     {
       "id": 4,
-      "value": 100
+      "value": 1000
     }
   ],
   "Times": [
@@ -353,19 +353,19 @@
     },
     {
       "pista": 2,
-      "tempo": 5
+      "tempo": 7
     },
     {
       "pista": 3,
-      "tempo": 10
+      "tempo": 15
     },
     {
       "pista": 4,
-      "tempo": 20
+      "tempo": 30
     },
     {
       "pista": 5,
-      "tempo": 30
+      "tempo": 60
     }
   ],
   "Debug": {

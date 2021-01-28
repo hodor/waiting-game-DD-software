@@ -5,7 +5,7 @@ namespace Output.CSV.Calculation
 {
     public static class Math
     {
-        public static float GetAreaUnderCurve(List<int> points)
+        public static float GetAreaUnderCurve(List<float> points)
         {
             var timeLanes = MainData.instanceData.config.laneTimes;
             var time1 = timeLanes[1].time - timeLanes[0].time;
