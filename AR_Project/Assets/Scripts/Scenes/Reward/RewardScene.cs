@@ -12,7 +12,7 @@ namespace AR_Project.Scenes.Reward
 
         private void Start()
         {
-            title.text = MainData.instanceData.config.texts.rewards;
+            title.text = MainData.instanceData.config.GetTexts().rewards;
             SetRewards();
         }
 

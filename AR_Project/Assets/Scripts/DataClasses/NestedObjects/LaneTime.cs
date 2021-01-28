@@ -3,7 +3,7 @@
 namespace AR_Project.DataClasses.NestedObjects
 {
     [JsonObject]
-    public class GameSetting
+    public class LaneTime
     {
         [JsonProperty(PropertyName = "pista")] public int lane;
         [JsonProperty(PropertyName = "tempo")] public int time;

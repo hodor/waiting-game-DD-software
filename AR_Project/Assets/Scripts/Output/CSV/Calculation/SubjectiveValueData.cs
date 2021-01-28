@@ -12,7 +12,14 @@ namespace Output.CSV.Calculation
         public void Calculate(List<int> points)
         {
             int num_count = 9;
-            int maxPrize = MainData.instanceData.config.GetMaxPrize();
+            var orderedPrizes = MainData.instanceData.config.GetOrderedPrizeValues();
+            int maxPrize = orderedPrizes[orderedPrizes.Count - 1];
+            int secondMaxPrize = orderedPrizes[orderedPrizes.Count - 2];
+            int smallestPrize = orderedPrizes[0];
+            float maxPossibleValue = ((float)maxPrize + (float)secondMaxPrize) / 2.0f;
+            float minPossibleValue = (float) smallestPrize / 2.0f;
+            float plausibleSubjectiveValue = maxPossibleValue - minPossibleValue;
+            
             // Adding the max value for the 0 value
             values.Add(maxPrize);
 //            if (points.Count % num_count != 0)
@@ -37,7 +44,7 @@ namespace Output.CSV.Calculation
                     if (p == maxPrize) numLateChoices++;
                 }
 
-                float subjectiveValue = (((float)numLateChoices / (float)group.Count) * 800.0f) + 50.0f;
+                float subjectiveValue = (((float)numLateChoices / (float)group.Count) * plausibleSubjectiveValue) + minPossibleValue;
                 values.Add(subjectiveValue);
             }
             
@@ -45,8 +52,8 @@ namespace Output.CSV.Calculation
         
         public List<string> ToList()
         {
-            
-            return values.ConvertAll<string>(x => x.ToString(new CultureInfo("en-US")).Replace(",",""));
+            var usCulture = new CultureInfo("en-US");
+            return values.ConvertAll<string>(x => x.ToString("0.###",usCulture).Replace(",",""));
         }
     }
 }

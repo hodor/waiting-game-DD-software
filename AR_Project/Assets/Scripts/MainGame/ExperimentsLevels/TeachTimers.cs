@@ -37,12 +37,13 @@ namespace AR_Project.MainGame
 
         public IEnumerator RespawnTutorial()
         {
-            var timeLanes = MainData.instanceData.config.gameSettings;
+            var timeLanes = MainData.instanceData.config.laneTimes;
             foreach (var setting in timeLanes)
             {
                 var time = setting.time;
+                var lane = setting.lane;
                 if (ARDebug.Debugging) time = (int) Math.Ceiling(ARDebug.TimeToFill);
-                Respawn(setting.time);
+                Respawn(lane, time);
                 yield return new WaitForSeconds(time);
             }
 
@@ -50,9 +51,9 @@ namespace AR_Project.MainGame
             _mainGameScene.ComeBackFromTutorial();
         }
 
-        private void Respawn(int timer)
+        private void Respawn(int lane, int timer)
         {
-            var respawn = _respawnsScript.GetRespawnByLane(timer);
+            var respawn = _respawnsScript.GetRespawnByLane(lane);
 
             var firstOne = Instantiate(prefabReward);
             firstOne.transform.position = respawn.transform.position;

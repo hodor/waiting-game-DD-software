@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using AR_Project.DataClasses.MainData;
 using AR_Project.DataClasses.NestedObjects;
 using AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers;
@@ -42,6 +43,12 @@ namespace AR_Project.MainGame
         public GameObject SliderLanes;
         public GameObject TimerLabels;
 
+        public Text TimerLane01;
+        public Text TimerLane02;
+        public Text TimerLane03;
+        public Text TimerLane04;
+        public Text TimerLane05;
+
         public Text tutorialTitle;
         public GameObject tutorialUI;
 
@@ -49,6 +56,7 @@ namespace AR_Project.MainGame
         private void Start()
         {
             prefabChar = PlayerPrefsSaver.instance.character;
+            SetupTimerLabels();
             SetTutorialUI();
         }
 
@@ -57,7 +65,9 @@ namespace AR_Project.MainGame
             ToggleGameUIObjects(false);
             finalRoundsScene.SetActive(true);
             var points = PlayerPrefsSaver.instance.phasePoints[PlayerPrefsSaver.instance.gameType];
-            finalRoundText.text = "Parabéns, você ganhou " + points + " pontos nessa tarefa!";
+            var begin = MainData.instanceData.config.GetTexts().taskScoreBegin;
+            var end = MainData.instanceData.config.GetTexts().taskScoreEnd;
+            finalRoundText.text = string.Format("{0} {1} {2}", begin, points, end);
             StartCoroutine("StartNewRound");
         }
 
@@ -73,7 +83,7 @@ namespace AR_Project.MainGame
         public void SetTutorialUI()
         {
             backgroundImg.sprite = bgTutorial;
-            tutorialTitle.text = MainData.instanceData.config.texts.timeInstructions;
+            tutorialTitle.text = MainData.instanceData.config.GetTexts().timeInstructions;
             prizeLabels.SetActive(false);
             tutorialUI.SetActive(true);
             ToggleGameUIObjects(false);
@@ -110,7 +120,7 @@ namespace AR_Project.MainGame
         {
             var training = PlayerPrefsSaver.instance.isTraining;
             var type = PlayerPrefsSaver.instance.gameType;
-            var texts = MainData.instanceData.config.texts;
+            var texts = MainData.instanceData.config.GetTexts();
             backgroundImg.sprite = bgExperiments;
 
             switch (type)
@@ -227,6 +237,35 @@ namespace AR_Project.MainGame
         private void FinishedGame()
         {
             SceneManager.LoadScene("FinalScene");
+        }
+
+        //Get the timers from config and adding into the main scene
+        private void SetupTimerLabels()
+        {
+            var laneTimes = MainData.instanceData.config.laneTimes;
+
+            foreach (var lane in laneTimes)
+            {
+                var text = string.Format("{0} s", lane.time);
+                switch (lane.lane)
+                {
+                    case 1:
+                        TimerLane01.text = text;
+                        break;
+                    case 2:
+                        TimerLane02.text = text;
+                        break;
+                    case 3:
+                        TimerLane03.text = text;
+                        break;
+                    case 4:
+                        TimerLane04.text = text;
+                        break;
+                    case 5:
+                        TimerLane05.text = text;
+                        break;
+                }
+            }
         }
     }
 }

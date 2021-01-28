@@ -9,7 +9,7 @@ namespace Output.CSV
 {
     public class CSVOutput : CSVBase
     {
-        private const string FileName = "Dados";
+        private const string FileName = "Data";
         private string _imaginaryPath;
         private string _realPath;
         private string _patiencePath;
@@ -52,23 +52,23 @@ namespace Output.CSV
         {
             var name = new[]
             {
-                "Nome", userData.name
+                "Name", userData.name
             };
             var birthday = new[]
             {
-                "Nascimento", userData.birthday
+                "Birth", userData.birthday
             };
             var gender = new[]
             {
-                "Gênero", userData.gender
+                "Gender", userData.gender
             };
             var date = new[]
             {
-                "Data_de_aplicação", DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                "Application_date", DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
             };
             var character = new[]
             {
-                "Personagem", ""
+                "Character", ""
             };
 
             foreach (var path in _allPaths)
@@ -86,12 +86,12 @@ namespace Output.CSV
         {
             var character = new[]
             {
-                "Personagem", userData.character.name
+                "Character", userData.character.name
             };
             foreach (var path in _allPaths)
             {
                 CSVUtils.SetCurrentPath(path);
-                CSVUtils.ReplaceLineThatContains("Personagem", character);
+                CSVUtils.ReplaceLineThatContains("Character", character);
             }
         }
 
@@ -99,12 +99,12 @@ namespace Output.CSV
         {
             var score = new[]
             {
-                "Pontuação_Total", ""
+                "Total_Score", ""
             };
             var headers = new[]
             {
-                "Tipo", "Trail", "Cluster_ID", "Recompensa_menor", "Tempo_assoc_rec_maior", "Recompensa_escolhida",
-                "Tempo_de_escolha"
+                "Type", "Trail", "Cluster_ID", "Smallest_Reward", "Time_On_Biggest_Reward", "Chosen_Reward",
+                "Choose_Time"
             };
 
             foreach (var path in _allPaths)
@@ -125,11 +125,11 @@ namespace Output.CSV
 
             var values = new[]
             {
-                userData.isTraining ? "Treino" : "Experimento",
+                userData.isTraining ? "Training" : "Experiment",
                 experiment.id.ToString(),
                 cluster,
                 experiment.immediatePrizeValue.ToString(),
-                experiment.secondPrizeTimer.ToString(),
+                experiment.secondPrizeLane.ToString(),
                 selectedValue.ToString(),
                 timeToChooseInSeconds.ToString("0.00")
             };
@@ -142,11 +142,11 @@ namespace Output.CSV
         {
             var score = new[]
             {
-                "Pontuação_Total", userData.phasePoints[userData.gameType].ToString()
+                "Total_Score", userData.phasePoints[userData.gameType].ToString()
             };
             var path = GetCurrentPath(userData);
             CSVUtils.SetCurrentPath(path);
-            CSVUtils.ReplaceLineThatContains("Pontuação_Total", score);
+            CSVUtils.ReplaceLineThatContains("Total_Score", score);
         }
     }
 }

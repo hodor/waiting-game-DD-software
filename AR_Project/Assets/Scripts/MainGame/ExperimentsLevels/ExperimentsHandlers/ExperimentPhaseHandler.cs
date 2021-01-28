@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using AR_Project.DataClasses.MainData;
 using AR_Project.DataClasses.NestedObjects;
 using AR_Project.MainGame.GameObjects;
 using AR_Project.MainGame.Prize;
@@ -35,10 +36,9 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             currentExperiments = experiments;
             finishLine = finishLineObj;
             isFakeExperiment = fake;
-            //totalPoints.text = "Pontos: 0";
 
             points.SetActive(true);
-            totalPoints.text = "Pontos: " + 0;
+            totalPoints.text = string.Format("{0}: {1}", MainData.instanceData.config.GetTexts().score, 0);
             // Reset points on training
             if (!PlayerPrefsSaver.instance.isTraining)
             {
@@ -51,7 +51,8 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
 
         public void UpdateTotalPoints()
         {
-            totalPoints.text = "Pontos: " + PlayerPrefsSaver.instance.phasePoints[PlayerPrefsSaver.instance.gameType];
+            totalPoints.text = string.Format("{0}: {1}", MainData.instanceData.config.GetTexts().score,
+                PlayerPrefsSaver.instance.phasePoints[PlayerPrefsSaver.instance.gameType]);
             StartCoroutine("BlinkAnimationPoints");
         }
 
@@ -66,7 +67,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
         {
             dataHandler = new ExperimentData(currentExperiments);
             currentPhase = dataHandler.currentExperiment();
-            totalPoints.text = "Pontos: " + 0;
+            totalPoints.text = string.Format("{0}: {1}", MainData.instanceData.config.GetTexts().score, 0);
             DoExperimentPhase();
         }
 
@@ -76,10 +77,10 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             var prizeLabels = gameObject.GetComponent<PrizesHandler>();
             var sliderHandler = gameObject.GetComponent<SlidersHandler>();
 
-            prizeLabels.SetPrizesLabelsByTimer(0, currentPhase.secondPrizeTimer,
+            prizeLabels.SetPrizesLabelsByLane(1, currentPhase.secondPrizeLane,
                 currentPhase.immediatePrizeValue, currentPhase.secondPrizeValue);
-            sliderHandler.DisableOtherSliders(0, currentPhase.secondPrizeTimer);
-            prizeButtons.SetupButtons(0, currentPhase.secondPrizeTimer);
+            sliderHandler.DisableOtherSliders(1, currentPhase.secondPrizeLane);
+            prizeButtons.SetupButtons(1, currentPhase.secondPrizeLane);
             MainGameScene.ExperimentStartDT = DateTime.Now;
         }
 
@@ -101,7 +102,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
         {
             var shouldMoveSlowly = PlayerPrefsSaver.instance.ShouldMoveSlowly();
             var respawnsScript = gameObject.GetComponent<Respawns>();
-            var respawn = respawnsScript.GetRespawnByLane(currentPhase.secondPrizeTimer);
+            var respawn = respawnsScript.GetRespawnByLane(currentPhase.secondPrizeLane);
             var slider = gameObject.GetComponent<SlidersHandler>();
 
             //TODO: pegar prefab de acordo com o experimento atual
@@ -109,13 +110,13 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             secondPrize.SetActive(true);
             secondPrize.transform.position = respawn.transform.position;
             var objScript = secondPrize.GetComponent<PrizeGO>();
-            objScript.timer = currentPhase.secondPrizeTimer;
+            objScript.timer = currentPhase.secondPrizeLane;
             objScript.finalDestination = new Vector3(finishLine.transform.position.x,
                 secondPrize.transform.position.y, 0);
             objScript.StartMoving(false);
 
             if (shouldMoveSlowly)
-                slider.SetAndStartSliderByTimer(currentPhase.secondPrizeTimer);
+                slider.SetAndStartSliderByTimer(currentPhase.secondPrizeLane);
         }
 
         private void RespawnImmediatePrize()
@@ -138,12 +139,12 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
                 slider.SetAndStartSingleSlider(0, 0);
         }
 
-        public void CallbackFromUIButtons(int timerClicked)
+        public void CallbackFromUIButtons(int laneClicked)
         {
             if (currentPhase == null) return;
             var timeDiff = DateTime.Now - MainGameScene.ExperimentStartDT;
             PrizeButtons.instance.DisableButtons();
-            if (timerClicked == 0)
+            if (laneClicked == 1)
             {
                 var phasePoints = currentPhase.immediatePrizeValue;
                 PlayerPrefsSaver.instance.AddExperimentPoints(phasePoints);
@@ -152,7 +153,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
                     timeDiff.TotalSeconds);
                 RespawnImmediatePrize();
             }
-            else if (timerClicked == currentPhase.secondPrizeTimer)
+            else if (laneClicked == currentPhase.secondPrizeLane)
             {
                 if (currentPhase == null) return;
                 var phasePoints = currentPhase.secondPrizeValue;

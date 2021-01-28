@@ -22,7 +22,7 @@ namespace AR_Project.MainGame.UI
         public void SetAndStartSliderByTimer(float timeToFill)
         {
             if (ARDebug.Debugging) timeToFill = ARDebug.TimeToFill;
-            var timers = MainData.instanceData.config.gameSettings;
+            var timers = MainData.instanceData.config.laneTimes;
             for (var i = 0; i < timers.Count; i++)
                 if (Math.Abs(timers[i].time - timeToFill) < TOLERANCE)
                 {
@@ -31,11 +31,11 @@ namespace AR_Project.MainGame.UI
                 }
         }
 
-        public void DisableOtherSliders(int firstTimeToFill, int secondTimeToFill)
+        public void DisableOtherSliders(int firstLaneToFill, int secondLaneToFill)
         {
-            var timers = MainData.instanceData.config.gameSettings;
+            var timers = MainData.instanceData.config.laneTimes;
             for (var i = 0; i < timers.Count; i++)
-                if (timers[i].time != firstTimeToFill && timers[i].time != secondTimeToFill)
+                if (timers[i].lane != firstLaneToFill && timers[i].lane != secondLaneToFill)
                     DisableSlider(sliders[i]);
                 else
                     EnableSlider(sliders[i]);

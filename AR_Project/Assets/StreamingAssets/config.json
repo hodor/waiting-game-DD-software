@@ -1,304 +1,352 @@
 {
   "created": {
-    "date": "May 20, 2019 14:02:02 -0300"
+    "date": "January 27, 2021 20:14:46 -0300"
   },
-  "Treinos": [
+  "Trainings": [
     {
       "id": 1,
-      "valorPremioImediato": 100,
-      "tempoSegundoPremio": 7,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 1,
+      "secondPrizeLane": 2,
+      "secondPrizeValue": 4
     },
     {
       "id": 2,
-      "valorPremioImediato": 400,
-      "tempoSegundoPremio": 15,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 2,
+      "secondPrizeLane": 3,
+      "secondPrizeValue": 4
     },
     {
       "id": 3,
-      "valorPremioImediato": 400,
-      "tempoSegundoPremio": 15,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 2,
+      "secondPrizeLane": 3,
+      "secondPrizeValue": 4
     },
     {
       "id": 4,
-      "valorPremioImediato": 700,
-      "tempoSegundoPremio": 7,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 3,
+      "secondPrizeLane": 2,
+      "secondPrizeValue": 4
     },
     {
       "id": 5,
-      "valorPremioImediato": 400,
-      "tempoSegundoPremio": 30,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 2,
+      "secondPrizeLane": 4,
+      "secondPrizeValue": 4
     },
     {
       "id": 6,
-      "valorPremioImediato": 700,
-      "tempoSegundoPremio": 15,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 3,
+      "secondPrizeLane": 2,
+      "secondPrizeValue": 4
     },
     {
       "id": 7,
-      "valorPremioImediato": 100,
-      "tempoSegundoPremio": 60,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 1,
+      "secondPrizeLane": 5,
+      "secondPrizeValue": 4
     },
     {
       "id": 8,
-      "valorPremioImediato": 400,
-      "tempoSegundoPremio": 60,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 2,
+      "secondPrizeLane": 5,
+      "secondPrizeValue": 4
     }
   ],
-  "Ensaios": [
+  "Experiments": [
     {
       "id": 1,
-      "valorPremioImediato": 100,
-      "tempoSegundoPremio": 7,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 1,
+      "secondPrizeLane": 2,
+      "secondPrizeValue": 4
     },
     {
       "id": 2,
-      "valorPremioImediato": 100,
-      "tempoSegundoPremio": 7,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 1,
+      "secondPrizeLane": 2,
+      "secondPrizeValue": 4
     },
     {
       "id": 3,
-      "valorPremioImediato": 100,
-      "tempoSegundoPremio": 7,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 1,
+      "secondPrizeLane": 2,
+      "secondPrizeValue": 4
     },
     {
       "id": 4,
-      "valorPremioImediato": 400,
-      "tempoSegundoPremio": 7,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 2,
+      "secondPrizeLane": 2,
+      "secondPrizeValue": 4
     },
     {
       "id": 5,
-      "valorPremioImediato": 400,
-      "tempoSegundoPremio": 7,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 2,
+      "secondPrizeLane": 2,
+      "secondPrizeValue": 4
     },
     {
       "id": 6,
-      "valorPremioImediato": 400,
-      "tempoSegundoPremio": 7,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 2,
+      "secondPrizeLane": 2,
+      "secondPrizeValue": 4
     },
     {
       "id": 7,
-      "valorPremioImediato": 700,
-      "tempoSegundoPremio": 7,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 3,
+      "secondPrizeLane": 2,
+      "secondPrizeValue": 4
     },
     {
       "id": 8,
-      "valorPremioImediato": 700,
-      "tempoSegundoPremio": 7,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 3,
+      "secondPrizeLane": 2,
+      "secondPrizeValue": 4
     },
     {
       "id": 9,
-      "valorPremioImediato": 700,
-      "tempoSegundoPremio": 7,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 3,
+      "secondPrizeLane": 2,
+      "secondPrizeValue": 4
     },
     {
       "id": 10,
-      "valorPremioImediato": 100,
-      "tempoSegundoPremio": 15,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 1,
+      "secondPrizeLane": 3,
+      "secondPrizeValue": 4
     },
     {
       "id": 11,
-      "valorPremioImediato": 100,
-      "tempoSegundoPremio": 15,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 1,
+      "secondPrizeLane": 3,
+      "secondPrizeValue": 4
     },
     {
       "id": 12,
-      "valorPremioImediato": 100,
-      "tempoSegundoPremio": 15,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 1,
+      "secondPrizeLane": 3,
+      "secondPrizeValue": 4
     },
     {
       "id": 13,
-      "valorPremioImediato": 400,
-      "tempoSegundoPremio": 15,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 2,
+      "secondPrizeLane": 3,
+      "secondPrizeValue": 4
     },
     {
       "id": 14,
-      "valorPremioImediato": 400,
-      "tempoSegundoPremio": 15,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 2,
+      "secondPrizeLane": 3,
+      "secondPrizeValue": 4
     },
     {
       "id": 15,
-      "valorPremioImediato": 400,
-      "tempoSegundoPremio": 15,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 2,
+      "secondPrizeLane": 3,
+      "secondPrizeValue": 4
     },
     {
       "id": 16,
-      "valorPremioImediato": 700,
-      "tempoSegundoPremio": 15,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 3,
+      "secondPrizeLane": 3,
+      "secondPrizeValue": 4
     },
     {
       "id": 17,
-      "valorPremioImediato": 700,
-      "tempoSegundoPremio": 15,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 3,
+      "secondPrizeLane": 3,
+      "secondPrizeValue": 4
     },
     {
       "id": 18,
-      "valorPremioImediato": 700,
-      "tempoSegundoPremio": 15,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 3,
+      "secondPrizeLane": 3,
+      "secondPrizeValue": 4
     },
     {
       "id": 19,
-      "valorPremioImediato": 100,
-      "tempoSegundoPremio": 30,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 1,
+      "secondPrizeLane": 4,
+      "secondPrizeValue": 4
     },
     {
       "id": 20,
-      "valorPremioImediato": 100,
-      "tempoSegundoPremio": 30,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 1,
+      "secondPrizeLane": 4,
+      "secondPrizeValue": 4
     },
     {
       "id": 21,
-      "valorPremioImediato": 100,
-      "tempoSegundoPremio": 30,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 1,
+      "secondPrizeLane": 4,
+      "secondPrizeValue": 4
     },
     {
       "id": 22,
-      "valorPremioImediato": 400,
-      "tempoSegundoPremio": 30,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 2,
+      "secondPrizeLane": 4,
+      "secondPrizeValue": 4
     },
     {
       "id": 23,
-      "valorPremioImediato": 400,
-      "tempoSegundoPremio": 30,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 2,
+      "secondPrizeLane": 4,
+      "secondPrizeValue": 4
     },
     {
       "id": 24,
-      "valorPremioImediato": 400,
-      "tempoSegundoPremio": 30,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 2,
+      "secondPrizeLane": 4,
+      "secondPrizeValue": 4
     },
     {
       "id": 25,
-      "valorPremioImediato": 700,
-      "tempoSegundoPremio": 30,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 3,
+      "secondPrizeLane": 4,
+      "secondPrizeValue": 4
     },
     {
       "id": 26,
-      "valorPremioImediato": 700,
-      "tempoSegundoPremio": 30,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 3,
+      "secondPrizeLane": 4,
+      "secondPrizeValue": 4
     },
     {
       "id": 27,
-      "valorPremioImediato": 700,
-      "tempoSegundoPremio": 30,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 3,
+      "secondPrizeLane": 4,
+      "secondPrizeValue": 4
     },
     {
       "id": 28,
-      "valorPremioImediato": 100,
-      "tempoSegundoPremio": 60,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 1,
+      "secondPrizeLane": 5,
+      "secondPrizeValue": 4
     },
     {
       "id": 29,
-      "valorPremioImediato": 100,
-      "tempoSegundoPremio": 60,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 1,
+      "secondPrizeLane": 5,
+      "secondPrizeValue": 4
     },
     {
       "id": 30,
-      "valorPremioImediato": 100,
-      "tempoSegundoPremio": 60,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 1,
+      "secondPrizeLane": 4,
+      "secondPrizeValue": 4
     },
     {
       "id": 31,
-      "valorPremioImediato": 400,
-      "tempoSegundoPremio": 60,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 2,
+      "secondPrizeLane": 5,
+      "secondPrizeValue": 4
     },
     {
       "id": 32,
-      "valorPremioImediato": 400,
-      "tempoSegundoPremio": 60,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 2,
+      "secondPrizeLane": 5,
+      "secondPrizeValue": 4
     },
     {
       "id": 33,
-      "valorPremioImediato": 400,
-      "tempoSegundoPremio": 60,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 2,
+      "secondPrizeLane": 5,
+      "secondPrizeValue": 4
     },
     {
       "id": 34,
-      "valorPremioImediato": 700,
-      "tempoSegundoPremio": 60,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 3,
+      "secondPrizeLane": 5,
+      "secondPrizeValue": 4
     },
     {
       "id": 35,
-      "valorPremioImediato": 700,
-      "tempoSegundoPremio": 60,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 3,
+      "secondPrizeLane": 5,
+      "secondPrizeValue": 4
     },
     {
       "id": 36,
-      "valorPremioImediato": 700,
-      "tempoSegundoPremio": 60,
-      "valorSegundoPremio": 1000
+      "immediatePrizeValue": 3,
+      "secondPrizeLane": 5,
+      "secondPrizeValue": 4
     }
   ],
-  "Textos": {
-    "introducao": "Olá! Nesse jogo queremos saber quanto tempo você está disposto a esperar para acumular mais pontos. Mais pontos dão direito a prêmios melhores.",
-    "apresentacaoDeRecompensa": "Opções de pontos",
-    "personagem": "Escolha seu avatar",
-    "apresentacaoDosTempos": "Vamos aprender como funciona o tempo?",
-    "treinoImaginario": "JOGO IMAGINÁRIO\n\nFaça as escolhas de pontos baseadas no que você acha que escolheria se realmente tivesse que esperar os tempos para ganhar.\nVamos Treinar!",
-    "experimentoImaginario": "JOGO IMAGINÁRIO\n\n\nAgora é para valer! Nesse jogo você NÃO ganhará um prêmio real.",
-    "treinoReal": "JOGO REAL\n\nO objetivo é ver se você está disposto a esperar por alguns tempos para acumular mais pontos e ganhar um prêmio melhor.\nVamos treinar!\n",
-    "experimentoReal": "JOGO REAL\n\n\nAgora é para valer.\nNessa tarefa você GANHARÁ um prêmio REAL!",
-    "treinoPaciencia": "JOGO DA PACIÊNCIA\n\nO objetivo é ver se você está disposto a esperar por alguns tempos para acumular mais pontos, mas sabendo que NÃO ganhará um prêmio. Vamos treinar!",
-    "experimentoPaciencia": "JOGO DA PACIÊNCIA\n\n\nAgora é para valer!\nNessa tarefa você NÃO ganhará um prêmio",
-    "pontuacaoFinal": "Parabéns, você terminou o jogo! Sua pontuação total foi de",
-    "pontuacaoRealFinal": "E sua pontuação real foi de"
-  },
-  "Premios": [
+  "Texts": [
     {
-      "valor": 100
+      "language": "pt-br",
+      "welcome": "Seja bem vindo!",
+      "enterName": "Digite seu nome aqui",
+      "dateOfBirthHeader": "Você nasceu em:",
+      "day": "Dia",
+      "month": "Mês",
+      "year": "Ano",
+      "genderHeader": "Você é:",
+      "otherGender": "Outro",
+      "introduction": "Olá! Nesse jogo, queremos saber quanto tempo está disposto a esperar para acumular mais pontos. Vai jogar 3 jogos e em um deles receberá um prêmio real, dependendo da pontuação. Vamos entender como funciona.",
+      "rewardInstructions": "Opções de Pontuação",
+      "chooseCharacter": "Escolha um avatar",
+      "timeInstructions": "Vamos aprender como funciona o tempo?",
+      "trainingImaginarium": "JOGO IMAGINÁRIO\r\n\r\nFaça escolhas baseado \r\nno que faria se tivesse que esperar algum tempo para acumular mais pontos e ganhar um prêmio melhor.Vamos treinar!\r\n",
+      "experimentImaginarium": "JOGO IMAGINÁRIO\r\n\r\n\r\nO jogo começa agora! Lembreque você NÃO ganhará um prêmio real agora!\r\n",
+      "realTraining": "JOGO REAL\r\n\r\nFaça escolhas baseado no tempo que REALMENTE está disposto a esperar para acumular mais pontos e ganhar um prêmio melhor. Vamos praticar!\r\n\n",
+      "realExperiment": "JOGO REAL\r\n\r\n\r\nO jogo começa agora! Lembre que você realmente GANHARÁ um prêmio REAL. \r\n",
+      "trainingPatience": "JOGO DA PACIÊNCIA\r\n\r\nFaça escolhas baseado no tempo que REALMENTE está disposto a esperar para acumular mais pontos sabendo que NÃO ganhará um prêmio REAL. Vamos praticar!\r\n\n",
+      "experimentPatience": "JOGO DA PACIÊNCIA\r\n\r\n\r\nO jogo começa agora! Lembre que você NÃO GANHARÁ um prêmio REAL.  \r\n",
+      "finalScore": "Parabéns, sua pontuação total foi",
+      "realFinalScore": "E sua pontuação no Jogo Real ",
+      "taskScoreBegin": "Parabéns, você ganhou",
+      "taskScoreEnd": "pontos nessa tarefa!",
+      "score": " Pontuação",
+      "points": "pontos",
+      "pointsAbbreviated": "pts"
     },
     {
-      "valor": 400
-    },
-    {
-      "valor": 700
-    },
-    {
-      "valor": 1000
+      "language": "en",
+      "welcome": "Welcome!",
+      "enterName": "Write your name",
+      "dateOfBirthHeader": "Date of Birth:",
+      "day": "Day",
+      "month": "Month",
+      "year": "Year",
+      "genderHeader": "You are:",
+      "otherGender": "Other",
+      "introduction": "Olá! Nesse jogo, queremos saber quanto tempo está disposto a esperar para acumular mais pontos. Vai jogar 3 jogos e em um deles receberá um prêmio real, dependendo da pontuação. Vamos entender como funciona.",
+      "rewardInstructions": "Opções de Pontuação",
+      "chooseCharacter": "Choose a Character",
+      "timeInstructions": "Vamos aprender como funciona o tempo?",
+      "trainingImaginarium": "JOGO IMAGINÁRIO\r\n\r\nFaça escolhas baseado \r\nno que faria se tivesse que esperar algum tempo para acumular mais pontos e ganhar um prêmio melhor.Vamos treinar!\r\n",
+      "experimentImaginarium": "JOGO IMAGINÁRIO\r\n\r\n\r\nO jogo começa agora! Lembreque você NÃO ganhará um prêmio real agora!\r\n",
+      "realTraining": "JOGO REAL\r\n\r\nFaça escolhas baseado no tempo que REALMENTE está disposto a esperar para acumular mais pontos e ganhar um prêmio melhor. Vamos praticar!\r\n\n",
+      "realExperiment": "JOGO REAL\r\n\r\n\r\nO jogo começa agora! Lembre que você realmente GANHARÁ um prêmio REAL. \r\n",
+      "trainingPatience": "JOGO DA PACIÊNCIA\r\n\r\nFaça escolhas baseado no tempo que REALMENTE está disposto a esperar para acumular mais pontos sabendo que NÃO ganhará um prêmio REAL. Vamos praticar!\r\n\n",
+      "experimentPatience": "JOGO DA PACIÊNCIA\r\n\r\n\r\nO jogo começa agora! Lembre que você NÃO GANHARÁ um prêmio REAL.  \r\n",
+      "finalScore": "Parabéns, sua pontuação total foi",
+      "realFinalScore": "E sua pontuação no Jogo Real ",
+      "taskScoreBegin": "Congratulations, you scored",
+      "taskScoreEnd": "points this task!",
+      "score": "Score",
+      "points": "points",
+      "pointsAbbreviated": "pts"
     }
   ],
-  "Tempo": [
+  "Prizes": [
+    {
+      "id": 1,
+      "value": 100
+    },
+    {
+      "id": 2,
+      "value": 400
+    },
+    {
+      "id": 3,
+      "value": 700
+    },
+    {
+      "id": 4,
+      "value": 1000
+    }
+  ],
+  "Times": [
     {
       "pista": 1,
       "tempo": 0
@@ -321,6 +369,7 @@
     }
   ],
   "Debug": {
-    "alwaysImaginaryFirst": false
+    "alwaysImaginaryFirst": false,
+    "language": "pt-br"
   }
 }

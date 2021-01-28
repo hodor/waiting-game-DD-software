@@ -45,6 +45,15 @@ namespace AR_Project.Scenes.Registration
         public Text versionText;
         private bool ValidName, ValidDay, ValidMonth, ValidYear;
 
+        public Text Label_Welcome;
+        public Text Label_EnterName;
+        public Text Label_DOBHeader;
+        public Text Label_Day;
+        public Text Label_Month;
+        public Text Label_Year;
+        public Text Label_GenderHeader;
+        public Text Label_GenderOther;
+
         private void Awake()
         {
             // Initialize output, we'll save as new data comes in
@@ -61,6 +70,16 @@ namespace AR_Project.Scenes.Registration
             inputBDay.characterLimit = 2;
             inputBMonth.characterLimit = 2;
             inputBYear.characterLimit = 4;
+
+            Label_Welcome.text = MainData.instanceData.config.GetTexts().welcome;
+            Label_EnterName.text = MainData.instanceData.config.GetTexts().enterName;
+            Label_DOBHeader.text = MainData.instanceData.config.GetTexts().dateOfBirthHeader;
+            Label_Day.text = MainData.instanceData.config.GetTexts().day;
+            Label_Month.text = MainData.instanceData.config.GetTexts().month;
+            Label_Year.text = MainData.instanceData.config.GetTexts().year;
+            Label_GenderHeader.text = MainData.instanceData.config.GetTexts().genderHeader;
+            Label_GenderOther.text = MainData.instanceData.config.GetTexts().otherGender;
+            
             versionText.text = "Version: " + ARDebug.Version;
         }
 

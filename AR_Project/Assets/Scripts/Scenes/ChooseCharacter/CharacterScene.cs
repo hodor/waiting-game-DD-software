@@ -21,7 +21,7 @@ namespace AR_Project.Scenes.ChooseCharacter
         // Use this for initialization
         private void Start()
         {
-            title.text = MainData.instanceData.config.texts.character;
+            title.text = MainData.instanceData.config.GetTexts().character;
             leftButton.enabled = false;
             UpdateScene(characterBigImage[currentIndex]);
         }

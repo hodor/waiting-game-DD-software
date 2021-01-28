@@ -9,13 +9,13 @@ namespace AR_Project.DataClasses.NestedObjects
 
         [JsonProperty(PropertyName = "id")] public int id;
 
-        [JsonProperty(PropertyName = "valorPremioImediato")]
+        [JsonProperty(PropertyName = "immediatePrizeValue")]
         public int immediatePrizeValue;
 
-        [JsonProperty(PropertyName = "tempoSegundoPremio")]
-        public int secondPrizeTimer;
+        [JsonProperty(PropertyName = "secondPrizeLane")]
+        public int secondPrizeLane;
 
-        [JsonProperty(PropertyName = "valorSegundoPremio")]
+        [JsonProperty(PropertyName = "secondPrizeValue")]
         public int secondPrizeValue;
     }
 }

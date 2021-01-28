@@ -54,7 +54,7 @@ public static class ListShuffler
             var key = new ClusterValue
             {
                 FirstPrizeValue = experiment.immediatePrizeValue,
-                SecondPrizeTimer = experiment.secondPrizeTimer
+                SecondPrizeTimer = experiment.secondPrizeLane
             };
             if (!clusterDict.ContainsKey(key)) clusterDict.Add(key, new List<Experiment>());
 

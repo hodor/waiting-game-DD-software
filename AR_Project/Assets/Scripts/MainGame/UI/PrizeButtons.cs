@@ -9,7 +9,7 @@ namespace AR_Project.MainGame.UI
     public class PrizeButtons : MonoBehaviour
     {
         public static PrizeButtons instance;
-        private List<GameSetting> _settings;
+        private List<LaneTime> _settings;
 
         public AudioSource audioSource;
         public AudioClip buttonSoud;
@@ -30,21 +30,21 @@ namespace AR_Project.MainGame.UI
 
         public void Start()
         {
-            _settings = MainData.instanceData.config.gameSettings;
+            _settings = MainData.instanceData.config.laneTimes;
         }
 
-        public void SetupButtons(int firstTimer, int secondTimer)
+        public void SetupButtons(int firstLane, int secondLane)
         {
-            firstTimerSet = firstTimer;
-            secondTimerSet = secondTimer;
+            firstTimerSet = firstLane;
+            secondTimerSet = secondLane;
 
             for (var i = 0; i < _settings.Count; i++)
             {
-                if (_settings[i].time == firstTimer)
+                if (_settings[i].lane == firstLane)
                     laneButtons[i].SetActive(true);
-                if (_settings[i].time == secondTimer)
+                if (_settings[i].lane == secondLane)
                     laneButtons[i].SetActive(true);
-                if (_settings[i].time != firstTimer && _settings[i].time != secondTimer)
+                if (_settings[i].lane != firstLane && _settings[i].lane != secondLane)
                     laneButtons[i].SetActive(false);
             }
         }
@@ -54,7 +54,7 @@ namespace AR_Project.MainGame.UI
             if (IsHandlingLaneClick) return;
             IsHandlingLaneClick = true;
             var expHandler = gameObject.GetComponent<ExperimentPhaseHandler>();
-            var timer = _settings[laneNumber].time;
+            var timer = _settings[laneNumber].lane;
             expHandler.CallbackFromUIButtons(timer);
             IsHandlingLaneClick = false;
         }

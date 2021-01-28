@@ -18,14 +18,14 @@ namespace AR_Project.Scenes.Final
         private void Start()
         {
             Out.Instance.EndSession();
-            firstText.text = MainData.instanceData.config.texts.finalPoints;
-            secondText.text = MainData.instanceData.config.texts.realPoints;
+            firstText.text = MainData.instanceData.config.GetTexts().finalPoints;
+            secondText.text = MainData.instanceData.config.GetTexts().realPoints;
             var total = PlayerPrefsSaver.instance.phasePoints[GameType.Real] + 
                         PlayerPrefsSaver.instance.phasePoints[GameType.Patience] + 
                         PlayerPrefsSaver.instance.phasePoints[GameType.Imaginarium];
             var real = PlayerPrefsSaver.instance.phasePoints[GameType.Real];
-            finalPoints.text = total + " pontos";
-            realPoints.text = real + " points";
+            finalPoints.text = string.Format("{0} {1}", total, MainData.instanceData.config.GetTexts().points);
+            realPoints.text = string.Format("{0} {1}", real, MainData.instanceData.config.GetTexts().points);
         }
 
         public void ClickedOnRestartGame()

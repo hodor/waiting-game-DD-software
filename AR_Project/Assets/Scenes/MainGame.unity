@@ -1005,7 +1005,7 @@ GameObject:
   - component: {fileID: 213012097}
   - component: {fileID: 213012096}
   m_Layer: 5
-  m_Name: Text (4)
+  m_Name: Lane_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1022,7 +1022,7 @@ RectTransform:
   m_LocalScale: {x: 0.49999994, y: 0.49999994, z: 0.49999994}
   m_Children: []
   m_Father: {fileID: 841604897}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2053,6 +2053,16 @@ MonoBehaviour:
   patienceExperimentUI: {fileID: 627111086}
   SliderLanes: {fileID: 1855355777}
   TimerLabels: {fileID: 841604896}
+  TimerLane01: {fileID: 611764913}
+  TimerLane02: {fileID: 213012096}
+  TimerLane03: {fileID: 2018192729}
+  TimerLane04: {fileID: 1069065471}
+  TimerLane05: {fileID: 763965977}
+  PrizeLane01: {fileID: 777408331}
+  PrizeLane02: {fileID: 297336303}
+  PrizeLane03: {fileID: 757846516}
+  PrizeLane04: {fileID: 483109833}
+  PrizeLane05: {fileID: 8098578}
   tutorialTitle: {fileID: 2076807692}
   tutorialUI: {fileID: 1251090210}
 --- !u!4 &608683573
@@ -2185,7 +2195,7 @@ GameObject:
   - component: {fileID: 611764914}
   - component: {fileID: 611764913}
   m_Layer: 5
-  m_Name: Text (3)
+  m_Name: Lane_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2202,7 +2212,7 @@ RectTransform:
   m_LocalScale: {x: 0.49999994, y: 0.49999994, z: 0.49999994}
   m_Children: []
   m_Father: {fileID: 841604897}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3049,7 +3059,7 @@ GameObject:
   - component: {fileID: 763965978}
   - component: {fileID: 763965977}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Lane_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3066,7 +3076,7 @@ RectTransform:
   m_LocalScale: {x: 0.49999994, y: 0.49999994, z: 0.49999994}
   m_Children: []
   m_Father: {fileID: 841604897}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3646,11 +3656,11 @@ Transform:
   m_LocalPosition: {x: 175.5, y: 6.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 763965976}
-  - {fileID: 1069065470}
-  - {fileID: 2018192728}
-  - {fileID: 213012095}
   - {fileID: 611764912}
+  - {fileID: 213012095}
+  - {fileID: 2018192728}
+  - {fileID: 1069065470}
+  - {fileID: 763965976}
   m_Father: {fileID: 159681166}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4209,7 +4219,7 @@ GameObject:
   - component: {fileID: 1069065472}
   - component: {fileID: 1069065471}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Lane_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4226,7 +4236,7 @@ RectTransform:
   m_LocalScale: {x: 0.49999994, y: 0.49999994, z: 0.49999994}
   m_Children: []
   m_Father: {fileID: 841604897}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6721,7 +6731,7 @@ GameObject:
   - component: {fileID: 2018192730}
   - component: {fileID: 2018192729}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: Lane_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

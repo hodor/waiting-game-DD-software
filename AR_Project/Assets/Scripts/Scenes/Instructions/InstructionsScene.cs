@@ -12,7 +12,7 @@ namespace AR_Project.Scenes.Instructions
 
         private void Start()
         {
-            introductionText.text = MainData.instanceData.config.texts.introduction;
+            introductionText.text = MainData.instanceData.config.GetTexts().introduction;
         }
 
         public void GoToNextScene()
