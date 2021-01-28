@@ -68,7 +68,7 @@ namespace Output.CSV
             };
             var character = new[]
             {
-                "Character", ""
+                "Avatar", ""
             };
 
             foreach (var path in _allPaths)
@@ -86,12 +86,12 @@ namespace Output.CSV
         {
             var character = new[]
             {
-                "Character", userData.character.name
+                "Avatar", userData.character.name
             };
             foreach (var path in _allPaths)
             {
                 CSVUtils.SetCurrentPath(path);
-                CSVUtils.ReplaceLineThatContains("Character", character);
+                CSVUtils.ReplaceLineThatContains("Avatar", character);
             }
         }
 

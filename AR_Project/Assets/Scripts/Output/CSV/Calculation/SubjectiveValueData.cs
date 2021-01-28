@@ -55,5 +55,10 @@ namespace Output.CSV.Calculation
             var usCulture = new CultureInfo("en-US");
             return values.ConvertAll<string>(x => x.ToString("0.###",usCulture).Replace(",",""));
         }
+
+        public List<float> GetValues()
+        {
+            return values;
+        }
     }
 }

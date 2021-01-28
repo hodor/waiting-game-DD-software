@@ -1,6 +1,6 @@
 {
   "created": {
-    "date": "January 27, 2021 20:14:46 -0300"
+    "date": "January 28, 2021 00:27:13 -0300"
   },
   "Trainings": [
     {
@@ -285,12 +285,12 @@
       "rewardInstructions": "Opções de Pontuação",
       "chooseCharacter": "Escolha um avatar",
       "timeInstructions": "Vamos aprender como funciona o tempo?",
-      "trainingImaginarium": "JOGO IMAGINÁRIO\r\n\r\nFaça escolhas baseado \r\nno que faria se tivesse que esperar algum tempo para acumular mais pontos e ganhar um prêmio melhor.Vamos treinar!\r\n",
-      "experimentImaginarium": "JOGO IMAGINÁRIO\r\n\r\n\r\nO jogo começa agora! Lembreque você NÃO ganhará um prêmio real agora!\r\n",
-      "realTraining": "JOGO REAL\r\n\r\nFaça escolhas baseado no tempo que REALMENTE está disposto a esperar para acumular mais pontos e ganhar um prêmio melhor. Vamos praticar!\r\n\n",
-      "realExperiment": "JOGO REAL\r\n\r\n\r\nO jogo começa agora! Lembre que você realmente GANHARÁ um prêmio REAL. \r\n",
-      "trainingPatience": "JOGO DA PACIÊNCIA\r\n\r\nFaça escolhas baseado no tempo que REALMENTE está disposto a esperar para acumular mais pontos sabendo que NÃO ganhará um prêmio REAL. Vamos praticar!\r\n\n",
-      "experimentPatience": "JOGO DA PACIÊNCIA\r\n\r\n\r\nO jogo começa agora! Lembre que você NÃO GANHARÁ um prêmio REAL.  \r\n",
+      "imaginaryGameTraining": "JOGO IMAGINÁRIO\r\n\r\nFaça escolhas baseado \r\nno que faria se tivesse que esperar algum tempo para acumular mais pontos e ganhar um prêmio melhor.Vamos treinar!\r\n",
+      "imaginaryGame": "JOGO IMAGINÁRIO\r\n\r\n\r\nO jogo começa agora! Lembreque você NÃO ganhará um prêmio real agora!\r\n",
+      "realGameTraining": "JOGO REAL\r\n\r\nFaça escolhas baseado no tempo que REALMENTE está disposto a esperar para acumular mais pontos e ganhar um prêmio melhor. Vamos praticar!\r\n\n",
+      "realGame": "JOGO REAL\r\n\r\n\r\nO jogo começa agora! Lembre que você realmente GANHARÁ um prêmio REAL. \r\n",
+      "patienceGameTraining": "JOGO DA PACIÊNCIA\r\n\r\nFaça escolhas baseado no tempo que REALMENTE está disposto a esperar para acumular mais pontos sabendo que NÃO ganhará um prêmio REAL. Vamos praticar!\r\n\n",
+      "patienceGame": "JOGO DA PACIÊNCIA\r\n\r\n\r\nO jogo começa agora! Lembre que você NÃO GANHARÁ um prêmio REAL.  \r\n",
       "finalScore": "Parabéns, sua pontuação total foi",
       "realFinalScore": "E sua pontuação no Jogo Real ",
       "taskScoreBegin": "Parabéns, você ganhou",
@@ -309,20 +309,20 @@
       "year": "Year",
       "genderHeader": "You are:",
       "otherGender": "Other",
-      "introduction": "Olá! Nesse jogo, queremos saber quanto tempo está disposto a esperar para acumular mais pontos. Vai jogar 3 jogos e em um deles receberá um prêmio real, dependendo da pontuação. Vamos entender como funciona.",
-      "rewardInstructions": "Opções de Pontuação",
+      "introduction": "Hello! In this game we want to know how long you are willing to wait to accumulate more points. You will play 3 games and in one of them you will receive a real prize, depending on your score. Let's understand how the games work.",
+      "rewardInstructions": "Point options",
       "chooseCharacter": "Choose a Character",
-      "timeInstructions": "Vamos aprender como funciona o tempo?",
-      "trainingImaginarium": "JOGO IMAGINÁRIO\r\n\r\nFaça escolhas baseado \r\nno que faria se tivesse que esperar algum tempo para acumular mais pontos e ganhar um prêmio melhor.Vamos treinar!\r\n",
-      "experimentImaginarium": "JOGO IMAGINÁRIO\r\n\r\n\r\nO jogo começa agora! Lembreque você NÃO ganhará um prêmio real agora!\r\n",
-      "realTraining": "JOGO REAL\r\n\r\nFaça escolhas baseado no tempo que REALMENTE está disposto a esperar para acumular mais pontos e ganhar um prêmio melhor. Vamos praticar!\r\n\n",
-      "realExperiment": "JOGO REAL\r\n\r\n\r\nO jogo começa agora! Lembre que você realmente GANHARÁ um prêmio REAL. \r\n",
-      "trainingPatience": "JOGO DA PACIÊNCIA\r\n\r\nFaça escolhas baseado no tempo que REALMENTE está disposto a esperar para acumular mais pontos sabendo que NÃO ganhará um prêmio REAL. Vamos praticar!\r\n\n",
-      "experimentPatience": "JOGO DA PACIÊNCIA\r\n\r\n\r\nO jogo começa agora! Lembre que você NÃO GANHARÁ um prêmio REAL.  \r\n",
-      "finalScore": "Parabéns, sua pontuação total foi",
-      "realFinalScore": "E sua pontuação no Jogo Real ",
+      "timeInstructions": "Let's learn how time works?",
+      "imaginaryGameTraining": "IMAGINARY GAME\n\nMake choices based on what you THINK you would do if you had to wait for some time to accumulate  more points and win a better prize. Let's practice!",
+      "imaginaryGame": "IMAGINARY GAME\n\n\nThe game starts now! Remember you will NOT actually win a real prize!\n",
+      "realGameTraining": "REAL GAME\n\nMake choices based on how much time you are ACTUALLY willing to wait to accumulate more points and win a better REAL prize. Let's practice!\n\n",
+      "realGame": "REAL GAME\n\n\nThe game starts now! Remember you will actually win a REAL prize!",
+      "patienceGameTraining": "PATIENCE GAME\n\nMake choices based on how much time you are ACTUALLY willing to wait to accumulate more points but knowing that you will NOT win a  REAL prize. Let's practice!\n\n",
+      "patienceGame": "PATIENCE GAME\n\n\nThe game starts now! Remember you will NOT actually win a real prize! \n",
+      "finalScore": "Congratulations, your total score was",
+      "realFinalScore": "And your score in the Real Game was",
       "taskScoreBegin": "Congratulations, you scored",
-      "taskScoreEnd": "points this task!",
+      "taskScoreEnd": "points in this task!",
       "score": "Score",
       "points": "points",
       "pointsAbbreviated": "pts"
@@ -331,19 +331,19 @@
   "Prizes": [
     {
       "id": 1,
-      "value": 100
+      "value": 10
     },
     {
       "id": 2,
-      "value": 400
+      "value": 40
     },
     {
       "id": 3,
-      "value": 700
+      "value": 70
     },
     {
       "id": 4,
-      "value": 1000
+      "value": 100
     }
   ],
   "Times": [
@@ -353,19 +353,19 @@
     },
     {
       "pista": 2,
-      "tempo": 7
+      "tempo": 5
     },
     {
       "pista": 3,
-      "tempo": 15
+      "tempo": 10
     },
     {
       "pista": 4,
-      "tempo": 30
+      "tempo": 20
     },
     {
       "pista": 5,
-      "tempo": 60
+      "tempo": 30
     }
   ],
   "Debug": {
