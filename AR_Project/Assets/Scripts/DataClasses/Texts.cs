@@ -45,23 +45,23 @@ namespace AR_Project.DataClasses
         [JsonProperty(PropertyName = "timeInstructions")]
         public string timeInstructions;
 
-        [JsonProperty(PropertyName = "trainingImaginarium")]
-        public string trainingImaginarium;
+        [JsonProperty(PropertyName = "imaginaryGameTraining")]
+        public string imaginaryGameTraining;
 
-        [JsonProperty(PropertyName = "experimentImaginarium")]
-        public string experimentImaginarium;
+        [JsonProperty(PropertyName = "imaginaryGame")]
+        public string imaginaryGame;
 
-        [JsonProperty(PropertyName = "realTraining")]
-        public string trainingReal;
+        [JsonProperty(PropertyName = "realGameTraining")]
+        public string realGameTraining;
 
-        [JsonProperty(PropertyName = "realExperiment")]
-        public string experimentReal;
+        [JsonProperty(PropertyName = "realGame")]
+        public string realGame;
 
-        [JsonProperty(PropertyName = "trainingPatience")]
-        public string trainingPatience;
+        [JsonProperty(PropertyName = "patienceGameTraining")]
+        public string patienceGameTraining;
 
-        [JsonProperty(PropertyName = "experimentPatience")]
-        public string experimentPatience;
+        [JsonProperty(PropertyName = "patienceGame")]
+        public string patienceGame;
         
         [JsonProperty(PropertyName = "finalScore")]
         public string finalPoints;

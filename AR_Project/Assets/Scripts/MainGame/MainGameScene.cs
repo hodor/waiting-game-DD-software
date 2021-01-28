@@ -126,21 +126,21 @@ namespace AR_Project.MainGame
             switch (type)
             {
                 case GameType.Imaginarium:
-                    fakeExperimentTitle.text = training ? texts.trainingImaginarium : texts.experimentImaginarium;
+                    fakeExperimentTitle.text = training ? texts.imaginaryGameTraining : texts.imaginaryGame;
                     ToggleGameUIObjects(false);
                     fakeExperimentUI.SetActive(true);
                     realExperimentUI.SetActive(false);
                     patienceExperimentUI.SetActive(false);
                     break;
                 case GameType.Real:
-                    realExperimentTitle.text = training ? texts.trainingReal : texts.experimentReal;
+                    realExperimentTitle.text = training ? texts.realGameTraining : texts.realGame;
                     ToggleGameUIObjects(false);
                     fakeExperimentUI.SetActive(false);
                     realExperimentUI.SetActive(true);
                     patienceExperimentUI.SetActive(false);
                     break;
                 case GameType.Patience:
-                    patienceExperimentTitle.text = training ? texts.trainingPatience : texts.experimentPatience;
+                    patienceExperimentTitle.text = training ? texts.patienceGameTraining : texts.patienceGame;
                     ToggleGameUIObjects(false);
                     fakeExperimentUI.SetActive(false);
                     realExperimentUI.SetActive(false);
