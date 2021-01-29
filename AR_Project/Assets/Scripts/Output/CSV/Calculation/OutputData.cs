@@ -19,7 +19,7 @@ namespace Output.CSV.Calculation
         {
             var birthdate = DateTime.ParseExact(birth, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             var age = DateTime.Today - birthdate;
-            return age.Days / 365.25f;
+            return ((float)age.Days) / 365.25f;
         }
 
         public int age_month()
