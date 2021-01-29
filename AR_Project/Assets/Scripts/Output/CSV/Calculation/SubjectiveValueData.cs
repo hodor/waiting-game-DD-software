@@ -9,30 +9,43 @@ namespace Output.CSV.Calculation
     {
         private List<float> values = new List<float>();
 
+        private static float GetMaxPossibleValue()
+        {
+            var orderedPrizes = MainData.instanceData.config.GetOrderedPrizeValues();
+            int maxPrize = orderedPrizes[orderedPrizes.Count - 1];
+            int secondMaxPrize = orderedPrizes[orderedPrizes.Count - 2];
+            return ((float) maxPrize + (float) secondMaxPrize) / 2.0f;
+        }
+        
+        private static float GetMinPossibleValue()
+        {
+            var orderedPrizes = MainData.instanceData.config.GetOrderedPrizeValues();
+            int smallestPrize = orderedPrizes[0];
+            return(float) smallestPrize / 2.0f;
+        }
+
         public void Calculate(List<int> points)
         {
             int num_count = 9;
             var orderedPrizes = MainData.instanceData.config.GetOrderedPrizeValues();
             int maxPrize = orderedPrizes[orderedPrizes.Count - 1];
-            int secondMaxPrize = orderedPrizes[orderedPrizes.Count - 2];
-            int smallestPrize = orderedPrizes[0];
-            float maxPossibleValue = ((float)maxPrize + (float)secondMaxPrize) / 2.0f;
-            float minPossibleValue = (float) smallestPrize / 2.0f;
+            float maxPossibleValue = GetMaxPossibleValue();
+            float minPossibleValue = GetMinPossibleValue();
             float plausibleSubjectiveValue = maxPossibleValue - minPossibleValue;
-            
+
             // Adding the max value for the 0 value
             values.Add(maxPrize);
 //            if (points.Count % num_count != 0)
 //            {
 //                throw new Exception("Cannot calculate the subjective value data if it's not a multiple of 9");
 //            }
-            
+
             List<List<int>> grouped = new List<List<int>>();
             int index = 0;
-            for(int i = 0; i < points.Count; i++)
+            for (int i = 0; i < points.Count; i++)
             {
                 if (i % num_count == 0 && i != 0) index++;
-                if(grouped.Count <= index) grouped.Add(new List<int>());
+                if (grouped.Count <= index) grouped.Add(new List<int>());
                 grouped[index].Add(points[i]);
             }
 
@@ -44,12 +57,21 @@ namespace Output.CSV.Calculation
                     if (p == maxPrize) numLateChoices++;
                 }
 
-                float subjectiveValue = (((float)numLateChoices / (float)group.Count) * plausibleSubjectiveValue) + minPossibleValue;
+                float subjectiveValue = (((float) numLateChoices / (float) group.Count) * plausibleSubjectiveValue) +
+                                        minPossibleValue;
                 values.Add(subjectiveValue);
             }
-            
         }
-        
+
+        public static float GetMaximumPossibleSV()
+        {
+            float maxPossibleValue = GetMaxPossibleValue();
+            float minPossibleValue = GetMinPossibleValue();
+            float plausibleSubjectiveValue = maxPossibleValue - minPossibleValue;
+
+            return plausibleSubjectiveValue + minPossibleValue;
+        }
+
         public List<string> ToList()
         {
             var usCulture = new CultureInfo("en-US");

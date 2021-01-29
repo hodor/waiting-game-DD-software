@@ -18,10 +18,8 @@ namespace Output.CSV.Calculation
         public float age_year()
         {
             var birthdate = DateTime.ParseExact(birth, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            float years = DateTime.Now.Year - birthdate.Year;
-            float months = DateTime.Now.Month - birthdate.Month;
-            float age =  years + (months/12);
-            return age;
+            var age = DateTime.Today - birthdate;
+            return age.Days / 365.25f;
         }
 
         public int age_month()
@@ -89,11 +87,10 @@ namespace Output.CSV.Calculation
                 list.AddRange(data.subjectiveValueData.ToList());
             //AUC
             List<float> aucValues = new List<float>();
-            float sumAuc = 0.0f;
+            float maxAUC = Math.GetMaxAreaUnderCurve();
             foreach (var data in orderedData)
             {
                 var auc = Math.GetAreaUnderCurve(data.subjectiveValueData.GetValues());
-                sumAuc += auc;
                 aucValues.Add(auc);
                 list.Add(auc.ToString("0.##", usCulture).Replace(",", ""));
             }
@@ -107,7 +104,7 @@ namespace Output.CSV.Calculation
             //AUC normalized
             foreach (var auc in aucValues)
             {
-                list.Add((auc / sumAuc).ToString("0.##", usCulture).Replace(",", ""));
+                list.Add((auc / maxAUC).ToString("0.##", usCulture).Replace(",", ""));
             }
             
             foreach (var data in orderedData)
