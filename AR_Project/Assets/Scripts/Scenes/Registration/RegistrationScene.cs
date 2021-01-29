@@ -237,9 +237,9 @@ namespace AR_Project.Scenes.Registration
             var bd = string.Join("/", bday);
 
             string gender;
-            if (isGirl) gender = "femenino";
-            else if (isOther) gender = "outro";
-            else gender = "masculino";
+            if (isGirl) gender = "female";
+            else if (isOther) gender = "other";
+            else gender = "male";
 
             PlayerPrefsSaver.instance.name = userName;
             PlayerPrefsSaver.instance.birthday = bd;
