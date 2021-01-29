@@ -7,14 +7,16 @@ using Random = System.Random;
 
 public class ClusterValue
 {
-    public int SecondPrizeTimer { get; set; }
-    public int FirstPrizeValue { get; set; }
+    public float SecondPrizeTimer { get; set; }
+    public float FirstPrizeValue { get; set; }
 
     public override bool Equals(object obj)
     {
         var other = obj as ClusterValue;
         if (other == null) return false;
-        return SecondPrizeTimer == other.SecondPrizeTimer && FirstPrizeValue == other.FirstPrizeValue;
+        const double tolerance = 0.00001;
+        return Math.Abs(SecondPrizeTimer - other.SecondPrizeTimer) < tolerance && 
+        Math.Abs(FirstPrizeValue - other.FirstPrizeValue) < tolerance;
     }
 
     public override int GetHashCode()
@@ -47,7 +49,7 @@ public static class ListShuffler
     {
         var clusterDict = new Dictionary<ClusterValue, List<Experiment>>();
         var ret = new List<List<Experiment>>();
-        var minPoints = 0;
+        float minPoints = 0;
         foreach (var experiment in experiments)
         {
             minPoints += experiment.GetImmediatePrizeValue();

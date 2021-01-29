@@ -4,23 +4,23 @@ namespace Output.CSV.Calculation
 {
     public class PointsData : ICsvData
     {
-        public int totalPoints;
+        public float totalPoints;
         public List<string> sequenceOrder = new List<string>();
-        private SortedDictionary<string, List<int>> sequencePointsInCluster = new SortedDictionary<string, List<int>>();
+        private SortedDictionary<string, List<float>> sequencePointsInCluster = new SortedDictionary<string, List<float>>();
 
-        public void AddPoint(string cluster, int point)
+        public void AddPoint(string cluster, float point)
         {
             if (!sequencePointsInCluster.ContainsKey(cluster))
             {
-                sequencePointsInCluster.Add(cluster, new List<int>());
+                sequencePointsInCluster.Add(cluster, new List<float>());
             }
             
             sequencePointsInCluster[cluster].Add(point);
         }
         
-        public List<int> GetSequencePoints()
+        public List<float> GetSequencePoints()
         {
-            var list = new List<int>();
+            var list = new List<float>();
             foreach (var v in sequencePointsInCluster.Values)
             {
                 list.AddRange(v);

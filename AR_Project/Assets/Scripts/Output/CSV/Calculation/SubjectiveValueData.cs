@@ -12,23 +12,23 @@ namespace Output.CSV.Calculation
         private static float GetMaxPossibleValue()
         {
             var orderedPrizes = MainData.instanceData.config.GetOrderedPrizeValues();
-            int maxPrize = orderedPrizes[orderedPrizes.Count - 1];
-            int secondMaxPrize = orderedPrizes[orderedPrizes.Count - 2];
-            return ((float) maxPrize + (float) secondMaxPrize) / 2.0f;
+            float maxPrize = orderedPrizes[orderedPrizes.Count - 1];
+            float secondMaxPrize = orderedPrizes[orderedPrizes.Count - 2];
+            return (maxPrize + secondMaxPrize) / 2.0f;
         }
         
         private static float GetMinPossibleValue()
         {
             var orderedPrizes = MainData.instanceData.config.GetOrderedPrizeValues();
-            int smallestPrize = orderedPrizes[0];
-            return(float) smallestPrize / 2.0f;
+            float smallestPrize = orderedPrizes[0];
+            return smallestPrize / 2.0f;
         }
 
-        public void Calculate(List<int> points)
+        public void Calculate(List<float> points)
         {
             int num_count = 9;
             var orderedPrizes = MainData.instanceData.config.GetOrderedPrizeValues();
-            int maxPrize = orderedPrizes[orderedPrizes.Count - 1];
+            float maxPrize = orderedPrizes[orderedPrizes.Count - 1];
             float maxPossibleValue = GetMaxPossibleValue();
             float minPossibleValue = GetMinPossibleValue();
             float plausibleSubjectiveValue = maxPossibleValue - minPossibleValue;
@@ -40,12 +40,12 @@ namespace Output.CSV.Calculation
 //                throw new Exception("Cannot calculate the subjective value data if it's not a multiple of 9");
 //            }
 
-            List<List<int>> grouped = new List<List<int>>();
+            List<List<float>> grouped = new List<List<float>>();
             int index = 0;
             for (int i = 0; i < points.Count; i++)
             {
                 if (i % num_count == 0 && i != 0) index++;
-                if (grouped.Count <= index) grouped.Add(new List<int>());
+                if (grouped.Count <= index) grouped.Add(new List<float>());
                 grouped[index].Add(points[i]);
             }
 
@@ -54,7 +54,8 @@ namespace Output.CSV.Calculation
                 int numLateChoices = 0;
                 foreach (var p in group)
                 {
-                    if (p == maxPrize) numLateChoices++;
+                    const double tolerance = 0.000001;
+                    if (System.Math.Abs(p - maxPrize) < tolerance) numLateChoices++;
                 }
 
                 float subjectiveValue = (((float) numLateChoices / (float) group.Count) * plausibleSubjectiveValue) +
@@ -75,7 +76,7 @@ namespace Output.CSV.Calculation
         public List<string> ToList()
         {
             var usCulture = new CultureInfo("en-US");
-            return values.ConvertAll<string>(x => x.ToString("0.###",usCulture).Replace(",",""));
+            return values.ConvertAll<string>(x => x.ToString(OutputData.DecimalPrecision,usCulture).Replace(",",""));
         }
 
         public List<float> GetValues()

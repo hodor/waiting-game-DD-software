@@ -64,7 +64,7 @@ namespace Output.CSV
         public abstract void SaveSelectedCharacter(PlayerPrefsSaver userData);
         public abstract void StartExperiments(PlayerPrefsSaver userData);
 
-        public abstract void SaveExperimentData(Experiment experiment, int selectedValue, PlayerPrefsSaver userData,
+        public abstract void SaveExperimentData(Experiment experiment, float selectedValue, PlayerPrefsSaver userData,
             double timeToChooseInSeconds);
 
         public abstract void SaveTotalPoints(PlayerPrefsSaver userData);

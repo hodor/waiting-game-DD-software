@@ -50,11 +50,11 @@ public class Config
         return _selectedText;
     }
 
-    public int GetPrize(int id)
+    public float GetPrize(int id)
     {
         foreach (var p in prizes)
         {
-            if (p.Id == id)
+            if (p.id == id)
             {
                 return p.value;
             }
@@ -76,9 +76,9 @@ public class Config
         return -1;
     }
     
-    public int GetMaxPrize()
+    public float GetMaxPrize()
     {
-        int max = int.MinValue;
+        float max = float.MinValue;
         foreach(var p in prizes)
         {
             if (p.value > max)
@@ -88,9 +88,9 @@ public class Config
         return max;
     }
 
-    public int GetMinPrize()
+    public float GetMinPrize()
     {
-        int min = int.MaxValue;
+        float min = float.MaxValue;
         foreach (var p in prizes)
         {
             if (p.value < min)
@@ -100,9 +100,9 @@ public class Config
         return min;
     }
 
-    public List<int> GetOrderedPrizeValues()
+    public List<float> GetOrderedPrizeValues()
     {
-        var orderedList = new List<int>();
+        var orderedList = new List<float>();
         foreach (var p in prizes)
         {
             orderedList.Add(p.value);

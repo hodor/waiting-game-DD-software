@@ -32,7 +32,7 @@ namespace AR_Project.Savers
         public bool isTutorial;
 
         public string name, birthday, gender;
-        public Dictionary<GameType, int> phasePoints;
+        public Dictionary<GameType, float> phasePoints;
         private void Awake()
         {
             if (instance == null)
@@ -40,11 +40,11 @@ namespace AR_Project.Savers
             else if (instance != this)
                 Destroy(gameObject);
 
-            phasePoints = new Dictionary<GameType, int>();
+            phasePoints = new Dictionary<GameType, float>();
             DontDestroyOnLoad(this);
         }
 
-        public void AddExperimentPoints(int points)
+        public void AddExperimentPoints(float points)
         {
             if(!phasePoints.ContainsKey(gameType))
                 phasePoints.Add(gameType, 0);

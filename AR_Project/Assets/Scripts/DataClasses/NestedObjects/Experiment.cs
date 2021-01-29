@@ -18,12 +18,12 @@ namespace AR_Project.DataClasses.NestedObjects
         [JsonProperty(PropertyName = "secondPrizeValue")]
         public int secondPrizeId;
 
-        public int GetImmediatePrizeValue()
+        public float GetImmediatePrizeValue()
         {
             return MainData.MainData.instanceData.config.GetPrize(immediatePrizeId);
         }
         
-        public int GetSecondPrizeValue()
+        public float GetSecondPrizeValue()
         {
             return MainData.MainData.instanceData.config.GetPrize(secondPrizeId);
         }

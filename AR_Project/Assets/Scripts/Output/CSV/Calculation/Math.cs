@@ -22,7 +22,7 @@ namespace Output.CSV.Calculation
         public static float GetMaxAreaUnderCurve()
         {
             var orderedPrizes = MainData.instanceData.config.GetOrderedPrizeValues();
-            int maxPrize = orderedPrizes[orderedPrizes.Count - 1];
+            float maxPrize = orderedPrizes[orderedPrizes.Count - 1];
             var timeLanes = MainData.instanceData.config.laneTimes;
             var time1 = timeLanes[1].time - timeLanes[0].time;
             var time2 = timeLanes[2].time - timeLanes[1].time;

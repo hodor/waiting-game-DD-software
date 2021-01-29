@@ -115,7 +115,7 @@ namespace Output.CSV
             }
         }
 
-        public override void SaveExperimentData(Experiment experiment, int selectedValue, PlayerPrefsSaver userData,
+        public override void SaveExperimentData(Experiment experiment, float selectedValue, PlayerPrefsSaver userData,
             double timeToChooseInSeconds)
         {
             var clusterCode = (int) 'A';

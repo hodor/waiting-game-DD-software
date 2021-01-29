@@ -15,6 +15,8 @@ namespace Output.CSV.Calculation
         public string avatar;
         public List<GameType> game_order;
 
+        public const string DecimalPrecision = "0.###";
+
         public float age_year()
         {
             var birthdate = DateTime.ParseExact(birth, "dd/MM/yyyy", CultureInfo.InvariantCulture);
@@ -35,7 +37,7 @@ namespace Output.CSV.Calculation
             {GameType.Real, new ExperimentData()}
         };
         
-        public int total_points;
+        public float total_points;
 
         public List<string> ToList()
         {
@@ -67,8 +69,8 @@ namespace Output.CSV.Calculation
                 name,
                 date_application,
                 birth,
-                age_year().ToString("0.##", usCulture).Replace(",",""),
-                age_month().ToString("0.##", usCulture).Replace(",",""),
+                age_year().ToString(DecimalPrecision, usCulture).Replace(",",""),
+                age_month().ToString(DecimalPrecision, usCulture).Replace(",",""),
                 gender,
                 avatar,
                 sequenceTasks
@@ -92,19 +94,19 @@ namespace Output.CSV.Calculation
             {
                 var auc = Math.GetAreaUnderCurve(data.subjectiveValueData.GetValues());
                 aucValues.Add(auc);
-                list.Add(auc.ToString("0.##", usCulture).Replace(",", ""));
+                list.Add(auc.ToString(DecimalPrecision, usCulture).Replace(",", ""));
             }
 
             // Subjective Values normalized
             foreach (var data in orderedData)
             {
                 list.AddRange(Math.GetNormalizedValues(data.subjectiveValueData).ConvertAll<string>
-                    (x => x.ToString("0.###",usCulture).Replace(",","")));
+                    (x => x.ToString(DecimalPrecision,usCulture).Replace(",","")));
             }
             //AUC normalized
             foreach (var auc in aucValues)
             {
-                list.Add((auc / maxAUC).ToString("0.##", usCulture).Replace(",", ""));
+                list.Add((auc / maxAUC).ToString(DecimalPrecision, usCulture).Replace(",", ""));
             }
             
             foreach (var data in orderedData)
@@ -123,7 +125,7 @@ namespace Output.CSV.Calculation
 
                 for (int i = 0; i < orderedChooseTime.Count; i++)
                 {
-                    list.Add(orderedChooseTime[i].ToString("0.##", usCulture).Replace(",", ""));
+                    list.Add(orderedChooseTime[i].ToString(DecimalPrecision, usCulture).Replace(",", ""));
                 }
             }
 

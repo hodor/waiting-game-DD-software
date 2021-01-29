@@ -37,7 +37,7 @@ namespace Output.CSV
             NewOutput.StartExperiments(userData);
         }
 
-        public void SaveExperimentData(Experiment experiment, int selectedValue, PlayerPrefsSaver userData,
+        public void SaveExperimentData(Experiment experiment, float selectedValue, PlayerPrefsSaver userData,
             double timeToChooseInSeconds)
         {
             OldOutput.SaveExperimentData(experiment, selectedValue, userData, timeToChooseInSeconds);
