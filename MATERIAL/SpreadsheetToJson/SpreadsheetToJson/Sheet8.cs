@@ -162,11 +162,11 @@ namespace SpreadsheetToJson
 
             // Extract the directory from the full path
             var currentDirectory = Path.GetDirectoryName(fullPath);
-            var arProjectPath = ExcelToJson.FindParentDirectoryWithFolder(currentDirectory, "AR_Project");
+            var arProjectPath = ExcelToJson.FindParentDirectoryWithFolder(currentDirectory, "AR_Project_Data");
 
             if (arProjectPath != null)
             {
-                var outputPath = Path.Combine(arProjectPath, "Assets", "StreamingAssets", "config.json");
+                var outputPath = Path.Combine(arProjectPath, "StreamingAssets", "config.json");
                 try
                 {
                     // Save in the specified 'outputPath'
