@@ -1,6 +1,6 @@
 public static class ARDebug
 {
-    public static bool Debugging = true;
+    public static bool Debugging = false;
     public static float TimeToFill = 0.5f;
     public static string Version = "1.1.0";
 }
