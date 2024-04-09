@@ -276,14 +276,14 @@
       <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
         <ProjectProperties HostName="SpreadsheetToJson.xlsx" HostPackage="{3F2B7691-D1D1-402F-9370-2704A737CF60}" OfficeVersion="15.0" VstxVersion="4.0" ApplicationType="XLS" Language="CS" TemplatesPath="VSTOTemplates" DebugInfoExeName="C:\Program Files\Microsoft Office\root\Office16\excel.exe" DebugInfoCommandLine="/x &quot;[$OUTPUT]SpreadsheetToJson.xlsx&quot;" />
         <Host Name="Excel Document" Path=".\SpreadsheetToJson.xlsx" GeneratedCodeNamespace="SpreadsheetToJson">
-          <HostItem Name="Sheet2" Code="Experiments.cs" CanonicalName="Sheet2" DisplayName="Experiments" Blueprint="Experiments.Designer.xml" GeneratedCode="Experiments.Designer.cs" />
-          <HostItem Name="Sheet4" Code="Prizes.cs" CanonicalName="Sheet4" DisplayName="Prizes" Blueprint="Prizes.Designer.xml" GeneratedCode="Prizes.Designer.cs" />
           <HostItem Name="Sheet6" Code="Debug.cs" CanonicalName="Sheet6" DisplayName="Debug" Blueprint="Debug.Designer.xml" GeneratedCode="Debug.Designer.cs" />
+          <HostItem Name="Sheet2" Code="Experiments.cs" CanonicalName="Sheet2" DisplayName="Tasks" Blueprint="Experiments.Designer.xml" GeneratedCode="Experiments.Designer.cs" />
+          <HostItem Name="Sheet4" Code="Prizes.cs" CanonicalName="Sheet4" DisplayName="Rewards" Blueprint="Prizes.Designer.xml" GeneratedCode="Prizes.Designer.cs" />
           <HostItem Name="Sheet8" Code="Sheet8.cs" CanonicalName="Sheet8" DisplayName="Export" Blueprint="Sheet8.Designer.xml" GeneratedCode="Sheet8.Designer.cs" />
-          <HostItem Name="Sheet5" Code="Times.cs" CanonicalName="Sheet5" DisplayName="Times" Blueprint="Times.Designer.xml" GeneratedCode="Times.Designer.cs" />
           <HostItem Name="Sheet3" Code="Texts.cs" CanonicalName="Sheet3" DisplayName="Texts" Blueprint="Texts.Designer.xml" GeneratedCode="Texts.Designer.cs" />
           <HostItem Name="ThisWorkbook" Code="ThisWorkbook.cs" CanonicalName="ThisWorkbook" Blueprint="ThisWorkbook.Designer.xml" GeneratedCode="ThisWorkbook.Designer.cs" />
-          <HostItem Name="Sheet1" Code="Trainings.cs" CanonicalName="Sheet1" DisplayName="Trainings" Blueprint="Trainings.Designer.xml" GeneratedCode="Trainings.Designer.cs" />
+          <HostItem Name="Sheet5" Code="Times.cs" CanonicalName="Sheet5" DisplayName="Delays" Blueprint="Times.Designer.xml" GeneratedCode="Times.Designer.cs" />
+          <HostItem Name="Sheet1" Code="Trainings.cs" CanonicalName="Sheet1" DisplayName="Practices" Blueprint="Trainings.Designer.xml" GeneratedCode="Trainings.Designer.cs" />
         </Host>
       </FlavorProperties>
     </VisualStudio>

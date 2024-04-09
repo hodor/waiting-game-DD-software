@@ -13,7 +13,7 @@ namespace AR_Project.MainGame.GameObjects
             var timerLanes = MainData.instanceData.config.laneTimes;
 
             for (var i = 0; i < timerLanes.Count; i++)
-                if (experiment.secondPrizeLane == timerLanes[i].lane)
+                if (experiment.delayedRewardLane == timerLanes[i].lane)
                     return respawns[i];
 
             return null;

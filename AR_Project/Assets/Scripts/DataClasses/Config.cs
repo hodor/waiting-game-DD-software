@@ -9,12 +9,12 @@ using Newtonsoft.Json;
 [JsonObject]
 public class Config
 {
-    [JsonProperty(PropertyName = "Experiments")]
+    [JsonProperty(PropertyName = "Tasks")]
     public List<Experiment> experiments;
 
-    [JsonProperty(PropertyName = "Times")] public List<LaneTime> laneTimes;
+    [JsonProperty(PropertyName = "Delays")] public List<LaneTime> laneTimes;
 
-    [JsonProperty(PropertyName = "Prizes")]
+    [JsonProperty(PropertyName = "Rewards")]
     public List<Prize> prizes;
 
     [JsonProperty(PropertyName = "Texts")] [CanBeNull]
@@ -22,7 +22,7 @@ public class Config
 
     private Texts _selectedText = null;
 
-    [JsonProperty(PropertyName = "Trainings")]
+    [JsonProperty(PropertyName = "Practices")]
     public List<Experiment> trainings;
     
     [JsonProperty(PropertyName = "Debug")]

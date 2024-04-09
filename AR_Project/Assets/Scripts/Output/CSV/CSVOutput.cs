@@ -139,7 +139,7 @@ namespace Output.CSV
                 userData.isTraining ? "Training" : "Experiment",
                 experiment.id.ToString(),
                 cluster,
-                experiment.GetImmediatePrizeValue().ToString(),
+                experiment.GetImmediateRewardValue().ToString(),
                 laneTimeValue,
                 selectedValue.ToString(),
                 timeToChooseInSeconds.ToString("0.00")

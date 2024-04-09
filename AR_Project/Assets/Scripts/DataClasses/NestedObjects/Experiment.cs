@@ -9,28 +9,28 @@ namespace AR_Project.DataClasses.NestedObjects
 
         [JsonProperty(PropertyName = "id")] public int id;
 
-        [JsonProperty(PropertyName = "immediatePrizeValue")]
-        public int immediatePrizeId;
+        [JsonProperty(PropertyName = "immediateRewardValue")]
+        public int immediateRewardId;
 
-        [JsonProperty(PropertyName = "secondPrizeLane")]
-        public int secondPrizeLane;
+        [JsonProperty(PropertyName = "delayedRewardLane")]
+        public int delayedRewardLane;
 
-        [JsonProperty(PropertyName = "secondPrizeValue")]
-        public int secondPrizeId;
+        [JsonProperty(PropertyName = "delayedRewardValue")]
+        public int delayedRewardId;
 
-        public float GetImmediatePrizeValue()
+        public float GetImmediateRewardValue()
         {
-            return MainData.MainData.instanceData.config.GetPrize(immediatePrizeId);
+            return MainData.MainData.instanceData.config.GetPrize(immediateRewardId);
         }
         
-        public float GetSecondPrizeValue()
+        public float GetDelayedRewardValue()
         {
-            return MainData.MainData.instanceData.config.GetPrize(secondPrizeId);
+            return MainData.MainData.instanceData.config.GetPrize(delayedRewardId);
         }
 
-        public int GetSecondLaneTimer()
+        public int GetDelayedLaneTimer()
         {
-            return MainData.MainData.instanceData.config.GetTimerFromLane(secondPrizeLane);
+            return MainData.MainData.instanceData.config.GetTimerFromLane(delayedRewardLane);
         }
     }
 }

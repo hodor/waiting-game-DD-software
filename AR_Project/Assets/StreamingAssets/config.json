@@ -1,273 +1,273 @@
 {
   "created": {
-    "date": "April 08, 2024 21:56:10 -07:00"
+    "date": "April 08, 2024 22:36:44 -07:00"
   },
-  "Trainings": [
+  "Practices": [
     {
       "id": 1,
-      "immediatePrizeValue": 1,
-      "secondPrizeLane": 2,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 1,
+      "delayedRewardLane": 2,
+      "delayedRewardValue": 4
     },
     {
       "id": 2,
-      "immediatePrizeValue": 2,
-      "secondPrizeLane": 3,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 2,
+      "delayedRewardLane": 3,
+      "delayedRewardValue": 4
     },
     {
       "id": 3,
-      "immediatePrizeValue": 2,
-      "secondPrizeLane": 3,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 2,
+      "delayedRewardLane": 3,
+      "delayedRewardValue": 4
     },
     {
       "id": 4,
-      "immediatePrizeValue": 3,
-      "secondPrizeLane": 2,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 3,
+      "delayedRewardLane": 2,
+      "delayedRewardValue": 4
     },
     {
       "id": 5,
-      "immediatePrizeValue": 2,
-      "secondPrizeLane": 4,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 2,
+      "delayedRewardLane": 4,
+      "delayedRewardValue": 4
     },
     {
       "id": 6,
-      "immediatePrizeValue": 3,
-      "secondPrizeLane": 2,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 3,
+      "delayedRewardLane": 2,
+      "delayedRewardValue": 4
     },
     {
       "id": 7,
-      "immediatePrizeValue": 1,
-      "secondPrizeLane": 5,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 1,
+      "delayedRewardLane": 5,
+      "delayedRewardValue": 4
     },
     {
       "id": 8,
-      "immediatePrizeValue": 2,
-      "secondPrizeLane": 5,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 2,
+      "delayedRewardLane": 5,
+      "delayedRewardValue": 4
     }
   ],
-  "Experiments": [
+  "Tasks": [
     {
       "id": 1,
-      "immediatePrizeValue": 1,
-      "secondPrizeLane": 2,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 1,
+      "delayedRewardLane": 2,
+      "delayedRewardValue": 4
     },
     {
       "id": 2,
-      "immediatePrizeValue": 1,
-      "secondPrizeLane": 2,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 1,
+      "delayedRewardLane": 2,
+      "delayedRewardValue": 4
     },
     {
       "id": 3,
-      "immediatePrizeValue": 1,
-      "secondPrizeLane": 2,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 1,
+      "delayedRewardLane": 2,
+      "delayedRewardValue": 4
     },
     {
       "id": 4,
-      "immediatePrizeValue": 2,
-      "secondPrizeLane": 2,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 2,
+      "delayedRewardLane": 2,
+      "delayedRewardValue": 4
     },
     {
       "id": 5,
-      "immediatePrizeValue": 2,
-      "secondPrizeLane": 2,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 2,
+      "delayedRewardLane": 2,
+      "delayedRewardValue": 4
     },
     {
       "id": 6,
-      "immediatePrizeValue": 2,
-      "secondPrizeLane": 2,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 2,
+      "delayedRewardLane": 2,
+      "delayedRewardValue": 4
     },
     {
       "id": 7,
-      "immediatePrizeValue": 3,
-      "secondPrizeLane": 2,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 3,
+      "delayedRewardLane": 2,
+      "delayedRewardValue": 4
     },
     {
       "id": 8,
-      "immediatePrizeValue": 3,
-      "secondPrizeLane": 2,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 3,
+      "delayedRewardLane": 2,
+      "delayedRewardValue": 4
     },
     {
       "id": 9,
-      "immediatePrizeValue": 3,
-      "secondPrizeLane": 2,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 3,
+      "delayedRewardLane": 2,
+      "delayedRewardValue": 4
     },
     {
       "id": 10,
-      "immediatePrizeValue": 1,
-      "secondPrizeLane": 3,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 1,
+      "delayedRewardLane": 3,
+      "delayedRewardValue": 4
     },
     {
       "id": 11,
-      "immediatePrizeValue": 1,
-      "secondPrizeLane": 3,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 1,
+      "delayedRewardLane": 3,
+      "delayedRewardValue": 4
     },
     {
       "id": 12,
-      "immediatePrizeValue": 1,
-      "secondPrizeLane": 3,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 1,
+      "delayedRewardLane": 3,
+      "delayedRewardValue": 4
     },
     {
       "id": 13,
-      "immediatePrizeValue": 2,
-      "secondPrizeLane": 3,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 2,
+      "delayedRewardLane": 3,
+      "delayedRewardValue": 4
     },
     {
       "id": 14,
-      "immediatePrizeValue": 2,
-      "secondPrizeLane": 3,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 2,
+      "delayedRewardLane": 3,
+      "delayedRewardValue": 4
     },
     {
       "id": 15,
-      "immediatePrizeValue": 2,
-      "secondPrizeLane": 3,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 2,
+      "delayedRewardLane": 3,
+      "delayedRewardValue": 4
     },
     {
       "id": 16,
-      "immediatePrizeValue": 3,
-      "secondPrizeLane": 3,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 3,
+      "delayedRewardLane": 3,
+      "delayedRewardValue": 4
     },
     {
       "id": 17,
-      "immediatePrizeValue": 3,
-      "secondPrizeLane": 3,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 3,
+      "delayedRewardLane": 3,
+      "delayedRewardValue": 4
     },
     {
       "id": 18,
-      "immediatePrizeValue": 3,
-      "secondPrizeLane": 3,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 3,
+      "delayedRewardLane": 3,
+      "delayedRewardValue": 4
     },
     {
       "id": 19,
-      "immediatePrizeValue": 1,
-      "secondPrizeLane": 4,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 1,
+      "delayedRewardLane": 4,
+      "delayedRewardValue": 4
     },
     {
       "id": 20,
-      "immediatePrizeValue": 1,
-      "secondPrizeLane": 4,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 1,
+      "delayedRewardLane": 4,
+      "delayedRewardValue": 4
     },
     {
       "id": 21,
-      "immediatePrizeValue": 1,
-      "secondPrizeLane": 4,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 1,
+      "delayedRewardLane": 4,
+      "delayedRewardValue": 4
     },
     {
       "id": 22,
-      "immediatePrizeValue": 2,
-      "secondPrizeLane": 4,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 2,
+      "delayedRewardLane": 4,
+      "delayedRewardValue": 4
     },
     {
       "id": 23,
-      "immediatePrizeValue": 2,
-      "secondPrizeLane": 4,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 2,
+      "delayedRewardLane": 4,
+      "delayedRewardValue": 4
     },
     {
       "id": 24,
-      "immediatePrizeValue": 2,
-      "secondPrizeLane": 4,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 2,
+      "delayedRewardLane": 4,
+      "delayedRewardValue": 4
     },
     {
       "id": 25,
-      "immediatePrizeValue": 3,
-      "secondPrizeLane": 4,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 3,
+      "delayedRewardLane": 4,
+      "delayedRewardValue": 4
     },
     {
       "id": 26,
-      "immediatePrizeValue": 3,
-      "secondPrizeLane": 4,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 3,
+      "delayedRewardLane": 4,
+      "delayedRewardValue": 4
     },
     {
       "id": 27,
-      "immediatePrizeValue": 3,
-      "secondPrizeLane": 4,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 3,
+      "delayedRewardLane": 4,
+      "delayedRewardValue": 4
     },
     {
       "id": 28,
-      "immediatePrizeValue": 1,
-      "secondPrizeLane": 5,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 1,
+      "delayedRewardLane": 5,
+      "delayedRewardValue": 4
     },
     {
       "id": 29,
-      "immediatePrizeValue": 1,
-      "secondPrizeLane": 5,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 1,
+      "delayedRewardLane": 5,
+      "delayedRewardValue": 4
     },
     {
       "id": 30,
-      "immediatePrizeValue": 1,
-      "secondPrizeLane": 5,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 1,
+      "delayedRewardLane": 5,
+      "delayedRewardValue": 4
     },
     {
       "id": 31,
-      "immediatePrizeValue": 2,
-      "secondPrizeLane": 5,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 2,
+      "delayedRewardLane": 5,
+      "delayedRewardValue": 4
     },
     {
       "id": 32,
-      "immediatePrizeValue": 2,
-      "secondPrizeLane": 5,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 2,
+      "delayedRewardLane": 5,
+      "delayedRewardValue": 4
     },
     {
       "id": 33,
-      "immediatePrizeValue": 2,
-      "secondPrizeLane": 5,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 2,
+      "delayedRewardLane": 5,
+      "delayedRewardValue": 4
     },
     {
       "id": 34,
-      "immediatePrizeValue": 3,
-      "secondPrizeLane": 5,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 3,
+      "delayedRewardLane": 5,
+      "delayedRewardValue": 4
     },
     {
       "id": 35,
-      "immediatePrizeValue": 3,
-      "secondPrizeLane": 5,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 3,
+      "delayedRewardLane": 5,
+      "delayedRewardValue": 4
     },
     {
       "id": 36,
-      "immediatePrizeValue": 3,
-      "secondPrizeLane": 5,
-      "secondPrizeValue": 4
+      "immediateRewardValue": 3,
+      "delayedRewardLane": 5,
+      "delayedRewardValue": 4
     }
   ],
   "Texts": [
@@ -388,7 +388,7 @@
       "pointsAbbreviated": null
     }
   ],
-  "Prizes": [
+  "Rewards": [
     {
       "id": 1,
       "value": 100
@@ -406,7 +406,7 @@
       "value": 1000
     }
   ],
-  "Times": [
+  "Delays": [
     {
       "lane": 1,
       "time": 0

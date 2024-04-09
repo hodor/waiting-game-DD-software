@@ -77,10 +77,10 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             var prizeLabels = gameObject.GetComponent<PrizesHandler>();
             var sliderHandler = gameObject.GetComponent<SlidersHandler>();
 
-            prizeLabels.SetPrizesLabelsByLane(1, currentPhase.secondPrizeLane,
-                currentPhase.immediatePrizeId, currentPhase.secondPrizeId);
-            sliderHandler.DisableOtherSliders(1, currentPhase.secondPrizeLane);
-            prizeButtons.SetupButtons(1, currentPhase.secondPrizeLane);
+            prizeLabels.SetPrizesLabelsByLane(1, currentPhase.delayedRewardLane,
+                currentPhase.immediateRewardId, currentPhase.delayedRewardId);
+            sliderHandler.DisableOtherSliders(1, currentPhase.delayedRewardLane);
+            prizeButtons.SetupButtons(1, currentPhase.delayedRewardLane);
             MainGameScene.ExperimentStartDT = DateTime.Now;
         }
 
@@ -102,7 +102,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
         {
             var shouldMoveSlowly = PlayerPrefsSaver.instance.ShouldMoveSlowly();
             var respawnsScript = gameObject.GetComponent<Respawns>();
-            var respawn = respawnsScript.GetRespawnByLane(currentPhase.secondPrizeLane);
+            var respawn = respawnsScript.GetRespawnByLane(currentPhase.delayedRewardLane);
             var slider = gameObject.GetComponent<SlidersHandler>();
 
             //TODO: pegar prefab de acordo com o experimento atual
@@ -110,13 +110,13 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             secondPrize.SetActive(true);
             secondPrize.transform.position = respawn.transform.position;
             var objScript = secondPrize.GetComponent<PrizeGO>();
-            objScript.timer = currentPhase.GetSecondLaneTimer();
+            objScript.timer = currentPhase.GetDelayedLaneTimer();
             objScript.finalDestination = new Vector3(finishLine.transform.position.x,
                 secondPrize.transform.position.y, 0);
             objScript.StartMoving(false);
 
             if (shouldMoveSlowly)
-                slider.SetAndStartSliderByTimer(currentPhase.GetSecondLaneTimer());
+                slider.SetAndStartSliderByTimer(currentPhase.GetDelayedLaneTimer());
         }
 
         private void RespawnImmediatePrize()
@@ -146,21 +146,21 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
             PrizeButtons.instance.DisableButtons();
             if (laneClicked == 1)
             {
-                var prizeValue = currentPhase.GetImmediatePrizeValue();
+                var prizeValue = currentPhase.GetImmediateRewardValue();
 
                 PlayerPrefsSaver.instance.AddExperimentPoints(prizeValue);
-                Out.Instance.SaveExperimentData(currentPhase, prizeValue, currentPhase.secondPrizeLane,
+                Out.Instance.SaveExperimentData(currentPhase, prizeValue, currentPhase.delayedRewardLane,
                     PlayerPrefsSaver.instance,
                     timeDiff.TotalSeconds);
                 RespawnImmediatePrize();
             }
-            else if (laneClicked == currentPhase.secondPrizeLane)
+            else if (laneClicked == currentPhase.delayedRewardLane)
             {
                 if (currentPhase == null) return;
-                var prizeValue = currentPhase.GetSecondPrizeValue();
+                var prizeValue = currentPhase.GetDelayedRewardValue();
 
                 PlayerPrefsSaver.instance.AddExperimentPoints(prizeValue);
-                Out.Instance.SaveExperimentData(currentPhase, prizeValue, currentPhase.secondPrizeLane, PlayerPrefsSaver.instance,
+                Out.Instance.SaveExperimentData(currentPhase, prizeValue, currentPhase.delayedRewardLane, PlayerPrefsSaver.instance,
                     timeDiff.TotalSeconds);
                 RespawnSecondPrize();
             }
