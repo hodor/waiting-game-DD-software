@@ -219,6 +219,7 @@ MonoBehaviour:
   secondText: {fileID: 1340822491}
   finalPoints: {fileID: 813230705}
   realPoints: {fileID: 129799000}
+  buttonRestartText: {fileID: 931678999}
 --- !u!4 &376185817
 Transform:
   m_ObjectHideFlags: 0
@@ -244,7 +245,7 @@ GameObject:
   - component: {fileID: 666911593}
   - component: {fileID: 666911592}
   m_Layer: 5
-  m_Name: Button
+  m_Name: RestartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -538,7 +539,7 @@ GameObject:
   - component: {fileID: 931679000}
   - component: {fileID: 931678999}
   m_Layer: 5
-  m_Name: Text
+  m_Name: RestartButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

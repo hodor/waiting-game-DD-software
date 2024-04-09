@@ -3,21 +3,26 @@ using UnityEngine;
 
 namespace AR_Project.DataClasses.MainData
 {
-    public class MainData : MonoBehaviour
+    public sealed class MainData
     {
-        public static MainData instanceData;
-
+        private static readonly MainData instance = new MainData();
         public Config config;
-
-        private void Awake()
+        static MainData()
         {
-            if (instanceData == null)
-                instanceData = this;
-            else if (instanceData != this)
-                Destroy(gameObject);
 
-            DontDestroyOnLoad(this);
+        }
+
+        private MainData()
+        {
             config = JsonReader.ReadConfig();
+        }
+
+        public static MainData instanceData
+        {
+            get
+            {
+                return instance;
+            }
         }
     }
 }

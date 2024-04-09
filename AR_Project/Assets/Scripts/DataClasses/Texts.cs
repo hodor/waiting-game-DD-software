@@ -74,7 +74,10 @@ namespace AR_Project.DataClasses
         
         [JsonProperty(PropertyName = "taskScoreEnd")]
         public string taskScoreEnd;
-        
+
+        [JsonProperty(PropertyName = "restartGame")]
+        public string restartGame;
+
         [JsonProperty(PropertyName = "score")]
         public string score;
         

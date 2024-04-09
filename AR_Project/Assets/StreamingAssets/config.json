@@ -1,6 +1,6 @@
 {
   "created": {
-    "date": "January 28, 2021 06:08:46 -0300"
+    "date": "April 08, 2024 21:56:10 -07:00"
   },
   "Trainings": [
     {
@@ -230,7 +230,7 @@
     {
       "id": 30,
       "immediatePrizeValue": 1,
-      "secondPrizeLane": 4,
+      "secondPrizeLane": 5,
       "secondPrizeValue": 4
     },
     {
@@ -274,28 +274,29 @@
     {
       "language": "pt-br",
       "welcome": "Seja bem vindo!",
-      "enterName": "Digite seu nome aqui",
+      "enterName": "Digite seu nome",
       "dateOfBirthHeader": "Você nasceu em:",
       "day": "Dia",
       "month": "Mês",
       "year": "Ano",
       "genderHeader": "Você é:",
       "otherGender": "Outro",
-      "introduction": "Olá! Nesse jogo, queremos saber quanto tempo está disposto a esperar para acumular mais pontos. Vai jogar 3 jogos e em um deles receberá um prêmio real, dependendo da pontuação. Vamos entender como funciona.",
+      "introduction": "Olá! Nesse jogo queremos saber quanto tempo você está disposto a esperar para acumular mais pontos. Você jogará 3 jogos bem parecidos em uma ordem aleatória. Vamos entender como cada jogo funciona.",
       "rewardInstructions": "Opções de Pontuação",
       "chooseCharacter": "Escolha um avatar",
       "timeInstructions": "Vamos aprender como funciona o tempo?",
-      "imaginaryGameTraining": "JOGO IMAGINÁRIO\r\n\r\nFaça escolhas baseado \r\nno que faria se tivesse que esperar algum tempo para acumular mais pontos e ganhar um prêmio melhor.Vamos treinar!\r\n",
-      "imaginaryGame": "JOGO IMAGINÁRIO\r\n\r\n\r\nO jogo começa agora! Lembreque você NÃO ganhará um prêmio real agora!\r\n",
-      "realGameTraining": "JOGO REAL\r\n\r\nFaça escolhas baseado no tempo que REALMENTE está disposto a esperar para acumular mais pontos e ganhar um prêmio melhor. Vamos praticar!\r\n\n",
-      "realGame": "JOGO REAL\r\n\r\n\r\nO jogo começa agora! Lembre que você realmente GANHARÁ um prêmio REAL. \r\n",
-      "patienceGameTraining": "JOGO DA PACIÊNCIA\r\n\r\nFaça escolhas baseado no tempo que REALMENTE está disposto a esperar para acumular mais pontos sabendo que NÃO ganhará um prêmio REAL. Vamos praticar!\r\n\n",
-      "patienceGame": "JOGO DA PACIÊNCIA\r\n\r\n\r\nO jogo começa agora! Lembre que você NÃO GANHARÁ um prêmio REAL.  \r\n",
+      "imaginaryGameTraining": "JOGO IMAGINÁRIO\n\nNesse jogo você deve imaginar quanto tempo esperaria para acumular mais pontos, se esses pontos fossem depois trocados por um prêmio melhor. Vamos treinar!",
+      "imaginaryGame": "JOGO IMAGINÁRIO\n\n\nO jogo começa agora! Lembre que você NÃO ganhará um prêmio real agora!",
+      "realGameTraining": "JOGO REAL\n\nNesse jogo você precisará esperar para acumular mais pontos e ganhar um prêmio real no final, proporcional à pontuação total. Vamos praticar!",
+      "realGame": "JOGO REAL\n\n\nO jogo começa agora! Lembre que você realmente GANHARÁ um prêmio REAL.",
+      "patienceGameTraining": "JOGO DA PACIÊNCIA\n\nNesse jogo você precisará esperar para acumular mais pontos, mas não haverá um prêmio real no final. Vamos praticar!",
+      "patienceGame": "JOGO DA PACIÊNCIA\n\n\nO jogo começa agora! Lembre que você NÃO GANHARÁ um prêmio REAL.",
       "finalScore": "Parabéns, sua pontuação total foi",
-      "realFinalScore": "E sua pontuação no Jogo Real ",
+      "realFinalScore": "E sua pontuação no Jogo Real",
       "taskScoreBegin": "Parabéns, você ganhou",
       "taskScoreEnd": "pontos nessa tarefa!",
-      "score": " Pontuação",
+      "restartGame": "Reiniciar o jogo",
+      "score": "Pontuação",
       "points": "pontos",
       "pointsAbbreviated": "pts"
     },
@@ -309,23 +310,82 @@
       "year": "Year",
       "genderHeader": "You are:",
       "otherGender": "Other",
-      "introduction": "Hello! In this game we want to know how long you are willing to wait to accumulate more points. You will play 3 games and in one of them you will receive a real prize, depending on your score. Let's understand how the games work.",
+      "introduction": "Hello! In this game we want to know how long you are willing to wait to accumulate more points. You will play 3 slightly different games in random order. Next, you can see how each game works.",
       "rewardInstructions": "Point options",
       "chooseCharacter": "Choose a Character",
       "timeInstructions": "Let's learn how time works?",
-      "imaginaryGameTraining": "IMAGINARY GAME\n\nMake choices based on what you THINK you would do if you had to wait for some time to accumulate  more points and win a better prize. Let's practice!",
-      "imaginaryGame": "IMAGINARY GAME\n\n\nThe game starts now! Remember you will NOT actually win a real prize!\n",
-      "realGameTraining": "REAL GAME\n\nMake choices based on how much time you are ACTUALLY willing to wait to accumulate more points and win a better REAL prize. Let's practice!\n\n",
-      "realGame": "REAL GAME\n\n\nThe game starts now! Remember you will actually win a REAL prize!",
-      "patienceGameTraining": "PATIENCE GAME\n\nMake choices based on how much time you are ACTUALLY willing to wait to accumulate more points but knowing that you will NOT win a  REAL prize. Let's practice!\n\n",
-      "patienceGame": "PATIENCE GAME\n\n\nThe game starts now! Remember you will NOT actually win a real prize! \n",
+      "imaginaryGameTraining": "IMAGINARY GAME\n\nIn this game you must estimate how long you would wait to obtain more points if these points were later exchanged for a better prize. Let's practice!",
+      "imaginaryGame": "IMAGINARY GAME\n\n\nThe game starts now! Remember you will NOT actually win a real prize!",
+      "realGameTraining": "REAL GAME\n\nIn this game you will have to wait to gain more points and win a real prize at the end, proportional to the number of points you accumulated (your total score). Let's practice!",
+      "realGame": "REAL GAME\n\n\nThe game starts now! Remember you will actually win a REAL prize.",
+      "patienceGameTraining": "PATIENCE GAME\n\nIn this game you will have to wait to gain more points, but there will be no real prize at the end. Let's practice!",
+      "patienceGame": "PATIENCE GAME\n\n\nThe game starts now! Remember you will NOT actually win a real prize!",
       "finalScore": "Congratulations, your total score was",
       "realFinalScore": "And your score in the Real Game was",
       "taskScoreBegin": "Congratulations, you scored",
       "taskScoreEnd": "points in this task!",
+      "restartGame": "Restart game",
       "score": "Score",
       "points": "points",
       "pointsAbbreviated": "pts"
+    },
+    {
+      "language": "es",
+      "welcome": "Bienvenido!",
+      "enterName": "Escribe tu nombre",
+      "dateOfBirthHeader": "Naciste en:",
+      "day": "Día",
+      "month": "Mes",
+      "year": "Año",
+      "genderHeader": "Tu eres:",
+      "otherGender": "Otro",
+      "introduction": "¡Hola! En este juego queremos saber cuánto tiempo estás dispuesto a esperar para acumular más puntos. Jugarás 3 juegos muy parecidos en orden aleatorio. A continuación podrás ver como funciona cada juego.",
+      "rewardInstructions": "Opciones de puntos",
+      "chooseCharacter": "Elige un personaje",
+      "timeInstructions": "Aprendamos ¿cómo funciona el tiempo?",
+      "imaginaryGameTraining": "JUEGO IMAGINARIO\n\nEn este juego debes imaginar cuánto tiempo esperarías para acumular más puntos, si luego esos puntos fueran canjeados por un premio mejor. ¡Vamos a practicar!",
+      "imaginaryGame": "JUEGO IMAGINARIO\n\n\n¡El juego comienza ahora! ¡Recuerda que ahora NO ganarás un premio real!",
+      "realGameTraining": "JUEGO REAL\n\nEn este juego tendrás que esperar para acumular más puntos y ganar un premio real al final, proporcional a la puntuación total. ¡Vamos a practicar!",
+      "realGame": "JUEGO REAL\n\n\n¡El juego comienza ahora! Recuerde que en realidad GANARÁ un premio REAL.",
+      "patienceGameTraining": "JUEGO DE PACIENCIA\n\nEn este juego, tendrás que esperar para acumular más puntos, pero no habrá un premio real al final. ¡Vamos a practicar!",
+      "patienceGame": "JUEGO DE PACIENCIA\n\n\n¡El juego comienza ahora! Recuerda que NO GANARÁS un premio REAL.",
+      "finalScore": "Felicitaciones, su puntaje total fue",
+      "realFinalScore": "Y tu puntuación en el juego real",
+      "taskScoreBegin": "Felicitaciones, ganaste",
+      "taskScoreEnd": "puntos en esa tarea!",
+      "restartGame": "Reiniciar el juego",
+      "score": "Puntuación",
+      "points": "puntos",
+      "pointsAbbreviated": "pts"
+    },
+    {
+      "language": "it",
+      "welcome": null,
+      "enterName": null,
+      "dateOfBirthHeader": null,
+      "day": null,
+      "month": null,
+      "year": null,
+      "genderHeader": null,
+      "otherGender": null,
+      "introduction": null,
+      "rewardInstructions": null,
+      "chooseCharacter": null,
+      "timeInstructions": null,
+      "imaginaryGameTraining": null,
+      "imaginaryGame": null,
+      "realGameTraining": null,
+      "realGame": null,
+      "patienceGameTraining": null,
+      "patienceGame": null,
+      "finalScore": null,
+      "realFinalScore": null,
+      "taskScoreBegin": null,
+      "taskScoreEnd": null,
+      "restartGame": null,
+      "score": null,
+      "points": null,
+      "pointsAbbreviated": null
     }
   ],
   "Prizes": [
@@ -348,28 +408,28 @@
   ],
   "Times": [
     {
-      "pista": 1,
-      "tempo": 0
+      "lane": 1,
+      "time": 0
     },
     {
-      "pista": 2,
-      "tempo": 7
+      "lane": 2,
+      "time": 7
     },
     {
-      "pista": 3,
-      "tempo": 15
+      "lane": 3,
+      "time": 15
     },
     {
-      "pista": 4,
-      "tempo": 30
+      "lane": 4,
+      "time": 30
     },
     {
-      "pista": 5,
-      "tempo": 60
+      "lane": 5,
+      "time": 60
     }
   ],
   "Debug": {
     "alwaysImaginaryFirst": false,
-    "language": "pt-br"
+    "language": "en"
   }
 }

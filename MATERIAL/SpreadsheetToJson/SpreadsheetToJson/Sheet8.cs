@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
+using Newtonsoft.Json.Linq;
 
 namespace SpreadsheetToJson
 {
@@ -78,7 +79,17 @@ namespace SpreadsheetToJson
                     for (var col = 1; col <= colCount; col++)
                     {
                         var cell = (Range)range.Cells[row, col];
-                        data[keys[col - 1]] = cell.Value;
+                        var value = cell.Value;
+                        // Check if the value is a number and convert it to an integer if possible
+                        if (int.TryParse(value?.ToString(), out int number))
+                        {
+                            // Convert the number to an integer, considering rounding or truncation as necessary
+                            data[keys[col - 1]] = number;
+                        }
+                        else
+                        {
+                            data[keys[col - 1]] = value;
+                        }
                     }
                     jsonData.Add(data);
                 }

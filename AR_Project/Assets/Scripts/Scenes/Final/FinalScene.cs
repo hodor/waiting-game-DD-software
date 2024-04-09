@@ -13,6 +13,7 @@ namespace AR_Project.Scenes.Final
         public Text secondText;
         public Text finalPoints;
         public Text realPoints;
+        public Text buttonRestartText;
         
         
         private void Start()
@@ -20,6 +21,7 @@ namespace AR_Project.Scenes.Final
             Out.Instance.EndSession();
             firstText.text = MainData.instanceData.config.GetTexts().finalPoints;
             secondText.text = MainData.instanceData.config.GetTexts().realPoints;
+            buttonRestartText.text = MainData.instanceData.config.GetTexts().restartGame;
             var total = PlayerPrefsSaver.instance.phasePoints[GameType.Real] + 
                         PlayerPrefsSaver.instance.phasePoints[GameType.Patience] + 
                         PlayerPrefsSaver.instance.phasePoints[GameType.Imaginarium];
