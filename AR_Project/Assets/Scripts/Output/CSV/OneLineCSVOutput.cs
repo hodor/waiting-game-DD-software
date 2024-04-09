@@ -60,7 +60,7 @@ namespace Output.CSV
 
         }
 
-        public override void SaveExperimentData(Experiment experiment, float selectedValue, PlayerPrefsSaver userData,
+        public override void SaveExperimentData(Experiment experiment, float selectedValue, int biggestRewardLaneNumber, PlayerPrefsSaver userData,
             double timeToChooseInSeconds)
         {
             if (userData.isTraining) return;

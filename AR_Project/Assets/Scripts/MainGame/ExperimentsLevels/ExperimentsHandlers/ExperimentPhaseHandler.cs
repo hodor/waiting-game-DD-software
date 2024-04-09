@@ -149,7 +149,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
                 var prizeValue = currentPhase.GetImmediatePrizeValue();
 
                 PlayerPrefsSaver.instance.AddExperimentPoints(prizeValue);
-                Out.Instance.SaveExperimentData(currentPhase, prizeValue,
+                Out.Instance.SaveExperimentData(currentPhase, prizeValue, currentPhase.secondPrizeLane,
                     PlayerPrefsSaver.instance,
                     timeDiff.TotalSeconds);
                 RespawnImmediatePrize();
@@ -160,7 +160,7 @@ namespace AR_Project.MainGame.ExperimentsLevels.ExperimentsHandlers
                 var prizeValue = currentPhase.GetSecondPrizeValue();
 
                 PlayerPrefsSaver.instance.AddExperimentPoints(prizeValue);
-                Out.Instance.SaveExperimentData(currentPhase, prizeValue, PlayerPrefsSaver.instance,
+                Out.Instance.SaveExperimentData(currentPhase, prizeValue, currentPhase.secondPrizeLane, PlayerPrefsSaver.instance,
                     timeDiff.TotalSeconds);
                 RespawnSecondPrize();
             }

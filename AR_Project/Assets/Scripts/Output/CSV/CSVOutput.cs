@@ -3,6 +3,7 @@ using System.Globalization;
 using System.IO;
 using AR_Project.DataClasses.NestedObjects;
 using AR_Project.Savers;
+using AR_Project.DataClasses.MainData;
 using UnityEngine;
 
 namespace Output.CSV
@@ -103,7 +104,7 @@ namespace Output.CSV
             };
             var headers = new[]
             {
-                "Type", "Trail", "Cluster_ID", "Smallest_Reward", "Time_On_Biggest_Reward", "Chosen_Reward",
+                "Type", "Trial", "Cluster_ID", "Smallest_Reward", "Time_On_Biggest_Reward", "Chosen_Reward",
                 "Choose_Time"
             };
 
@@ -115,13 +116,23 @@ namespace Output.CSV
             }
         }
 
-        public override void SaveExperimentData(Experiment experiment, float selectedValue, PlayerPrefsSaver userData,
+        private string GetTimeForLane(int selectedLane)
+        {
+            // We get the lane value out of the configuration files.
+            // We first get all LaneTimes that are in the json file (which came from the spreadsheet) and we find the one with the selected lane
+            // If the selected lane didn't exist there, we turn an error, or else we return the time associated with it.
+            var laneTime = MainData.instanceData.config.laneTimes.Find(lt => lt.lane == selectedLane);
+            return laneTime != null ? laneTime.time.ToString() : "Error";
+        }
+
+        public override void SaveExperimentData(Experiment experiment, float selectedValue, int biggestRewardLaneNumber, PlayerPrefsSaver userData,
             double timeToChooseInSeconds)
         {
             var clusterCode = (int) 'A';
             clusterCode += experiment.clusterId;
             var clusterLetter = (char) clusterCode;
             var cluster = clusterLetter.ToString();
+            var laneTimeValue = GetTimeForLane(biggestRewardLaneNumber);
 
             var values = new[]
             {
@@ -129,7 +140,7 @@ namespace Output.CSV
                 experiment.id.ToString(),
                 cluster,
                 experiment.GetImmediatePrizeValue().ToString(),
-                experiment.GetSecondPrizeValue().ToString(),
+                laneTimeValue,
                 selectedValue.ToString(),
                 timeToChooseInSeconds.ToString("0.00")
             };

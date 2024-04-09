@@ -11,7 +11,7 @@ namespace Output
         void SaveSelectedCharacter(PlayerPrefsSaver userData);
         void StartExperiments(PlayerPrefsSaver userData);
 
-        void SaveExperimentData(Experiment experiment, float selectedValue, PlayerPrefsSaver userData,
+        void SaveExperimentData(Experiment experiment, float selectedValue, int biggestRewardLaneNumber, PlayerPrefsSaver userData,
             double timeToChooseInSeconds);
 
         void SaveTotalPoints(PlayerPrefsSaver userData);

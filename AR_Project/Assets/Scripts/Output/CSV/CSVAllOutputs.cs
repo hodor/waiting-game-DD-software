@@ -37,11 +37,11 @@ namespace Output.CSV
             NewOutput.StartExperiments(userData);
         }
 
-        public void SaveExperimentData(Experiment experiment, float selectedValue, PlayerPrefsSaver userData,
+        public void SaveExperimentData(Experiment experiment, float selectedValue, int biggestRewardLaneNumber, PlayerPrefsSaver userData,
             double timeToChooseInSeconds)
         {
-            OldOutput.SaveExperimentData(experiment, selectedValue, userData, timeToChooseInSeconds);
-            NewOutput.SaveExperimentData(experiment, selectedValue, userData, timeToChooseInSeconds);
+            OldOutput.SaveExperimentData(experiment, selectedValue, biggestRewardLaneNumber, userData, timeToChooseInSeconds);
+            NewOutput.SaveExperimentData(experiment, selectedValue, biggestRewardLaneNumber, userData, timeToChooseInSeconds);
         }
 
         public void SaveTotalPoints(PlayerPrefsSaver userData)
