@@ -50,3 +50,5 @@ MATERIAL/SpreadsheetToJson/SpreadsheetToJson/.vs
 Config/Exporter/.vs
 Config/Exporter/Exporter/bin
 Config/Exporter/Exporter/obj
+Config/Exporter.exe
+Config/Exporter.pdb
