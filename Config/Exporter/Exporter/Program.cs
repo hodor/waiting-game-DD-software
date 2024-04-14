@@ -39,3 +39,4 @@ else
         Console.WriteLine($"Failed to save JSON to {sameDirectoryPath}. Error: {ex.Message}", "Export Error");
     }
 }
+Console.ReadKey();
