@@ -126,6 +126,12 @@ namespace AR_Project.MainGame
             switch (type)
             {
                 case GameType.Imaginarium:
+                    if (!MainData.instanceData.config.debug.imaginaryGameEnabled)
+                    {
+                        // Skipping the imaginary game
+                        CallbackFinishedExperiment();
+                        return;
+                    }
                     fakeExperimentTitle.text = training ? texts.imaginaryGameTraining : texts.imaginaryGame;
                     ToggleGameUIObjects(false);
                     fakeExperimentUI.SetActive(true);
@@ -133,6 +139,12 @@ namespace AR_Project.MainGame
                     patienceExperimentUI.SetActive(false);
                     break;
                 case GameType.Real:
+                    if (!MainData.instanceData.config.debug.realGameEnabled)
+                    {
+                        // Skipping the real game
+                        CallbackFinishedExperiment();
+                        return;
+                    }
                     realExperimentTitle.text = training ? texts.realGameTraining : texts.realGame;
                     ToggleGameUIObjects(false);
                     fakeExperimentUI.SetActive(false);
@@ -140,6 +152,12 @@ namespace AR_Project.MainGame
                     patienceExperimentUI.SetActive(false);
                     break;
                 case GameType.Patience:
+                    if (!MainData.instanceData.config.debug.patienceGameEnabled)
+                    {
+                        // Skipping the patience game
+                        CallbackFinishedExperiment();
+                        return;
+                    }
                     patienceExperimentTitle.text = training ? texts.patienceGameTraining : texts.patienceGame;
                     ToggleGameUIObjects(false);
                     fakeExperimentUI.SetActive(false);

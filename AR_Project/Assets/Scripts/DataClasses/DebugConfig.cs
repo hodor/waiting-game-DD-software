@@ -8,4 +8,13 @@ public class DebugConfig
      
      [JsonProperty(PropertyName = "language")]
      public string language;
+     
+     [JsonProperty(PropertyName = "imaginaryGameEnabled")]
+     public bool imaginaryGameEnabled;
+     
+     [JsonProperty(PropertyName = "realGameEnabled")]
+     public bool realGameEnabled;
+     
+     [JsonProperty(PropertyName = "patienceGameEnabled")]
+     public bool patienceGameEnabled;
  }
