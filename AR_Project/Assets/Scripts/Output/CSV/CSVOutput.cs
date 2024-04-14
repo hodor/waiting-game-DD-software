@@ -151,10 +151,14 @@ namespace Output.CSV
 
         public override void SaveTotalPoints(PlayerPrefsSaver userData)
         {
-            var score = new[]
-            {
-                "Total_Score", userData.phasePoints[userData.gameType].ToString()
-            };
+            string[] score = new string[2];
+            score[0] = "Total_Score";
+            float point;
+            if (userData.phasePoints.TryGetValue(userData.gameType, out point))
+                score[1] = point.ToString();
+            else
+                score[1] = "Skipped";
+
             var path = GetCurrentPath(userData);
             CSVUtils.SetCurrentPath(path);
             CSVUtils.ReplaceLineThatContains("Total_Score", score);
