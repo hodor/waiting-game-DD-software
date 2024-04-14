@@ -13,30 +13,29 @@ var arProjectPath = ProgramFinder.FindConfigFileFromCurrent(currentDirectory);
 
 if (arProjectPath != null)
 {
-    var outputPath = Path.Combine(arProjectPath, "StreamingAssets", "config.json");
     try
     {
         // Save in the specified 'outputPath'
-        File.WriteAllText(outputPath, jsonText);
-        Console.WriteLine($"JSON was successfully exported to {outputPath}", "Export Success");
+        File.WriteAllText(arProjectPath, jsonText);
+        Console.WriteLine($"SUCCESS: JSON was successfully exported to {arProjectPath}", "Export Success");
     }
     catch (Exception ex)
     {
-        Console.WriteLine($"Failed to save JSON to {outputPath}. Error: {ex.Message}", "Export Error");
+        Console.WriteLine($"ERROR: Failed to save JSON to {arProjectPath}. Error: {ex.Message}", "Export Error");
     }
 }
 else
 {
-    Console.WriteLine($"Failed to find the folder Assets/StreamingAssets, maybe you're running on a different place. You will have to manually copy the config.json file.");
+    Console.WriteLine($"ERROR: Failed to find the folder Assets/StreamingAssets, maybe you're running on a different place. You will have to manually copy the config.json file.");
     var sameDirectoryPath = Path.Combine(currentDirectory, "config.json");
     try
     {
         File.WriteAllText(sameDirectoryPath, jsonText);
-        Console.WriteLine($"JSON was successfully exported to {sameDirectoryPath}", "Export Success");
+        Console.WriteLine($"SUCCESS: JSON was successfully exported to {sameDirectoryPath}", "Export Success");
     }
     catch (Exception ex)
     {
-        Console.WriteLine($"Failed to save JSON to {sameDirectoryPath}. Error: {ex.Message}", "Export Error");
+        Console.WriteLine($"ERROR: Failed to save JSON to {sameDirectoryPath}. Error: {ex.Message}", "Export Error");
     }
 }
 Console.ReadKey();

@@ -69,8 +69,8 @@ namespace Exporter
                 keys.Add(cleanKey);
             }
 
-            // Create JSON object
-            if (rowCount == 1)
+            // Create JSON object because we just have header and value
+            if (rowCount == 2)
             {
                 var data = new Dictionary<string, object>();
                 for (int col = 1; col <= colCount; col++)
