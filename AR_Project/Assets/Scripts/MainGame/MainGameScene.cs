@@ -128,11 +128,17 @@ namespace AR_Project.MainGame
 
         private void SkipCurrentExperiment()
         {
-            // Emulate all experiments
-            var trainings = ListShuffler.GetPseudoRandomExperiments(MainData.instanceData.config.trainings);
-            var experiments = ListShuffler.GetPseudoRandomExperiments(MainData.instanceData.config.experiments);
-            SkipAllExperiments(trainings);
-            SkipAllExperiments(experiments);
+            // Emulate the experiments
+            if (PlayerPrefsSaver.instance.isTraining)
+            {
+                var trainings = ListShuffler.GetPseudoRandomExperiments(MainData.instanceData.config.trainings);
+                SkipAllExperiments(trainings);
+            }
+            else
+            {
+                var experiments = ListShuffler.GetPseudoRandomExperiments(MainData.instanceData.config.experiments);
+                SkipAllExperiments(experiments);
+            }
 
             // Go to the next experiment
             CallbackFinishedExperiment();
