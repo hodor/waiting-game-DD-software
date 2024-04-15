@@ -116,6 +116,28 @@ namespace AR_Project.MainGame
             SetupNextExperiment();
         }
 
+        private void SkipAllExperiments(List<Experiment> experiments)
+        {
+            foreach (var experiment in experiments)
+            {
+                PlayerPrefsSaver.instance.AddExperimentPoints(0);
+                Out.Instance.SaveExperimentData(experiment, 0, experiment.delayedRewardLane,
+                    PlayerPrefsSaver.instance,0);
+            }
+        }
+
+        private void SkipCurrentExperiment()
+        {
+            // Emulate all experiments
+            var trainings = ListShuffler.GetPseudoRandomExperiments(MainData.instanceData.config.trainings);
+            var experiments = ListShuffler.GetPseudoRandomExperiments(MainData.instanceData.config.experiments);
+            SkipAllExperiments(trainings);
+            SkipAllExperiments(experiments);
+
+            // Go to the next experiment
+            CallbackFinishedExperiment();
+        }
+
         public void SetupNextExperiment()
         {
             var training = PlayerPrefsSaver.instance.isTraining;
@@ -128,8 +150,7 @@ namespace AR_Project.MainGame
                 case GameType.Imaginarium:
                     if (!MainData.instanceData.config.debug.imaginaryGameEnabled)
                     {
-                        // Skipping the imaginary game
-                        CallbackFinishedExperiment();
+                        SkipCurrentExperiment();
                         return;
                     }
                     fakeExperimentTitle.text = training ? texts.imaginaryGameTraining : texts.imaginaryGame;
@@ -141,8 +162,7 @@ namespace AR_Project.MainGame
                 case GameType.Real:
                     if (!MainData.instanceData.config.debug.realGameEnabled)
                     {
-                        // Skipping the real game
-                        CallbackFinishedExperiment();
+                        SkipCurrentExperiment();
                         return;
                     }
                     realExperimentTitle.text = training ? texts.realGameTraining : texts.realGame;
@@ -154,8 +174,7 @@ namespace AR_Project.MainGame
                 case GameType.Patience:
                     if (!MainData.instanceData.config.debug.patienceGameEnabled)
                     {
-                        // Skipping the patience game
-                        CallbackFinishedExperiment();
+                        SkipCurrentExperiment();
                         return;
                     }
                     patienceExperimentTitle.text = training ? texts.patienceGameTraining : texts.patienceGame;

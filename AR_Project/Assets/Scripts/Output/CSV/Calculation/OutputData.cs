@@ -120,7 +120,10 @@ namespace Output.CSV.Calculation
                     string strOrder = sequenceOrder[i];
                     int order = Int32.Parse(strOrder);
                     double time = data.chooseTime[i];
-                    orderedChooseTime.Add(order - 1, time);
+                    if (orderedChooseTime.ContainsKey(order - 1))
+                        orderedChooseTime[order - 1] = time;
+                    else
+                        orderedChooseTime.Add(order - 1, time);
                 }
 
                 for (int i = 0; i < orderedChooseTime.Count; i++)
