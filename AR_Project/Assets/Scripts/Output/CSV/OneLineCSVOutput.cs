@@ -77,11 +77,7 @@ namespace Output.CSV
 
         public override void SaveTotalPoints(PlayerPrefsSaver userData)
         {
-            float points;
-            if (userData.phasePoints.TryGetValue(userData.gameType, out points))
-                _data.experimentData[userData.gameType].points.totalPoints = points;
-            else
-                _data.experimentData[userData.gameType].points.totalPoints = 0;
+            _data.experimentData[userData.gameType].points.totalPoints = userData.phasePoints[userData.gameType];
         }
     }
 }
