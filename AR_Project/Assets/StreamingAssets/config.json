@@ -1,6 +1,6 @@
 {
   "created": {
-    "date": "April 08, 2024 22:36:44 -07:00"
+    "date": "April 14, 2024 22:26:43 -07:00"
   },
   "Practices": [
     {
@@ -360,32 +360,32 @@
     },
     {
       "language": "it",
-      "welcome": null,
-      "enterName": null,
-      "dateOfBirthHeader": null,
-      "day": null,
-      "month": null,
-      "year": null,
-      "genderHeader": null,
-      "otherGender": null,
-      "introduction": null,
-      "rewardInstructions": null,
-      "chooseCharacter": null,
-      "timeInstructions": null,
-      "imaginaryGameTraining": null,
-      "imaginaryGame": null,
-      "realGameTraining": null,
-      "realGame": null,
-      "patienceGameTraining": null,
-      "patienceGame": null,
-      "finalScore": null,
-      "realFinalScore": null,
-      "taskScoreBegin": null,
-      "taskScoreEnd": null,
-      "restartGame": null,
-      "score": null,
-      "points": null,
-      "pointsAbbreviated": null
+      "welcome": "",
+      "enterName": "",
+      "dateOfBirthHeader": "",
+      "day": "",
+      "month": "",
+      "year": "",
+      "genderHeader": "",
+      "otherGender": "",
+      "introduction": "",
+      "rewardInstructions": "",
+      "chooseCharacter": "",
+      "timeInstructions": "",
+      "imaginaryGameTraining": "",
+      "imaginaryGame": "",
+      "realGameTraining": "",
+      "realGame": "",
+      "patienceGameTraining": "",
+      "patienceGame": "",
+      "finalScore": "",
+      "realFinalScore": "",
+      "taskScoreBegin": "",
+      "taskScoreEnd": "",
+      "restartGame": "",
+      "score": "",
+      "points": "",
+      "pointsAbbreviated": ""
     }
   ],
   "Rewards": [
@@ -430,6 +430,9 @@
   ],
   "Debug": {
     "alwaysImaginaryFirst": false,
-    "language": "en"
+    "language": "en",
+    "imaginaryGameEnabled": true,
+    "realGameEnabled": true,
+    "patienceGameEnabled": true
   }
 }
