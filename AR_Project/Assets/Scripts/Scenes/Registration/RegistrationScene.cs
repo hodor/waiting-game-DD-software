@@ -94,7 +94,6 @@ namespace AR_Project.Scenes.Registration
 
         private void SetDebugMode(bool on)
         {
-            var imaginaryFirst = MainData.instanceData.config.debug.imaginaryFirst;
             ARDebug.Debugging = on;
             
             // ReSharper disable once InvertIf
@@ -244,8 +243,20 @@ namespace AR_Project.Scenes.Registration
             PlayerPrefsSaver.instance.name = userName;
             PlayerPrefsSaver.instance.birthday = bd;
             PlayerPrefsSaver.instance.gender = gender;
+            var imaginaryFirst = MainData.instanceData.config.debug.imaginaryFirst;
             var gameOrder = new List<GameType> {GameType.Imaginarium, GameType.Real, GameType.Patience};
             gameOrder.Shuffle();
+
+            if (imaginaryFirst)
+            {
+                if (gameOrder[0] != GameType.Imaginarium)
+                {
+                    var index = gameOrder.IndexOf(GameType.Imaginarium);
+                    gameOrder[index] = gameOrder[0];
+                    gameOrder[0] = GameType.Imaginarium;
+                }
+            }
+            
             PlayerPrefsSaver.instance.gameType = gameOrder[0];
             PlayerPrefsSaver.instance.gameTypeOrder = gameOrder;
             PlayerPrefsSaver.instance.SavePlayerPrefs();
