@@ -75,8 +75,7 @@ namespace Output.CSV.Calculation
 
         public List<string> ToList()
         {
-            var usCulture = new CultureInfo("en-US");
-            return values.ConvertAll<string>(x => x.ToString(OutputData.DecimalPrecision,usCulture).Replace(",",""));
+            return values.ConvertAll<string>(OutputData.ConvertNumber);
         }
 
         public List<float> GetValues()

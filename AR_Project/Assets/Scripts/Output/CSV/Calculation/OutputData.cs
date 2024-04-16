@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Threading;
 using AR_Project.Savers;
 
 namespace Output.CSV.Calculation
@@ -14,8 +15,6 @@ namespace Output.CSV.Calculation
         public string gender;
         public string avatar;
         public List<GameType> game_order;
-
-        public const string DecimalPrecision = "0.###";
 
         public float age_year()
         {
@@ -38,10 +37,22 @@ namespace Output.CSV.Calculation
         };
         
         public float total_points;
+        public const string NumberFormat = "#0.###";
+
+        public static string ConvertNumber(float number)
+        {
+            string formattedNumber = number.ToString(NumberFormat, CultureInfo.InvariantCulture);
+            return formattedNumber;
+        }
+        
+        public static string ConvertNumber(double number)
+        {
+            string formattedNumber = number.ToString(NumberFormat, CultureInfo.InvariantCulture);
+            return formattedNumber;
+        }
 
         public List<string> ToList()
         {
-            var usCulture = new CultureInfo("en-US");
             var sequenceTasks = "";
             foreach (var gt in game_order)
             {
@@ -69,8 +80,8 @@ namespace Output.CSV.Calculation
                 name,
                 date_application,
                 birth,
-                age_year().ToString(DecimalPrecision, usCulture).Replace(",",""),
-                age_month().ToString(DecimalPrecision, usCulture).Replace(",",""),
+                ConvertNumber(age_year()),
+                ConvertNumber(age_month()),
                 gender,
                 avatar,
                 sequenceTasks
@@ -81,7 +92,7 @@ namespace Output.CSV.Calculation
             foreach(var data in orderedData)
                 list.AddRange(data.points.ToList());
             
-            list.Add(total_points.ToString(usCulture).Replace(",",""));
+            list.Add(ConvertNumber(total_points));
 
             foreach(var data in orderedData)
                 data.subjectiveValueData.Calculate(data.points.GetSequencePoints());
@@ -94,19 +105,19 @@ namespace Output.CSV.Calculation
             {
                 var auc = Math.GetAreaUnderCurve(data.subjectiveValueData.GetValues());
                 aucValues.Add(auc);
-                list.Add(auc.ToString(DecimalPrecision, usCulture).Replace(",", ""));
+                list.Add(ConvertNumber(auc));
             }
 
             // Subjective Values normalized
             foreach (var data in orderedData)
             {
                 list.AddRange(Math.GetNormalizedValues(data.subjectiveValueData).ConvertAll<string>
-                    (x => x.ToString(DecimalPrecision,usCulture).Replace(",","")));
+                    (ConvertNumber));
             }
             //AUC normalized
             foreach (var auc in aucValues)
             {
-                list.Add((auc / maxAUC).ToString(DecimalPrecision, usCulture).Replace(",", ""));
+                list.Add(ConvertNumber(auc / maxAUC));
             }
             
             foreach (var data in orderedData)
@@ -128,7 +139,7 @@ namespace Output.CSV.Calculation
 
                 for (int i = 0; i < orderedChooseTime.Count; i++)
                 {
-                    list.Add(orderedChooseTime[i].ToString(DecimalPrecision, usCulture).Replace(",", ""));
+                    list.Add(ConvertNumber(orderedChooseTime[i]));
                 }
             }
 
